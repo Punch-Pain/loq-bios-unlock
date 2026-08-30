@@ -1,0 +1,538 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 2D068309-12AC-45AB-9600-9187513CCDD8, Title: "Boot", Help: " "
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x13
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1489, Size: 0x407, Name: "BootConfig"
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x148A, Size: 0x1, Name: "NetworkConfig"
+	Form FormId: 0x1, Title: "Boot"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Boot Mode", Help: "[UEFI]
+For any OS that needs pure UEFI.
+[Legacy Support]
+For any OS that needs legacy support.", QuestionFlags: 0x4, QuestionId: 0x105E, VarStoreId: 0x1234, VarOffset: 0x79, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Legacy Support" Value: 0
+					OneOfOption Option: "Legacy Boot Type" Value: 1
+					OneOfOption Option: "UEFI" Value: 2, Default
+				End 
+				OneOf Prompt: "Quick Boot", Help: "Allows InsydeH2O to skip certain tests while booting. This will decrease the time needed to boot the system.", QuestionFlags: 0x0, QuestionId: 0x1063, VarStoreId: 0x1234, VarOffset: 0x6D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+				OneOf Prompt: "Quiet Boot", Help: "Disables or enables booting in Text Mode.", QuestionFlags: 0x0, QuestionId: 0x1064, VarStoreId: 0x1234, VarOffset: 0x6E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [1]
+					OneOf Prompt: "Network Stack", Help: "Network Stack Support:
+  Windows 8 BitLocker Unlock
+  UEFI IPv4/IPv6 PXE
+  Legacy PXE OPROM", QuestionFlags: 0x4, QuestionId: 0x105F, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Disabled" Value: 0, Default
+						OneOfOption Option: "Enabled" Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [0, 2]
+					OneOf Prompt: "PXE Boot to LAN", Help: "Enable or disable PXE boot to LAN.
+
+[Enabled]
+PXE boot is enabled.
+[Disabled]
+PXE boot is disabled.", QuestionFlags: 0x0, QuestionId: 0x1062, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Disabled" Value: 0, Default
+						OneOfOption Option: "Enabled" Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [1]
+					GrayOutIf 
+						EqIdValList QuestionId: 0x1062, Values: [0]
+						OneOf Prompt: "PXE Boot capability", Help: "Disabled : Support Network Stack
+UEFI PXE : IPv4/IPv6
+Legacy   : Legacy PXE OPROM only", QuestionFlags: 0x0, QuestionId: 0x1065, VarStoreId: 0x1234, VarOffset: 0x64, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xA, Step: 0x0
+							OneOfOption Option: "Disabled" Value: 4, Default
+							SuppressIf 
+								EqIdValList QuestionId: 0x105E, Values: [1]
+									EqIdValList QuestionId: 0x1062, Values: [0]
+									Or 
+								End 
+								OneOfOption Option: "UEFI:IPv4" Value: 0
+								OneOfOption Option: "HTTP:IPv4" Value: 5
+								OneOfOption Option: "HTTP and PXE:IPv4" Value: 8
+								OneOfOption Option: "UEFI:IPv6" Value: 1
+								OneOfOption Option: "HTTP:IPv6" Value: 6
+								OneOfOption Option: "HTTP and PXE:IPv6" Value: 9
+								OneOfOption Option: "UEFI:IPv4/IPv6" Value: 2
+								OneOfOption Option: "HTTP:IPv4/IPv6" Value: 7
+								OneOfOption Option: "HTTP and PXE:IPv4/IPv6" Value: 10
+							End 
+							SuppressIf 
+								EqIdValList QuestionId: 0x105E, Values: [2]
+								OneOfOption Option: "Legacy" Value: 3
+							End 
+						End 
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x1065, Values: [4]
+					Numeric Prompt: "PXE/ HTTP Boot Retry Policy", Help: "PXE/ HTTP boot retry setting.
+ The max value is 255, if you Enter 255, the retry will go INFINITELY.", QuestionFlags: 0x0, QuestionId: 0x1083, VarStoreId: 0x148A, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x1
+					End 
+				End 
+				OneOf Prompt: "Power Up In Standby Support", Help: "Disable or enable Power Up In Standby Support.
+ The PUIS feature set allows devices to be powered-up into the Standby power management state to minimize inrush current at power-up and to allow the host to sequence the spin-up of devices.", QuestionFlags: 0x0, QuestionId: 0x1066, VarStoreId: 0x1234, VarOffset: 0xE2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1
+					OneOfOption Option: "Disabled" Value: 0, Default
+				End 
+				OneOf Prompt: "Storage PCI Option Rom access right Support", Help: "Disable or enable storage PCI option rom acceess right.
+ This feature will enable or disable storage PCI option rom being load and dispatched.", QuestionFlags: 0x0, QuestionId: 0x1081, VarStoreId: 0x1234, VarOffset: 0xE4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+				OneOf Prompt: "ESATA drive boot access right Support", Help: "Disable or enable ESATA drive boot acceess right.
+ This feature will allowed or deny boot up  an ESATA storage device", QuestionFlags: 0x0, QuestionId: 0x1082, VarStoreId: 0x1234, VarOffset: 0xCF, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+				OneOf Prompt: "Add Boot Options", Help: "Position in Boot Order for Shell,Network and Removables", QuestionFlags: 0x4, QuestionId: 0x105D, VarStoreId: 0x1234, VarOffset: 0x7D, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "First" Value: 0
+					OneOfOption Option: "Last" Value: 1
+					OneOfOption Option: "Auto" Value: 2, Default
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "ACPI Selection", Help: "Select booting to Acpi3.0/Acpi4.0/Acpi5.0/Acpi6.0/Acpi6.1/Acpi6.2/Acpi6.3", QuestionFlags: 0x0, QuestionId: 0x1067, VarStoreId: 0x1234, VarOffset: 0x60, Flags: 0x10, Size: 8, Min: 0x1, Max: 0x7, Step: 0x0
+					OneOfOption Option: "Acpi3.0" Value: 1
+					OneOfOption Option: "Acpi4.0" Value: 2
+					OneOfOption Option: "Acpi5.0" Value: 3, Default
+					OneOfOption Option: "Acpi6.0" Value: 4
+					OneOfOption Option: "Acpi6.1" Value: 5
+					OneOfOption Option: "Acpi6.2" Value: 6
+					OneOfOption Option: "Acpi6.3" Value: 7
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x2, Value: 0x3
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Fast Boot", Help: "Enable or disable Fast Boot feature.
+
+[Enabled]
+The setting to reduce the time BIOS needs to initialize. Sets the BIOS to boot only from a built-in HDD (SSD), support only the internal LCD and keyboard. No restrictions when using Windows.
+[Disabled]
+Set the BIOS to normal boot.", QuestionFlags: 0x0, QuestionId: 0xE065, VarStoreId: 0x1234, VarOffset: 0x105, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "USB Boot", Help: "Enable or disable boot for USB device.
+
+[Enabled]
+USB device boot is enabled.
+[Disabled]
+USB device boot is disabled.", QuestionFlags: 0x0, QuestionId: 0x1061, VarStoreId: 0x1234, VarOffset: 0x5C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Enabled" Value: 0, Default
+				OneOfOption Option: "Disabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x2, Value: 0x3
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "PXE Boot to LAN", Help: "Enable or disable PXE boot to LAN.
+
+[Enabled]
+PXE boot is enabled.
+[Disabled]
+PXE boot is disabled.", QuestionFlags: 0x4, QuestionId: 0xE067, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Enabled" Value: 1
+				OneOfOption Option: "Disabled" Value: 0, Default
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x2, Value: 0x3
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0xE067, Values: [0]
+				OneOf Prompt: "IPV4 PXE First", Help: "[Enabled]
+IPV4 PXE boot first.
+[Disabled]
+IPV6 PXE boot first.
+", QuestionFlags: 0x0, QuestionId: 0xE068, VarStoreId: 0x1234, VarOffset: 0x106, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			SuppressIf 
+				EqIdValList QuestionId: 0x105E, Values: [0, 1]
+				GrayOutIf 
+					EqIdValList QuestionId: 0x2, Values: [2, 3]
+						EqIdVal QuestionId: 0x1, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "UEFI OS Fast Boot", Help: "If enabled the system firmware does not initialize keyboard and check for firmware menu key.", QuestionFlags: 0x0, QuestionId: 0x1068, VarStoreId: 0x1234, VarOffset: 0x65, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Enabled" Value: 0, Default
+						OneOfOption Option: "Disabled" Value: 1
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0x105E, Values: [0, 1]
+					EqIdVal QuestionId: 0x1068, Value: 0x1
+					Or 
+				End 
+				GrayOutIf 
+					EqIdValList QuestionId: 0x2, Values: [2, 3]
+						EqIdVal QuestionId: 0x1, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "  USB Hot Key Support", Help: "Enable/Disable to support USB hot key while booting. This will decrease the time needed to boot the system.", QuestionFlags: 0x0, QuestionId: 0x1069, VarStoreId: 0x1234, VarOffset: 0xE1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Disabled" Value: 0, Default
+						OneOfOption Option: "Enabled" Value: 1
+					End 
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				Numeric Prompt: "Timeout", Help: "The number of seconds that the firmware will wait before booting the original default boot selection.", QuestionFlags: 0x0, QuestionId: 0x106A, VarStoreId: 0x1234, VarOffset: 0x69, Flags: 0x11, Size: 16, Min: 0x0, Max: 0xA, Step: 0x1
+					Default DefaultId: 0x0 Value: 0
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Automatic Failover", Help: "Enable: if boot to default device fail, it will directly try to boot next device.
+Disable: if boot to default device fail, it will pop warning message then go into firmware UI.", QuestionFlags: 0x0, QuestionId: 0x106B, VarStoreId: 0x1234, VarOffset: 0xDE, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1, Default
+				End 
+			End 
+			Subtitle Prompt: " ", Help: "", Flags: 0x0
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x105E, Value: 0x1
+					EqIdVal QuestionId: 0xF, Value: 0x0
+					Or 
+				End 
+				Ref Prompt: "UEFI", Help: "EFI Boot Order Settings", QuestionFlags: 0x0, QuestionId: 0x1076, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x53A
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x105E, Value: 0x2
+					EqIdVal QuestionId: 0x3, Value: 0x0
+					Or 
+				End 
+				Ref Prompt: "Legacy", Help: "Legacy Boot Order Settings", QuestionFlags: 0x0, QuestionId: 0x106C, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x530
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105E, Value: 0x1
+			Text Prompt: "UEFI Boot Order", Help: "<↑> / <↓>: Select a device.
+F5: Move item down the list.
+F6: Move item up the list.
+Esc: Escape the menu.", Text: ""
+			GrayOutIf 
+				EqIdVal QuestionId: 0xE, Value: 0x1
+					EqIdVal QuestionId: 0xD, Value: 0x1
+					Or 
+				End 
+				Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C9
+			End 
+		End 
+		Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+		End 
+	End 
+	Form FormId: 0x53A, Title: "UEFI"
+		Subtitle Prompt: "UEFI", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0x105D, Value: 0x2
+				Or 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C9
+		End 
+	End 
+	Form FormId: 0x53D, Title: "Boot Type Order"
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12CB
+	End 
+	Form FormId: 0x530, Title: "Legacy"
+		Subtitle Prompt: "Legacy", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "Normal Boot Menu", Help: "Select Normal Boot Option Priority or Advance Boot Option Priority", QuestionFlags: 0x4, QuestionId: 0x105B, VarStoreId: 0x1234, VarOffset: 0x76, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Normal" Value: 0, Default
+				OneOfOption Option: "Advance" Value: 1
+			End 
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xC, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "Boot Type Order", Help: "Change Boot Type Order", QuestionFlags: 0x0, QuestionId: 0x1077, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x53B
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xB, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "Floppy Drive", Help: "Change Floppy Drive Boot Order", QuestionFlags: 0x0, QuestionId: 0x106D, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x531
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xA, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "Hard Disk Drive", Help: "Change Hard Disk Drive Boot Order", QuestionFlags: 0x0, QuestionId: 0x106E, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x532
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "CD/DVD-ROM Drive", Help: "Change CD/DVD-ROM Drive Boot Order", QuestionFlags: 0x0, QuestionId: 0x106F, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x533
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x8, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "PCMCIA", Help: "Change PCMCIA Boot Order", QuestionFlags: 0x0, QuestionId: 0x1070, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x534
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x7, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "USB", Help: "Change USB Drive Boot Order", QuestionFlags: 0x0, QuestionId: 0x1071, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x535
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x6, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "EMBED NETWORK", Help: "Change EMBED NETWORK Boot Order", QuestionFlags: 0x0, QuestionId: 0x1072, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x536
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x5, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "BEV", Help: "Change BEV Boot Order", QuestionFlags: 0x0, QuestionId: 0x1073, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x537
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x4, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "Others", Help: "Change Other Drive Boot Order", QuestionFlags: 0x0, QuestionId: 0x1074, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x538
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x0
+				EqIdVal QuestionId: 0x3, Value: 0x0
+				Or 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12CA
+		End 
+	End 
+	Form FormId: 0x53B, Title: "Boot Type Order"
+		Subtitle Prompt: "Boot Type Order", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C0
+		End 
+	End 
+	Form FormId: 0x532, Title: "Hard Disk Drive"
+		Subtitle Prompt: "Hard Disk Drive", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C2
+		End 
+	End 
+	Form FormId: 0x533, Title: "CD/DVD-ROM Drive"
+		Subtitle Prompt: "CD/DVD-ROM Drive", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C3
+		End 
+	End 
+	Form FormId: 0x531, Title: "Floppy Drive"
+		Subtitle Prompt: "Floppy Drive", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C1
+		End 
+	End 
+	Form FormId: 0x538, Title: "Others"
+		Subtitle Prompt: "Others", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C8
+		End 
+	End 
+	Form FormId: 0x534, Title: "PCMCIA"
+		Subtitle Prompt: "PCMCIA", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C4
+		End 
+	End 
+	Form FormId: 0x535, Title: "USB"
+		Subtitle Prompt: "USB", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C5
+		End 
+	End 
+	Form FormId: 0x536, Title: "EMBED NETWORK"
+		Subtitle Prompt: "EMBED NETWORK", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C6
+		End 
+	End 
+	Form FormId: 0x537, Title: "BEV"
+		Subtitle Prompt: "BEV", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C7
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1489, VarOffset: 0x405, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1489, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1489, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1489, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1489, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x1489, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x1489, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x1489, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x1489, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x1489, VarOffset: 0x404, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x1234, VarOffset: 0x125, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x1234, VarOffset: 0x121, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x1489, VarOffset: 0x406, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

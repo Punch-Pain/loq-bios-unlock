@@ -1,0 +1,168 @@
+Welcome to SREP (Smokeless Runtime EFI Patcher) 0.1.4c
+Opened SREP_Config
+Config Size: 0x276
+Parsing Config
+Stripping NewLine, Carriage and tab Return
+Current Parsing Op Loaded
+OP Detected
+Commnand Loaded 
+Current Parsing H2OFormBrowserDxe
+Found File H2OFormBrowserDxe 
+Current Parsing Op Patch
+OP Detected
+Commnand Patch 
+Current Parsing Pattern
+Found Pattern
+Current Parsing 59B963B8C60E334099C18FD89F04022200000000
+Found 20 Bytes
+Current Parsing 59B963B8C60E334099C18FD89F04022201000000
+Found 20 Bytes
+Patch Byte
+
+	59 B9 63 B8 C6 0E 33 40 99 C1 8F D8 9F 04 02 22 
+	01 00 00 00 
+	Current Parsing Op Patch
+OP Detected
+Commnand Patch 
+Current Parsing Pattern
+Found Pattern
+Current Parsing E33545B0043046499EB714942898305300000000
+Found 20 Bytes
+Current Parsing E33545B0043046499EB714942898305301000000
+Found 20 Bytes
+Patch Byte
+
+	E3 35 45 B0 04 30 46 49 9E B7 14 94 28 98 30 53 
+	01 00 00 00 
+	Current Parsing Op Patch
+OP Detected
+Commnand Patch 
+Current Parsing Pattern
+Found Pattern
+Current Parsing 732871A65F92C64690B4A40F86A0917B00000000
+Found 20 Bytes
+Current Parsing 732871A65F92C64690B4A40F86A0917B01000000
+Found 20 Bytes
+Patch Byte
+
+	73 28 71 A6 5F 92 C6 46 90 B4 A4 0F 86 A0 91 7B 
+	01 00 00 00 
+	Current Parsing Op Patch
+OP Detected
+Commnand Patch 
+Current Parsing Pattern
+Found Pattern
+Current Parsing 9E76D4C6487F2A4D98E987ADCCF35CCC00000000
+Found 20 Bytes
+Current Parsing 9E76D4C6487F2A4D98E987ADCCF35CCC01000000
+Found 20 Bytes
+Patch Byte
+
+	9E 76 D4 C6 48 7F 2A 4D 98 E9 87 AD CC F3 5C CC 
+	01 00 00 00 
+	Current Parsing Op Patch
+OP Detected
+Commnand Patch 
+Current Parsing Pattern
+Found Pattern
+Current Parsing 49D592C3EB27464F8A119F5DF55A9C8B00000000
+Found 20 Bytes
+Current Parsing 49D592C3EB27464F8A119F5DF55A9C8B01000000
+Found 20 Bytes
+Patch Byte
+
+	49 D5 92 C3 EB 27 46 4F 8A 11 9F 5D F5 5A 9C 8B 
+	01 00 00 00 
+	Current Parsing Op Patch
+OP Detected
+Commnand Patch 
+Current Parsing Pattern
+Found Pattern
+Current Parsing 1AB0E0C17E60754BB8BB0631ECFAACF200000000
+Found 20 Bytes
+Current Parsing 1AB0E0C17E60754BB8BB0631ECFAACF201000000
+Found 20 Bytes
+Patch Byte
+
+	1A B0 E0 C1 7E 60 75 4B B8 BB 06 31 EC FA AC F2 
+	01 00 00 00 
+	Current Parsing Op End
+End OP Detected
+Executing Loaded OP
+Loaded Image Success -> 6E706000
+Executing Patch
+Patching Image Size 35FE0: 
+
+	59 B9 63 B8 C6 0E 33 40 99 C1 8F D8 9F 04 02 22 
+	00 00 00 00 
+	
+	FF 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+Executing Patch
+Patching Image Size 35FE0: 
+
+	E3 35 45 B0 04 30 46 49 9E B7 14 94 28 98 30 53 
+	00 00 00 00 
+	
+	FF 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+Executing Patch
+Patching Image Size 35FE0: 
+
+	73 28 71 A6 5F 92 C6 46 90 B4 A4 0F 86 A0 91 7B 
+	00 00 00 00 
+	
+	FF 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+Executing Patch
+Patching Image Size 35FE0: 
+
+	9E 76 D4 C6 48 7F 2A 4D 98 E9 87 AD CC F3 5C CC 
+	00 00 00 00 
+	
+	FF 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+Executing Patch
+Patching Image Size 35FE0: 
+
+	49 D5 92 C3 EB 27 46 4F 8A 11 9F 5D F5 5A 9C 8B 
+	00 00 00 00 
+	
+	FF 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+Executing Patch
+Patching Image Size 35FE0: 
+
+	1A B0 E0 C1 7E 60 75 4B B8 BB 06 31 EC FA AC F2 
+	00 00 00 00 
+	
+	FF 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+85 C0 74 
+	Finding Offset
+Found at 324B4
+Offset 324B4
+Patched
+F 4D 8D 46 FA 45 33 F6 48 8D 57 06 48 8D 4B 3A 
+	4D 85 C0 74 
+	Finding Offset
+No Patter Found
+Executing Load from FV
+Loaded Image Invalid Parameter -> 6E706000
+EXEC %r
+oad from FV
+Loaded Image Invalid Parameter -> 6E706000
+EXEC %r
+

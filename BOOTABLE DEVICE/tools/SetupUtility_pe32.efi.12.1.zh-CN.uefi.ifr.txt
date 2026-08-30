@@ -1,0 +1,537 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 5204F764-DF25-48A2-B337-9EC122B85E0D, Title: "InvalidId", Help: "InvalidId"
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x4
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x12
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	VarStore Guid: F72DEEF6-13EF-4958-B027-0E45CE7FA45E, VarStoreId: 0x1235, Size: 0x53, Name: "PasswordConfig"
+	VarStore Guid: 07A66697-D400-4903-B3DA-67A61D2B7058, VarStoreId: 0x1237, Size: 0xA, Name: "Tcg2ConfigInfo"
+	VarStoreNameValue Guid: F72DEEF6-13EF-4958-B027-0E45CE7FA45E, VarStoreId: 0x1236
+	VarStore Guid: EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9, VarStoreId: 0x100B, Size: 0x6D, Name: "SetupVolatileData"
+	VarStoreEfi Guid: 72C5E28C-7783-43A1-8767-FAD73FCCAFA4, VarStoreId: 0x2, Attributes: 0x7, Size: 0x578, Name: "SaSetup"
+	VarStoreEfi Guid: B08F97FF-E6E8-4193-A997-5E9E9B0ADB32, VarStoreId: 0x3, Attributes: 0x7, Size: 0x3C1, Name: "CpuSetup"
+	VarStoreEfi Guid: 4570B7F1-ADE8-4943-8DC3-406472842384, VarStoreId: 0x5, Attributes: 0x7, Size: 0x80F, Name: "PchSetup"
+	VarStore Guid: EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9, VarStoreId: 0x100C, Size: 0x39, Name: "SetupCpuFeatures"
+	VarStore Guid: E6560C55-28A7-4AD8-A87B-E75187196B6E, VarStoreId: 0xE201, Size: 0x181, Name: "L05HddPasswordConfig"
+	Form FormId: 0x1, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				True 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x11B9, VarStoreId: 0x1234, VarOffset: 0xE3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 0
+					OneOfOption Option: "InvalidId" Value: 1
+					OneOfOption Option: "InvalidId" Value: 2, Default
+				End 
+			End 
+			GrayOutIf 
+				True 
+				Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x760
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x1
+					Not 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x11BA, VarStoreId: 0x1234, VarOffset: 0x9D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "InvalidId" Value: 0, Default
+						OneOfOption Option: "InvalidId" Value: 1
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x1
+					Not 
+					EqIdVal QuestionId: 0xD, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x11C3, VarStoreId: 0x1234, VarOffset: 0x62, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+						OneOfOption Option: "InvalidId" Value: 0, Default
+						OneOfOption Option: "InvalidId" Value: 1
+						OneOfOption Option: "InvalidId" Value: 2
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x2
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					True 
+					Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+					Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+					Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x2
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x11C0, VarStoreId: 0x1234, VarOffset: 0x9E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "InvalidId" Value: 0
+						OneOfOption Option: "InvalidId" Value: 1, Default
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x2
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x761
+					Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x762
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11C3, Value: 0x17
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x19, Value: 0x0
+					CheckBox Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1200, VarStoreId: 0x1237, VarOffset: 0x5, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x18, Value: 0x0
+					CheckBox Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1201, VarStoreId: 0x1237, VarOffset: 0x6, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x17, Value: 0x0
+					CheckBox Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1202, VarStoreId: 0x1237, VarOffset: 0x7, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x16, Value: 0x0
+					CheckBox Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1203, VarStoreId: 0x1237, VarOffset: 0x8, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x15, Value: 0x0
+					CheckBox Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1204, VarStoreId: 0x1237, VarOffset: 0x9, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+			End 
+			SuppressIf 
+				True 
+				CheckBox Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x11B7, VarStoreId: 0x1234, VarOffset: 0x67, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+					Default DefaultId: 0x0 Value: 1
+				End 
+			End 
+			SuppressIf 
+				True 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x11C4, VarStoreId: 0x1234, VarOffset: 0x6B, Flags: 0x10, Size: 8, Min: 0x2, Max: 0x2, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 2, Default
+				End 
+			End 
+			Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B68
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B69
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x1927, Values: [1, 3, 4]
+				EqIdVal QuestionId: 0x3, Value: 0x0
+				Or 
+			End 
+			Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x1927, Value: 0x2
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0x1927, Values: [3, 4]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				Password Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1037, VarStoreId: 0x1236, VarStoreInfo: 0x155, MinSize: 0x1, MaxSize: 0x80
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x3, Value: 0x1
+				EqIdVal QuestionId: 0x13, Value: 0x0
+				Or 
+			End 
+			OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1925, VarStoreId: 0x1234, VarOffset: 0x9F, Flags: 0x10, Size: 8, Min: 0x1, Max: 0x2, Step: 0x0
+				OneOfOption Option: "InvalidId" Value: 2
+				OneOfOption Option: "InvalidId" Value: 1, Default
+			End 
+		End 
+		SuppressIf 
+			True 
+			SuppressIf 
+				EqIdVal QuestionId: 0x3, Value: 0x1
+					EqIdVal QuestionId: 0x13, Value: 0x0
+					Or 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1927, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x2, Max: 0x4, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 2
+					OneOfOption Option: "InvalidId" Value: 3
+					OneOfOption Option: "InvalidId" Value: 4, Default
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x13, Value: 0x0
+			Password Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1038, VarStoreId: 0x1236, VarStoreInfo: 0x156, MinSize: 0x1, MaxSize: 0x80
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x14, Value: 0x0
+				EqIdVal QuestionId: 0x13, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x1039, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 164, 0]
+			End 
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6A
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6B
+		SuppressIf 
+			EqIdVal QuestionId: 0x12, Value: 0x0
+				EqIdVal QuestionId: 0x11, Value: 0x1
+				Not 
+				Or 
+			End 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x3, Value: 0x1
+					EqIdVal QuestionId: 0x10, Value: 0x0
+					Or 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x14, QuestionId: 0xE06F, VarStoreId: 0x1234, VarOffset: 0x125, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 1
+					OneOfOption Option: "InvalidId" Value: 0, Default
+				End 
+			End 
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6D
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6E
+		GrayOutIf 
+			EqIdVal QuestionId: 0x1927, Value: 0x3
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x172, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "InvalidId" Value: 1
+				OneOfOption Option: "InvalidId" Value: 0, Default
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x1927, Value: 0x3
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0xF, Value: 0x0
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0x17C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 1, Default
+					OneOfOption Option: "InvalidId" Value: 0
+				End 
+			End 
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				True 
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				True 
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x14, QuestionId: 0xE06A, VarStoreId: 0x1234, VarOffset: 0xFC, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 1, Default
+					OneOfOption Option: "InvalidId" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x11BB, VarStoreId: 0x1234, VarOffset: 0x9D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 0, Default
+					OneOfOption Option: "InvalidId" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x11B9, Value: 0x1
+				Not 
+				EqIdVal QuestionId: 0xD, Value: 0xFF
+				Or 
+				EqIdVal QuestionId: 0x11BB, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				EqIdVal QuestionId: 0xE06A, Value: 0x0
+				And 
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+					EqIdVal QuestionId: 0xC, Value: 0x1
+					Or 
+				End 
+				Action Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x11B5, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+					Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x11B9, Value: 0x2
+				Not 
+				EqIdVal QuestionId: 0xB, Value: 0xFF
+				Or 
+				EqIdVal QuestionId: 0x11BB, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				EqIdVal QuestionId: 0xE06A, Value: 0x0
+				And 
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				Action Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x11B8, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+					Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE081, Value: 0x2
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+					EqIdVal QuestionId: 0x8, Value: 0x1
+					Or 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x14, QuestionId: 0xE081, VarStoreId: 0x1234, VarOffset: 0x128, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 1, Default
+					OneOfOption Option: "InvalidId" Value: 0
+					OneOfOption Option: "InvalidId" Value: 2
+				End 
+				GrayOutIf 
+					True 
+					Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7, Value: 0x0
+			SuppressIf 
+				EqIdValList QuestionId: 0x6, Values: [0, 1]
+				GrayOutIf 
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+					End 
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x14, QuestionId: 0xE06E, VarStoreId: 0x1234, VarOffset: 0x121, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "InvalidId" Value: 1
+						OneOfOption Option: "InvalidId" Value: 0, Default
+					End 
+				End 
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x1927, Values: [2, 3]
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0xE06E, Value: 0x1
+				Or 
+			End 
+			Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+			End 
+			OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0xE060, VarStoreId: 0x1234, VarOffset: 0x101, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "InvalidId" Value: 1, Default
+				OneOfOption Option: "InvalidId" Value: 0
+			End 
+			GrayOutIf 
+				True 
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+		End 
+		GrayOutIf 
+			True 
+			SuppressIf 
+				EqIdVal QuestionId: 0x5, Value: 0x1
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x5, Value: 0x0
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x4, Value: 0x1
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x4, Value: 0x0
+				Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x1927, Values: [2, 3]
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0xE06E, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0xE061, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+			End 
+			Action Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0xE062, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0xE06E, Values: [0]
+			Text Prompt: "InvalidId", Help: "InvalidId", Text: "InvalidId"
+		End 
+		Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1234, VarOffset: 0x103, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1234, VarOffset: 0x102, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1234, VarOffset: 0x79, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1234, VarOffset: 0x120, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x1234, VarOffset: 0x129, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x1234, VarOffset: 0xFD, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x1234, VarOffset: 0xFE, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x1234, VarOffset: 0x66, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x1234, VarOffset: 0x6C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x1234, VarOffset: 0x61, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x1234, VarOffset: 0xFB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x1234, VarOffset: 0x17B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x10, VarStoreId: 0x1235, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x11, VarStoreId: 0xE201, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x12, VarStoreId: 0x1235, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x13, VarStoreId: 0x1234, VarOffset: 0xA8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x14, VarStoreId: 0x1234, VarOffset: 0xA9, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x15, VarStoreId: 0x1237, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x16, VarStoreId: 0x1237, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x17, VarStoreId: 0x1237, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x18, VarStoreId: 0x1237, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x19, VarStoreId: 0x1237, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

@@ -1,0 +1,55 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: C1E0B01A-607E-4B75-B8BB-0631ECFAACF2, Title: "Main", Help: " "
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x11
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0xE6, Name: "SystemConfig"
+	Form FormId: 0x1, Title: "Main"
+		GrayOutIf 
+			True 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x653
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x654
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x652
+		End 
+		GrayOutIf 
+			True 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x649
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x64A
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x961
+			Text Prompt: "System Memory Speed", Help: " ", Text: "[Not Detected]"
+		End 
+		GrayOutIf 
+			True 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x64B
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "Total Memory", Help: " ", Text: "[Not Detected]"
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x647
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x648
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x641
+		GrayOutIf 
+			EqIdVal QuestionId: 0x4, Value: 0x2
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			Time Prompt: "System Time", Help: "This is the help for the hour, minute, second field. Valid range is from 0 to 23, 0 to 59, 0 to 59. INCREASE/REDUCE : +/-.", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, Flags: 0x10
+			End 
+			Date Prompt: "System Date", Help: "This is the help for the month field, day field, year field. Valid range is from 1 to 12, 1 to 31, 2000 to 2099. (Error checking will be done against month/day/year combinations that are not supported.) INCREASE/REDUCE : +/-.", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, Flags: 0x10
+			End 
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x64E
+		Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

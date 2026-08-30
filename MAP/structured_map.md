@@ -1,0 +1,10860 @@
+# Structured BIOS Setup Tree Map
+
+Source IFR: `lzma_g4_c0_s4642141.bin.28.78.en-US.uefi.ifr.txt` (IFRExtractor-RS v1.6.1)
+FormSet: **Advanced**  |  Total forms parsed: 166  |  Total leaf controls: 4418
+
+## VarStore map (VarStoreId -> Name)
+- 0x1 = Setup
+- 0x2 = SaSetup
+- 0x3 = CpuSetup
+- 0x4 = MeSetup
+- 0x5 = PchSetup
+- 0x6 = SiSetup
+- 0x7 = BoardInfoSetup
+- 0x8 = LpeSetup
+- 0x9 = NhltEndpointsTableConfigurationVariable
+- 0xA = PciBusSetup
+- 0xB = OsProfile
+- 0xC = IccAdvancedSetupDataVar
+- 0x100B = SetupVolatileData
+- 0x100C = SetupCpuFeatures
+- 0x1108 = MeSetupStorage
+- 0x1233 = AdvanceConfig
+- 0x1234 = SystemConfig
+- 0x13BD = CpuSetupVolatileData
+- 0x13DC = TbtSetupVolatileData
+- 0x155F = DebugSetupVolatileData
+
+## Form 0x1: Advanced
+  - _(section)_ ****
+  - **Boot Configuration** -> Form 0x21  
+    - help: Configures Boot Settings.
+  - **Peripheral Configuration** -> Form 0x22  
+    - help: Configures the peripheral devices.
+  - **SATA Configuration** -> Form 0x23  
+    - help: Select the SATA controller and hard disk drive type installed in your system
+  - **USB Configuration** -> Form 0x26  
+    - help: Configure the USB supp
+  - **Chipset Configuration** -> Form 0x27  
+    - help: Advanced Chipset Configuration Options.
+  - **Debug Settings** -> Form 0x1006  
+    - help: Debug interface Settings
+  - **PCI Subsystem Settings** -> Form 0x1008  
+    - help: PCI, PCI-X and PCI Express Settings.
+  - **ACPI Table/Features Control** -> Form 0x28  
+    - help: Configures ACPI Tables/Features setting.
+  - **CPU Configuration** -> Form 0x100D  
+    - help: CPU Configuration
+  - **Connectivity Configuration** -> Form 0x13D2  
+    - help: Configure Connectivity related options
+  - **Power & Performance** -> Form 0x100E  
+    - help: Power & Performance Options
+  - **OverClocking Performance Menu** -> Form 0x1013  
+    - help: Performance Menu for Processor and Memory.
+  - **Memory Configuration** -> Form 0x1028  
+    - help: Memory Configuration Parameters
+  - **System Agent (SA) Configuration** -> Form 0x1029  
+    - help: System Agent (SA) Parameters
+  - **PCIE Configuration** -> Form 0x1539  
+    - help: PCIE Parameters
+  - **PCH-IO Configuration** -> Form 0x102F  
+    - help: PCH Parameters
+  - **PCH-FW Configuration** -> Form 0x103E  
+    - help: Configure Management Engine Technology Parameters
+  - **Thermal Configuration** -> Form 0x1046  
+    - help: Thermal Configuration Parameters
+  - **Platform Settings** -> Form 0x1125  
+    - help: Platform related settings
+  - **ACPI D3Cold settings** -> Form 0x10F3  
+    - help: ACPI D3Cold related settings
+  - **BCLK Configuration** -> Form 0x1389  
+    - help: BCLK Configuration options
+  - **Firmware Configuration** (OneOf) [VarStore Setup @ 0xA, QID 0x16, size 8]
+    - options: (no options listed)
+    - help: Firmware Configuration options. NOTE:Ignore Policy Update(STR_FW_CONFIG_DEFAULT_VALUE) is to skip policy update and will ONLY WORK ON A PLATFORM.
+
+## Form 0x20: PCI Configuration
+  - _(section)_ **PCI Configuration**
+  - _(section)_ ****
+  - **PCI Slot3 IRQ Priority** (OneOf) [VarStore SystemConfig @ 0x2, QID 0x2040, size 8]
+    - options: (no options listed)
+    - help: Manual IRQ selection does not garantee PCI slot device will be configured with choice because PnP ISA Cards (if present) are assigned the available resources before PCI device.
+  - **PCI Slot4 IRQ Priority** (OneOf) [VarStore SystemConfig @ 0x3, QID 0x2041, size 8]
+    - options: (no options listed)
+    - help: Manual IRQ selection does not garantee PCI slot device will be configured with choice because PnP ISA Cards (if present) are assigned the available resources before PCI device.
+
+## Form 0x21: Boot Configuration
+  - _(section)_ **Boot Configuration**
+  - _(section)_ ****
+  - **Numlock** (OneOf) [VarStore SystemConfig @ 0x8, QID 0x17, size 8]
+    - options: (no options listed)
+    - help: Selects Power-on state for Numlock
+
+## Form 0x22: Peripheral Configuration
+  - _(section)_ **Peripheral Configuration**
+  - _(section)_ ****
+  - **Serial Port A** (OneOf) [VarStore SystemConfig @ 0xA, QID 0x2030, size 8]
+    - options: (no options listed)
+    - help: Configure Serial port A using options : [Disable] No Configuration [Enable] User Configuration [Auto] EFI/OS chooses configuration
+  - **Base I/O Address** (OneOf) [VarStore SystemConfig @ 0xB, QID 0x2031, size 8]
+    - options: (no options listed)
+  - **Interrupt** (OneOf) [VarStore SystemConfig @ 0xC, QID 0x2032, size 8]
+    - options: (no options listed)
+  - _(section)_ ****
+  - **Infrared Port** (OneOf) [VarStore SystemConfig @ 0xF, QID 0x2033, size 8]
+    - options: (no options listed)
+    - help: Configure Infrared port using options : [Disable] No Configuration [Enable] User Configuration [Auto] EFI/OS chooses configuration
+  - **Mode** (OneOf) [VarStore SystemConfig @ 0x12, QID 0x18, size 8]
+    - options: (no options listed)
+    - help: Set the mode for the parallel port using options
+  - **Base I/O Address** (OneOf) [VarStore SystemConfig @ 0x10, QID 0x2034, size 8]
+    - options: (no options listed)
+  - **Interrupt** (OneOf) [VarStore SystemConfig @ 0x11, QID 0x2035, size 8]
+    - options: (no options listed)
+  - **DMA Channel** (OneOf) [VarStore SystemConfig @ 0x13, QID 0x19, size 8]
+    - options: (no options listed)
+  - **High Speed** (OneOf) [VarStore SystemConfig @ 0x14, QID 0x1A, size 8]
+    - options: (no options listed)
+    - help: Set FIR to High speed mode or normal speed mode
+
+## Form 0x23: SATA Configuration
+  - _(section)_ **SATA Configuration**
+  - _(section)_ ****
+  - **AHCI Option ROM Support** (OneOf) [VarStore SystemConfig @ 0x196, QID 0x2065, size 8]
+    - options: (no options listed)
+    - help: If AHCI option ROM set disable ,the system can only detect port 0 to port 3.If AHCI option ROM set enable ,the system can detect all port.
+  - _(section)_ ****
+  - **Serial ATA Port 0** -> Form 0x230  
+    - help: Serial ATA Port 0 Device configuration
+  - **Serial ATA Port 1** -> Form 0x231  
+    - help: Serial ATA Port 1 Device configuration
+  - **Serial ATA Port 2** -> Form 0x232  
+    - help: Serial ATA Port 2 Device configuration
+  - **Serial ATA Port 3** -> Form 0x233  
+    - help: Serial ATA Port 3 Device configuration
+  - **Serial ATA Port 4** -> Form 0x234  
+    - help: Serial ATA Port 4 Device configuration
+  - **Serial ATA Port 5** -> Form 0x235  
+    - help: Serial ATA Port 5 Device configuration
+  - **Serial ATA Port 6** -> Form 0x236  
+    - help: Serial ATA Port 6 Device configuration
+  - **Serial ATA Port 7** -> Form 0x237  
+    - help: Serial ATA Port 7 Device configuration
+
+## Form 0x26: USB Configuration
+  - _(section)_ **USB Configuration**
+  - _(section)_ ****
+  - **USB BIOS Support** (OneOf) [VarStore SystemConfig @ 0x48, QID 0x23, size 8]
+    - options: (no options listed)
+    - help: USB keyboard/mouse/storage support under UEFI environment
+  - **USB BIOS Support** (OneOf) [VarStore SystemConfig @ 0x48, QID 0x24, size 8]
+    - options: (no options listed)
+    - help: USB keyboard/mouse/storage support under UEFI and DOS environment. It will supporting UEFI environment only if set to UEFI Only
+  - **Usb Legacy SMI bit Clean** (OneOf) [VarStore SystemConfig @ 0x194, QID 0x25, size 8]
+    - options: (no options listed)
+    - help: Clean Usb Legacy SMI bit for xHCI and EHCI
+
+## Form 0x27: Chipset Configuration
+  - _(section)_ **Chipset Configuration**
+  - _(section)_ ****
+  - _(section)_ **Setup Warning:**
+  - _(section)_ **Setting items on this screen to incorrect values**
+  - _(section)_ **may cause your system to malfunction!**
+  - _(section)_ ****
+  - **Platform Trust Technology** (OneOf) [VarStore SystemConfig @ 0x19A, QID 0x26, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Platform Trust Technology.
+  - **Display Mode** (OneOf) [VarStore SystemConfig @ 0x1AA, QID 0x27, size 8]
+    - options: (no options listed)
+    - help: Display Mode for Dynamic Display Switching.
+  - **Hg Slot** (OneOf) [VarStore SystemConfig @ 0x1AC, QID 0x28, size 8]
+    - options: (no options listed)
+    - help: PEG or PCH Slot Slection for Hybrid Graphics
+
+## Form 0x28: ACPI Table/Features Control
+  - _(section)_ **ACPI Table/Features Control**
+  - _(section)_ ****
+  - **ACPI Settings** -> Form 0x100A  
+    - help: System ACPI Parameters
+  - **FACP - RTC S4 Wakeup** (OneOf) [VarStore SystemConfig @ 0x53, QID 0x2A, size 8]
+    - options: (no options listed)
+    - help: Value only for ACPI. Enable/Disable for S4 Wakeup from RTC
+  - **APIC - IO APIC Mode** (OneOf) [VarStore SystemConfig @ 0x54, QID 0x2B, size 8]
+    - options: (no options listed)
+    - help: This item is valid only for WIN2k and WINXP.Also,a fresh install of the OS must occur when APIC Mode is desired.Test the IO ACPI by setting item to Enable.The APIC Table will then be pointed to by the RSDT,the Local APIC will be initialized,and the proper enable bits will be set in ICH4M
+
+## Form 0x1006: Debug Settings
+  - _(section)_ **Debug Settings**
+  - _(section)_ ****
+  - **Kernel Debug Serial Port** (OneOf) [VarStore PchSetup @ 0x8, QID 0x2C, size 8]
+    - options: (no options listed)
+    - help: Select Kernel Debug Port and report in ACPI DBG2 table
+  - **Serial Io Uart Debug Power Gating** (OneOf) [VarStore PchSetup @ 0x786, QID 0x2D, size 8]
+    - options: (no options listed)
+    - help: For S0iX support with Kernel Debugger Enabled. BIOS needs to change DBG2 Port Sub Type as value of 0x14 (0x0014 Intel LPSS) Note: Requires OS support
+  - **Kernel Debug Patch** (OneOf) [VarStore Setup @ 0x845, QID 0x2E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Kernel Debug Patch
+  - **Platform Debug Consent** (OneOf) [VarStore SiSetup @ 0x1, QID 0x1007, size 8]
+    - options: (no options listed)
+    - help: Enabled(All Probes+TraceHub) supports all probes with TraceHub enabled and blocks s0ix  Enabled(Low Power) Tracehub is powergated by default, s0ix is viable  Manual:user needs to configure Advanced Debug Settings manually, aimed at advanced users
+  - **VT-d Debug Settings** -> Form 0x155E  
+    - help: Vt-d Debug Settings
+  - **Advanced Debug Settings** -> Form 0x1056  
+    - help: Advanced Debug Settings
+
+## Form 0x155E: VT-d Debug Settings
+  - **IGD VTD Enable** (OneOf) [VarStore SaSetup @ 0x88, QID 0x31, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IGD VTD
+  - **IPU VTD Enable** (OneOf) [VarStore SaSetup @ 0x89, QID 0x32, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IPU VTD
+  - **IOP VTD Enable** (OneOf) [VarStore SaSetup @ 0x8A, QID 0x33, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IOP VTD
+
+## Form 0x1056: Advanced Debug Settings
+  - **USB3 Type-C UFP2DFP Kernel/Platform Debug Support** (OneOf) [VarStore PchSetup @ 0xA, QID 0x34, size 8]
+    - options: (no options listed)
+    - help: This BIOS option enables kernel and platform debug for USB3 interface over a UFP Type-C receptacle, select 'No Change' will do nothing to UFP2DFP setting
+  - **USB DbC Enable Mode** (OneOf) [VarStore PchSetup @ 0x73F, QID 0x35, size 8]
+    - options: (no options listed)
+    - help: Disabled:Clear both USB2/3DBCEN USB2:Set USB2DBCEN USB3:Set USB3DBCEN Both:Set both USB2/3DBCEN No Change:Comply with HW value
+  - **DCI Enable** (OneOf) [VarStore PchSetup @ 0x73E, QID 0x36, size 8]
+    - options: (no options listed)
+    - help: Determine if to enable DCI debug from host
+  - **PCH Trace Hub Enable Mode** (OneOf) [VarStore PchSetup @ 0x714, QID 0x37, size 8]
+    - options: (no options listed)
+    - help: Select 'Host Debugger' if Trace Hub is used with host debugger tool or 'Target Debugger' if Trace Hub is used by target debugger software. Note: If 'Host Debugger' is selected, Platform Debug Consent has to be ENABLED because DCI is one of the primary trace data output paths.
+  - **PCH TH Mem Buffer Size 0** (OneOf) [VarStore PchSetup @ 0x715, QID 0x38, size 8]
+    - options: (no options listed)
+    - help: Select size of memory region 0 buffer. Choose None/OS if OS-supported memory or trace forwarding is desired Note : Limit of total buffer size (PCH + CPU) is 512MB when iTBT disabled, 256MB when iTBT enabled
+  - **PCH TH Mem Buffer Size 1** (OneOf) [VarStore PchSetup @ 0x716, QID 0x39, size 8]
+    - options: (no options listed)
+    - help: Select size of memory region 1 buffer. Choose None/OS if OS-supported memory or trace forwarding is desired Note : Limit of total buffer size (PCH + CPU) is 512MB when iTBT disabled, 256MB when iTBT enabled
+  - **CPU Trace Hub Enable Mode** (OneOf) [VarStore SaSetup @ 0x83, QID 0x3A, size 8]
+    - options: (no options listed)
+    - help: Select 'Host Debugger' if Trace Hub is used with host debugger tool or 'Target Debugger' if Trace Hub is used by target debugger software. Note: If 'Host Debugger' is selected, Platform Debug Consent has to be ENABLED because DCI is one of the primary trace data output paths.
+  - **CPU TH Mem Buffer Size 0** (OneOf) [VarStore SaSetup @ 0x84, QID 0x3B, size 8]
+    - options: (no options listed)
+    - help: Select size of memory region 0 buffer. Choose None/OS if OS-supported memory or trace forwarding is desired Note : Limit of total buffer size (PCH + CPU) is 512MB when iTBT disabled, 256MB when iTBT enabled
+  - **CPU TH Mem Buffer Size 1** (OneOf) [VarStore SaSetup @ 0x85, QID 0x3C, size 8]
+    - options: (no options listed)
+    - help: Select size of memory region 1 buffer. Choose None/OS if OS-supported memory or trace forwarding is desired Note : Limit of total buffer size (PCH + CPU) is 512MB when iTBT disabled, 256MB when iTBT enabled
+  - **CPU Run Control** (OneOf) [VarStore CpuSetup @ 0x111, QID 0x3D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CPU Run Control Support; No Change : Comply with HW value
+  - **CPU Run Control Lock** (OneOf) [VarStore CpuSetup @ 0x112, QID 0x3E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CPU Run Control Lock
+  - **USB Overcurrent Override for VISA** (OneOf) [VarStore PchSetup @ 0xB, QID 0x3F, size 8]
+    - options: (no options listed)
+    - help: This option overrides USB Over Current enablement state that USB OC will be disabled after enabling this option. Enable when VISA pin is muxed with USB OC
+  - **Processor trace memory allocation** (OneOf) [VarStore CpuSetup @ 0x122, QID 0x40, size 8]
+    - options: (no options listed)
+    - help: Disable or Select Processor trace memory region Size: from 4KB ~ 128MB
+  - **Processor trace** (OneOf) [VarStore CpuSetup @ 0x123, QID 0x41, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable processor trace feature from CPU MSR. Enabling this feature will immediately start trace collection.
+  - **Processor Trace OutPut Scheme** (OneOf) [VarStore CpuSetup @ 0x121, QID 0x42, size 8]
+    - options: (no options listed)
+    - help: Select Single Range Output scheme or ToPA table Output scheme
+  - **JTAG C10 Power Gate** (OneOf) [VarStore CpuSetup @ 0x8, QID 0x43, size 8]
+    - options: (no options listed)
+    - help: When Enabled, JTAG is power gated in C10 state. When Disabled, keeps the JTAG power up during C10 and deeper power states for debug purpose.
+  - **Three Strike Counter** (OneOf) [VarStore CpuSetup @ 0x125, QID 0x44, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Three Strike Counter
+  - **CrashLog Feature** (OneOf) [VarStore Setup @ 0x836, QID 0x45, size 8]
+    - options: (no options listed)
+    - help: The feature helps collecting crash data from PMC SSRAM
+  - **CrashLog On All Reset** (OneOf) [VarStore Setup @ 0x837, QID 0x46, size 8]
+    - options: (no options listed)
+    - help: Option to invoke CrashLog collection on all reset
+  - **CrashLog PMC Rearm** (OneOf) [VarStore Setup @ 0xB99, QID 0x47, size 8]
+    - options: (no options listed)
+    - help: Option to invoke crashlog re-arm
+  - **CrashLog PMC Clear** (OneOf) [VarStore Setup @ 0xB98, QID 0x48, size 8]
+    - options: (no options listed)
+    - help: Option to invoke CrashLog clear
+  - **CrashLog Cdie Rearm** (OneOf) [VarStore Setup @ 0xB97, QID 0x49, size 8]
+    - options: (no options listed)
+    - help: Option to invoke crashlog re-arm
+  - **CrashLog Cdie Clear** (OneOf) [VarStore Setup @ 0xB96, QID 0x4A, size 8]
+    - options: (no options listed)
+    - help: Option to invoke CrashLog clear
+  - **CrashLog GPRs** (OneOf) [VarStore CpuSetup @ 0x314, QID 0x4B, size 8]
+    - options: (no options listed)
+    - help: Helps collecting crash data from PMC SSRAM. Enabling this may expose personal or confidential information that may be held in the GPRs at the time of the Crash trigger
+  - **PMC Debug Message Enable** (OneOf) [VarStore PchSetup @ 0x741, QID 0x4C, size 8]
+    - options: (no options listed)
+    - help: When Enabled, PMC HW will send debug messages to trace hub; When Disabled, PMC HW will never send debug meesages to trace hub. Noted: When Enabled, may not enter S0ix
+  - **Delayed Authentication Mode** (OneOf) [VarStore MeSetupStorage @ 0x9, QID 0x13CF, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Delayed Authentication Mode
+
+## Form 0x1008: PCI Subsystem Settings
+  - _(section)_ **PCI Settings**
+  - _(section)_ ****
+  - **PCI ROM Priority** (OneOf) [VarStore Setup @ 0xB, QID 0x4D, size 8]
+    - options: (no options listed)
+    - help: In case of multiple Option ROMs (Legacy and EFI Compatible), specifies what PCI Option rom to launch.
+  - **External DMA Allowed On Boot** (OneOf) [VarStore PchSetup @ 0x1, QID 0x4E, size 8]
+    - options: (no options listed)
+    - help: External DMA Allowed On Boot for devices such as 1394, PCMCIA, & CardBus
+  - **Install Ext OpRom Before BIOS Setup** (OneOf) [VarStore PciBusSetup @ 0x0, QID 0x4F, size 8]
+    - options: (no options listed)
+    - help: Install Ext OpRom for Storage or Other device before BIOS Setup, That we can get the Ext PCIE Card OpRom Setup Menu and have chance to enter into it
+  - **PCI Latency Timer** (OneOf) [VarStore Setup @ 0xC, QID 0x50, size 8]
+    - options: (no options listed)
+    - help: Value to be programmed into PCI Latency Timer Register.
+
+## Form 0x100A: ACPI Settings
+  - _(section)_ **ACPI Settings**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **PECI Access Method** (OneOf) [VarStore Setup @ 0x1B, QID 0x54, size 8]
+    - options: (no options listed)
+    - help: PECI Access Method is Direct I/O or ACPI
+  - **ACPI S3 Support** (OneOf) [VarStore Setup @ 0xE, QID 0x55, size 8]
+    - options: (no options listed)
+    - help: Enable ACPI S3 support
+  - **Native PCIE Enable** (OneOf) [VarStore Setup @ 0x11, QID 0x56, size 8]
+    - options: (no options listed)
+    - help: Bit - PCIe Native * control  0 - ~ Hot Plug  1 - SHPC Native Hot Plug control  2 - ~ Power Management Events  3 - PCIe Advanced Error Reporting control  4 - PCIe Capability Structure control  5 - Latency Tolerance Reporting control
+  - **Native ASPM** (OneOf) [VarStore Setup @ 0x12, QID 0x57, size 8]
+    - options: (no options listed)
+    - help: Enabled - OS Controlled ASPM, Disabled - BIOS Controlled ASPM
+  - **BDAT ACPI Table Support** (OneOf) [VarStore SaSetup @ 0x1, QID 0x58, size 8]
+    - options: (no options listed)
+    - help: Enables support for the BDAT ACPI table.
+  - _(section)_ ****
+  - **ACPI Debug** (OneOf) [VarStore Setup @ 0x14, QID 0x59, size 8]
+    - options: (no options listed)
+    - help: Open a memory buffer for storing debug strings. Reenter SETUP after enabling to see the buffer address. Use method ADBG to write strings to buffer.
+  - **Print to Serial Port** (OneOf) [VarStore Setup @ 0x83F, QID 0x5A, size 8]
+    - options: (no options listed)
+    - help: Print copy of ACPI debug logs to serial port
+  - **D3 Setting for Storage** (OneOf) [VarStore Setup @ 0xAB3, QID 0x5B, size 8]
+    - options: (no options listed)
+    - help: RTD3 support for Storage. PCIE storage PEP constraint needs to be set as D0/F1 (Intel Advanced -> ACPI Settings -> PEP Constraints Configuration -> PEP PCIe Storage) when this setup is disabled/D3Hot
+  - **Low Power S0 Idle Capability** (OneOf) [VarStore Setup @ 0x1C, QID 0x111D, size 8]
+    - options: (no options listed)
+    - help: This variable determines if we enable ACPI Lower Power S0 Idle Capability (Mutually exclusive with Smart connect). While this is enabled, it also disable 8254 timer for SLP_S0 support.
+  - **PUIS Enable** (OneOf) [VarStore Setup @ 0x84F, QID 0x5C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Power-Up In Standby (PUIS) feature set allows devices to be powered-up into the Standby power management state to minimize inrush current at power-up and to allow the host to sequence the spin-up of devices.
+  - **EC Notification** (OneOf) [VarStore Setup @ 0x31, QID 0x5D, size 8]
+    - options: (no options listed)
+    - help: Sends EC notification of Low Power S0 Idle State
+  - **EC CS Debug Light** (OneOf) [VarStore Setup @ 0x32, QID 0x1395, size 8]
+    - options: (no options listed)
+    - help: When EC enters Low Power S0 Idle State, the CAPS LOCK light will be turned on
+  - **EC Low Power Mode** (OneOf) [VarStore Setup @ 0x33, QID 0x5E, size 8]
+    - options: (no options listed)
+    - help: This option controls whether EC will go to Low power mode during Low Power S0 Idle State
+  - **Sensor Standby** (OneOf) [VarStore Setup @ 0x38, QID 0x5F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Sensor standby mode
+  - **CS PL1 Limit** (OneOf) [VarStore Setup @ 0x39, QID 0x60, size 8]
+    - options: (no options listed)
+    - help: Limit PL1 (Power Limit 1) while in Connected Standby
+  - **CS PL1 Value** (Numeric) [VarStore Setup @ 0x3A, QID 0x61, size 16]  min 0xBB8 max 0x4E20
+    - help: PL1 value is in milliwatts with 125 step value
+  - **PEP Constraints Configuration** -> Form 0x112A  
+    - help: Control which controllers get included in PEP constraint list
+  - **LPIT Residency Counter** (OneOf) [VarStore Setup @ 0x3E, QID 0x63, size 8]
+    - options: (no options listed)
+    - help: Select Residency Counter
+  - _(section)_ ****
+  - **SSDT table from file** (OneOf) [VarStore Setup @ 0x40, QID 0x64, size 8]
+    - options: (no options listed)
+    - help: SSDT table from file
+  - _(section)_ ****
+  - **PCI Delay Optimization** (OneOf) [VarStore Setup @ 0x19, QID 0x65, size 8]
+    - options: (no options listed)
+    - help: Experimental ACPI additions for FW latency optimizations
+  - **MSI enabled** (OneOf) [VarStore Setup @ 0x786, QID 0x66, size 8]
+    - options: (no options listed)
+    - help: When disabled, MSI support is disabled in FADT
+
+## Form 0x112A: PEP Constraints Configuration
+  - _(section)_ **PEP Constraints Configuration**
+  - _(section)_ ****
+  - **PEP CPU** (OneOf) [VarStore Setup @ 0x1D, QID 0x67, size 8]
+    - options: (no options listed)
+    - help: Add CPU in PEP mitigation list
+  - **PEP Graphics** (OneOf) [VarStore Setup @ 0x1E, QID 0x68, size 8]
+    - options: (no options listed)
+    - help: Add Gfx in PEP mitigation list
+  - **PEP IPU** (OneOf) [VarStore Setup @ 0x2A, QID 0x69, size 8]
+    - options: (no options listed)
+    - help: Add IPU in PEP mitigation list
+  - **PEP GNA** (OneOf) [VarStore Setup @ 0x2B, QID 0x6A, size 8]
+    - options: (no options listed)
+    - help: Add GNA in PEP mitigation list
+  - **PEP SATA** (OneOf) [VarStore Setup @ 0x1F, QID 0x6B, size 8]
+    - options: (no options listed)
+    - help: Add Storage device in PEP mitigation list
+  - **PEP enumerated SATA ports** (OneOf) [VarStore Setup @ 0x9BC, QID 0x6C, size 8]
+    - options: (no options listed)
+    - help: Add enumerated SATA ports in PEP Constraint list
+  - **PEP PCIe Storage** (OneOf) [VarStore Setup @ 0x843, QID 0x6D, size 8]
+    - options: (no options listed)
+    - help: Add PCIe root ports (storage) in PEP mitigation list
+  - **PEP PCIe LAN** (OneOf) [VarStore Setup @ 0xA81, QID 0x6E, size 8]
+    - options: (no options listed)
+    - help: Add PCIe root ports (LAN) in PEP mitigation list
+  - **PEP PCIe WLAN** (OneOf) [VarStore Setup @ 0xA82, QID 0x6F, size 8]
+    - options: (no options listed)
+    - help: Add PCIe root ports (WLAN)in PEP mitigation list
+  - **PEP PCIe GFX** (OneOf) [VarStore Setup @ 0xA83, QID 0x70, size 8]
+    - options: (no options listed)
+    - help: Add PCIe root ports (GFX) in PEP mitigation list
+  - **PEP PCIe Other** (OneOf) [VarStore Setup @ 0xA84, QID 0x71, size 8]
+    - options: (no options listed)
+    - help: Add PCIe root ports (Other) in PEP mitigation list
+  - **PEP UART** (OneOf) [VarStore Setup @ 0x20, QID 0x72, size 8]
+    - options: (no options listed)
+    - help: Add UART in PEP mitigation list
+  - **PEP I2C0** (OneOf) [VarStore Setup @ 0x21, QID 0x73, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C1** (OneOf) [VarStore Setup @ 0x22, QID 0x74, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C2** (OneOf) [VarStore Setup @ 0x23, QID 0x75, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C3** (OneOf) [VarStore Setup @ 0x24, QID 0x76, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C4** (OneOf) [VarStore Setup @ 0x25, QID 0x77, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C5** (OneOf) [VarStore Setup @ 0x26, QID 0x78, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C6** (OneOf) [VarStore Setup @ 0xAF9, QID 0x79, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP I2C7** (OneOf) [VarStore Setup @ 0xB16, QID 0x7A, size 8]
+    - options: (no options listed)
+    - help: Adds I2C in PEP mitigation list
+  - **PEP SPI** (OneOf) [VarStore Setup @ 0x27, QID 0x7B, size 8]
+    - options: (no options listed)
+    - help: Add SPI in PEP mitigation list
+  - **PEP XHCI** (OneOf) [VarStore Setup @ 0x28, QID 0x7C, size 8]
+    - options: (no options listed)
+    - help: Add XHCI in PEP mitigation list
+  - **PEP Audio** (OneOf) [VarStore Setup @ 0x29, QID 0x7D, size 8]
+    - options: (no options listed)
+    - help: Add Audio in PEP mitigation list
+  - **PEP CSME** (OneOf) [VarStore Setup @ 0x2C, QID 0x7E, size 8]
+    - options: (no options listed)
+    - help: Add CSME in PEP mitigation list
+  - **PEP HECI3** (OneOf) [VarStore Setup @ 0x9BD, QID 0x7F, size 8]
+    - options: (no options listed)
+    - help: Add HECI3 in PEP mitigation list
+  - **PEP LAN(GBE)** (OneOf) [VarStore Setup @ 0x2D, QID 0x80, size 8]
+    - options: (no options listed)
+    - help: Add LAN(GBE) in PEP mitigation list
+  - **PEP THC0** (OneOf) [VarStore Setup @ 0x2E, QID 0x81, size 8]
+    - options: (no options listed)
+    - help: Add THC in PEP mitigation list. Applies only if THCx has assigned port
+  - **PEP THC1** (OneOf) [VarStore Setup @ 0x2F, QID 0x82, size 8]
+    - options: (no options listed)
+    - help: Add THC in PEP mitigation list. Applies only if THCx has assigned port
+  - **PEP TCSS** (OneOf) [VarStore Setup @ 0x30, QID 0x83, size 8]
+    - options: (no options listed)
+    - help: Add TCSS IPs in PEP mitigation list
+  - **PEP VMD** (OneOf) [VarStore Setup @ 0x97E, QID 0x84, size 8]
+    - options: (no options listed)
+    - help: Add VMD in PEP mitigation list
+  - **PEP EMMC** (OneOf) [VarStore Setup @ 0xB2F, QID 0x85, size 8]
+    - options: (no options listed)
+    - help: Add EMMC in PEP mitigation list
+
+## Form 0x100D: CPU Configuration
+  - _(section)_ **CPU Configuration**
+  - _(section)_ ****
+  - **Efficient-core Information** -> Form 0x1554  
+    - help: Displays the E-core Information
+  - **Performance-core Information** -> Form 0x1555  
+    - help: Displays the P-core Information
+  - _(section)_ ****
+  - _(section)_ ****
+  - **C6DRAM** (OneOf) [VarStore CpuSetup @ 0x114, QID 0x8001, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable moving of DRAM contents to PRM memory when CPU is in C6 state
+  - **CPU Flex Ratio Override** (OneOf) [VarStore CpuSetup @ 0x3, QID 0x88, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CPU Flex Ratio Programming
+  - **CPU Flex Ratio Settings** (Numeric) [VarStore CpuSetup @ 0x1, QID 0x10E1, size 8]  min 0x0 max 0x3F
+    - help: This value must be between Max Efficiency Ratio (LFM) and Maximum non-turbo ratio set by Hardware (HFM).
+  - **Hardware Prefetcher** (OneOf) [VarStore CpuSetup @ 0xBF, QID 0x89, size 8]
+    - options: (no options listed)
+    - help: To turn on/off the MLC streamer prefetcher.
+  - **Adjacent Cache Line Prefetch** (OneOf) [VarStore CpuSetup @ 0xC0, QID 0x8A, size 8]
+    - options: (no options listed)
+    - help: To turn on/off prefetching of adjacent cache lines.
+  - **Intel (VMX) Virtualization Technology** (OneOf) [VarStore CpuSetup @ 0xB9, QID 0x1419, size 8]
+    - options: (no options listed)
+    - help: When enabled, a VMM can utilize the additional hardware capabilities provided by Vanderpool Technology.
+  - **PECI** (OneOf) [VarStore CpuSetup @ 0x4, QID 0x8B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable PECI
+  - **AVX** (OneOf) [VarStore CpuSetup @ 0x2DC, QID 0x8C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable the Avx 2 Instructions. This is applicable for Performance-core only
+  - **Active Performance-cores** (OneOf) [VarStore CpuSetup @ 0x6, QID 0x8D, size 8]
+    - options: (no options listed)
+    - help: Number of P-cores to enable in each processor package. Note: Number of Cores and E-cores are looked at together. When both are {0,0}, Pcode will enable all cores.
+  - **Active Efficient-cores** (OneOf) [VarStore CpuSetup @ 0x22F, QID 0x8E, size 8]
+    - options: (no options listed)
+    - help: Number of E-cores to enable in each processor package. Note: Number of Cores and E-cores are looked at together. When both are {0,0}, Pcode will enable all cores.
+  - **Hyper-Threading** (OneOf) [VarStore CpuSetup @ 0x5, QID 0x1417, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable Hyper-Threading Technology.
+  - **BIST** (OneOf) [VarStore CpuSetup @ 0x7, QID 0x8F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable BIST (Built-In Self Test) on reset
+  - **AP threads Idle Manner** (OneOf) [VarStore CpuSetup @ 0x120, QID 0x90, size 8]
+    - options: (no options listed)
+    - help: AP threads Idle Manner for waiting signal to run
+  - **AES** (OneOf) [VarStore CpuSetup @ 0xBA, QID 0x91, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable AES (Advanced Encryption Standard)
+  - **MachineCheck** (OneOf) [VarStore CpuSetup @ 0xBB, QID 0x92, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Machine Check
+  - **MonitorMWait** (OneOf) [VarStore CpuSetup @ 0xBC, QID 0x93, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable MonitorMWait, if Disable MonitorMwait, the AP threads Idle Manner should not set in MWAIT Loop
+  - **Intel Trusted Execution Technology** (OneOf) [VarStore CpuSetup @ 0xC1, QID 0x1549, size 8]
+    - options: (no options listed)
+    - help: Enables utilization of additional hardware capabilities provided by Intel (R) Trusted Execution Technology.  Changes require a full power cycle to take effect.
+  - **Alias Check Request** (OneOf) [VarStore CpuSetup @ 0xC4, QID 0x94, size 8]
+    - options: (no options listed)
+    - help: Enables Txt Alias Checking capability  Changes require full Txt capability before it will take effect.   It is a one time only change, next reboot will be reset.
+  - **DPR Memory Size (MB)** (Numeric) [VarStore CpuSetup @ 0xBD, QID 0x95, size 16]  min 0x0 max 0xFF
+    - help: Reserve DPR memory size (0-255) MB
+  - **Reset AUX Content** (OneOf) [VarStore CpuSetup @ 0xC3, QID 0x96, size 8]
+    - options: (no options listed)
+    - help: Reset TPM Aux content. Txt may not functional after AUX content gets reset.
+  - **BIOS Guard** -> Form 0x1404  
+    - help: BIOS Guard
+  - **CPU SMM Enhancement** -> Form 0x1110  
+    - help: CPU SMM Enhancement
+  - **FCLK Frequency for Early Power On** (OneOf) [VarStore CpuSetup @ 0x126, QID 0x99, size 8]
+    - options: (no options listed)
+    - help: FCLK frequency can take values of 400MHz, 800MHz  and 1GHz (1GHz not supported for ULT/ULX SKUs)
+  - **Total Memory Encryption** (OneOf) [VarStore CpuSetup @ 0x229, QID 0x8002, size 8]
+    - options: (no options listed)
+    - help: Configure Total Memory Encryption (TME) to protect DRAM data from physical attacks.
+  - **Legacy Game Compatibility Mode** (OneOf) [VarStore CpuSetup @ 0x34D, QID 0x1405, size 8]
+    - options: (no options listed)
+    - help: When enabled, Pressing the scroll lock key will toggle the Efficient-cores between being parked when Scroll Lock LED is on and un-parked when LED is off.
+
+## Form 0x1554: Efficient-core Information
+  - _(section)_ **Efficient-core Information**
+  - _(section)_ ****
+
+## Form 0x1555: Performance-core Information
+  - _(section)_ **Performance-core Information**
+  - _(section)_ ****
+
+## Form 0x1404: BIOS Guard
+  - _(section)_ **BIOS Guard**
+  - _(section)_ ****
+  - **Enable Tools Interface** (OneOf) [VarStore CpuSetup @ 0x110, QID 0x9A, size 8]
+    - options: (no options listed)
+    - help: Configure Tools Interface. Options are: DISABLE - Disable Tools Interface; ENABLE - Enable Tools Interface.
+
+## Form 0x1110: CPU SMM Enhancement
+  - _(section)_ **CPU SMM Enhancement**
+  - _(section)_ ****
+  - **SMM MSR Save State Enable** (OneOf) [VarStore CpuSetup @ 0x22A, QID 0x9B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable support for MSR Save State
+  - **SMM Use Delay Indication** (OneOf) [VarStore CpuSetup @ 0x22B, QID 0x9C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable usage of SMM_DELAYED MSR for MP sync in SMI
+  - **SMM Use Block Indication** (OneOf) [VarStore CpuSetup @ 0x22C, QID 0x9D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable usage of SMM_BLOCKED MSR for MP sync in SMI
+  - **SMM Use SMM en-US Indication** (OneOf) [VarStore CpuSetup @ 0x22D, QID 0x9E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable usage of SMM_ENABLE MSR for MP sync in SMI
+
+## Form 0x100E: Power & Performance
+  - _(section)_ **Power & Performance**
+  - _(section)_ ****
+  - **CPU - Power Management Control** -> Form 0x100F  
+    - help: CPU - Power Management Control Options
+  - **GT - Power Management Control** -> Form 0x102E  
+    - help: GT - Power Management Control Options
+  - **Intel(R) Speed Shift Technology Interrupt Control** (OneOf) [VarStore CpuSetup @ 0x20C, QID 0xA1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Intel(R) Speed Shift Technology Interrupts
+
+## Form 0x100F: CPU - Power Management Control
+  - _(section)_ **CPU - Power Management Control**
+  - _(section)_ ****
+  - **Boot performance mode** (OneOf) [VarStore CpuSetup @ 0x13, QID 0x1578, size 8]
+    - options: (no options listed)
+    - help: Select the performance state that the BIOS will set starting from reset vector.
+  - **Intel(R) SpeedStep(tm)** (OneOf) [VarStore CpuSetup @ 0x9, QID 0x140A, size 8]
+    - options: (no options listed)
+    - help: Allows more than two frequency ranges to be supported.
+  - **Race To Halt (RTH)** (OneOf) [VarStore CpuSetup @ 0xA, QID 0xA2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Race To Halt feature. RTH will dynamically increase CPU frequency in order to enter pkg C-State faster to reduce overall power. (RTH is controlled through MSR 1FC bit 20)
+  - **Intel(R) Speed Shift Technology** (OneOf) [VarStore CpuSetup @ 0xB, QID 0x1408, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Intel(R) Speed Shift Technology support. Enabling will expose the CPPC v2 interface to allow for hardware controlled P-states.
+  - **Intel(R) Turbo Boost Max Technology 3.0** (OneOf) [VarStore CpuSetup @ 0xC, QID 0x1409, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Intel(R) Turbo Boost Max Technology 3.0 support. Disabling will report the maximum ratio of the slowest core in _CPC object.
+  - **Per Core P State OS control mode** (OneOf) [VarStore CpuSetup @ 0xE, QID 0xA3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Per Core P state OS control mode. Disabling will set Bit 31 = 1 command 0x06. When set, the highest core request is used for all other core requests.
+  - **HwP Autonomous Per Core P State** (OneOf) [VarStore CpuSetup @ 0xF, QID 0xA4, size 8]
+    - options: (no options listed)
+    - help: Disable Autonomous PCPS (Bit 30 = 1, command 0x11) Autonomous will request the same value for all cores all the time. Enable PCPS (default Bit 30 = 0, command 0x11)
+  - **HwP Autonomous EPP Grouping** (OneOf) [VarStore CpuSetup @ 0x10, QID 0xA5, size 8]
+    - options: (no options listed)
+    - help: Enable EPP grouping (default Bit 29 =0, command 0x11) Autonomous will request the same values for all cores with same EPP. Disable EPP grouping (Bit 29 =1 , command 0x11) autonomous will not necessarily request same values for all cores with same EPP.
+  - **EPB override over PECI** (OneOf) [VarStore CpuSetup @ 0x11, QID 0xA6, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable EPB override over PECI. Enable by sending pcode command 0x2b , subcommand 0x3 to 1. This will allow OOB EPB PECI override control
+  - **HwP Fast MSR Support** (OneOf) [VarStore CpuSetup @ 0x12, QID 0xA7, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable HwP Fast MSR Support for IA32_HWP_REQUEST MSR.
+  - **HwP Lock** (OneOf) [VarStore CpuSetup @ 0x228, QID 0xA8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable HWP Lock support in Misc Power Management MSR.
+  - **HDC Control** (OneOf) [VarStore CpuSetup @ 0x4A, QID 0xA9, size 8]
+    - options: (no options listed)
+    - help: This option allows HDC configuration.  Disabled: Disable HDC  Enabled:  Can be enabled by OS if OS native support is available.
+  - **Turbo Mode** (OneOf) [VarStore CpuSetup @ 0x16, QID 0x1579, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable processor Turbo Mode (requires EMTTM enabled too). AUTO means enabled.
+  - **View/Configure Turbo Options** -> Form 0x1011  
+    - help: View/Configure Turbo Options
+  - **Config TDP Configurations** -> Form 0x10E9  
+    - help: Configurable Processor Base Power (cTDP) Configurations
+  - **CPU VR Settings** -> Form 0x13B7  
+    - help: CPU VR Settings
+  - **Platform PL1 Enable** (OneOf) [VarStore CpuSetup @ 0x31, QID 0xAD, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Platform Power Limit 1 programming. If this option is enabled, it activates the PL1 value to be used by the processor to limit the average power of given time window.
+  - **Platform PL1 Power** (Numeric) [VarStore CpuSetup @ 0x32, QID 0xAE, size 32]  min 0x0 max 0x3E7F83
+    - help: Platform Power Limit 1 Power in Milli Watts/Percent. BIOS will round to the nearest 1/8W when programming. Any value can be programmed between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR). For example, if 12.50W, enter 12500, if 12%, enter 12000, if 50%, enter 50000. This setting will act as the new PL1 value for the Package RAPL algorithm.
+  - **Platform PL1 Time Window** (OneOf) [VarStore CpuSetup @ 0x36, QID 0xAF, size 8]
+    - options: (no options listed)
+    - help: Platform Power Limit 1 Time Window value in seconds. The value may vary from 0 to 128. 0 = default values. Indicates the time window over which Platform Processor Base Power (TDP) value should be maintained.
+  - **Platform PL2 Enable** (OneOf) [VarStore CpuSetup @ 0x37, QID 0xB0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Platform Power Limit 2 programming. If this option is disabled, BIOS will program the default values for Platform Power Limit 2.
+  - **Platform PL2 Power** (Numeric) [VarStore CpuSetup @ 0x38, QID 0xB1, size 32]  min 0x0 max 0x3E7F83
+    - help: Platform Power Limit 2 Power in Milli Watts / Milli Percent. BIOS will round to the nearest 1/8W or 1/8% when programming. Any value can be programmed between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR) or PMAX value in %. For example if 12%, enter 12000, if 50%, enter 50000. If the value is '0', will default to PACKAGE_POWER_SKU_MSR if Psys is in Watts. Recommended value is 97000 if Psys is in %. This setting will act as the new PL2 value for the Package RAPL algorithm.
+  - **ATX Telemetry Unit** (OneOf) [VarStore CpuSetup @ 0x384, QID 0xB2, size 8]
+    - options: (no options listed)
+    - help: ATX Telemetry Unit in Watts or Percentage.
+  - **Power Limit 4 Override** (OneOf) [VarStore CpuSetup @ 0x2A, QID 0xB3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Power Limit 4 override. If this option is disabled, BIOS will leave the default values for Power Limit 4.
+  - **Power Limit 4** (Numeric) [VarStore CpuSetup @ 0x2B, QID 0xB4, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 4 in Milli Watts. BIOS will round to the nearest 1/8W when programming. For 12.50W, enter 12500. If the value is 0, BIOS leaves default value
+  - **Power Limit 4 Lock** (OneOf) [VarStore CpuSetup @ 0x2F, QID 0xB5, size 8]
+    - options: (no options listed)
+    - help: Power Limit 4 MSR 601h Lock. When enabled PL4 configurations are locked during OS. When disabled PL4 configuration can be changed during OS.
+  - **Enhanced C-states** (OneOf) [VarStore CpuSetup @ 0x15, QID 0xB6, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable C1E. When enabled, CPU will switch to minimum speed when all cores enter C-State.
+  - **C states** (OneOf) [VarStore CpuSetup @ 0x14, QID 0x1406, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CPU Power Management. Allows CPU to go to C states when it's not 100% utilized.
+  - **C-State Auto Demotion** (OneOf) [VarStore CpuSetup @ 0x3E, QID 0xB7, size 8]
+    - options: (no options listed)
+    - help: Configure C-State Auto Demotion
+  - **C-State Un-demotion** (OneOf) [VarStore CpuSetup @ 0x3F, QID 0xB8, size 8]
+    - options: (no options listed)
+    - help: Configure C-State Un-demotion
+  - **Package C-State Demotion** (OneOf) [VarStore CpuSetup @ 0x40, QID 0xB9, size 8]
+    - options: (no options listed)
+    - help: Package C-State Demotion
+  - **Package C-State Un-demotion** (OneOf) [VarStore CpuSetup @ 0x41, QID 0xBA, size 8]
+    - options: (no options listed)
+    - help: Package C-State Un-demotion
+  - **CState Pre-Wake** (OneOf) [VarStore CpuSetup @ 0x3D, QID 0xBB, size 8]
+    - options: (no options listed)
+    - help: Disable - Sets bit 30 of POWER_CTL MSR(0x1FC) to 1 to disable the Cstate Pre-Wake
+  - **IO MWAIT Redirection** (OneOf) [VarStore CpuSetup @ 0x48, QID 0xBC, size 8]
+    - options: (no options listed)
+    - help: When set, will map IO_read instructions sent to IO registers PMG_IO_BASE_ADDRBASE+offset to MWAIT(offset)
+  - **Package C State Limit** (OneOf) [VarStore CpuSetup @ 0x4B, QID 0xBD, size 8]
+    - options: (no options listed)
+    - help: Maximum Package C State Limit Setting. Cpu Default: Leaves to Factory default value.Auto: Initializes to deepest available Package C State Limit.
+  - _(section)_ **C6/C7 Short Latency Control(MSR 0x60B)**
+  - **Time Unit** (OneOf) [VarStore CpuSetup @ 0x4C, QID 0xBE, size 8]
+    - options: (no options listed)
+    - help: Unit of measurement for IRTL value - bits [12:10]
+  - **Latency** (Numeric) [VarStore CpuSetup @ 0x51, QID 0xBF, size 16]  min 0x0 max 0x3FF
+    - help: Interrupt Response Time Limit value- bits [9:0], Enter 0-1023
+  - _(section)_ **C6/C7 Long Latency Control(MSR 0x60C)**
+  - **Time Unit** (OneOf) [VarStore CpuSetup @ 0x4D, QID 0xC0, size 8]
+    - options: (no options listed)
+    - help: Unit of measurement for IRTL value - bits [12:10]
+  - **Latency** (Numeric) [VarStore CpuSetup @ 0x53, QID 0xC1, size 16]  min 0x0 max 0x3FF
+    - help: Interrupt Response Time Limit value- bits [9:0], Enter 0-1023
+  - _(section)_ **C8 Latency Control(MSR 0x633)**
+  - **Time Unit** (OneOf) [VarStore CpuSetup @ 0x4E, QID 0xC2, size 8]
+    - options: (no options listed)
+    - help: Unit of measurement for IRTL value - bits [12:10]
+  - **Latency** (Numeric) [VarStore CpuSetup @ 0x55, QID 0xC3, size 16]  min 0x0 max 0x3FF
+    - help: Interrupt Response Time Limit value- bits [9:0], Enter 0-1023
+  - _(section)_ **C9 Latency Control(MSR 0x634)**
+  - **Time Unit** (OneOf) [VarStore CpuSetup @ 0x4F, QID 0xC4, size 8]
+    - options: (no options listed)
+    - help: Unit of measurement for IRTL value - bits [12:10]
+  - **Latency** (Numeric) [VarStore CpuSetup @ 0x57, QID 0xC5, size 16]  min 0x0 max 0x3FF
+    - help: Interrupt Response Time Limit value- bits [9:0], Enter 0-1023
+  - _(section)_ **C10 Latency Control(MSR 0x635)**
+  - **Time Unit** (OneOf) [VarStore CpuSetup @ 0x50, QID 0xC6, size 8]
+    - options: (no options listed)
+    - help: Unit of measurement for IRTL value - bits [12:10]
+  - **Latency** (Numeric) [VarStore CpuSetup @ 0x59, QID 0xC7, size 16]  min 0x0 max 0x3FF
+    - help: Interrupt Response Time Limit value- bits [9:0], Enter 0-1023
+  - **Thermal Monitor** (OneOf) [VarStore CpuSetup @ 0x42, QID 0xC8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Thermal Monitor
+  - **Interrupt Redirection Mode Selection** (OneOf) [VarStore CpuSetup @ 0x49, QID 0xC9, size 8]
+    - options: (no options listed)
+    - help: Interrupt Redirection Mode Select for Logical Interrupts
+  - **Timed MWAIT** (OneOf) [VarStore CpuSetup @ 0x47, QID 0xCA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Timed MWAIT Support
+  - **Custom P-state Table** -> Form 0x1010  
+    - help: Add Custom P-state Table
+  - **EC Turbo Control Mode** (OneOf) [VarStore CpuSetup @ 0xC7, QID 0xCC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable EC Turbo Control mode
+  - **AC Brick Capacity** (OneOf) [VarStore CpuSetup @ 0xC8, QID 0xCD, size 8]
+    - options: (no options listed)
+    - help: Specify the AC Brick capacity
+  - **EC Polling Period** (Numeric) [VarStore CpuSetup @ 0xC9, QID 0xCE, size 8]  min 0x1 max 0xFF
+    - help: Count 1 to 255 for a range of 10ms to 2.55 seconds (1 count = 10ms)
+  - **EC Guard Band Value** (Numeric) [VarStore CpuSetup @ 0xCA, QID 0xCF, size 8]  min 0x0 max 0x14
+    - help: Count 1 to 20 for a range of 1 watt to 20 watts
+  - **EC Algorithm Selection** (Numeric) [VarStore CpuSetup @ 0xCB, QID 0xD0, size 8]  min 0x1 max 0xA
+    - help: Count 1 to 10 for Algorithm Selection
+  - **Energy Performance Gain** (OneOf) [VarStore SaSetup @ 0x75, QID 0xD1, size 8]
+    - options: (no options listed)
+    - help: Enable/disable Energy Performance Gain.
+  - **EPG DIMM Idd3N** (Numeric) [VarStore SaSetup @ 0x76, QID 0xD2, size 16]  min 0x0 max 0x7D0
+    - help: Active standby current (Idd3N) in milliamps from datasheet. Must be calculated on a per DIMM basis.
+  - **EPG DIMM Idd3P** (Numeric) [VarStore SaSetup @ 0x78, QID 0xD3, size 16]  min 0x0 max 0x7D0
+    - help: Active power-down current (Idd3P) in milliamps from datasheet. Must be calculated on a per DIMM basis.
+  - **Power Limit 3 Settings** -> Form 0x1111  
+    - help: Power Limit 3 Settings
+  - **CPU Lock Configuration** -> Form 0x1012  
+    - help: CPU Lock Configuration
+  - **Dual Tau Boost** (OneOf) [VarStore CpuSetup @ 0x2AD, QID 0xD6, size 8]
+    - options: (no options listed)
+    - help: Enable Dual Tau Boost feature. This is only applicable for Desktop 35W/65W/125W sku. When DPTF is enabled this feature is ignored.
+
+## Form 0x1010: Custom P-state Table
+  - _(section)_ **Custom P-state Table**
+  - _(section)_ ****
+  - **Number of P states** (Numeric) [VarStore CpuSetup @ 0x80, QID 0xD7, size 8]  min 0x0 max 0x28
+    - help: Sets the number of custom P-states. At least 2 states must be present.
+  - **Max P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x81, QID 0xD8, size 8]  min 0x0 max 0x7F
+    - help: Maximum P-state ratio to use in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x82, QID 0xD9, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x83, QID 0xDA, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x84, QID 0xDB, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x85, QID 0xDC, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x86, QID 0xDD, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x87, QID 0xDE, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x88, QID 0xDF, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x89, QID 0xE0, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x8A, QID 0xE1, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x8B, QID 0xE2, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x8C, QID 0xE3, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x8D, QID 0xE4, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x8E, QID 0xE5, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x8F, QID 0xE6, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x90, QID 0xE7, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x91, QID 0xE8, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x92, QID 0xE9, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x93, QID 0xEA, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x94, QID 0xEB, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x95, QID 0xEC, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x96, QID 0xED, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x97, QID 0xEE, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x98, QID 0xEF, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x99, QID 0xF0, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x9A, QID 0xF1, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x9B, QID 0xF2, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x9C, QID 0xF3, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x9D, QID 0xF4, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x9E, QID 0xF5, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0x9F, QID 0xF6, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA0, QID 0xF7, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA1, QID 0xF8, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA2, QID 0xF9, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA3, QID 0xFA, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA4, QID 0xFB, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA5, QID 0xFC, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA6, QID 0xFD, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA7, QID 0xFE, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - **P-State Ratio** (Numeric) [VarStore CpuSetup @ 0xA8, QID 0xFF, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the custom P-state table.
+  - _(section)_ ****
+  - _(section)_ **Max 16 custom P-state Table**
+  - _(section)_ ****
+  - **Max P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xA9, QID 0x100, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xAA, QID 0x101, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xAB, QID 0x102, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xAC, QID 0x103, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xAD, QID 0x104, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xAE, QID 0x105, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xAF, QID 0x106, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB0, QID 0x107, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB1, QID 0x108, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB2, QID 0x109, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB3, QID 0x10A, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB4, QID 0x10B, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB5, QID 0x10C, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB6, QID 0x10D, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB7, QID 0x10E, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+  - **Min P-State Ratio (Max 16 table)** (Numeric) [VarStore CpuSetup @ 0xB8, QID 0x10F, size 8]  min 0x0 max 0x7F
+    - help: P-state ratio for the given state in the Max 16 P-state table. Used if OS only supports 16 P-states
+
+## Form 0x1015: Turbo Ratio Limit Options
+  - _(section)_ **Current Turbo Ratio Limit Settings**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **P-core Turbo Ratio Limit Numcore0** (Numeric) [VarStore CpuSetup @ 0xE6, QID 0x10A1, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore0 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio0. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore1** (Numeric) [VarStore CpuSetup @ 0xE7, QID 0x10A2, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore1 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio1. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore2** (Numeric) [VarStore CpuSetup @ 0xE8, QID 0x10A3, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore2 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio2. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore3** (Numeric) [VarStore CpuSetup @ 0xE9, QID 0x10A4, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore3 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio3. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore4** (Numeric) [VarStore CpuSetup @ 0xEA, QID 0x10A5, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore4 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio4. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore5** (Numeric) [VarStore CpuSetup @ 0xEB, QID 0x10A6, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore5 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio5. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore6** (Numeric) [VarStore CpuSetup @ 0xEC, QID 0x10A7, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore6 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio6. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Numcore7** (Numeric) [VarStore CpuSetup @ 0xED, QID 0x10A8, size 8]  min 0x0 max 0xFF
+    - help: Performance-core Turbo Ratio Limit Numcore7 defines the core range, the turbo ratio is defined in Turbo Ratio Limit Ratio7. If value is zero, this entry is ignored.
+  - **P-core Turbo Ratio Limit Ratio0** (Numeric) [VarStore CpuSetup @ 0xD6, QID 0x10A9, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio0 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore0.
+  - **P-core Turbo Ratio Limit Ratio1** (Numeric) [VarStore CpuSetup @ 0xD7, QID 0x10AA, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio1 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore1.
+  - **P-core Turbo Ratio Limit Ratio2** (Numeric) [VarStore CpuSetup @ 0xD8, QID 0x10AB, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio2 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore2.
+  - **P-core Turbo Ratio Limit Ratio3** (Numeric) [VarStore CpuSetup @ 0xD9, QID 0x10AC, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio3 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore3.
+  - **P-core Turbo Ratio Limit Ratio4** (Numeric) [VarStore CpuSetup @ 0xDA, QID 0x10AD, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio4 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore4.
+  - **P-core Turbo Ratio Limit Ratio5** (Numeric) [VarStore CpuSetup @ 0xDB, QID 0x10AE, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio5 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore5.
+  - **P-core Turbo Ratio Limit Ratio6** (Numeric) [VarStore CpuSetup @ 0xDC, QID 0x10AF, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio6 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore6.
+  - **P-core Turbo Ratio Limit Ratio7** (Numeric) [VarStore CpuSetup @ 0xDD, QID 0x10B0, size 8]  min 0x0 max 0x78
+    - help: Performance-core Turbo Ratio Limit Ratio7 defines the turbo ratio (max is 85 in normal mode and 120 in core extension mode), the core range is defined in Turbo Ratio Limit Numcore7.
+  - **E-core Turbo Ratio Limit Numcore0** (Numeric) [VarStore CpuSetup @ 0x106, QID 0x10B1, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore0 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio0. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore1** (Numeric) [VarStore CpuSetup @ 0x107, QID 0x10B2, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore1 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio1. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore2** (Numeric) [VarStore CpuSetup @ 0x108, QID 0x10B3, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore2 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio2. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore3** (Numeric) [VarStore CpuSetup @ 0x109, QID 0x10B4, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore3 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio3. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore4** (Numeric) [VarStore CpuSetup @ 0x10A, QID 0x10B5, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore4 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio4. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore5** (Numeric) [VarStore CpuSetup @ 0x10B, QID 0x10B6, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore5 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio5. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore6** (Numeric) [VarStore CpuSetup @ 0x10C, QID 0x10B7, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore6 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio6. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Numcore7** (Numeric) [VarStore CpuSetup @ 0x10D, QID 0x10B8, size 8]  min 0x0 max 0xFF
+    - help: Efficient-core Turbo Ratio Limit Numcore7 defines the core range, the turbo ratio is defined in E-core Turbo Ratio Limit Ratio7. If value is zero, this entry is ignored.
+  - **E-core Turbo Ratio Limit Ratio0** (Numeric) [VarStore CpuSetup @ 0xF6, QID 0x10B9, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio0 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore0.
+  - **E-core Turbo Ratio Limit Ratio1** (Numeric) [VarStore CpuSetup @ 0xF7, QID 0x10BA, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio1 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore1.
+  - **E-core Turbo Ratio Limit Ratio2** (Numeric) [VarStore CpuSetup @ 0xF8, QID 0x10BB, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio2 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore2.
+  - **E-core Turbo Ratio Limit Ratio3** (Numeric) [VarStore CpuSetup @ 0xF9, QID 0x10BC, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio3 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore3.
+  - **E-core Turbo Ratio Limit Ratio4** (Numeric) [VarStore CpuSetup @ 0xFA, QID 0x10BD, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio4 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore4.
+  - **E-core Turbo Ratio Limit Ratio5** (Numeric) [VarStore CpuSetup @ 0xFB, QID 0x10BE, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio5 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore5.
+  - **E-core Turbo Ratio Limit Ratio6** (Numeric) [VarStore CpuSetup @ 0xFC, QID 0x10BF, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio6 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore6.
+  - **E-core Turbo Ratio Limit Ratio7** (Numeric) [VarStore CpuSetup @ 0xFD, QID 0x10C0, size 8]  min 0x0 max 0x55
+    - help: Efficient-core Turbo Ratio Limit Ratio7 defines the turbo ratio (max is 85 irrespective of the core extension mode), the core range is defined in E-core Turbo Ratio Limit Numcore7.
+
+## Form 0x1011:   View/Configure Turbo Options
+  - _(section)_ **Current Turbo Settings**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **Turbo Ratio Limit Options** -> Form 0x1015  
+    - help: View/Configure Turbo Ratio Limit Options
+  - **Energy Efficient P-state** (OneOf) [VarStore CpuSetup @ 0x3C, QID 0x111, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Energy Efficient P-state feature. When set to 0, will disable access to ENERGY_PERFORMANCE_BIAS MSR and CPUID Function 6 ECX[3] will read 0 indicating no support for Energy Efficient policy setting. When set to 1 will enable access to ENERGY_PERFORMANCE_BIAS MSR 1B0h and CPUID Function 6 ECX[3] will read 1 indicating Energy Efficient policy setting is supported.
+  - **Package Power Limit MSR Lock** (OneOf) [VarStore CpuSetup @ 0x30, QID 0x112, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable locking of Package Power Limit settings. When enabled, PACKAGE_POWER_LIMIT MSR will be locked and a reset will be required to unlock the register.
+  - **Power Limit 1 Override** (OneOf) [VarStore CpuSetup @ 0x1B, QID 0x113, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Power Limit 1 override. If this option is disabled, BIOS will program the default values for Power Limit 1 and Power Limit 1 Time Window.
+  - **Power Limit 1** (Numeric) [VarStore CpuSetup @ 0x17, QID 0x114, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 1 in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Overclocking SKU: Value must be between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR). Other SKUs: This value must be between Min Power Limit and Processor Base Power (TDP) Limit. If value is 0, BIOS will program Processor Base Power (TDP) value.
+  - **Power Limit 1 Time Window** (OneOf) [VarStore CpuSetup @ 0x1C, QID 0x115, size 8]
+    - options: (no options listed)
+    - help: Power Limit 1 Time Window value in seconds. The value may vary from 0 to 128. 0 = default value. Defines time window which Processor Base Power (TDP) value should be maintained.
+  - **Power Limit 2 Override** (OneOf) [VarStore CpuSetup @ 0x1D, QID 0x116, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Power Limit 2 override. If this option is disabled, BIOS will program the default values for Power Limit 2.
+  - **Power Limit 2** (Numeric) [VarStore CpuSetup @ 0x1E, QID 0x117, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 2 value in Milli Watts. BIOS will round to the nearest 1/8W when programming. If the value is 0, BIOS will program this value as 1.25*Processor Base Power (TDP). For 12.50W, enter 12500. Processor applies control policies such that the package power does not exceed this limit.
+  - **Energy Efficient Turbo** (OneOf) [VarStore CpuSetup @ 0x1D5, QID 0x118, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Energy Efficient Turbo Feature. This feature will opportunistically lower the turbo frequency to increase efficiency. Recommended only to disable in overclocking situations where turbo frequency must remain constant. Otherwise, leave enabled.
+
+## Form 0x13B7: CPU VR Settings
+  - _(section)_ **CPU VR Settings**
+  - _(section)_ ****
+  - **PSYS Slope** (Numeric) [VarStore CpuSetup @ 0x127, QID 0x119, size 8]  min 0x0 max 0xC8
+    - help: PSYS Slope defined in 1/100 increments. Range is 0-200. For a 1.25 slope, enter 125. 0 = AUTO. Uses BIOS VR mailbox command 0x9.
+  - **PSYS Offset** (Numeric) [VarStore CpuSetup @ 0x128, QID 0x11A, size 16]  min 0x0 max 0xF9FF
+    - help: PSYS Offset defined in 1/1000 increments. Range is 0-63999. For an offset of 25.348, enter 25348. PSYS Uses BIOS VR mailbox command 0x4.
+  - **PSYS Prefix** (OneOf) [VarStore CpuSetup @ 0x12A, QID 0x11B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **PSYS PMax Power** (Numeric) [VarStore CpuSetup @ 0x12B, QID 0x11C, size 16]  min 0x0 max 0x1FFF
+    - help: Psys Pmax power, defined in 1/8 Watt or 1/8 Percent increments. For Watts, range is 0-8191 (ex. For 125W, enter 1000). For ATX12VO Percent, Range is 0-1600 (ex. For recommended value of 200%, enter 1600). Uses BIOS VR mailbox command 0xB.
+  - **Min Voltage Override** (OneOf) [VarStore CpuSetup @ 0x207, QID 0x11D, size 8]
+    - options: (no options listed)
+    - help: Min Voltage Override. Enable to override minimum voltage for runtime and for C8.
+  - **Min Voltage Runtime** (Numeric) [VarStore CpuSetup @ 0x208, QID 0x11E, size 16]  min 0x0 max 0x7CF
+    - help: Min Voltage for Runtime. Range is 0 - 1999mV in 1/128 volt increments. Input is in mVolts.
+  - **Min Voltage C8** (Numeric) [VarStore CpuSetup @ 0x20A, QID 0x11F, size 16]  min 0x0 max 0x7CF
+    - help: Min Voltage for Package C8. Range is 0 - 1999mV in 1/128 volt increments. Input is in mVolts.
+  - **VccIn Aux Icc Max** (Numeric) [VarStore CpuSetup @ 0x2E8, QID 0x120, size 16]  min 0x0 max 0x200
+    - help: Sets the Max Icc VccIn Aux value defined in 1/4A increments. Range is 0-512. For an IccMax 32A, enter 128(32*4).
+  - **VccIn Aux IMON Slope** (Numeric) [VarStore CpuSetup @ 0x2EA, QID 0x121, size 16]  min 0x0 max 0xC8
+    - help: VccIN Aux IMON Slope defined in 1/100 increments. Range is 0-200. For a 1.25 slope, enter 125. 0 = AUTO. Uses BIOS VR mailbox command 0x18.
+  - **VccIN Aux IMON Offset** (Numeric) [VarStore CpuSetup @ 0x2EC, QID 0x122, size 16]  min 0x0 max 0xF9FF
+    - help: VccIN Aux IMON Offset defined in 1/1000 increments. Range is 0-63999. For an offset of 25.348, enter 25348. IMON Uses BIOS VR mailbox command 0x18.
+  - **VccIN Aux IMON Prefix** (OneOf) [VarStore CpuSetup @ 0x2EE, QID 0x123, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **Vsys/Psys Critical** (OneOf) [VarStore CpuSetup @ 0x2EF, QID 0x124, size 8]
+    - options: (no options listed)
+    - help: Vsys/Psys Critical Enable or disable
+  - **Vsys/Psys Full Scale** (Numeric) [VarStore CpuSetup @ 0x38D, QID 0x125, size 32]  min 0x0 max 0x3E418
+    - help: Input Vsys or Psys Full-Scale and Critical Threshold to program Vsys/Psys Critical (0x4A) register. Critical Limit Trigger = (Critical Threshold/Full-Scale) * 0xFF. Input for Vsys is in Milli-Volts. For Psys either in Milli-Watts or Milli-Percent. For ATX12VO systems, recommended value is 200000.
+  - **Vsys/Psys Critical Threshold** (Numeric) [VarStore CpuSetup @ 0x391, QID 0x126, size 32]  min 0x0 max 0x3E418
+    - help: Input Vsys or Psys Full-Scale and Critical Threshold to program Vsys/Psys Critical (0x4A) register. Critical Limit Trigger = (Critical Threshold/Full-Scale) * 0xFF. Input for Vsys is in Milli-Volts. For Psys either in Milli-Watts or Milli-Percent. For ATX12VO systems, recommended value is 120000.
+  - **Vsys/Psys Full Scale** (Numeric) [VarStore CpuSetup @ 0x385, QID 0x127, size 32]  min 0x0 max 0x3E418
+    - help: Input Vsys or Psys Full-Scale and Critical Threshold to program Vsys/Psys Critical (0x4A) register. Critical Limit Trigger = (Critical Threshold/Full-Scale) * 0xFF. Input for Vsys is in Milli-Volts. For Psys either in Milli-Watts or Milli-Percent. For ATX12VO systems, recommended value is 200000.
+  - **Vsys/Psys Critical Threshold** (Numeric) [VarStore CpuSetup @ 0x389, QID 0x128, size 32]  min 0x0 max 0x3E418
+    - help: Input Vsys or Psys Full-Scale and Critical Threshold to program Vsys/Psys Critical (0x4A) register. Critical Limit Trigger = (Critical Threshold/Full-Scale) * 0xFF. Input for Vsys is in Milli-Volts. For Psys either in Milli-Watts or Milli-Percent. For ATX12VO systems, recommended value is 120000.
+  - **Assertion Deglitch Mantissa** (Numeric) [VarStore CpuSetup @ 0x2F2, QID 0x129, size 8]  min 0x0 max 0xFF
+    - help: Assertion Deglitch Mantissa 0x4F[7-3]. Assertion Deglitch = 2µs * Mantissa * 2^(Exponent)
+  - **Assertion Deglitch Exponent** (Numeric) [VarStore CpuSetup @ 0x2F3, QID 0x12A, size 8]  min 0x0 max 0xFF
+    - help: Assertion Deglitch Exponent 0x4F[3-0]. Assertion Deglitch = 2µs * Mantissa * 2^(Exponent)
+  - **De assertion Deglitch Mantissa** (Numeric) [VarStore CpuSetup @ 0x2F4, QID 0x12B, size 8]  min 0x0 max 0xFF
+    - help: De Assertion Deglitch Mantissa 0x49[7-3]. Assertion Deglitch = 2µs * Mantissa * 2^(Exponent)
+  - **De assertion Deglitch Exponent** (Numeric) [VarStore CpuSetup @ 0x2F5, QID 0x12C, size 8]  min 0x0 max 0xFF
+    - help: De Assertion Deglitch Exponent 0x49[3-0]. Assertion Deglitch = 2µs * Mantissa * 2^(Exponent)
+  - **VR Power Delivery Design** (OneOf) [VarStore CpuSetup @ 0x313, QID 0x10C2, size 8]
+    - options: (no options listed)
+    - help: Specifies the ADL Desktop board design used for the VR settings override values. By default, BIOS will override the default Desktop VR settings based on the board design. A value of AUTO(0) will use the board ID to determine the board design. Any other value will override the board id logic to provide a custom VR Power Delivery Design value. This is intended primarily for validation.
+  - **Acoustic Noise Settings** -> Form 0x13BA  
+    - help: Configure Acoustic Noise Settings for IA, GT and SA domains
+  - **Core/IA VR Settings** -> Form 0x13B9  
+    - help: Core/IA VR Settings
+  - **GT VR Settings** -> Form 0x13BC  
+    - help: GT VR Settings
+  - **SA VR Settings** -> Form 0x13B8  
+    - help: SA VR Settings
+  - **RFI Settings** -> Form 0x1483  
+    - help: RFI Settings
+
+## Form 0x13BA: Acoustic Noise Settings
+  - _(section)_ **Acoustic Noise Settings**
+  - _(section)_ ****
+  - **Acoustic Noise Mitigation** (OneOf) [VarStore CpuSetup @ 0x1FC, QID 0x132, size 8]
+    - options: (no options listed)
+    - help: Enabling this option will help mitigate acoustic noise on certain SKUs when the CPU is in deeper C state
+  - **Pre Wake Time** (Numeric) [VarStore CpuSetup @ 0x2D9, QID 0x133, size 8]  min 0x0 max 0xFF
+    - help: Set the maximum Pre Wake randomization time in micro ticks. Range is 0-255. This is for acoustic noise mitigation Dynamic Perodicity Alteration (DPA) tuning.
+  - **Ramp Up Time** (Numeric) [VarStore CpuSetup @ 0x2DA, QID 0x134, size 8]  min 0x0 max 0xFF
+    - help: Set the maximum Ramp Up randomization time in micro ticks. Range is 0-255. This is for acoustic noise mitigation Dynamic Perodicity Alteration (DPA) tuning.
+  - **Ramp Down Time** (Numeric) [VarStore CpuSetup @ 0x2DB, QID 0x135, size 8]  min 0x0 max 0xFF
+    - help: Set the maximum Ramp Down randomization time in micro ticks. Range is 0-255. This is for acoustic noise mitigation Dynamic Perodicity Alteration (DPA) tuning.
+  - _(section)_ ****
+  - _(section)_ **IA VR Domain**
+  - **Disable Fast PKG C State Ramp for IA Domain** (OneOf) [VarStore CpuSetup @ 0x1FD, QID 0x136, size 8]
+    - options: (no options listed)
+    - help: This option needs to be configured to reduce acoustic noise during deeper C states. False: Don't disable Fast ramp during deeper C states; True: Disable Fast ramp during deeper C state
+  - **Slow Slew Rate for IA Domain** (OneOf) [VarStore CpuSetup @ 0x202, QID 0x137, size 8]
+    - options: (no options listed)
+    - help: Set VR IA Slow Slew Rate for Deep Package C State ramp time; Slow slew rate equals to Fast divided by number, the number is 2, 4, 8, 16 to slow down the slew rate to help minimize acoustic noise
+  - _(section)_ ****
+  - _(section)_ **GT VR Domain**
+  - **Disable Fast PKG C State Ramp for GT Domain** (OneOf) [VarStore CpuSetup @ 0x1FE, QID 0x138, size 8]
+    - options: (no options listed)
+    - help: This option needs to be configured to reduce acoustic noise during deeper C states. False: Don't disable Fast ramp during deeper C states; True: Disable Fast ramp during deeper C state
+  - **Slow Slew Rate for GT Domain** (OneOf) [VarStore CpuSetup @ 0x203, QID 0x139, size 8]
+    - options: (no options listed)
+    - help: Set VR GT Slow Slew Rate for Deep Package C State ramp time; Slow slew rate equals to Fast divided by number, the number is 2, 4, 8 to slow down the slew rate to help minimize acoustic noise; divide by 16 is disabled
+  - _(section)_ ****
+  - _(section)_ **SA VR Domain**
+  - **Disable Fast PKG C State Ramp for SA Domain** (OneOf) [VarStore CpuSetup @ 0x1FF, QID 0x13A, size 8]
+    - options: (no options listed)
+    - help: This option needs to be configured to reduce acoustic noise during deeper C states. False: Don't disable Fast ramp during deeper C states; True: Disable Fast ramp during deeper C state
+
+## Form 0x13B9: Core/IA VR Settings
+  - _(section)_ **Core/IA VR Domain**
+  - _(section)_ ****
+  - **VR Config Enable** (OneOf) [VarStore CpuSetup @ 0x12D, QID 0x13B, size 8]
+    - options: (no options listed)
+    - help: VR Config Enable
+  - **AC Loadline** (Numeric) [VarStore CpuSetup @ 0x132, QID 0x13C, size 16]  min 0x0 max 0xF424
+    - help: AC Loadline defined in 1/100 mOhms. A value of 100 = 1.00 mOhm, and 1255 = 12.55 mOhm. Range is 0-6249 (0-62.49 mOhms). 0 = AUTO/HW default. Uses BIOS mailbox command 0x2.
+  - **DC Loadline** (Numeric) [VarStore CpuSetup @ 0x13C, QID 0x13D, size 16]  min 0x0 max 0xF424
+    - help: DC Loadline defined in 1/100 mOhms. A value of 100 = 1.00 mOhm, and 1255 = 12.55 mOhm. Range is 0-6249 (0-62.49 mOhms). 0 = AUTO/HW default. Uses BIOS mailbox command 0x2.
+  - **PS Current Threshold1** (Numeric) [VarStore CpuSetup @ 0x146, QID 0x13E, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold1, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS Current Threshold2** (Numeric) [VarStore CpuSetup @ 0x150, QID 0x13F, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold2, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS Current Threshold3** (Numeric) [VarStore CpuSetup @ 0x15A, QID 0x140, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold3, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS3 Enable** (OneOf) [VarStore CpuSetup @ 0x164, QID 0x141, size 8]
+    - options: (no options listed)
+    - help: PS3 Enable/Disable. 0 - Disabled, 1 - Enabled.Uses BIOS VR mailbox command 0x3.
+  - **PS4 Enable** (OneOf) [VarStore CpuSetup @ 0x169, QID 0x142, size 8]
+    - options: (no options listed)
+    - help: PS4 Enable/Disable. 0 - Disabled, 1 - Enabled. Uses BIOS VR mailbox command 0x3
+  - **IMON Slope** (Numeric) [VarStore CpuSetup @ 0x16E, QID 0x143, size 16]  min 0x0 max 0xC8
+    - help: IMON Slope defined in 1/100 increments. Range is 0-200. For a 1.25 slope, enter 125. 0 = AUTO. Uses BIOS VR mailbox command 0x4.
+  - **IMON Offset** (Numeric) [VarStore CpuSetup @ 0x178, QID 0x144, size 16]  min 0x0 max 0xF9FF
+    - help: IMON Offset defined in 1/1000 increments. Range is 0-63999. For an offset of 25.348, enter 25348. IMON Uses BIOS VR mailbox command 0x4.
+  - **IMON Prefix** (OneOf) [VarStore CpuSetup @ 0x182, QID 0x145, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VR Current Limit** (Numeric) [VarStore CpuSetup @ 0x187, QID 0x146, size 16]  min 0x0 max 0x800
+    - help: Voltage Regulator Current Limit (IccMax). This value represents the Maximum instantaneous current allowed at any given time. The value is represented in 1/4 A increments. A value of 400 = 100A. 0 means AUTO. Uses BIOS VR mailbox command 0x6.
+  - **Core VR Fast Vmode** (OneOf) [VarStore CpuSetup @ 0x379, QID 0x10C3, size 8]
+    - options: (no options listed)
+    - help: Core VR Fast Vmode. Use to control Core Fast Vmode Enable/Disable. The value will only be effective by enabling the corresponding CEP..
+  - **Fast Vmode Itrip ICC Limit** (Numeric) [VarStore CpuSetup @ 0x32A, QID 0x10C6, size 16]  min 0x0 max 0x7F8
+    - help: Voltage Regulator Fast Vmode Itrip ICC Limit. A value of 400 = 100A. A value of 0 corresponds to feature disabled (no reactive protection). This value represents the current threshold where the VR would initiate reactive protection if Fast Vmode is enabled. The value is represented in 1/4 A increments. Uses BIOS VR mailbox command 0x25.
+  - **Core CEP Enable** (OneOf) [VarStore CpuSetup @ 0x396, QID 0x147, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable the IA Core CEP (Current Excursion Protection) Support. BIOS doesn't allow to enable FVM when CEP disabled
+  - **VR Voltage Limit** (Numeric) [VarStore CpuSetup @ 0x1BE, QID 0x148, size 16]  min 0x0 max 0x1F3F
+    - help: Voltage Limit (VMAX). This value represents the Maximum instantaneous voltage allowed at any given time. Range is 0 - 7999mV. Uses BIOS VR mailbox command 0x8.
+  - **TDC Enable** (OneOf) [VarStore CpuSetup @ 0x19B, QID 0x149, size 8]
+    - options: (no options listed)
+    - help: TDC Enable. 0- Disable, 1 - Enable
+  - **TDC Current Limit** (Numeric) [VarStore CpuSetup @ 0x191, QID 0x14A, size 16]  min 0x0 max 0x7FFF
+    - help: TDC Current Limit, defined in 1/8A increments. Range 0-32767. For a TDC Current Limit of 125A, enter 1000. 0 = 0 Amps. Uses BIOS VR mailbox command 0x1A.
+  - **TDC Time Window** (OneOf) [VarStore CpuSetup @ 0x1A0, QID 0x14B, size 32]
+    - options: (no options listed)
+    - help: VR TDC Time Window, value in seconds. 1s is default. Range from 1s to 448s.
+  - **TDC Lock** (OneOf) [VarStore CpuSetup @ 0x1B4, QID 0x14C, size 8]
+    - options: (no options listed)
+    - help: TDC Lock
+  - **IRMS** (OneOf) [VarStore CpuSetup @ 0x1B9, QID 0x14D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IRMS - Current root mean square
+
+## Form 0x13BC: GT VR Settings
+  - _(section)_ **GT Domain**
+  - _(section)_ ****
+  - **VR Config Enable** (OneOf) [VarStore CpuSetup @ 0x12E, QID 0x14E, size 8]
+    - options: (no options listed)
+    - help: VR Config Enable
+  - **AC Loadline** (Numeric) [VarStore CpuSetup @ 0x134, QID 0x14F, size 16]  min 0x0 max 0xF424
+    - help: AC Loadline defined in 1/100 mOhms. A value of 100 = 1.00 mOhm, and 1255 = 12.55 mOhm. Range is 0-6249 (0-62.49 mOhms). 0 = AUTO/HW default. Uses BIOS mailbox command 0x2.
+  - **DC Loadline** (Numeric) [VarStore CpuSetup @ 0x13E, QID 0x150, size 16]  min 0x0 max 0xF424
+    - help: DC Loadline defined in 1/100 mOhms. A value of 100 = 1.00 mOhm, and 1255 = 12.55 mOhm. Range is 0-6249 (0-62.49 mOhms). 0 = AUTO/HW default. Uses BIOS mailbox command 0x2.
+  - **PS Current Threshold1** (Numeric) [VarStore CpuSetup @ 0x148, QID 0x151, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold1, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS Current Threshold2** (Numeric) [VarStore CpuSetup @ 0x152, QID 0x152, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold2, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS Current Threshold3** (Numeric) [VarStore CpuSetup @ 0x15C, QID 0x153, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold3, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS3 Enable** (OneOf) [VarStore CpuSetup @ 0x165, QID 0x154, size 8]
+    - options: (no options listed)
+    - help: PS3 Enable/Disable. 0 - Disabled, 1 - Enabled.Uses BIOS VR mailbox command 0x3.
+  - **PS4 Enable** (OneOf) [VarStore CpuSetup @ 0x16A, QID 0x155, size 8]
+    - options: (no options listed)
+    - help: PS4 Enable/Disable. 0 - Disabled, 1 - Enabled. Uses BIOS VR mailbox command 0x3
+  - **IMON Slope** (Numeric) [VarStore CpuSetup @ 0x170, QID 0x156, size 16]  min 0x0 max 0xC8
+    - help: IMON Slope defined in 1/100 increments. Range is 0-200. For a 1.25 slope, enter 125. 0 = AUTO. Uses BIOS VR mailbox command 0x4.
+  - **IMON Offset** (Numeric) [VarStore CpuSetup @ 0x17A, QID 0x157, size 16]  min 0x0 max 0xF9FF
+    - help: IMON Offset defined in 1/1000 increments. Range is 0-63999. For an offset of 25.348, enter 25348. IMON Uses BIOS VR mailbox command 0x4.
+  - **IMON Prefix** (OneOf) [VarStore CpuSetup @ 0x183, QID 0x158, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VR Current Limit** (Numeric) [VarStore CpuSetup @ 0x189, QID 0x159, size 16]  min 0x0 max 0x800
+    - help: Voltage Regulator Current Limit (IccMax). This value represents the Maximum instantaneous current allowed at any given time. The value is represented in 1/4 A increments. A value of 400 = 100A. 0 means AUTO. Uses BIOS VR mailbox command 0x6.
+  - **GT VR Fast Vmode** (OneOf) [VarStore CpuSetup @ 0x37A, QID 0x10C4, size 8]
+    - options: (no options listed)
+    - help: GT VR Fast Vmode. Use to control GT Fast Vmode Enable/Disable.
+  - **Fast Vmode Itrip ICC Limit** (Numeric) [VarStore CpuSetup @ 0x32C, QID 0x10C7, size 16]  min 0x0 max 0x7F8
+    - help: Voltage Regulator Fast Vmode Itrip ICC Limit. A value of 400 = 100A. A value of 0 corresponds to feature disabled (no reactive protection). This value represents the current threshold where the VR would initiate reactive protection if Fast Vmode is enabled. The value is represented in 1/4 A increments. Uses BIOS VR mailbox command 0x25.
+  - **GT CEP Enable** (OneOf) [VarStore CpuSetup @ 0x397, QID 0x15A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable the GT CEP (Current Excursion Protection) Support. BIOS doesn't allow to enable FVM when CEP disabled
+  - **VR Voltage Limit** (Numeric) [VarStore CpuSetup @ 0x1C0, QID 0x15B, size 16]  min 0x0 max 0x1F3F
+    - help: Voltage Limit (VMAX). This value represents the Maximum instantaneous voltage allowed at any given time. Range is 0 - 7999mV. Uses BIOS VR mailbox command 0x8.
+  - **TDC Enable** (OneOf) [VarStore CpuSetup @ 0x19C, QID 0x15C, size 8]
+    - options: (no options listed)
+    - help: TDC Enable. 0- Disable, 1 - Enable
+  - **TDC Current Limit** (Numeric) [VarStore CpuSetup @ 0x193, QID 0x15D, size 16]  min 0x0 max 0x7FFF
+    - help: TDC Current Limit, defined in 1/8A increments. Range 0-32767. For a TDC Current Limit of 125A, enter 1000. 0 = 0 Amps. Uses BIOS VR mailbox command 0x1A.
+  - **TDC Time Window** (OneOf) [VarStore CpuSetup @ 0x1A4, QID 0x15E, size 32]
+    - options: (no options listed)
+    - help: VR TDC Time Window, value in seconds. 1s is default. Range from 1s to 448s.
+  - **TDC Lock** (OneOf) [VarStore CpuSetup @ 0x1B5, QID 0x15F, size 8]
+    - options: (no options listed)
+    - help: TDC Lock
+
+## Form 0x13B8: SA VR Settings
+  - _(section)_ **SA Domain**
+  - _(section)_ ****
+  - **VR Config Enable** (OneOf) [VarStore CpuSetup @ 0x12F, QID 0x160, size 8]
+    - options: (no options listed)
+    - help: VR Config Enable
+  - **AC Loadline** (Numeric) [VarStore CpuSetup @ 0x136, QID 0x161, size 16]  min 0x0 max 0xF424
+    - help: AC Loadline defined in 1/100 mOhms. A value of 100 = 1.00 mOhm, and 1255 = 12.55 mOhm. Range is 0-6249 (0-62.49 mOhms). 0 = AUTO/HW default. Uses BIOS mailbox command 0x2.
+  - **DC Loadline** (Numeric) [VarStore CpuSetup @ 0x140, QID 0x162, size 16]  min 0x0 max 0xF424
+    - help: DC Loadline defined in 1/100 mOhms. A value of 100 = 1.00 mOhm, and 1255 = 12.55 mOhm. Range is 0-6249 (0-62.49 mOhms). 0 = AUTO/HW default. Uses BIOS mailbox command 0x2.
+  - **PS Current Threshold1** (Numeric) [VarStore CpuSetup @ 0x14A, QID 0x163, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold1, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS Current Threshold2** (Numeric) [VarStore CpuSetup @ 0x154, QID 0x164, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold2, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS Current Threshold3** (Numeric) [VarStore CpuSetup @ 0x15E, QID 0x165, size 16]  min 0x0 max 0x200
+    - help: PS Current Threshold3, defined in 1/4 A increments. A value of 400 = 100A. Range 0-512, which translates to 0-128A. 0 = AUTO. Uses BIOS VR mailbox command 0x3.
+  - **PS3 Enable** (OneOf) [VarStore CpuSetup @ 0x166, QID 0x166, size 8]
+    - options: (no options listed)
+    - help: PS3 Enable/Disable. 0 - Disabled, 1 - Enabled.Uses BIOS VR mailbox command 0x3.
+  - **PS4 Enable** (OneOf) [VarStore CpuSetup @ 0x16B, QID 0x167, size 8]
+    - options: (no options listed)
+    - help: PS4 Enable/Disable. 0 - Disabled, 1 - Enabled. Uses BIOS VR mailbox command 0x3
+  - **IMON Slope** (Numeric) [VarStore CpuSetup @ 0x172, QID 0x168, size 16]  min 0x0 max 0xC8
+    - help: IMON Slope defined in 1/100 increments. Range is 0-200. For a 1.25 slope, enter 125. 0 = AUTO. Uses BIOS VR mailbox command 0x4.
+  - **IMON Offset** (Numeric) [VarStore CpuSetup @ 0x17C, QID 0x169, size 16]  min 0x0 max 0xF9FF
+    - help: IMON Offset defined in 1/1000 increments. Range is 0-63999. For an offset of 25.348, enter 25348. IMON Uses BIOS VR mailbox command 0x4.
+  - **IMON Prefix** (OneOf) [VarStore CpuSetup @ 0x184, QID 0x16A, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VR Current Limit** (Numeric) [VarStore CpuSetup @ 0x18B, QID 0x16B, size 16]  min 0x0 max 0x800
+    - help: Voltage Regulator Current Limit (IccMax). This value represents the Maximum instantaneous current allowed at any given time. The value is represented in 1/4 A increments. A value of 400 = 100A. 0 means AUTO. Uses BIOS VR mailbox command 0x6.
+  - **SA VR Fast Vmode** (OneOf) [VarStore CpuSetup @ 0x37B, QID 0x10C5, size 8]
+    - options: (no options listed)
+    - help: SA VR Fast Vmode. Use to control SA Fast Vmode Enable/Disable.
+  - **Fast Vmode Itrip ICC Limit** (Numeric) [VarStore CpuSetup @ 0x32E, QID 0x10C8, size 16]  min 0x0 max 0x7F8
+    - help: Voltage Regulator Fast Vmode Itrip ICC Limit. A value of 400 = 100A. A value of 0 corresponds to feature disabled (no reactive protection). This value represents the current threshold where the VR would initiate reactive protection if Fast Vmode is enabled. The value is represented in 1/4 A increments. Uses BIOS VR mailbox command 0x25.
+  - **VR Voltage Limit** (Numeric) [VarStore CpuSetup @ 0x1C2, QID 0x16C, size 16]  min 0x0 max 0x1F3F
+    - help: Voltage Limit (VMAX). This value represents the Maximum instantaneous voltage allowed at any given time. Range is 0 - 7999mV. Uses BIOS VR mailbox command 0x8.
+  - **TDC Enable** (OneOf) [VarStore CpuSetup @ 0x19D, QID 0x16D, size 8]
+    - options: (no options listed)
+    - help: TDC Enable. 0- Disable, 1 - Enable
+  - **TDC Time Window** (OneOf) [VarStore CpuSetup @ 0x1A8, QID 0x16E, size 32]
+    - options: (no options listed)
+    - help: TDC Time Window 1, value in milliseconds. 1ms is default. Range from 1ms to 10ms, except for 9ms. 9ms has no valid encoding in the MSR definition.
+  - **TDC Lock** (OneOf) [VarStore CpuSetup @ 0x1B6, QID 0x16F, size 8]
+    - options: (no options listed)
+    - help: TDC Lock
+
+## Form 0x1483: RFI Settings
+  - _(section)_ **RFI Domain**
+  - _(section)_ ****
+  - **RFI Frequency** (Numeric) [VarStore CpuSetup @ 0x1F9, QID 0x170, size 16]  min 0x0 max 0x77E
+    - help: Set desired RFI frequency, in increments of 100KHz. (For a frequency of 100.6MHz, enter 1006.)
+  - **FIVR Spread Spectrum** (OneOf) [VarStore CpuSetup @ 0x2F6, QID 0x171, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable the FIVR Spread Spectrum
+  - **RFI Spread Spectrum** (OneOf) [VarStore CpuSetup @ 0x1FB, QID 0x172, size 8]
+    - options: (no options listed)
+    - help: Set the Spread Spectrum
+
+## Form 0x1111: Power Limit 3 Settings
+  - **Power Limit 3 Override** (OneOf) [VarStore CpuSetup @ 0x22, QID 0x173, size 8]
+    - options: (no options listed)
+    - help: Enable/DisablePower Limit 3 override. If this option is disabled, BIOS will leave the hardware default values for Power Limit 3 and Power Limit 3 Time Window.
+  - **Power Limit 3** (Numeric) [VarStore CpuSetup @ 0x23, QID 0x174, size 32]  min 0x0 max 0x3E7F83
+    - help: Platform Power Limit 3 Power in Milli Watts / Milli Percent. BIOS will round to the nearest 1/8W or 1/8% when programming. For example if 12%, enter 12000, if 50%, enter 50000.  For all SKUs, limit must be less than Psys Pmax value (either in Watts or %). XE SKU: Any value up through Psys Pmax can be programmed. Overclocking SKU: value must be between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR). Other SKUs: This value must be between Min Power Limit and Processor Base Power (TDP). If the value is '0', will default to hardware default value. Recommended value is 100000 if Psys is in %.
+  - **Power Limit 3 Time Window** (OneOf) [VarStore CpuSetup @ 0x27, QID 0x175, size 8]
+    - options: (no options listed)
+    - help: Power Limit 3 Time Window value in Milli seconds. The value may vary from 3 to 64(max). Indicates the time window over which Power Limit 3 value should be maintained. If the value is 0, BIOS leaves the hardware default value. For ATX12VO PSU systems, recommended value is 40.
+  - **Power Limit 3 Duty Cycle** (Numeric) [VarStore CpuSetup @ 0x28, QID 0x176, size 8]  min 0x0 max 0x64
+    - help: Specify the duty cycle in percentage that the CPU is required to maintain over the configured time window. Range is 0-100. For ATX12VO PSU systems, recommended value is 25.
+  - **Response Mode** (OneOf) [VarStore CpuSetup @ 0x383, QID 0x177, size 8]
+    - options: (no options listed)
+    - help: Use Response Mode to adjust Psys_PL3 power reduction behavior. Battery-enabled systems use Gradual power reduction.
+  - **Power Limit 3 Lock** (OneOf) [VarStore CpuSetup @ 0x29, QID 0x178, size 8]
+    - options: (no options listed)
+    - help: Power Limit 3 MSR 615h Lock. When enabled PL3 configurations are locked during OS. When disabled PL3 configuration can be changed during OS.
+
+## Form 0x10E9:   Config TDP Configurations
+  - _(section)_ **Config TDP Configurations**
+  - _(section)_ ****
+  - **Enable Configurable TDP** (OneOf) [VarStore CpuSetup @ 0x227, QID 0x179, size 8]
+    - options: (no options listed)
+    - help: Applies Configurable Processor Base Power (cTDP) initialization settings based on non-cTDP or cTDP. Default is 1: Applies to cTDP; if 0 then applies non-cTDP and BIOS will bypass cTDP initialzation flow
+  - **Configurable TDP Boot Mode** (OneOf) [VarStore CpuSetup @ 0x44, QID 0x17A, size 8]
+    - options: (no options listed)
+    - help: Configurable Processor Base Power (cTDP) Mode as Nominal/Level/Leve2/Deactivate TDP selection. Deactivate option will set MSR to Nominal and MMIO to Zero.
+  - **Configurable TDP Lock** (OneOf) [VarStore CpuSetup @ 0x45, QID 0x17B, size 8]
+    - options: (no options listed)
+    - help: Configurable Processor Base Power (cTDP) Mode Lock sets the Lock bits on TURBO_ACTIVATION_RATIO and CONFIG_TDP_CONTROL.                 Note: When CTDP Lock is enabled Custom ConfigTDP Count will be forced to 1 and Custom ConfigTDP Boot Index will be forced to 0.
+  - _(section)_ ****
+  - _(section)_ **Custom Settings Nominal**
+  - **Power Limit 1** (Numeric) [VarStore CpuSetup @ 0x5B, QID 0x17D, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 1 in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Overclocking SKU: Value must be between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR). Other SKUs: This value must be between Min Power Limit and Processor Base Power (TDP) Limit.
+  - **Power Limit 2** (Numeric) [VarStore CpuSetup @ 0x5F, QID 0x17E, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 2 value in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Processor applies control policies such that the package power does not exceed this limit.
+  - **Power Limit 1 Time Window** (OneOf) [VarStore CpuSetup @ 0x63, QID 0x17F, size 8]
+    - options: (no options listed)
+    - help: Power Limit 1 Time Window value in seconds. The value may vary from 0 to 128. 0 = default value. Defines time window which Processor Base Power (TDP) value should be maintained.
+  - **ConfigTDP Turbo Activation Ratio** (Numeric) [VarStore CpuSetup @ 0x64, QID 0x180, size 8]  min 0x0 max 0xFF
+    - help: Custom value for Turbo Activation Ratio. Needs to be configured with valid values from LFM to Max Turbo. 0 means don't use custom value.
+  - _(section)_ ****
+  - _(section)_ **Custom Settings Level1**
+  - **Power Limit 1** (Numeric) [VarStore CpuSetup @ 0x65, QID 0x181, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 1 in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Overclocking SKU: Value must be between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR). Other SKUs: This value must be between Min Power Limit and Processor Base Power (TDP) Limit.
+  - **Power Limit 2** (Numeric) [VarStore CpuSetup @ 0x69, QID 0x182, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 2 value in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Processor applies control policies such that the package power does not exceed this limit.
+  - **Power Limit 1 Time Window** (OneOf) [VarStore CpuSetup @ 0x6D, QID 0x183, size 8]
+    - options: (no options listed)
+    - help: Power Limit 1 Time Window value in seconds. The value may vary from 0 to 128. 0 = default value. Defines time window which Processor Base Power (TDP) value should be maintained.
+  - **ConfigTDP Turbo Activation Ratio** (Numeric) [VarStore CpuSetup @ 0x6E, QID 0x184, size 8]  min 0x0 max 0xFF
+    - help: Custom value for Turbo Activation Ratio. Needs to be configured with valid values from LFM to Max Turbo. 0 means don't use custom value.
+  - _(section)_ ****
+  - _(section)_ **Custom Settings Level2**
+  - **Power Limit 1** (Numeric) [VarStore CpuSetup @ 0x6F, QID 0x185, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 1 in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Overclocking SKU: Value must be between Max and Min Power Limits (specified by PACKAGE_POWER_SKU_MSR). Other SKUs: This value must be between Min Power Limit and Processor Base Power (TDP) Limit.
+  - **Power Limit 2** (Numeric) [VarStore CpuSetup @ 0x73, QID 0x186, size 32]  min 0x0 max 0x3E7F83
+    - help: Power Limit 2 value in Milli Watts. BIOS will round to the nearest 1/8W when programming. 0 = no custom override. For 12.50W, enter 12500. Processor applies control policies such that the package power does not exceed this limit.
+  - **Power Limit 1 Time Window** (OneOf) [VarStore CpuSetup @ 0x77, QID 0x187, size 8]
+    - options: (no options listed)
+    - help: Power Limit 1 Time Window value in seconds. The value may vary from 0 to 128. 0 = default value. Defines time window which Processor Base Power (TDP) value should be maintained.
+  - **ConfigTDP Turbo Activation Ratio** (Numeric) [VarStore CpuSetup @ 0x78, QID 0x188, size 8]  min 0x0 max 0xFF
+    - help: Custom value for Turbo Activation Ratio. Needs to be configured with valid values from LFM to Max Turbo. 0 means don't use custom value.
+
+## Form 0x1012:   View/Configure CPU Lock Options
+  - **CFG Lock** (OneOf) [VarStore CpuSetup @ 0x43, QID 0x189, size 8]
+    - options: (no options listed)
+    - help: Configure MSR 0xE2[15], CFG Lock bit
+  - **Overclocking Lock** (OneOf) [VarStore CpuSetup @ 0x10E, QID 0x18A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Overclocking Lock (BIT 20) in FLEX_RATIO(194) MSR
+
+## Form 0x13D2: Connectivity Configuration
+  - **CNVi Mode** (OneOf) [VarStore PchSetup @ 0x734, QID 0x18B, size 8]
+    - options: (no options listed)
+    - help: This option configures Connectivity.  [Auto Detection] means that if Discrete solution is discovered it will be enabled by default. Otherwise Integrated solution (CNVi) will be enabled;  [Disable Integrated] disables Integrated Solution.  NOTE: When CNVi is present, the GPIO pins that are used for radio interface cannot be assigned to the other native function.
+  - **Wi-Fi Core** (OneOf) [VarStore PchSetup @ 0x735, QID 0x18C, size 8]
+    - options: (no options listed)
+    - help: This is an option intended to Enable/Disable Wi-Fi Core in CNVi
+  - **BT Core** (OneOf) [VarStore PchSetup @ 0x736, QID 0x18D, size 8]
+    - options: (no options listed)
+    - help: This is an option intended to Enable/Disable BT Core in CNVi
+  - **BT RF-Kill Delay Time** (Numeric) [VarStore Setup @ 0xB94, QID 0x18E, size 16]  min 0x0 max 0x400
+    - help: This is the delay Time to switch on/off BT RF-KILL signal during S3/S4 resume. Unit is ms
+  - **BT Audio Offload** (OneOf) [VarStore PchSetup @ 0x737, QID 0x146E, size 8]
+    - options: (no options listed)
+    - help: This is an option to Enable/Disable BT Audio Offload which enables audio input from BT device to the audio DSP and enables power efficient audio output to BT device.
+  - **RFI Mitigation** (OneOf) [VarStore PchSetup @ 0x738, QID 0x18F, size 8]
+    - options: (no options listed)
+    - help: This is an option intended to Enable/Disable DDR-RFIM feature for Connectivity This RFI mitigation feature may result in temporary slowdown of the DDR speed.
+  - **DLVR RFI Mitigation** (OneOf) [VarStore Setup @ 0xBA8, QID 0x190, size 8]
+    - options: (no options listed)
+    - help: This is an option intended to Enable/Disable DLVR RFIM feature for Connectivity This option is only valid when global DLVR is enabled.
+  - _(section)_ ****
+  - **CoExistence Manager** (OneOf) [VarStore Setup @ 0x772, QID 0x191, size 8]
+    - options: (no options listed)
+    - help: CoEx Manager mitigates radio coexistence issues between Intel WWAN (modem) and Intel WLAN (WiFi/BT). This should be enabled only if both WWAN and WLAN solutions are based on Intel components
+  - _(section)_ ****
+  - **Preboot BLE** (OneOf) [VarStore Setup @ 0x773, QID 0x192, size 8]
+    - options: (no options listed)
+    - help: This will be used to enable Preboot Bluetooth function
+  - _(section)_ ****
+  - **Discrete Bluetooth Interface** (OneOf) [VarStore Setup @ 0x5D2, QID 0x193, size 8]
+    - options: (no options listed)
+    - help: SerialIo UART0 needs to be enabled to select BT interface
+  - **BT Interrupt Mode** (OneOf) [VarStore Setup @ 0x5D3, QID 0x194, size 8]
+    - options: (no options listed)
+    - help: Selects routing of interrupt from BT Module
+  - **BT Tile Mode** (OneOf) [VarStore Setup @ 0xAAA, QID 0x195, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Tile
+  - **Tile S0** (Numeric) [VarStore Setup @ 0xAAB, QID 0x196, size 8]  min 0x0 max 0x7
+    - help: The activity of Tile in S0. Bit0:Find My PC Bit1:Ring Notification Bit2:BT_LED# Signal
+  - **Tile S0ix** (Numeric) [VarStore Setup @ 0xAAC, QID 0x197, size 8]  min 0x0 max 0x7
+    - help: The activity of Tile in S0ix. Bit0:Find My PC Bit1:Ring Notification Bit2:BT_LED# Signal
+  - **Tile S4** (Numeric) [VarStore Setup @ 0xAAD, QID 0x198, size 8]  min 0x0 max 0x7
+    - help: The activity of Tile in S4. Bit0:Find My PC Bit1:Ring Notification Bit2:BT_LED# Signal
+  - **Tile S5** (Numeric) [VarStore Setup @ 0xAAE, QID 0x199, size 8]  min 0x0 max 0x7
+    - help: The activity of Tile in S5. Bit0:Find My PC Bit1:Ring Notification Bit2:BT_LED# Signal
+  - **BT LED Config** (Numeric) [VarStore Setup @ 0xB1C, QID 0x19A, size 8]  min 0x0 max 0x3
+    - help: BT LED Config Bit0:Define LED to Tile Ring Notification Bit1:Active High Polarity
+  - **BT LED Pulse Duration** (Numeric) [VarStore Setup @ 0xB1D, QID 0x19B, size 8]  min 0x0 max 0xFF
+    - help: LED Duration in milliseconds. Min:1ms Max:1000ms
+  - **BT LED Pulse Interval** (Numeric) [VarStore Setup @ 0xB1E, QID 0x19C, size 8]  min 0x0 max 0xFF
+    - help: LED Pulse interval  in tens of milliseconds. Min:10ms Max:255ms
+  - _(section)_ ****
+  - **Advanced settings** (OneOf) [VarStore Setup @ 0x719, QID 0x19D, size 8]
+    - options: (no options listed)
+    - help: Configure ACPI objects for wireless devices
+  - **Switched Antenna Diversity Selection** (OneOf) [VarStore Setup @ 0x771, QID 0x19E, size 8]
+    - options: (no options listed)
+    - help: This allows WiFi modules which have only one antenna to use one of the 2 possible antennas with the options:  0 - Antenna1  1 - Antenna2  2 - Diversity  3 - Diversity Antenna1  4 - Diversity Antenna2
+  - **Domain Type SPLC 1** (Numeric) [VarStore Setup @ 0x71A, QID 0x19F, size 8]  min 0x0 max 0x14
+    - help: 09h: Module(M.2); 07h: WiFi/WLAN; 0Fh: WWAN; 10h WiGig; 14h: RFEM
+  - **Default Power Limit** (Numeric) [VarStore Setup @ 0x71B, QID 0x1538, size 16]  min 0x1 max 0xFFFF
+    - help: Power Limit in milli watts
+  - **Default Time Window** (Numeric) [VarStore Setup @ 0x71D, QID 0x1A0, size 32]  min 0x1 max 0x186A0
+    - help: Time Window in milli seconds
+  - **TRxDelay_A** (Numeric) [VarStore Setup @ 0x721, QID 0x1A1, size 8]  min 0x1 max 0x64
+    - help: Antenna A delay possible values: 1-100 in 10ths of nano seconds resolution
+  - **TRxCableLength_A** (Numeric) [VarStore Setup @ 0x722, QID 0x1A2, size 8]  min 0x1 max 0x64
+    - help: Antenna A cable length possible values: 1-100cm in 1cm resolution
+  - **TRxDelay_B** (Numeric) [VarStore Setup @ 0x723, QID 0x1A3, size 8]  min 0x1 max 0x64
+    - help: Antenna B delay possible values: 1-100 in 10ths of nano seconds resolution
+  - **TRxCableLength_B** (Numeric) [VarStore Setup @ 0x724, QID 0x1A4, size 8]  min 0x1 max 0x64
+    - help: Antenna B cable length possible values: 1-100cm in 1cm resolution
+  - **Domain Type** (Numeric) [VarStore Setup @ 0x725, QID 0x1A5, size 8]  min 0x0 max 0x64
+    - help: 09h: Module; 07h: WiFi/WLAN; 0Fh: WWAN; 10h WiGig; 14h: RFEM
+  - **Country Identifier** (Numeric) [VarStore Setup @ 0x726, QID 0x1A6, size 16]  min 0x1 max 0xFFFF
+    - help: Country identifier as defined in ISO/IEC 3166-1 Alpha 2 code
+  - **11Ax Setting for Ukraine** (OneOf) [VarStore Setup @ 0x9FE, QID 0x1A7, size 8]
+    - options: (no options listed)
+    - help: 11Ax Setting for Ukraine Bit 0 - Apply changes to country Ukraine. 11Ax Setting within module certification 00 - None. Work with Wi-Fi FW/OTP definitions [Default] 01 - Apply changes
+  - **11Ax Mode for Ukraine** (OneOf) [VarStore Setup @ 0x9FF, QID 0x1A8, size 8]
+    - options: (no options listed)
+    - help: 11Ax Mode for Ukraine Bit 1 - 11Ax Mode. Effective only if Bit 0 set to 1 00 – Disable 11Ax on country Ukraine [Default] 01 – Enable 11Ax on country Ukraine
+  - **11Ax Setting for Russia** (OneOf) [VarStore Setup @ 0xA00, QID 0x1A9, size 8]
+    - options: (no options listed)
+    - help: 11Ax Setting for Russia Bit 2 - Apply changes to country Russia. 11Ax Setting within module certification 00 - None. Work with Wi-Fi FW/OTP definitions [Default] 01 - Apply changes
+  - **11Ax Mode for Russia** (OneOf) [VarStore Setup @ 0xA01, QID 0x1AA, size 8]
+    - options: (no options listed)
+    - help: 11Ax Mode for Russia Bit 3 - 11Ax Mode. Effective only if Bit 2 set to 1 00 – Disable 11Ax on country Russia [Default] 01 – Enable 11Ax on country Russia
+  - **WiFi SAR** (OneOf) [VarStore Setup @ 0x72B, QID 0x1AB, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable WiFi SAR Tx Power Limit; DISABLE - Device ignores WiFi SAR Configuration Table; ENABLE - Device uses WiFi SAR Configuration Table
+  - **SAR 2400 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x72C, QID 0x1AC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x72D, QID 0x1AD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x72E, QID 0x1AE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x72F, QID 0x1AF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x730, QID 0x1B0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x731, QID 0x1B1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x732, QID 0x1B2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x733, QID 0x1B3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x734, QID 0x1B4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x735, QID 0x1B5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0x9C2, QID 0x1B6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C3, QID 0x1B7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C4, QID 0x1B8, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C5, QID 0x1B9, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C6, QID 0x1BA, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C7, QID 0x1BB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C8, QID 0x1BC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9C9, QID 0x1BD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9CA, QID 0x1BE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9CB, QID 0x1BF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9CC, QID 0x1C0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0x9CD, QID 0x1C1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA0B, QID 0x1C2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA0C, QID 0x1C3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA0D, QID 0x1C4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA0E, QID 0x1C5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA0F, QID 0x1C6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA10, QID 0x1C7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA11, QID 0x1C8, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA12, QID 0x1C9, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA13, QID 0x1CA, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA14, QID 0x1CB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set1 Chain A** (Numeric) [VarStore Setup @ 0xA15, QID 0x1CC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA16, QID 0x1CD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA17, QID 0x1CE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA18, QID 0x1CF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA19, QID 0x1D0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA1A, QID 0x1D1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA1B, QID 0x1D2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA1C, QID 0x1D3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA1D, QID 0x1D4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA1E, QID 0x1D5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA1F, QID 0x1D6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set1 Chain B** (Numeric) [VarStore Setup @ 0xA20, QID 0x1D7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **WiFi Dynamic SAR** (OneOf) [VarStore Setup @ 0x736, QID 0x1D8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable WiFi Dynamic SAR Tx Power Limit which shell be set dynamically accorting to the Proximity Sensor
+  - **Extended SAR Range Sets** (OneOf) [VarStore Setup @ 0x737, QID 0x1D9, size 8]
+    - options: (no options listed)
+    - help: Defines the WiFi SAR Sets that can be used to set the power limts dynamically based on the Proximity Sensor,Set 1 is always present if WiFi SAR enabled and Set 2-3 are additinoal sets
+  - **SAR 2400 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x738, QID 0x1DA, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x739, QID 0x1DB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x73A, QID 0x1DC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x73B, QID 0x1DD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x73C, QID 0x1DE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x73D, QID 0x1DF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x73E, QID 0x1E0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x73F, QID 0x1E1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x740, QID 0x1E2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x741, QID 0x1E3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0x9CE, QID 0x1E4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9CF, QID 0x1E5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D0, QID 0x1E6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D1, QID 0x1E7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D2, QID 0x1E8, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D3, QID 0x1E9, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D4, QID 0x1EA, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D5, QID 0x1EB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D6, QID 0x1EC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D7, QID 0x1ED, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D8, QID 0x1EE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0x9D9, QID 0x1EF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x742, QID 0x1F0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x743, QID 0x1F1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x744, QID 0x1F2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x745, QID 0x1F3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x746, QID 0x1F4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x747, QID 0x1F5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x748, QID 0x1F6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x749, QID 0x1F7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x74A, QID 0x1F8, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x74B, QID 0x1F9, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0x9DA, QID 0x1FA, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9DB, QID 0x1FB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9DC, QID 0x1FC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9DD, QID 0x1FD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9DE, QID 0x1FE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9DF, QID 0x1FF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9E0, QID 0x200, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9E1, QID 0x201, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9E2, QID 0x202, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9E3, QID 0x203, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9E4, QID 0x204, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0x9E5, QID 0x205, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x74C, QID 0x206, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x74D, QID 0x207, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x74E, QID 0x208, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x74F, QID 0x209, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x750, QID 0x20A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x751, QID 0x20B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x752, QID 0x20C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x753, QID 0x20D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x754, QID 0x20E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x755, QID 0x20F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0x9E6, QID 0x210, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9E7, QID 0x211, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5180-5320 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9E8, QID 0x212, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5340-5440 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9E9, QID 0x213, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5460-5700 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9EA, QID 0x214, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5720-5825 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9EB, QID 0x215, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5845-6135 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9EC, QID 0x216, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6155-6375 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9ED, QID 0x217, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6395-6495 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9EE, QID 0x218, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6515-6675 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9EF, QID 0x219, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6695-6835 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9F0, QID 0x21A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6855-7095 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0x9F1, QID 0x21B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA21, QID 0x21C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA22, QID 0x21D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA23, QID 0x21E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA24, QID 0x21F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA25, QID 0x220, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA26, QID 0x221, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA27, QID 0x222, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA28, QID 0x223, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA29, QID 0x224, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA2A, QID 0x225, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set2 Chain A** (Numeric) [VarStore Setup @ 0xA2B, QID 0x226, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA2C, QID 0x227, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA2D, QID 0x228, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA2E, QID 0x229, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA2F, QID 0x22A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA30, QID 0x22B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA31, QID 0x22C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA32, QID 0x22D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA33, QID 0x22E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA34, QID 0x22F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA35, QID 0x230, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set2 Chain B** (Numeric) [VarStore Setup @ 0xA36, QID 0x231, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA37, QID 0x232, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA38, QID 0x233, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA39, QID 0x234, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA3A, QID 0x235, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi CDB SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA3B, QID 0x236, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA3C, QID 0x237, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA3D, QID 0x238, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA3E, QID 0x239, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA3F, QID 0x23A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA40, QID 0x23B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set3 Chain A** (Numeric) [VarStore Setup @ 0xA41, QID 0x23C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA42, QID 0x23D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA43, QID 0x23E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA44, QID 0x23F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA45, QID 0x240, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA46, QID 0x241, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA47, QID 0x242, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA48, QID 0x243, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA49, QID 0x244, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA4A, QID 0x245, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA4B, QID 0x246, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set3 Chain B** (Numeric) [VarStore Setup @ 0xA4C, QID 0x247, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA4D, QID 0x248, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA4E, QID 0x249, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA4F, QID 0x24A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA50, QID 0x24B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA51, QID 0x24C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA52, QID 0x24D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA53, QID 0x24E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA54, QID 0x24F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA55, QID 0x250, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA56, QID 0x251, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set4 Chain A** (Numeric) [VarStore Setup @ 0xA57, QID 0x252, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 2400 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA58, QID 0x253, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5180-5320 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA59, QID 0x254, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5340-5440 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA5A, QID 0x255, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5460-5700 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA5B, QID 0x256, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5720-5825 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA5C, QID 0x257, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 5845-6135 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA5D, QID 0x258, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6155-6375 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA5E, QID 0x259, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6395-6495 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA5F, QID 0x25A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6515-6675 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA60, QID 0x25B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6695-6835 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA61, QID 0x25C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR CDB 6855-7095 MHz Set4 Chain B** (Numeric) [VarStore Setup @ 0xA62, QID 0x25D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **Antenna A Current Set** (OneOf) [VarStore Setup @ 0x768, QID 0x25E, size 8]
+    - options: (no options listed)
+    - help: Current Set to be used 0 :Default OTP table 1-3 SAR Sets
+  - **Antenna B Current Set** (OneOf) [VarStore Setup @ 0x769, QID 0x25F, size 8]
+    - options: (no options listed)
+    - help: Current Set to be used 0 :Default OTP table 1-3 SAR Sets
+  - **Number of Groups** (Numeric) [VarStore Setup @ 0xB39, QID 0x260, size 8]  min 0x0 max 0x8
+    - help: The Number of Group that supported. The first 3 Mandatory. 4-7 OEMs customizations.
+  - **SAR 2400 MHz Max Allowed for Group 1** (Numeric) [VarStore Setup @ 0x756, QID 0x261, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 1** (Numeric) [VarStore Setup @ 0x757, QID 0x262, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 1** (Numeric) [VarStore Setup @ 0x758, QID 0x263, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 1** (Numeric) [VarStore Setup @ 0x759, QID 0x264, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 1** (Numeric) [VarStore Setup @ 0x75A, QID 0x265, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 1** (Numeric) [VarStore Setup @ 0x75B, QID 0x266, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 1** (Numeric) [VarStore Setup @ 0xA02, QID 0x267, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 1** (Numeric) [VarStore Setup @ 0xA03, QID 0x268, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 1** (Numeric) [VarStore Setup @ 0xA04, QID 0x269, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 2** (Numeric) [VarStore Setup @ 0x75C, QID 0x26A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 2** (Numeric) [VarStore Setup @ 0x75D, QID 0x26B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 2** (Numeric) [VarStore Setup @ 0x75E, QID 0x26C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 2** (Numeric) [VarStore Setup @ 0x75F, QID 0x26D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 2** (Numeric) [VarStore Setup @ 0x760, QID 0x26E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 2** (Numeric) [VarStore Setup @ 0x761, QID 0x26F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 2** (Numeric) [VarStore Setup @ 0xA05, QID 0x270, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 2** (Numeric) [VarStore Setup @ 0xA06, QID 0x271, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 2** (Numeric) [VarStore Setup @ 0xA07, QID 0x272, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 3** (Numeric) [VarStore Setup @ 0x762, QID 0x273, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 3** (Numeric) [VarStore Setup @ 0x763, QID 0x274, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 3** (Numeric) [VarStore Setup @ 0x764, QID 0x275, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 3** (Numeric) [VarStore Setup @ 0x765, QID 0x276, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 3** (Numeric) [VarStore Setup @ 0x766, QID 0x277, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 3** (Numeric) [VarStore Setup @ 0x767, QID 0x278, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 3** (Numeric) [VarStore Setup @ 0xA08, QID 0x279, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 3** (Numeric) [VarStore Setup @ 0xA09, QID 0x27A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 3** (Numeric) [VarStore Setup @ 0xA0A, QID 0x27B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 4** (Numeric) [VarStore Setup @ 0xB3A, QID 0x27C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 4** (Numeric) [VarStore Setup @ 0xB3B, QID 0x27D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 4** (Numeric) [VarStore Setup @ 0xB3C, QID 0x27E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 4** (Numeric) [VarStore Setup @ 0xB3D, QID 0x27F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 4** (Numeric) [VarStore Setup @ 0xB3E, QID 0x280, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 4** (Numeric) [VarStore Setup @ 0xB3F, QID 0x281, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 4** (Numeric) [VarStore Setup @ 0xB40, QID 0x282, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 4** (Numeric) [VarStore Setup @ 0xB41, QID 0x283, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 4** (Numeric) [VarStore Setup @ 0xB42, QID 0x284, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 5** (Numeric) [VarStore Setup @ 0xB43, QID 0x285, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 5** (Numeric) [VarStore Setup @ 0xB44, QID 0x286, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 5** (Numeric) [VarStore Setup @ 0xB45, QID 0x287, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 5** (Numeric) [VarStore Setup @ 0xB46, QID 0x288, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 5** (Numeric) [VarStore Setup @ 0xB47, QID 0x289, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 5** (Numeric) [VarStore Setup @ 0xB48, QID 0x28A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 5** (Numeric) [VarStore Setup @ 0xB49, QID 0x28B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 5** (Numeric) [VarStore Setup @ 0xB4A, QID 0x28C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 5** (Numeric) [VarStore Setup @ 0xB4B, QID 0x28D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 6** (Numeric) [VarStore Setup @ 0xB4C, QID 0x28E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 6** (Numeric) [VarStore Setup @ 0xB4D, QID 0x28F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 6** (Numeric) [VarStore Setup @ 0xB4E, QID 0x290, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 6** (Numeric) [VarStore Setup @ 0xB4F, QID 0x291, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 6** (Numeric) [VarStore Setup @ 0xB50, QID 0x292, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 6** (Numeric) [VarStore Setup @ 0xB51, QID 0x293, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 6** (Numeric) [VarStore Setup @ 0xB52, QID 0x294, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 6** (Numeric) [VarStore Setup @ 0xB53, QID 0x295, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 6** (Numeric) [VarStore Setup @ 0xB54, QID 0x296, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 7** (Numeric) [VarStore Setup @ 0xB55, QID 0x297, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 7** (Numeric) [VarStore Setup @ 0xB56, QID 0x298, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 7** (Numeric) [VarStore Setup @ 0xB57, QID 0x299, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 7** (Numeric) [VarStore Setup @ 0xB58, QID 0x29A, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 7** (Numeric) [VarStore Setup @ 0xB59, QID 0x29B, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 7** (Numeric) [VarStore Setup @ 0xB5A, QID 0x29C, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 7** (Numeric) [VarStore Setup @ 0xB5B, QID 0x29D, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 7** (Numeric) [VarStore Setup @ 0xB5C, QID 0x29E, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 7** (Numeric) [VarStore Setup @ 0xB5D, QID 0x29F, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Max Allowed for Group 8** (Numeric) [VarStore Setup @ 0xB5E, QID 0x2A0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain A Offset for Group 8** (Numeric) [VarStore Setup @ 0xB5F, QID 0x2A1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 2400 MHz Chain B Offset for Group 8** (Numeric) [VarStore Setup @ 0xB60, QID 0x2A2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Max Allowed for Group 8** (Numeric) [VarStore Setup @ 0xB61, QID 0x2A3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain A Offset for Group 8** (Numeric) [VarStore Setup @ 0xB62, QID 0x2A4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 5200 MHz Chain B Offset for Group 8** (Numeric) [VarStore Setup @ 0xB63, QID 0x2A5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Max Allowed for Group 8** (Numeric) [VarStore Setup @ 0xB64, QID 0x2A6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain A Offset for Group 8** (Numeric) [VarStore Setup @ 0xB65, QID 0x2A7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Delta Value to be applied - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **SAR 6000-7000 MHz Chain B Offset for Group 8** (Numeric) [VarStore Setup @ 0xB66, QID 0x2A8, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **External 32kHz Clock** (OneOf) [VarStore Setup @ 0x98A, QID 0x2A9, size 8]
+    - options: (no options listed)
+    - help: This will be used to specify that platform does have valid External 32kHz clock or not..
+  - **WiFi ANT Gain control** (OneOf) [VarStore Setup @ 0x98B, QID 0x2AA, size 8]
+    - options: (no options listed)
+    - help: Enable / Disable WiFi Antenna Gain control.
+  - **ANT Gain 2400 MHz Chain A** (Numeric) [VarStore Setup @ 0x98C, QID 0x2AB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **ANT Gain 5180-5320 MHz Chain A** (Numeric) [VarStore Setup @ 0x98D, QID 0x2AC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5340-5440 MHz Chain A** (Numeric) [VarStore Setup @ 0x98E, QID 0x2AD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5460-5700 MHz Chain A** (Numeric) [VarStore Setup @ 0x98F, QID 0x2AE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5720-5825 MHz Chain A** (Numeric) [VarStore Setup @ 0x990, QID 0x2AF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5845-6135 MHz Chain A** (Numeric) [VarStore Setup @ 0x9F2, QID 0x2B0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6155-6375 MHz Chain A** (Numeric) [VarStore Setup @ 0x9F3, QID 0x2B1, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6395-6495 MHz Chain A** (Numeric) [VarStore Setup @ 0x9F4, QID 0x2B2, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6515-6675 MHz Chain A** (Numeric) [VarStore Setup @ 0x9F5, QID 0x2B3, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6695-6835 MHz Chain A** (Numeric) [VarStore Setup @ 0x9F6, QID 0x2B4, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6855-7095 MHz Chain A** (Numeric) [VarStore Setup @ 0x9F7, QID 0x2B5, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 2400 MHz Chain B** (Numeric) [VarStore Setup @ 0x991, QID 0x2B6, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5180-5320 MHz Chain B** (Numeric) [VarStore Setup @ 0x992, QID 0x2B7, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5340-5440 MHz Chain B** (Numeric) [VarStore Setup @ 0x993, QID 0x2B8, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5460-5700 MHz Chain B** (Numeric) [VarStore Setup @ 0x994, QID 0x2B9, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5720-5825 MHz Chain B** (Numeric) [VarStore Setup @ 0x995, QID 0x2BA, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 5845-6135 MHz Chain B** (Numeric) [VarStore Setup @ 0x9F8, QID 0x2BB, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6155-6375 MHz Chain B** (Numeric) [VarStore Setup @ 0x9F9, QID 0x2BC, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6395-6495 MHz Chain B** (Numeric) [VarStore Setup @ 0x9FA, QID 0x2BD, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6515-6675 MHz Chain B** (Numeric) [VarStore Setup @ 0x9FB, QID 0x2BE, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6695-6835 MHz Chain B** (Numeric) [VarStore Setup @ 0x9FC, QID 0x2BF, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - **Ant Gain 6855-7095 MHz Chain B** (Numeric) [VarStore Setup @ 0x9FD, QID 0x2C0, size 8]  min 0x0 max 0xFF
+    - help: Defines the WiFi ANT gain Delta Value to be applied - 8bit signed Two's complement 0.125dB. 0x80  = 0b10000000 = -16dB; 0x7F = 0b01111111 = 15.875dB. Each step is equivalent to 0.125dB
+  - _(section)_ ****
+  - **External 32kHz Clock** (OneOf) [VarStore Setup @ 0x98A, QID 0x2C1, size 8]
+    - options: (no options listed)
+    - help: This will be used to specify that platform does have valid External 32kHz clock or not..
+  - **Bluetooth SAR** (OneOf) [VarStore Setup @ 0x76A, QID 0x2C2, size 8]
+    - options: (no options listed)
+    - help: Define the mode of SAR control to be used.  Disabled: Tx power shall be mandated by device NVM  Enabled: Tx power shall be the minimum between BIOS SAR table and BT Device NVM (either Module or Platform)
+  - **Bluetooth Increased Power Mode** (OneOf) [VarStore Setup @ 0xBA9, QID 0x2C3, size 8]
+    - options: (no options listed)
+    - help: Defines Bluetooth Increased Power Mode. SAR Limitation feature enablement/disablement
+  - **Bluetooth SAR Power Limit 2400 Chain A** (Numeric) [VarStore Setup @ 0xBAA, QID 0x2C4, size 8]  min 0x0 max 0xFF
+    - help: Bluetooth SAR power restriction for the Lower Band (LB) - 2400MHz frequency Chain A. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB
+  - **Bluetooth SAR BR** (Numeric) [VarStore Setup @ 0x76B, QID 0x2C5, size 8]  min 0x0 max 0xFF
+    - help: Defines the SAR power restriction for BR Modulation
+  - **Bluetooth SAR EDR2** (Numeric) [VarStore Setup @ 0x76C, QID 0x2C6, size 8]  min 0x0 max 0xFF
+    - help: Defines the SAR power restriction for EDR2 Modulation
+  - **Bluetooth SAR EDR3** (Numeric) [VarStore Setup @ 0x76D, QID 0x2C7, size 8]  min 0x0 max 0xFF
+    - help: Defines the SAR power restriction for EDR3 Modulation
+  - **Bluetooth SAR LE** (Numeric) [VarStore Setup @ 0x76E, QID 0x2C8, size 8]  min 0x0 max 0xFF
+    - help: Defines the SAR power restriction for LE Modulation
+  - **Bluetooth SAR LE 2Mhz** (Numeric) [VarStore Setup @ 0x76F, QID 0x2C9, size 8]  min 0x0 max 0xFF
+    - help: Defines the SAR power restriction for LE 2Mhz Modulation
+  - **Bluetooth SAR LE LR** (Numeric) [VarStore Setup @ 0x770, QID 0x2CA, size 8]  min 0x0 max 0xFF
+    - help: Defines the SAR power restriction for LE LR Modulation
+  - **Disable SRD Active Channels** (Numeric) [VarStore Setup @ 0x9B8, QID 0x2CB, size 8]  min 0x0 max 0x2
+    - help: Enable/Disable SRD Active Channels   00 - ETSI 5.8 GHz SRD Active Scan Enable  01 - ETSI 5.8 GHz SRD Passive Scan Enable  02 - ETSI 5.8 GHz SRD Disabled
+  - **Supported Indonesia 5.15-5.35 GHz Band** (Numeric) [VarStore Setup @ 0x9B9, QID 0x2CC, size 8]  min 0x0 max 0x2
+    - help: Enable/Disable Indonesia 5.15-5.35 GHz   00 - Set 5.15-5.35 GHz to Disable in Indonesia  01 - Set 5.15-5.35 GHz to Enable (Passive) in Indonesia  02 - Reserved
+  - **Ultra High Band Support** (Numeric) [VarStore Setup @ 0x9BE, QID 0x2CD, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Please input HEX value.  Bit0  '0' No override [Default]  '1' Only allow countries enabled in the following bits Bit1 - USA  '0' USA 6GHz disable  '1' 6GHz allowed in USA Bit2 - Rest of World Bit3 - EU countries Bit4 - South Korea Bit5 - Brazil Bit6 - Chile Bit7 - Japan Bit8 - Canada Bit31:9 - Reserved
+  - **Ultra High Band Support** (Numeric) [VarStore Setup @ 0x9BE, QID 0x2CE, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Please input HEX value.  Bit0  '0' No override [Default]  '1' Only allow countries enabled in the following bits Bit1 - USA  '0' USA 6GHz disable  '1' 6GHz allowed in USA Bit2 - Rest of World Bit3 - EU countries Bit4 - South Korea Bit5 - Brazil Bit6 - Chile Bit7 - Japan Bit8 - Canada Bit9 - Morocco Bit10 - Mongolia Bit11 - Malaysia Bit31:12 - Reserved
+  - **Regulatory Configurations** (OneOf) [VarStore Setup @ 0xB1F, QID 0x2CF, size 32]
+    - options: (no options listed)
+    - help: Enabling DRS for China Location
+  - **UART Configurations** (OneOf) [VarStore Setup @ 0xB23, QID 0x2D0, size 32]
+    - options: (no options listed)
+    - help: TBD
+  - **UNII-4** (Numeric) [VarStore Setup @ 0xB27, QID 0x2D1, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Control Enablement UNII-4 over certificate modules Please input HEX value.  FCC Bit0 - Apply changes over FCC, UNII-4 setting within module certification (Default Intel module definitions)  '0' Work with WiFi FW/OTP definitions  '1' Apply changes Bit1 - UNII-4 mode on FCC  '0' Disable UNII-4  '1' Enable UNII-4  ETSI Bit2 - Apply changes over ETSI, UNII-4 setting within module certification (Default Intel module definitions) Bit3 - UNII-4 mode on ETSI  Bit31:4 - Reserved shall set to zeros
+  - **Indoor Control** (Numeric) [VarStore Setup @ 0xB2B, QID 0x2D2, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Device for Indoor Use Only (Solar Family onwards) Please input HEX value.  Bit0 - EU Bit1 - Japan Bit2 - China, applied only in case of China BIOS or DRS in China Enabled Bit3 - USA Bit31:4 - Reserved shall set to zeros
+  - **Wi-Fi Band Selection** (Numeric) [VarStore Setup @ 0xBA4, QID 0x2D3, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Give the ability to selectively enable/disable Wi-Fi bands on platform. Please input HEX value.  Bit value  '0' Band selection Controlled by NIC [Default]  '1' Force disable the band Bit0 - 2.4 GHz Bit1 - 5.2 GHz Bit2 - 5.3 GHz Bit3 - 5.5 GHz Bit4 - 5.8 GHz Bit5 - 5.9 GHz Bit6 - 6.2 GHz Bit7 - 6.5 GHz Bit8 - 6.6 GHz Bit9 - 6.8 GHz Bit10 - 7.0 GHz Bit31:11 - Reserved
+  - **Wi-Fi Energy Detection Threshold** (Numeric) [VarStore Setup @ 0xBA0, QID 0x2D4, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Please input HEX value.  Bit value  '0' Use default EDT method  '1' Use new EDT method Bit0:1 - Reserved Bit2 - For ETSI Bit3:4 - Reserved Bit5 - For FCC Bit6:8 - Reserved Bit9 - For HB 5150-5350 Bit10 - For HB 5350-5470 Bit11 - For HB 5470-5725 Bit12 - For HB 5725-5945 Bit13 - For UHB 5945-6165 Bit14 - For UHB 6165-6405 Bit15 - For UHB 6405-6525 Bit16 - For UHB 6525-6705 Bit17 - For UHB 6705-6865 Bit18 - For UHB 6865-7105 Bit31:19 - Reserved
+  - **Wi-Fi 7 enablement/disablement** (Numeric) [VarStore Setup @ 0xB9B, QID 0x2D5, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Please input HEX value.  Bit0  '0' No override [Default]  '1' Force disable all countries that are not defined in the following bits Bit1 - USA  '0' USA Wi-Fi disable  '1' Wi-Fi 7 allowed in the USA Bit31:2 - Reserved
+  - **WTAS Selection** (Numeric) [VarStore Setup @ 0xB6A, QID 0x2D6, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Please input HEX value.  Bit0 - Enable TAS feature.  '0' TAS Disabled [Default]  '1' TAS Enabled Bit1 - IEC Optimization, override NIC configuration (BIOSoverideTASrIEC),Allow override NIC defaults.  '0' No override, use device settings.  '1' Override IEC Optimization, effected over certified NIC. The Value will set by Bit #2. Bit2 - IEC Optimization Control Valve (BIOCenTrIC).This bit impact only incase that Bit #1 set to ‘1’ and the NIC is certified to support TAS over IEC.  '0' Disabled TAS IEC optimization regulatory averaging time  '1' Enabled TAS IEC optimization regulatory averaging time Bit31:3 - Reserved
+  - **WTAS List Entries** (Numeric) [VarStore Setup @ 0xA7E, QID 0x2D7, size 8]  min 0x0 max 0xF
+    - help: No. of blocked countries not approved by OEM to support this feature.
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA88, QID 0x2D8, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA8A, QID 0x2D9, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA8C, QID 0x2DA, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA8E, QID 0x2DB, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA90, QID 0x2DC, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA92, QID 0x2DD, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA94, QID 0x2DE, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA96, QID 0x2DF, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA98, QID 0x2E0, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA9A, QID 0x2E1, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA9C, QID 0x2E2, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xA9E, QID 0x2E3, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xAA0, QID 0x2E4, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xAA2, QID 0x2E5, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xAA4, QID 0x2E6, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **ISO country code to block** (Numeric) [VarStore Setup @ 0xAA6, QID 0x2E7, size 16]  min 0x0 max 0xFFFF
+    - help: The decimal equivalent of country code (a two-ASCII-character) as specified in ISO_3166-1. Ex. for JP - 19024
+  - **WLAN/WWAN Low Band Isolation** (Numeric) [VarStore Setup @ 0xB37, QID 0x2E8, size 8]  min 0xF max 0x28
+    - help: Isolation between WLAN and WWAN in WiFi Low Band (2.4 GHz). Range: 15 - 40 dB
+  - **WLAN/WWAN High Band Isolation** (Numeric) [VarStore Setup @ 0xB38, QID 0x2E9, size 8]  min 0xF max 0x28
+    - help: Isolation between WLAN and WWAN in WiFi High Band (5.2-7 GHz). Range: 15 - 40 dB
+  - _(section)_ ****
+  - **WWAN Configuration** -> Form 0x153B  
+    - help: Configure WWAN related options
+
+## Form 0x153B: WWAN Configuration
+  - **WWAN Device** (OneOf) [VarStore Setup @ 0x7FD, QID 0x2EB, size 8]
+    - options: (no options listed)
+    - help: Select the M.2 WWAN Device options to enable 4G - 7360/7560 (Intel), 5G - M80 (MediaTek) Modems
+  - **Firmware Flash Device** (OneOf) [VarStore Setup @ 0xABC, QID 0x2EC, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable WWAN Firmware Flash Device
+  - **Wireless CNV Config Device** (OneOf) [VarStore Setup @ 0xB32, QID 0x2ED, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable WCCD ACPI device node
+  - **WWAN Reset Workaround** (OneOf) [VarStore Setup @ 0x84E, QID 0x2EE, size 8]
+    - options: (no options listed)
+    - help: Enabling this workardound will result in BIOS asserting FULL_CARD_POWER_OFF#, PERST# and RESET# WWAN signals before the WWAN Device Power-On Sequence is executed. Disabling it has no impact.
+  - **WA - WWAN OEM SVID** (Numeric) [VarStore Setup @ 0xB18, QID 0x2EF, size 16]  min 0x0 max 0xFFFF
+    - help: WWAN OEM Sub-Vendor ID
+  - **WA - WWAN SVID Detect Timeout** (Numeric) [VarStore Setup @ 0xB1A, QID 0x2F0, size 16]  min 0x0 max 0xFFFF
+    - help: The timeout value (ms) for detecting WWAN OEM SVID. Please notice it's workaround for OEM only.
+
+## Form 0x1013: OverClocking Performance Menu
+  - _(section)_ **OverClocking Performance Menu**
+  - _(section)_ ****
+  - **OverClocking Feature** (OneOf) [VarStore CpuSetup @ 0x1D9, QID 0x1574, size 8]
+    - options: (no options listed)
+    - help: Performance Menu for Processor and Memory.
+  - **UnderVolt Protection** (OneOf) [VarStore CpuSetup @ 0x381, QID 0x2F1, size 8]
+    - options: (no options listed)
+    - help: When UnderVolt Protection is enabled, user will not be able to program under voltage in OS runtime. Recommended to keep it enabled by default. Enabled: Allow BIOS undervolting, but enable UnderVolt Protection in Runtime. Disabled: No UnderVolt Protection in Runtime.
+  - **Per-core HT Disable** (Numeric) [VarStore CpuSetup @ 0x230, QID 0x2F2, size 16]  min 0x0 max 0xFF
+  - **WDT Enable** (OneOf) [VarStore PchSetup @ 0x24, QID 0x2F3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable WatchDog Timer. Note: This option is ignored on debug BIOS.
+  - **CPU BCLK OC Frequency** (Numeric) [VarStore CpuSetup @ 0x2F7, QID 0x2F4, size 32]  min 0x0 max 0xC350
+    - help: CPU BCLK Frequency in 10kHz increments. Specifies new CPU BCLK frequency to be applied. Frequency is rounded to nearest valid value. Allowed range is limited by the Max/Min supported frequencies. Changes are not applied until settings are saved and platform resets. Example: For 125.70MHz, enter 12570.
+  - **BCLK Aware Adaptive Voltage** (OneOf) [VarStore CpuSetup @ 0x20D, QID 0x2F5, size 8]
+    - options: (no options listed)
+    - help: BCLK Aware Adaptive Voltage enable/disable. When enabled, pcode will be aware of the BCLK frequency when calculating the CPU V/F curves. This is ideal for BCLK OC to avoid high voltage overrides. Uses OC Mailbox command 0x15.
+  - **PVD Ratio Threshold** (Numeric) [VarStore CpuSetup @ 0x1DC, QID 0x2F6, size 8]  min 0x0 max 0x28
+    - help: Select PVD Ratio Threshold Value from Range 1 to 40. 0 - Auto/HW default
+  - **FLL Overclock Mode Enable** (OneOf) [VarStore CpuSetup @ 0x352, QID 0x2F7, size 8]
+    - options: (no options listed)
+    - help: Enable FLL Overclock Mode, Default is Disable
+  - **FLL Overclock Mode Select** (Numeric) [VarStore CpuSetup @ 0x353, QID 0x2F8, size 8]  min 0x0 max 0x3
+    - help: Select FLL Mode Value from Range 1 to 3. 0x0 = no overclocking, 0x1 = ratio overclocking with nominal (0.5-1x) reference clock frequency, 0x2 = BCLK overclocking with elevated (1-3x) reference clock frequency, 0x3 = BCLK overclocking with extreme elevated (3-5x) reference clock frequency and ratio limited to 63
+  - **SA PLL Frequency Override** (OneOf) [VarStore CpuSetup @ 0x342, QID 0x2F9, size 8]
+    - options: (no options listed)
+    - help: Configure Sa PLL Frequency.
+  - **BCLK TSC HW Fixup** (OneOf) [VarStore CpuSetup @ 0x344, QID 0x2FA, size 8]
+    - options: (no options listed)
+    - help: BCLK TSC HW Fixup disable during TSC copy from PMA to APIC
+  - **Processor** -> Form 0x1014  
+    - help: Processor Bus Ratio Override and Bus Speed Override.
+  - **E-core L2 Configurations** -> Form 0x1016  
+    - help: Efficient-core L2 Bus Ratio Override and Bus Speed Override.
+  - **Ring** -> Form 0x1101  
+    - help: Ring Ratio and Voltage Settings
+  - **GT** -> Form 0x101B  
+    - help: GT Ratio Override and Delta voltage programming
+  - **Uncore** -> Form 0x1102  
+    - help: Uncore Overclocking Menu
+  - **Voltage PLL Trim Controls** -> Form 0x1526  
+    - help: Voltage PLL Trim Controls Menu
+  - **Platform Voltage Overrides** -> Form 0x1103  
+    - help: Platform Voltages related Overclocking Menu
+  - **CEP Disable** -> Form 0x10DE  
+    - help: CEP (Current Excursion Protection) Disable Menu
+  - **VR ICCMAX Current Override** -> Form 0x10EE  
+    - help: VR ICCMAX Current Override Menu
+
+## Form 0x1014: Processor
+  - _(section)_ **Processor**
+  - _(section)_ ****
+  - **Per Core Disable Configuration** (OneOf) [VarStore CpuSetup @ 0x34C, QID 0x1575, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Per Core Disable. When Per Core Disable Configuration is enabled, selction of Active Cores and Active Efficient-cores will be disabled.
+  - **Processor Disable** -> Form 0x10C1  
+    - help: Processor Disable Control
+  - **Core Ratio Extension Mode** (OneOf) [VarStore CpuSetup @ 0x1DA, QID 0x305, size 8]
+    - options: (no options listed)
+    - help: Enable / Disable Core Ratio Above 85 Extension Mode. Enable - Max Overclocking Ratio Limit as specified by OCMB 0x1 command is 120; Disable - Max Overclocking Ratio Limit as specified by OCMB 0x1 command is 85.
+  - **Core Max OC Ratio** (Numeric) [VarStore CpuSetup @ 0x1DB, QID 0x306, size 8]  min 0x0 max 0x78
+    - help: Sets the maximum OC Ratio for the CPU Core. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range non-turbo max - 120 (Previously max turbo is 83).
+  - **Core Max OC Ratio** (Numeric) [VarStore CpuSetup @ 0x1DB, QID 0x307, size 8]  min 0x0 max 0x55
+    - help: Sets the maximum OC Ratio for the CPU Core. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range non-turbo max - 85 (Previously max turbo is 83).
+  - **Core 0 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2BC, QID 0x309, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 0.
+  - **Core 1 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2BD, QID 0x30A, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 1.
+  - **Core 2 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2BE, QID 0x30B, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 2.
+  - **Core 3 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2BF, QID 0x30C, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 3.
+  - **Core 4 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2C0, QID 0x30D, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 4.
+  - **Core 5 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2C1, QID 0x30E, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 5.
+  - **Core 6 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2C2, QID 0x30F, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 6.
+  - **Core 7 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2C3, QID 0x310, size 8]  min 0x0 max 0x78
+    - help: Override current maximum OC Ratio for the CPU Core 7.
+  - **Cluster 0 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2B7, QID 0x311, size 8]  min 0x0 max 0x78
+    - help: Override Efficient-cores 0 - 3 Maximum OC Ratio, maximum value up to 120.Note. E-cores 0 - 3 are in the same Cluster and their max core ratio will be aligned.
+  - **Cluster 1 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2B8, QID 0x312, size 8]  min 0x0 max 0x78
+    - help: Override Efficient-cores 4 - 7 Maximum OC Ratio, maximum value up to 120.Note. E-cores 4 - 7 are in the same Cluster and their max core ratio will be aligned.
+  - **Cluster 2 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2B9, QID 0x313, size 8]  min 0x0 max 0x78
+    - help: Override Efficient-cores 8 - 11 Maximum OC Ratio, maximum value up to 120.Note. E-cores 8 - 11 are in the same Cluster and their max core ratio will be aligned.
+  - **Cluster 3 Max Ratio** (Numeric) [VarStore CpuSetup @ 0x2BA, QID 0x314, size 8]  min 0x0 max 0x78
+    - help: Override Efficient-cores 12 - 15 Maximum OC Ratio, maximum value up to 120.Note. E-cores 12 - 15 are in the same Cluster and their max core ratio will be aligned.
+  - **VF Offset Mode** (OneOf) [VarStore CpuSetup @ 0x232, QID 0x315, size 8]
+    - options: (no options listed)
+    - help: Selects between Legacy and Selection modes. Need Reset System after enabling OverClocking Feature to Initialize the default value. In Legacy Mode, setting a global offset for the entire VF curve. In Selection modes, setting a selected VF point.
+  - **Core Voltage Mode** (OneOf) [VarStore CpuSetup @ 0x1DD, QID 0x316, size 8]
+    - options: (no options listed)
+    - help: Selects between Adaptive and Override Voltage modes. In Override Mode the voltage selected will be applied over all operating frequencies. In Adaptive Mode the voltage is interpolated only in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11.
+  - **P-core Voltage Override** (Numeric) [VarStore CpuSetup @ 0x1DE, QID 0x317, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the Override Voltage applied to the Performance-core domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV.
+  - **P-core Voltage Target Override** (Numeric) [VarStore CpuSetup @ 0x1E3, QID 0x318, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the extra turbo voltage applied while Performance-core is operating in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range 0-2000 mV
+  - **VF Configuration Scope** (OneOf) [VarStore CpuSetup @ 0x261, QID 0x319, size 8]
+    - options: (no options listed)
+    - help: Alows both all cores VF curve or per-core VF curve configuration.
+  - **P-core Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1E0, QID 0x31A, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Global Performance-core domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x1E2, QID 0x31B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 0 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x262, QID 0x31C, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 0 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x272, QID 0x31D, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 1 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x264, QID 0x31E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 1 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x273, QID 0x31F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 2 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x266, QID 0x320, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 2 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x274, QID 0x321, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 3 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x268, QID 0x322, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 3 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x275, QID 0x323, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 4 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x26A, QID 0x324, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 4 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x276, QID 0x325, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 5 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x26C, QID 0x326, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 5 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x277, QID 0x327, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 6 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x26E, QID 0x328, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 6 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x278, QID 0x329, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **P-core 7 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x270, QID 0x32A, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Performance-core 7 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x279, QID 0x32B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **Cluster 0 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x315, QID 0x32C, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Efficient-core Cluster 0 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x31D, QID 0x32D, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **Cluster 1 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x317, QID 0x32E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Efficient-core Cluster 1 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x31E, QID 0x32F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **Cluster 2 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x319, QID 0x330, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Efficient-core Cluster 2 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x31F, QID 0x331, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **Cluster 3 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x31B, QID 0x332, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Efficient-core Cluster 3 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x320, QID 0x333, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 1 Offset** (Numeric) [VarStore CpuSetup @ 0x234, QID 0x334, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 1. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x1. Range -500 to 500 mV
+  - **VF Point 1 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x252, QID 0x335, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 2 Offset** (Numeric) [VarStore CpuSetup @ 0x236, QID 0x336, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 2. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x2. Range -500 to 500 mV
+  - **VF Point 2 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x253, QID 0x337, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 3 Offset** (Numeric) [VarStore CpuSetup @ 0x238, QID 0x338, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 3. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x3. Range -500 to 500 mV
+  - **VF Point 3 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x254, QID 0x339, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 4 Offset** (Numeric) [VarStore CpuSetup @ 0x23A, QID 0x33A, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 4. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x4. Range -500 to 500 mV
+  - **VF Point 4 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x255, QID 0x33B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 5 Offset** (Numeric) [VarStore CpuSetup @ 0x23C, QID 0x33C, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 5. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x5. Range -500 to 500 mV
+  - **VF Point 5 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x256, QID 0x33D, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 6 Offset** (Numeric) [VarStore CpuSetup @ 0x23E, QID 0x33E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 6. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x6. Range -500 to 500 mV
+  - **VF Point 6 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x257, QID 0x33F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 7 Offset** (Numeric) [VarStore CpuSetup @ 0x240, QID 0x340, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 7. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x7. Range -500 to 500 mV
+  - **VF Point 7 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x258, QID 0x341, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 8 Offset** (Numeric) [VarStore CpuSetup @ 0x242, QID 0x342, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 8. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x8. Range -500 to 500 mV
+  - **VF Point 8 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x259, QID 0x343, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 9 Offset** (Numeric) [VarStore CpuSetup @ 0x244, QID 0x344, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 9. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x9. Range -500 to 500 mV
+  - **VF Point 9 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x25A, QID 0x345, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 10 Offset** (Numeric) [VarStore CpuSetup @ 0x246, QID 0x346, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 10. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xA. Range -500 to 500 mV
+  - **VF Point 10 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x25B, QID 0x347, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 11 Offset** (Numeric) [VarStore CpuSetup @ 0x248, QID 0x348, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 11. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xB. Range -500 to 500 mV
+  - **VF Point 11 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x25C, QID 0x349, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 12 Offset** (Numeric) [VarStore CpuSetup @ 0x24A, QID 0x34A, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 12. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xC. Range -500 to 500 mV
+  - **VF Point 12 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x25D, QID 0x34B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 13 Offset** (Numeric) [VarStore CpuSetup @ 0x24C, QID 0x34C, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 13. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xD. Range -500 to 500 mV
+  - **VF Point 13 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x25E, QID 0x34D, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 14 Offset** (Numeric) [VarStore CpuSetup @ 0x24E, QID 0x34E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 14. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xE. Range -500 to 500 mV
+  - **VF Point 14 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x25F, QID 0x34F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 15 Offset** (Numeric) [VarStore CpuSetup @ 0x250, QID 0x350, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 15. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xF. Range -500 to 500 mV
+  - **VF Point 15 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x260, QID 0x351, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - _(section)_ ****
+  - **AVX2 Ratio Offset** (Numeric) [VarStore CpuSetup @ 0x1E5, QID 0x352, size 8]  min 0x0 max 0x1F
+    - help: AVX2 Ratio Offset. Specifies number of bins to decrease AVX ratio vs. Core Ratio. AVX is a more stressful workload, it is helpful to lower the AVX ratio to ensure maximum possible ratio for SSE workloads. Uses Mailbox MSR 0x150, cmd 0x1B. Range 0 - 31. 0 = No offset.
+  - **AVX2 Voltage Guardband Scale Factor** (Numeric) [VarStore CpuSetup @ 0x225, QID 0x353, size 8]  min 0x0 max 0xC8
+    - help: AVX2 Voltage Guardband Scale Factor. Controls the voltage guardband applied to AVX workloads. Range 0 - 200 in 1/100 units, where 125 = 1.25 scale factor. A default value of 100 applies the default voltage guardband scale factor of 1.0. A value > 100 will increase the votlage guardband, and < 100 will decrease the voltage guardband.
+  - _(section)_ ****
+  - **TjMax Offset** (Numeric) [VarStore CpuSetup @ 0x1F8, QID 0x13B1, size 8]  min 0x0 max 0x3F
+    - help: TjMax Offset. Specified value here is clipped by pCode (125 - TjMax Offset) to support TjMax in the range of 62 to 115 deg Celsius. Uses Mailbox MSR 0x37, command 0x01. Range 10 - 63, set back to 0 for default if not in the range. 0 = No offset.
+  - _(section)_ ****
+  - **Fast Throttle Threshold** (Numeric) [VarStore CpuSetup @ 0x395, QID 0x13BB, size 8]  min 0x0 max 0x73
+    - help: Fast Throttle Threshold. Specified value for max allowed temperature when cores throttle. Support Fast Throttle Threshold in the range of 63 to 115 deg Celsius, set back to 0 for default if not in the range. 0 = Hardware Default.
+  - _(section)_ ****
+  - _(section)_ **Thermal Velocity Boost (TVB)**
+  - **Thermal Velocity Boost** (OneOf) [VarStore CpuSetup @ 0x2E3, QID 0x354, size 8]
+    - options: (no options listed)
+    - help: This service controls Core frequency reduction caused by high package temperatures for processors that implement the Intel Thermal Velocity Boost (TVB) feature. It is required to be disabled for supporting overclocking at frequencies higher than the default max turbo frequency. Default is disabled. Uses Overclocking Mailbox command 0x18/0x19.
+  - **Down Bins (delta) for Temperature Threshold 0** (Numeric) [VarStore CpuSetup @ 0x34E, QID 0x355, size 8]  min 0x0 max 0xA
+    - help: When running above Temperature Threshold 0, the ratio will be clipped to (Max_Ratio-This Down Bins value)
+  - **TVB Temperature Threshold 0 (degrees C)** (Numeric) [VarStore CpuSetup @ 0x34F, QID 0x356, size 8]  min 0x0 max 0x64
+    - help: Running ABOVE this temperature will clip delta Down Bins for Threshold 0 from the resolved OC Ratio
+  - **TVB Temperature Threshold 1 (degrees C)** (Numeric) [VarStore CpuSetup @ 0x350, QID 0x357, size 8]  min 0x0 max 0x64
+    - help: Running ABOVE this temperature will clip delta Down Bins for Threshold 1 from the resolved OC Ratio
+  - **Down Bins (delta) for Temperature Threshold 1** (Numeric) [VarStore CpuSetup @ 0x351, QID 0x358, size 8]  min 0x0 max 0xA
+    - help: When running above Temperature Threshold 1, the ratio will be clipped to (Max_Ratio-This Down Bins value)
+  - **TVB Voltage Optimizations** (OneOf) [VarStore CpuSetup @ 0x2E4, QID 0x359, size 8]
+    - options: (no options listed)
+    - help: This service controls thermal based voltage optimizations for processors that implement the Intel Thermal Velocity Boost (TVB) feature. Default is enabled. Uses Overclocking Mailbox command 0x18/0x19.
+  - **Enhanced Thermal Velocity Boost** (OneOf) [VarStore CpuSetup @ 0x378, QID 0x35A, size 8]
+    - options: (no options listed)
+    - help: If enabled the user will be clipped when the temperatures reach the default threshold on supported products.  Recommended to disable for overclocking.
+  - **Expected CPU Freq** (OneOf) [VarStore Setup @ 0x7, QID 0x101A, size 8]
+    - options: (no options listed)
+    - help: Expected Processor frequency calculated using Bus ratio and Bus speed.
+
+## Form 0x1016: E-core L2 Configurations
+  - _(section)_ **E-core L2 Configurations**
+  - _(section)_ ****
+  - **E-core L2 Voltage Mode** (OneOf) [VarStore CpuSetup @ 0x2AF, QID 0x35B, size 8]
+    - options: (no options listed)
+    - help: Selects between Adaptive and Override Voltage modes. In Override Mode the voltage selected will be applied over all operating frequencies. In Adaptive Mode the voltage is interpolated only in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11.
+  - **E-core L2 Voltage Override** (Numeric) [VarStore CpuSetup @ 0x2B0, QID 0x35C, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the Override Voltage applied to the Efficient-core L2 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV.
+  - **E-core L2 Extra Turbo Voltage** (Numeric) [VarStore CpuSetup @ 0x2B5, QID 0x35D, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the extra turbo voltage applied while Efficient-core L2 is operating in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range 0-2000 mV
+  - **E-core L2 Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x2B2, QID 0x35E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Efficient-core L2 domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2B4, QID 0x35F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+
+## Form 0x1101: Ring
+  - _(section)_ **Ring**
+  - _(section)_ ****
+  - **Ring Max OC Ratio** (Numeric) [VarStore CpuSetup @ 0x1E7, QID 0x111C, size 8]  min 0x0 max 0x55
+    - help: Sets the maximum OC Ratio for the CPU Ring. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range non-turbo max - 85.
+  - **VF Offset Mode** (OneOf) [VarStore CpuSetup @ 0x27C, QID 0x360, size 8]
+    - options: (no options listed)
+    - help: Selects between Legacy and Selection modes. Need Reset System after enabling OverClocking Feature to Initialize the default value. In Legacy Mode, setting a global offset for the entire VF curve. In Selection modes, setting a selected VF point.
+  - **Ring Voltage Mode** (OneOf) [VarStore CpuSetup @ 0x1E9, QID 0x361, size 8]
+    - options: (no options listed)
+    - help: Selects between Adaptive and Override Voltage modes. In Override Mode the voltage selected will be applied over all operating frequencies. In Adaptive Mode the voltage is interpolated only in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11.
+  - **Ring Voltage Override** (Numeric) [VarStore CpuSetup @ 0x1EA, QID 0x362, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the Override Voltage applied to the Ring domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV.
+  - **Ring Extra Turbo Voltage** (Numeric) [VarStore CpuSetup @ 0x1EF, QID 0x363, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the extra turbo voltage applied while ring is operating in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range 0-2000 mV
+  - **Ring Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1EC, QID 0x364, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Ring domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -500 to 500 mV
+  - **Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x1EE, QID 0x365, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 1 Offset** (Numeric) [VarStore CpuSetup @ 0x27E, QID 0x366, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 1. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x1. Range -500 to 500 mV
+  - **VF Point 1 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x29C, QID 0x367, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 2 Offset** (Numeric) [VarStore CpuSetup @ 0x280, QID 0x368, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 2. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x2. Range -500 to 500 mV
+  - **VF Point 2 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x29D, QID 0x369, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 3 Offset** (Numeric) [VarStore CpuSetup @ 0x282, QID 0x36A, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 3. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x3. Range -500 to 500 mV
+  - **VF Point 3 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x29E, QID 0x36B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 4 Offset** (Numeric) [VarStore CpuSetup @ 0x284, QID 0x36C, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 4. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x4. Range -500 to 500 mV
+  - **VF Point 4 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x29F, QID 0x36D, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 5 Offset** (Numeric) [VarStore CpuSetup @ 0x286, QID 0x36E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 5. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x5. Range -500 to 500 mV
+  - **VF Point 5 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A0, QID 0x36F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 6 Offset** (Numeric) [VarStore CpuSetup @ 0x288, QID 0x370, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 6. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x6. Range -500 to 500 mV
+  - **VF Point 6 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A1, QID 0x371, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 7 Offset** (Numeric) [VarStore CpuSetup @ 0x28A, QID 0x372, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 7. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x7. Range -500 to 500 mV
+  - **VF Point 7 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A2, QID 0x373, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 8 Offset** (Numeric) [VarStore CpuSetup @ 0x28C, QID 0x374, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 8. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x8. Range -500 to 500 mV
+  - **VF Point 8 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A3, QID 0x375, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 9 Offset** (Numeric) [VarStore CpuSetup @ 0x28E, QID 0x376, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 9. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0x9. Range -500 to 500 mV
+  - **VF Point 9 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A4, QID 0x377, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 10 Offset** (Numeric) [VarStore CpuSetup @ 0x290, QID 0x378, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 10. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xA. Range -500 to 500 mV
+  - **VF Point 10 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A5, QID 0x379, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 11 Offset** (Numeric) [VarStore CpuSetup @ 0x292, QID 0x37A, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 11. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xB. Range -500 to 500 mV
+  - **VF Point 11 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A6, QID 0x37B, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 12 Offset** (Numeric) [VarStore CpuSetup @ 0x294, QID 0x37C, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 12. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xC. Range -500 to 500 mV
+  - **VF Point 12 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A7, QID 0x37D, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 13 Offset** (Numeric) [VarStore CpuSetup @ 0x296, QID 0x37E, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 13. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xD. Range -500 to 500 mV
+  - **VF Point 13 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A8, QID 0x37F, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 14 Offset** (Numeric) [VarStore CpuSetup @ 0x298, QID 0x380, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 14. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xE. Range -500 to 500 mV
+  - **VF Point 14 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2A9, QID 0x381, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - **VF Point 15 Offset** (Numeric) [VarStore CpuSetup @ 0x29A, QID 0x382, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Selected VF Point 15. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11, Param1 0:Core 2:Ring, Param2 0xF. Range -500 to 500 mV
+  - **VF Point 15 Offset Prefix** (OneOf) [VarStore CpuSetup @ 0x2AA, QID 0x383, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - _(section)_ ****
+  - **Min Ring Ratio Limit** (Numeric) [VarStore CpuSetup @ 0x210, QID 0x1528, size 8]  min 0x0 max 0x55
+    - help: This sets the minimum ring ratio limit. 0 - Auto/HW default. 1-LFM are invalid ratio settings.
+  - **Max Ring Ratio Limit** (Numeric) [VarStore CpuSetup @ 0x211, QID 0x1529, size 8]  min 0x0 max 0x55
+    - help: This sets the maximum ring ratio limit. 0 - Auto/HW default. 1-LFM are invalid ratio settings.
+
+## Form 0x101B: GT
+  - _(section)_ **GT Domain**
+  - **GT OverClocking Frequency** (Numeric) [VarStore SaSetup @ 0x262, QID 0x385, size 8]  min 0x0 max 0x2A
+    - help: Overclocked RP0 Frequency (MLC Clk) in multiples of 50 MHz
+  - **GT Voltage Mode** (OneOf) [VarStore SaSetup @ 0x263, QID 0x386, size 8]
+    - options: (no options listed)
+    - help: Selects between Adaptive and Override Voltage modes. In Override Mode the voltage selected will be applied over all operating frequencies. In Adaptive Mode the voltage is interpolated only in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11.
+  - **GT Voltage Override** (Numeric) [VarStore SaSetup @ 0x267, QID 0x387, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the Override Voltage applied to the GT domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV
+  - **GT Extra Turbo Voltage** (Numeric) [VarStore SaSetup @ 0x269, QID 0x388, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the extra turbo voltage applied while GT is operating in turbo mode. Unit is in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV
+  - **GT Voltage Offset** (Numeric) [VarStore SaSetup @ 0x264, QID 0x389, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the GT domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -1000 to 1000 mV
+  - **Offset Prefix** (OneOf) [VarStore SaSetup @ 0x266, QID 0x38A, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+  - _(section)_ **GT Unslice Domain**
+  - **GT OverClocking Frequency** (Numeric) [VarStore SaSetup @ 0x26B, QID 0x38B, size 8]  min 0x0 max 0x2A
+    - help: Overclocked RP0 Frequency (MLC Clk) in multiples of 50 MHz
+  - **GT Voltage Mode** (OneOf) [VarStore SaSetup @ 0x26C, QID 0x38C, size 8]
+    - options: (no options listed)
+    - help: Selects between Adaptive and Override Voltage modes. In Override Mode the voltage selected will be applied over all operating frequencies. In Adaptive Mode the voltage is interpolated only in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11.
+  - **GT Voltage Override** (Numeric) [VarStore SaSetup @ 0x270, QID 0x38D, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the Override Voltage applied to the GT domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV
+  - **GT Extra Turbo Voltage** (Numeric) [VarStore SaSetup @ 0x272, QID 0x38E, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the extra turbo voltage applied while GT is operating in turbo mode. Unit is in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV
+  - **GTU Voltage Offset** (Numeric) [VarStore SaSetup @ 0x26D, QID 0x38F, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the GT domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -1000 to 1000 mV
+  - **Offset Prefix** (OneOf) [VarStore SaSetup @ 0x26F, QID 0x390, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+
+## Form 0x1102: Uncore
+  - _(section)_ **Uncore**
+  - _(section)_ ****
+  - **Uncore Voltage Mode** (OneOf) [VarStore CpuSetup @ 0x2DE, QID 0x391, size 8]
+    - options: (no options listed)
+    - help: Selects between Adaptive and Override Voltage modes. In Override Mode the voltage selected will be applied over all operating frequencies. In Adaptive Mode the voltage is interpolated only in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11.
+  - **Uncore Voltage Override** (Numeric) [VarStore CpuSetup @ 0x2DF, QID 0x392, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the Override Voltage applied to the SA Uncore domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range 0-2000 mV.
+  - **Uncore Extra Turbo Voltage** (Numeric) [VarStore CpuSetup @ 0x2E1, QID 0x393, size 16]  min 0x0 max 0x7D0
+    - help: Specifies the extra turbo voltage applied while SA Uncore is operating in turbo mode. Uses Mailbox MSR 0x150, cmd 0x10, 0x11. Range 0-2000 mV
+  - **Uncore Voltage Offset** (Numeric) [VarStore SaSetup @ 0x25F, QID 0x394, size 16]  min 0x0 max 0x3E8
+    - help: Specifies the Offset Voltage applied to the Uncore domain. This voltage is specified in millivolts. Uses Mailbox MSR 0x150, cmd 0x11. Range -1000 to 1000 mV
+  - **Offset Prefix** (OneOf) [VarStore SaSetup @ 0x261, QID 0x395, size 8]
+    - options: (no options listed)
+    - help: Sets the offset value as positive or negative.
+
+## Form 0x1103: Platform Voltage Overrides
+  - _(section)_ **Platform Voltage Overrides**
+  - _(section)_ ****
+  - **Vcc1p8 Override Enable** (OneOf) [VarStore CpuSetup @ 0x321, QID 0x396, size 8]
+    - options: (no options listed)
+    - help: Overrides the Vcc1p8 voltage using SMBUS/PMBUS interface of VRM. Use the next option for exact voltage configuration
+  - **Vcc1p8** (Numeric) [VarStore CpuSetup @ 0x322, QID 0x397, size 16]  min 0x320 max 0x9F6
+    - help: Range of Vcc1p8 voltage - Default is 1800 mV
+  - **Vcc1p05 Override Enable** (OneOf) [VarStore CpuSetup @ 0x324, QID 0x398, size 8]
+    - options: (no options listed)
+    - help: Overrides the Vcc1p05 voltage using SMBUS/PMBUS interface of VRM. Use the next option for exact voltage configuration
+  - **Vcc1p05** (Numeric) [VarStore CpuSetup @ 0x325, QID 0x399, size 16]  min 0x320 max 0x9F6
+    - help: Range of Vcc1p05 voltage - Default is 1050 mV
+  - **VccDD2 Override Enable** (OneOf) [VarStore CpuSetup @ 0x327, QID 0x39A, size 8]
+    - options: (no options listed)
+    - help: Overrides the VccDD2 voltage using SMBUS/PMBUS interface of VRM. Use the next option for exact voltage configuration
+  - **VccDD2** (Numeric) [VarStore CpuSetup @ 0x328, QID 0x39B, size 16]  min 0x320 max 0x9F6
+    - help: Range of VccDD2 voltage - Default is 1100 mV
+  - _(section)_ ****
+  - **VCCIN AUX CPU Overrides Enable** (OneOf) [VarStore CpuSetup @ 0x336, QID 0x39C, size 8]
+    - options: (no options listed)
+    - help: VCCIN AUX CPU Voltage Overrides from SMBUS/PMBUS interface of VRM. Use the next option for exact voltage configuration
+  - **VCCIN AUX CPU** (Numeric) [VarStore CpuSetup @ 0x337, QID 0x39D, size 16]  min 0x654 max 0x76C
+    - help: Voltage Range of VCCIN AUX CPU from 1620mV - 1900mV; Default is 1800 mV
+  - _(section)_ ****
+  - **RichTek VccIA Control Overrides** (OneOf) [VarStore CpuSetup @ 0x339, QID 0x39E, size 8]
+    - options: (no options listed)
+    - help: VccIA Voltage can be overrides from Richtek SMBUS/PMBUS VR. Use the next option for exact voltage configuration
+  - **Fixed VID Mode** (OneOf) [VarStore CpuSetup @ 0x33B, QID 0x39F, size 8]
+    - options: (no options listed)
+    - help: Fixed VID Mode Enabled for the VccIA/VccGT Voltage rail Overrides from Richtek SMBUS/PMBUS VR. When Disabled, voltage rail will use IMVP from SVID BUS.
+  - **VccIA (mV)** (Numeric) [VarStore CpuSetup @ 0x33D, QID 0x3A0, size 16]  min 0xFA max 0x87A
+    - help: Voltage Range of RichTek VccIA from 250mV - 2170mV; Default is 1200 mV
+  - **RichTek VccGT Control Overrides** (OneOf) [VarStore CpuSetup @ 0x33A, QID 0x3A1, size 8]
+    - options: (no options listed)
+    - help: VccGT Voltage can be overrides from Richtek SMBUS/PMBUS VR. Use the next option for exact voltage configuration
+  - **Fixed VID Mode** (OneOf) [VarStore CpuSetup @ 0x33C, QID 0x3A2, size 8]
+    - options: (no options listed)
+    - help: Fixed VID Mode Enabled for the VccIA/VccGT Voltage rail Overrides from Richtek SMBUS/PMBUS VR. When Disabled, voltage rail will use IMVP from SVID BUS.
+  - **VccGT (mV)** (Numeric) [VarStore CpuSetup @ 0x33F, QID 0x3A3, size 16]  min 0xFA max 0x87A
+    - help: Voltage Range of RichTek VccGT from 250mV - 2170mV; Default is 1200 mV
+
+## Form 0x1526: Voltage PLL Trim Controls
+  - _(section)_ **Voltage PLL Trim Controls**
+  - _(section)_ ****
+  - **Core PLL Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1F2, QID 0x3A4, size 8]  min 0x0 max 0xF
+    - help: PLL Voltage Offset, Range 0-15. Units are in 17.5mV. Default is 0. This control can be used to increase the range of this domain frequency in extreme overclocking conditions.
+  - **GT PLL Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1F3, QID 0x3A5, size 8]  min 0x0 max 0xF
+    - help: PLL Voltage Offset, Range 0-15. Units are in 17.5mV. Default is 0. This control can be used to increase the range of this domain frequency in extreme overclocking conditions.
+  - **Ring PLL Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1F4, QID 0x3A6, size 8]  min 0x0 max 0xF
+    - help: PLL Voltage Offset, Range 0-15. Units are in 17.5mV. Default is 0. This control can be used to increase the range of this domain frequency in extreme overclocking conditions.
+  - **System Agent PLL Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1F5, QID 0x3A7, size 8]  min 0x0 max 0xF
+    - help: PLL Voltage Offset, Range 0-15. Units are in 17.5mV. Default is 0. This control can be used to increase the range of this domain frequency in extreme overclocking conditions.
+  - **Efficient-core PLL Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1F6, QID 0x3A8, size 8]  min 0x0 max 0xF
+    - help: PLL Voltage Offset, Range 0-15. Units are in 17.5mV. Default is 0. This control can be used to increase the range of this domain frequency in extreme overclocking conditions.
+  - **Memory Controller PLL Voltage Offset** (Numeric) [VarStore CpuSetup @ 0x1F7, QID 0x3A9, size 8]  min 0x0 max 0xF
+    - help: PLL Voltage Offset, Range 0-15. Units are in 17.5mV. Default is 0. This control can be used to increase the range of this domain frequency in extreme overclocking conditions.
+
+## Form 0x10DE: CEP Disable
+  - _(section)_ **CEP Disable**
+  - _(section)_ ****
+  - **IA CEP Enable** (OneOf) [VarStore CpuSetup @ 0x334, QID 0x3AA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IA CEP (Current Excursion Protection) Support. Uses pCode Mailbox Command 0x37, Sub-command 0x1. Set Data bit2 to 1.
+  - **GT CEP Enable** (OneOf) [VarStore CpuSetup @ 0x335, QID 0x3AB, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable GT CEP (Current Excursion Protection) Support. Uses pCode Mailbox Command 0x37, Sub-command 0x1. Set Data bit3 to 1.
+
+## Form 0x10EE: VR ICCMAX Current Override
+  - _(section)_ **VR ICCMAX Current Override**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **IA ICC Max Current Limit Override** (Numeric) [VarStore CpuSetup @ 0x347, QID 0x155A, size 16]  min 0x0 max 0x7FF
+    - help: IA Voltage Regulator Current Limit (Icc Max). This value represents the Maximum instantaneous current allowed at any given time. The value is represented in 1/4 A increments. A value of 400 = 100A. Range is 4 to 2047. Uses OC mailbox command 0x17
+  - **IA ICC Unlimited Mode** (OneOf) [VarStore CpuSetup @ 0x346, QID 0x3AC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IA Unlimited ICCMAX. When Enabled, IA VR ICCMAX value is set to max ICC current 512A.
+  - _(section)_ ****
+  - **GT ICC Max Current Limit Override** (Numeric) [VarStore CpuSetup @ 0x34A, QID 0x155B, size 16]  min 0x0 max 0x7FF
+    - help: GT Voltage Regulator Current Limit (Icc Max). This value represents the Maximum instantaneous current allowed at any given time. The value is represented in 1/4 A increments. A value of 400 = 100A. Range is 4 to 2047. Uses OC mailbox command 0x17
+  - **GT ICC Unlimited Mode** (OneOf) [VarStore CpuSetup @ 0x349, QID 0x3AD, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable GT Unlimited ICCMAX. When Enabled, GT VR ICCMAX value is set to max ICC current 512A.
+
+## Form 0x10C1:   Processor Disable
+  - _(section)_ ****
+
+## Form 0x153E: PCI Express Root Port 0
+  - **PTM** (OneOf) [VarStore SaSetup @ 0xC6, QID 0x3CE, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0xCA, QID 0x3CF, size 8]
+    - options: (no options listed)
+    - help: PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xCE, QID 0x3D0, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xD6, QID 0x3D1, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xD2, QID 0x3D2, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xDE, QID 0x3D3, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xE6, QID 0x3D4, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xE2, QID 0x3D5, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0xEE, QID 0x3D6, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for ITBT PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0xF2, QID 0x3D7, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+
+## Form 0x153F: PCI Express Root Port 1
+  - **PTM** (OneOf) [VarStore SaSetup @ 0xC7, QID 0x3D8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0xCB, QID 0x3D9, size 8]
+    - options: (no options listed)
+    - help: PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xCF, QID 0x3DA, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xD8, QID 0x3DB, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xD3, QID 0x3DC, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xDF, QID 0x3DD, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xE8, QID 0x3DE, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xE3, QID 0x3DF, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0xEF, QID 0x3E0, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for ITBT PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0xF3, QID 0x3E1, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+
+## Form 0x1540: PCI Express Root Port 2
+  - **PTM** (OneOf) [VarStore SaSetup @ 0xC8, QID 0x3E2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0xCC, QID 0x3E3, size 8]
+    - options: (no options listed)
+    - help: PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xD0, QID 0x3E4, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xDA, QID 0x3E5, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xD4, QID 0x3E6, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xE0, QID 0x3E7, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xEA, QID 0x3E8, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xE4, QID 0x3E9, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0xF0, QID 0x3EA, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for ITBT PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0xF4, QID 0x3EB, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+
+## Form 0x1542: PCI Express Root Port 3
+  - **PTM** (OneOf) [VarStore SaSetup @ 0xC9, QID 0x3EC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0xCD, QID 0x3ED, size 8]
+    - options: (no options listed)
+    - help: PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xD1, QID 0x3EE, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xDC, QID 0x3EF, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xD5, QID 0x3F0, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0xE1, QID 0x3F1, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0xEC, QID 0x3F2, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0xE5, QID 0x3F3, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0xF1, QID 0x3F4, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for ITBT PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0xF5, QID 0x3F5, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+
+## Form 0x1028: Memory Configuration
+  - **Memory Thermal Configuration** -> Form 0x1048  
+    - help: Memory Thermal Configuration Options
+  - **Memory Training Algorithms** -> Form 0x10E4  
+    - help: Enable/Disable Memory Training Algorithms.
+  - **Memory** -> Form 0x101C  
+    - help: Memory Overclocking Menu
+  - _(section)_ **Memory Configuration**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **Debug Value** (Numeric) [VarStore SaSetup @ 0x427, QID 0x3F9, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Debug Value
+  - **MRC ULT Safe Config** (OneOf) [VarStore SaSetup @ 0x23C, QID 0x3FA, size 8]
+    - options: (no options listed)
+    - help: MRC ULT Safe Config for PO
+  - **LPDDR DqDqs Re-Training** (OneOf) [VarStore SaSetup @ 0x23D, QID 0x3FB, size 8]
+    - options: (no options listed)
+    - help: Disable/Enable LPDDR DqDqs Re Training
+  - **Safe Mode Support** (OneOf) [VarStore SaSetup @ 0x19E, QID 0x3FC, size 8]
+    - options: (no options listed)
+    - help: Safe Mode enable support. Option will be used for changes/WAs that may affect an stable MRC
+  - **Memory Test on Warm Boot** (OneOf) [VarStore SaSetup @ 0x1A1, QID 0x3FD, size 8]
+    - options: (no options listed)
+    - help: Enable Or Disable Base Memory Test Run on Warm Boot
+  - **Maximum Memory Frequency** (OneOf) [VarStore SaSetup @ 0x18B, QID 0x3FE, size 16]
+    - options: (no options listed)
+    - help: Maximum Memory Frequency Selections in Mhz.
+  - **LP5 Bank Mode** (OneOf) [VarStore SaSetup @ 0x474, QID 0x3FF, size 8]
+    - options: (no options listed)
+    - help: LP5 Bank Mode
+  - **DDR5 DFE Gain** (OneOf) [VarStore SaSetup @ 0x47A, QID 0x400, size 8]
+    - options: (no options listed)
+    - help: DDR5 DFE Gain
+  - **Frequency Limit for Mixed 2DPC DDR4** (Numeric) [VarStore SaSetup @ 0x45E, QID 0x401, size 16]  min 0x0 max 0xFFFF
+    - help: Override the reduced speed in mixed 2DPC config or non-POR 2DPC config. 0=Auto, otherwise speed in MT/s
+  - **Frequency Limit for Mixed 2DPC DDR5 1 Rank 8GB and 8GB** (Numeric) [VarStore SaSetup @ 0x469, QID 0x402, size 16]  min 0x0 max 0xFFFF
+    - help: Override the reduced speed in mixed 2DPC config or non-POR 2DPC config. 0=Auto, otherwise speed in MT/s
+  - **Frequency Limit for Mixed 2DPC DDR5 1 Rank 16GB and 16GB** (Numeric) [VarStore SaSetup @ 0x46B, QID 0x403, size 16]  min 0x0 max 0xFFFF
+    - help: Override the reduced speed in mixed 2DPC config or non-POR 2DPC config. 0=Auto, otherwise speed in MT/s
+  - **Frequency Limit for Mixed 2DPC DDR5 1 Rank 8GB and 16GB** (Numeric) [VarStore SaSetup @ 0x46D, QID 0x404, size 16]  min 0x0 max 0xFFFF
+    - help: Override the reduced speed in mixed 2DPC config or non-POR 2DPC config. 0=Auto, otherwise speed in MT/s
+  - **Frequency Limit for Mixed 2DPC DDR5 2 Rank** (Numeric) [VarStore SaSetup @ 0x46F, QID 0x405, size 16]  min 0x0 max 0xFFFF
+    - help: Override the reduced speed in mixed 2DPC config or non-POR 2DPC config. 0=Auto, otherwise speed in MT/s
+  - **LCT Cmd Eye Width** (Numeric) [VarStore SaSetup @ 0x471, QID 0x406, size 16]  min 0x0 max 0xFFFF
+    - help: LCT Cmd Eye Width 0= Auto
+  - **HOB Buffer Size** (OneOf) [VarStore SaSetup @ 0x188, QID 0x407, size 8]
+    - options: (no options listed)
+    - help: Size to set HOB Buffer
+  - **ECC Support** (OneOf) [VarStore SaSetup @ 0x189, QID 0x408, size 8]
+    - options: (no options listed)
+    - help: Enable/disable DDR Ecc Support
+  - **Error Injection Address Match** (Numeric) [VarStore SaSetup @ 0x44A, QID 0x409, size 64]  min 0x0 max 0x1FFFFFFFF
+    - help: Address to match against for ECC error injection
+  - **Error Injection Mask** (Numeric) [VarStore SaSetup @ 0x452, QID 0x40A, size 64]  min 0x0 max 0x1FFFFFFFF
+    - help: Mask to match against for ECC error injection
+  - **Error Injection Insertion Count** (Numeric) [VarStore SaSetup @ 0x45A, QID 0x40B, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Number of transactions between ECC error injection
+  - **Max TOLUD** (OneOf) [VarStore SaSetup @ 0x18A, QID 0x40C, size 8]
+    - options: (no options listed)
+    - help: Maximum Value of TOLUD. Dynamic assignment would adjust TOLUD automatically based on largest MMIO length of installed graphic controller
+  - **SA GV** (OneOf) [VarStore SaSetup @ 0x1F1, QID 0x8000, size 8]
+    - options: (no options listed)
+    - help: System Agent Geyserville. Can disable, fix to a specific point, or enable frequency switching.
+  - **Gear Ratio** (Numeric) [VarStore SaSetup @ 0x1FE, QID 0x40D, size 8]  min 0x0 max 0x4
+    - help: Gear ratio when SAGV is disabled. 0-Auto, 1-G1, 2-G2, 4-G4
+  - **First Point Frequency** (Numeric) [VarStore SaSetup @ 0x1F2, QID 0x40E, size 16]  min 0x0 max 0xFFFF
+    - help: Specify the frequency for the given point.  0 - MRC auto, Else a specific frequency as an integer: 1333
+  - **First Point Gear** (Numeric) [VarStore SaSetup @ 0x1FA, QID 0x40F, size 8]  min 0x0 max 0x4
+    - help: Gear ratio for this SAGV point. 0-Auto, 1-G1, 2-G2, 4-G4
+  - **Second Point Frequency** (Numeric) [VarStore SaSetup @ 0x1F4, QID 0x410, size 16]  min 0x0 max 0xFFFF
+    - help: Specify the frequency for the given point.  0 - MRC auto, Else a specific frequency as an integer: 1333
+  - **Second Point Gear** (Numeric) [VarStore SaSetup @ 0x1FB, QID 0x411, size 8]  min 0x0 max 0x4
+    - help: Gear ratio for this SAGV point. 0-Auto, 1-G1, 2-G2, 4-G4
+  - **Third Point Frequency** (Numeric) [VarStore SaSetup @ 0x1F6, QID 0x412, size 16]  min 0x0 max 0xFFFF
+    - help: Specify the frequency for the given point.  0 - MRC auto, Else a specific frequency as an integer: 1333
+  - **Third Point Gear** (Numeric) [VarStore SaSetup @ 0x1FC, QID 0x413, size 8]  min 0x0 max 0x4
+    - help: Gear ratio for this SAGV point. 0-Auto, 1-G1, 2-G2, 4-G4
+  - **Fourth Point Frequency** (Numeric) [VarStore SaSetup @ 0x1F8, QID 0x414, size 16]  min 0x0 max 0xFFFF
+    - help: Specify the frequency for the given point.  0 - MRC auto, Else a specific frequency as an integer: 1333
+  - **Fourth Point Gear** (Numeric) [VarStore SaSetup @ 0x1FD, QID 0x415, size 8]  min 0x0 max 0x4
+    - help: Gear ratio for this SAGV point. 0-Auto, 1-G1, 2-G2, 4-G4
+  - **SAGV Switch Factor IA** (Numeric) [VarStore SaSetup @ 0x461, QID 0x416, size 8]  min 0x1 max 0x32
+    - help: SAGV Switch Factor of IA Load Percentage To Trigger Switching Up And Down
+  - **SAGV Switch Factor GT** (Numeric) [VarStore SaSetup @ 0x462, QID 0x417, size 8]  min 0x1 max 0x32
+    - help: SAGV Switch Factor of GT Load Percentage To Trigger Switching Up And Down
+  - **SAGV Switch Factor IO** (Numeric) [VarStore SaSetup @ 0x463, QID 0x418, size 8]  min 0x1 max 0x32
+    - help: SAGV Switch Factor of IO Load Percentage To Trigger Switching Up And Down
+  - **SAGV Switch Factor Stall** (Numeric) [VarStore SaSetup @ 0x464, QID 0x419, size 8]  min 0x1 max 0x32
+    - help: SAGV Switch Factor of IA/GT Stall Percentage To Trigger Switching Up And Down
+  - **Threshold For Switch Up** (Numeric) [VarStore SaSetup @ 0x465, QID 0x41A, size 8]  min 0x1 max 0x32
+    - help: Duration In MS Of High Activity After Which SAGV Will Switch Up
+  - **Threshold For Switch Down** (Numeric) [VarStore SaSetup @ 0x466, QID 0x41B, size 8]  min 0x1 max 0x32
+    - help: Duration In MS Of Low Activity After Which SAGV Will Switch Down
+  - **Retrain on Fast Fail** (OneOf) [VarStore SaSetup @ 0x19C, QID 0x41C, size 8]
+    - options: (no options listed)
+    - help: Restart MRC in Cold mode if SW MemTest fails during Fast flow. Default = Enabled
+  - **DDR4_1DPC** (OneOf) [VarStore SaSetup @ 0x19D, QID 0x41D, size 8]
+    - options: (no options listed)
+    - help: DDR4 1DPC performance feature for 2R DIMMs. Can be enabled on DIMM0 or DIMM1 only, or on both
+  - **Row Hammer Mode** (OneOf) [VarStore SaSetup @ 0x23E, QID 0x41E, size 8]
+    - options: (no options listed)
+    - help: Row Hammer Prevention Mode. RFM will fall back to pTRR if not available
+  - **RH LFSR0 Mask** (OneOf) [VarStore SaSetup @ 0x23F, QID 0x41F, size 8]
+    - options: (no options listed)
+    - help: LFSR0 mask for RH pTRR
+  - **RH LFSR1 Mask** (OneOf) [VarStore SaSetup @ 0x240, QID 0x420, size 8]
+    - options: (no options listed)
+    - help: LFSR1 mask for RH pTRR
+  - **MC Refresh Rate** (OneOf) [VarStore SaSetup @ 0x42C, QID 0x421, size 8]
+    - options: (no options listed)
+    - help: Select refresh rate on the MC
+  - **Refresh Watermarks** (OneOf) [VarStore SaSetup @ 0x422, QID 0x422, size 8]
+    - options: (no options listed)
+    - help: Sets Refresh Panic Watermark and Refresh High-Priority Watermark to HIGH or LOW values
+  - **LPDDR ODT RttWr** (Numeric) [VarStore SaSetup @ 0x3F3, QID 0x423, size 8]  min 0x0 max 0xFF
+    - help: Initial RttWr ODT override for LP4/5 in Ohms. Range 0x01 - 0xFF, default 0 = AUTO
+  - **LPDDR ODT RttCa** (Numeric) [VarStore SaSetup @ 0x3F4, QID 0x424, size 8]  min 0x0 max 0xFF
+    - help: Initial RttCa ODT override for LP4/5 in Ohms. Range 0x01 - 0xFF, default 0 = AUTO
+  - **Exit On Failure (MRC)** (OneOf) [VarStore SaSetup @ 0x245, QID 0x425, size 8]
+    - options: (no options listed)
+    - help: Exit On Failure for MRC training steps
+  - **New Features 1 - MRC** (OneOf) [VarStore SaSetup @ 0x246, QID 0x426, size 8]
+    - options: (no options listed)
+    - help: Enabling/Disabling Generic New Features 1
+  - **New Features 2 - MRC** (OneOf) [VarStore SaSetup @ 0x247, QID 0x427, size 8]
+    - options: (no options listed)
+    - help: Enabling/Disabling Generic New Features 2
+  - **Ch Hash Override** (OneOf) [VarStore SaSetup @ 0x192, QID 0x428, size 8]
+    - options: (no options listed)
+    - help: Override Channel Hash settings
+  - **Ch Hash Support** (OneOf) [VarStore SaSetup @ 0x193, QID 0x429, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Channel Hash Support. NOTE: ONLY if Memory interleaved Mode
+  - **Ch Hash Mask** (Numeric) [VarStore SaSetup @ 0x194, QID 0x42A, size 16]  min 0x1 max 0x3FFF
+    - help: Set the BIT(s) to be included in the XOR function. NOTE BIT mask corresponds to BITS [19:6}
+  - **Ch Hash Interleaved Bit** (OneOf) [VarStore SaSetup @ 0x196, QID 0x42B, size 8]
+    - options: (no options listed)
+    - help: Select the BIT to be used for Channel Interleaved mode. NOTE: BIT7 will interlave the channels at a 2 cacheline granularity, BIT8 at 4 and BIT9 at 8
+  - **Extended Bank Hashing** (OneOf) [VarStore SaSetup @ 0x404, QID 0x42C, size 8]
+    - options: (no options listed)
+    - help: Enable/disable Extended Bank Hashing.
+  - **Per Bank Refresh** (OneOf) [VarStore SaSetup @ 0x197, QID 0x42D, size 8]
+    - options: (no options listed)
+    - help: Enables and Disables the per bank refresh.  This only impacts memory technologies that support PBR: LPDDR4, LPDDR5 and DDR5
+  - **VC1 Read Metering** (OneOf) [VarStore SaSetup @ 0x198, QID 0x42E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable VC1 Read Metering Feature (RdMeter)
+  - **Strong Weak Leaker** (Numeric) [VarStore SaSetup @ 0x199, QID 0x42F, size 8]  min 0x1 max 0x7
+    - help: Value for StrongWkLeaker
+  - **Power Down Mode** (OneOf) [VarStore SaSetup @ 0x1A2, QID 0x140E, size 8]
+    - options: (no options listed)
+    - help: CKE Power Down Mode Control
+  - **Pwr Down Idle Timer** (Numeric) [VarStore SaSetup @ 0x1A3, QID 0x430, size 8]  min 0x0 max 0xFF
+    - help: The minimum value should = to the worst case Roundtrip delay + Burst_Length. 0 means AUTO: 64 for ULX/ULT, 128 for DT/Halo
+  - **Page Close Idle Timeout** (OneOf) [VarStore SaSetup @ 0x1A4, QID 0x140D, size 8]
+    - options: (no options listed)
+    - help: Page Close Idle Timeout Control
+  - **Memory Scrambler** (OneOf) [VarStore SaSetup @ 0x231, QID 0x431, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Memory Scrambler support.
+  - **Force ColdReset** (OneOf) [VarStore SaSetup @ 0x232, QID 0x432, size 8]
+    - options: (no options listed)
+    - help: Force ColdReset OR Choose MrcColdBoot mode, when Coldboot is required during MRC execution. Note: If ME 5.0MB is present, ForceColdReset is required!
+  - **Controller 0, Channel 0 Control** (OneOf) [VarStore SaSetup @ 0x233, QID 0x433, size 8]
+    - options: (no options listed)
+    - help: Controller 0, Channel 0 Control - Enable or Disable Controller 0, Channel 0.
+  - **Controller 0, Channel 1 Control** (OneOf) [VarStore SaSetup @ 0x234, QID 0x434, size 8]
+    - options: (no options listed)
+    - help: Controller 0, Channel 1 Control - Enable or Disable Controller 0, Channel 1.
+  - **Controller 0, Channel 2 Control** (OneOf) [VarStore SaSetup @ 0x235, QID 0x435, size 8]
+    - options: (no options listed)
+    - help: Controller 0, Channel 2 Control - Enable or Disable Controller 0, Channel 2.
+  - **Controller 0, Channel 3 Control** (OneOf) [VarStore SaSetup @ 0x236, QID 0x436, size 8]
+    - options: (no options listed)
+    - help: Controller 0, Channel 3 Control - Enable or Disable Controller 0, Channel 3.
+  - **Controller 1, Channel 0 Control** (OneOf) [VarStore SaSetup @ 0x237, QID 0x437, size 8]
+    - options: (no options listed)
+    - help: Controller 1, Channel 0 Control - Enable or Disable Controller 1, Channel 0.
+  - **Controller 1, Channel 1 Control** (OneOf) [VarStore SaSetup @ 0x238, QID 0x438, size 8]
+    - options: (no options listed)
+    - help: Controller 1, Channel 1 Control - Enable or Disable Controller 1, Channel 1.
+  - **Controller 1, Channel 2 Control** (OneOf) [VarStore SaSetup @ 0x239, QID 0x439, size 8]
+    - options: (no options listed)
+    - help: Controller 1, Channel 2 Control - Enable or Disable Controller 1, Channel 2.
+  - **Controller 1, Channel 3 Control** (OneOf) [VarStore SaSetup @ 0x23A, QID 0x43A, size 8]
+    - options: (no options listed)
+    - help: Controller 1, Channel 3 Control - Enable or Disable Controller 1, Channel 3.
+  - **Force Single Rank** (OneOf) [VarStore SaSetup @ 0x19A, QID 0x43B, size 8]
+    - options: (no options listed)
+    - help: When enabled, only Rank 0 will be used in each DIMM
+  - **In-Band ECC Support** (OneOf) [VarStore SaSetup @ 0x1A5, QID 0x43C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC. Will be enabled if memory has symmetric configuration
+  - **In-Band ECC Operation Mode** (OneOf) [VarStore SaSetup @ 0x1A6, QID 0x43D, size 8]
+    - options: (no options listed)
+    - help: 0: Functional Mode protects requests based on the address range, 1: Makes all requests non protected and ignore range checks, 2:Makes all requests protected and ignore range checks
+  - **IBECC Protect Region 0** (OneOf) [VarStore SaSetup @ 0x1A7, QID 0x43E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 0
+  - **Protected Region 0 BASE** (Numeric) [VarStore SaSetup @ 0x1AF, QID 0x43F, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 0 (Per IBECC instance)
+  - **Protected Region 0 MASK** (Numeric) [VarStore SaSetup @ 0x1CF, QID 0x440, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 0
+  - **IBECC Protect Region 1** (OneOf) [VarStore SaSetup @ 0x1A8, QID 0x441, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 1
+  - **Protected Region 1 BASE** (Numeric) [VarStore SaSetup @ 0x1B3, QID 0x442, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 1 (Per IBECC instance)
+  - **Protected Region 1 MASK** (Numeric) [VarStore SaSetup @ 0x1D3, QID 0x443, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 1
+  - **IBECC Protect Region 2** (OneOf) [VarStore SaSetup @ 0x1A9, QID 0x444, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 2
+  - **Protected Region 2 BASE** (Numeric) [VarStore SaSetup @ 0x1B7, QID 0x445, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 2 (Per IBECC instance)
+  - **Protected Region 2 MASK** (Numeric) [VarStore SaSetup @ 0x1D7, QID 0x446, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 2
+  - **IBECC Protect Region 3** (OneOf) [VarStore SaSetup @ 0x1AA, QID 0x447, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 3
+  - **Protected Region 3 BASE** (Numeric) [VarStore SaSetup @ 0x1BB, QID 0x448, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 3 (Per IBECC instance)
+  - **Protected Region 3 MASK** (Numeric) [VarStore SaSetup @ 0x1DB, QID 0x449, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 3
+  - **IBECC Protect Region 4** (OneOf) [VarStore SaSetup @ 0x1AB, QID 0x44A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 4
+  - **Protected Region 4 BASE** (Numeric) [VarStore SaSetup @ 0x1BF, QID 0x44B, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 4 (Per IBECC instance)
+  - **Protected Region 4 MASK** (Numeric) [VarStore SaSetup @ 0x1DF, QID 0x44C, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 4
+  - **IBECC Protect Region 5** (OneOf) [VarStore SaSetup @ 0x1AC, QID 0x44D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 5
+  - **Protected Region 5 BASE** (Numeric) [VarStore SaSetup @ 0x1C3, QID 0x44E, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 5 (Per IBECC instance)
+  - **Protected Region 5 MASK** (Numeric) [VarStore SaSetup @ 0x1E3, QID 0x44F, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 5
+  - **IBECC Protect Region 6** (OneOf) [VarStore SaSetup @ 0x1AD, QID 0x450, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 6
+  - **Protected Region 6 BASE** (Numeric) [VarStore SaSetup @ 0x1C7, QID 0x451, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 6 (Per IBECC instance)
+  - **Protected Region 6 MASK** (Numeric) [VarStore SaSetup @ 0x1E7, QID 0x452, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 6
+  - **IBECC Protect Region 7** (OneOf) [VarStore SaSetup @ 0x1AE, QID 0x453, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable In-Band ECC for Region 7
+  - **Protected Region 7 BASE** (Numeric) [VarStore SaSetup @ 0x1CB, QID 0x454, size 32]  min 0x0 max 0x3FFFFFF
+    - help: Set the base address for protected region 7 (Per IBECC instance)
+  - **Protected Region 7 MASK** (Numeric) [VarStore SaSetup @ 0x1EB, QID 0x455, size 32]  min 0x1 max 0x3FFFFFF
+    - help: Set the mask for protected region 7
+  - **IBECC Error Injection Control** (OneOf) [VarStore SaSetup @ 0x405, QID 0x456, size 8]
+    - options: (no options listed)
+    - help: Enables IBECC Error Injection
+  - **Error Injection Address Match** (Numeric) [VarStore SaSetup @ 0x406, QID 0x457, size 64]  min 0x0 max 0x3FFFFFFFFFC0
+    - help: Address to match against for ECC error injection
+  - **Error Injection Mask** (Numeric) [VarStore SaSetup @ 0x40E, QID 0x458, size 64]  min 0x0 max 0x3FFFFFFFFFC0
+    - help: Mask to match against for ECC error injection
+  - **Error Injection Insertion Count** (Numeric) [VarStore SaSetup @ 0x416, QID 0x459, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Number of transactions between ECC error injection
+  - **Memory Remap** (OneOf) [VarStore SaSetup @ 0x23B, QID 0x45A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Memory Remap above 4GB
+  - **Time Measure** (OneOf) [VarStore SaSetup @ 0x18E, QID 0x45B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable printing of the time it takes to execute MRC.
+  - **CsPiStartHighinEct** (OneOf) [VarStore SaSetup @ 0x47C, QID 0x45C, size 8]
+    - options: (no options listed)
+    - help: Cs Pi Start With High Value in Ect.
+  - **DisableFGRAndPBRWA** (OneOf) [VarStore SaSetup @ 0x47D, QID 0x45D, size 8]
+    - options: (no options listed)
+    - help: Disable FGR And PBR WA.
+  - **Fast Boot** (OneOf) [VarStore SaSetup @ 0x18F, QID 0x45E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable fast path thru the MRC
+  - **Rank Margin Tool Per Task** (OneOf) [VarStore SaSetup @ 0x190, QID 0x45F, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables RMT running at every major training step
+  - **Training Tracing** (OneOf) [VarStore SaSetup @ 0x191, QID 0x460, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables printing of the current trained state at every major training step.
+  - **Lpddr Mem WL Set** (OneOf) [VarStore SaSetup @ 0x19B, QID 0x461, size 8]
+    - options: (no options listed)
+    - help: Only applicable to LPDDR, Memory Write Latency Set selection (A is default, B will be used if memory devices support it)
+  - **BDAT Memory Test Type** (OneOf) [VarStore SaSetup @ 0x19F, QID 0x462, size 8]
+    - options: (no options listed)
+    - help: Indicates the type of Memory Training data to populate into the BDAT ACPI table.
+  - **Rank Margin Tool Loop Count** (Numeric) [VarStore SaSetup @ 0x1A0, QID 0x463, size 8]  min 0x0 max 0x20
+    - help: Specifies the Loop Count to be used during Rank Margin Tool Testing. 0 - AUTO
+  - **ECC DFT** (OneOf) [VarStore SaSetup @ 0x1EF, QID 0x464, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable ECC DFT feature
+  - **Write0** (OneOf) [VarStore SaSetup @ 0x1F0, QID 0x465, size 8]
+    - options: (no options listed)
+    - help: Write0 feature for LP5/DDR5
+  - **Periodic DCC** (OneOf) [VarStore SaSetup @ 0x42E, QID 0x466, size 8]
+    - options: (no options listed)
+    - help: Enable / Disable Periodic DCC
+  - **LPMode** (OneOf) [VarStore SaSetup @ 0x42F, QID 0x467, size 8]
+    - options: (no options listed)
+    - help: Control LPMode feature
+  - **Post Package Repair** -> Form 0x1144  
+    - help: Post Package Repair Options
+  - **SAM Overlaoding** (OneOf) [VarStore SaSetup @ 0x477, QID 0x157A, size 8]
+    - options: (no options listed)
+    - help: Enable: copy the sagv frequency point. Disable: not copy.
+
+## Form 0x1144: Post Package Repair Options
+  - **Run Once** (OneOf) [VarStore SaSetup @ 0x480, QID 0x469, size 8]
+    - options: (no options listed)
+    - help: When it's enabled, PPR training runs only once, then is disabled at further training reboot
+  - **Repair Type** (OneOf) [VarStore SaSetup @ 0x3EF, QID 0x46A, size 8]
+    - options: (no options listed)
+    - help: PPR Repair Type
+
+## Form 0x1029: System Agent (SA) Configuration
+  - _(section)_ **System Agent (SA) Configuration**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **Graphics Configuration** -> Form 0x102A  
+    - help: Graphics Configuration
+  - **DMI/OPI Configuration** -> Form 0x102B  
+    - help: Control various DMI functions.
+  - **VMD setup menu** -> Form 0x1464  
+    - help: VMD Configuration settings
+  - **Display setup menu** -> Form 0x10ED  
+    - help: Display Configuration settings
+  - **PCI Express Configuration** -> Form 0x159A  
+    - help: PCI Express Configuration settings
+  - _(section)_ ****
+  - **Stop Grant Configuration** (OneOf) [VarStore SaSetup @ 0xAF, QID 0x470, size 8]
+    - options: (no options listed)
+    - help: Automatic/Manual stop grant configuration
+  - **Number of Stop Grant Cycles** (Numeric) [VarStore SaSetup @ 0xB0, QID 0x471, size 8]  min 0x1 max 0x3F
+    - help: Selects number of Stop-Grant cycles.
+  - **VT-d** (OneOf) [VarStore SaSetup @ 0x7D, QID 0x1412, size 8]
+    - options: (no options listed)
+    - help: VT-d capability
+  - **Control Iommu Pre-boot Behavior** (OneOf) [VarStore Setup @ 0x976, QID 0x472, size 8]
+    - options: (no options listed)
+    - help: Enable IOMMU in Pre-boot environment (If DMAR table is installed in DXE and If VTD_INFO_PPI is installed in PEI.)
+  - **X2APIC Opt Out** (OneOf) [VarStore SaSetup @ 0x86, QID 0x473, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable X2APIC_OPT_OUT bit
+  - **DMA Control Guarantee** (OneOf) [VarStore SaSetup @ 0x87, QID 0x474, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DMA_CONTROL_GUARANTEE bit
+  - **Thermal Device (B0:D4:F0)** (OneOf) [VarStore SaSetup @ 0x7C, QID 0x475, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SA Thermal Device. Always enabled for ICL A0 stepping.
+  - **Cpu CrashLog (Device 10)** (OneOf) [VarStore SaSetup @ 0xF6, QID 0x476, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Cpu CrashLog Device.
+  - **GNA Device (B0:D8:F0)** (OneOf) [VarStore SaSetup @ 0x7F, QID 0x477, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SA GNA Device.
+  - **CRID Support** (OneOf) [VarStore SaSetup @ 0x257, QID 0x478, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SA CRID and TCSS CRID control for Intel SIPP
+  - **WRC Feature** (OneOf) [VarStore SaSetup @ 0x277, QID 0x1413, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SA WRC(Write Cache) Feature of IOP. When enabled, supports IO devices allocating onto the ring and into LLC.
+  - **Above 4GB MMIO BIOS assignment** (OneOf) [VarStore SaSetup @ 0x7E, QID 0x479, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable above 4GB MemoryMappedIO BIOS assignment  This is enabled automatically when Aperture Size is set to 2048MB.
+  - **Program Grant Count** (OneOf) [VarStore SaSetup @ 0x47B, QID 0x47A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Programming Of Grant Count
+  - **IPU Device (B0:D5:F0)** (OneOf) [VarStore SaSetup @ 0x80, QID 0x47B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SA IPU Device.
+  - **MIPI Camera Configuration** -> Form 0x13B2  
+    - help: MIPI Camera Configuration
+  - **eDRAM Mode** (OneOf) [VarStore SaSetup @ 0x82, QID 0x47D, size 8]
+    - options: (no options listed)
+    - help: SW Mode eDRAM On or eDRAM Off
+
+## Form 0x101C: Memory Overclocking Menu
+  - _(section)_ ****
+  - **Realtime Memory Timing** (OneOf) [VarStore SaSetup @ 0x274, QID 0x47E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable realtime memory timings. When enabled, the system will allow performing realtime memory timing changes after MRC_DONE.
+  - **Memory profile** (OneOf) [VarStore SaSetup @ 0x18D, QID 0x112B, size 8]
+    - options: (no options listed)
+    - help: Select DIMM timing profile. The below values start with the currently running values and don't auto populate.
+  - **Dynamic Memory Boost** (OneOf) [VarStore SaSetup @ 0x41A, QID 0x47F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Dynamic Memory Boost feature, Allows automatic switching between default SPD Profile frequency and selected XMP profile frequency. Only valid if an XMP Profile is selected.
+  - **Realtime Memory Frequency** (OneOf) [VarStore SaSetup @ 0x42D, QID 0x480, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Realtime Memory Frequency feature, Allows manual switching in runtime between default SPD Profile frequency and selected XMP profile frequency. Only valid if an XMP Profile is selected.
+  - **OCSafeMode** (OneOf) [VarStore SaSetup @ 0x478, QID 0x481, size 8]
+    - options: (no options listed)
+    - help: OverClocking Safe Mode: When enabled, memory training uses less aggressive timing and algoes
+  - **Memory Reference Clock** (OneOf) [VarStore SaSetup @ 0x5, QID 0x482, size 8]
+    - options: (no options listed)
+    - help: 100MHz, 133MHz.
+  - **Memory Ratio** (Numeric) [VarStore SaSetup @ 0x6, QID 0x483, size 8]  min 0x0 max 0x80
+    - help: 0 = Auto, or the frequency will equal ratio times reference clock. Set to 0 (Auto) to recalculate memory timings listed below.
+  - **tCL** (Numeric) [VarStore SaSetup @ 0x8, QID 0x101D, size 8]  min 0x0 max 0xFF
+    - help: CAS Latency, 0: AUTO, max: 31
+  - **tRCD/tRP** (Numeric) [VarStore SaSetup @ 0xE, QID 0x101E, size 8]  min 0x0 max 0xFF
+    - help: RAS to CAS delay time and Row Precharge delay time, 0: AUTO, max: 63
+  - **tRAS** (Numeric) [VarStore SaSetup @ 0xC, QID 0x1020, size 16]  min 0x0 max 0xFFFF
+    - help: RAS Active Time, 0: AUTO, max: 64
+  - **tCWL** (Numeric) [VarStore SaSetup @ 0x9, QID 0x110C, size 8]  min 0x0 max 0xFF
+    - help: Min CAS Write Latency Delay Time, 0: AUTO, max: 20
+  - **tFAW** (Numeric) [VarStore SaSetup @ 0xA, QID 0x1027, size 16]  min 0x0 max 0xFFFF
+    - help: Min Four Activate Window Delay Time, 0: AUTO, max: 63
+  - **tREFI** (Numeric) [VarStore SaSetup @ 0xF, QID 0x110E, size 16]  min 0x0 max 0xFFFF
+    - help: Refresh Interval, 0: AUTO, max: 65535
+  - **tRFC** (Numeric) [VarStore SaSetup @ 0x11, QID 0x1022, size 16]  min 0x0 max 0xFFFF
+    - help: Min Refresh Recovery Delay Time, 0: AUTO, max: 1023
+  - **tRRD** (Numeric) [VarStore SaSetup @ 0x13, QID 0x1023, size 8]  min 0x0 max 0xFF
+    - help: Min Row Active to Row Active Delay Time, 0: AUTO, max: 31
+  - **tRTP** (Numeric) [VarStore SaSetup @ 0x14, QID 0x1025, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Read to Precharge Command Delay Time, 0: AUTO, max: 15. DDR4 legal values: 5, 6, 7, 8, 9, 10, 12
+  - **tWR** (Numeric) [VarStore SaSetup @ 0x15, QID 0x101F, size 8]  min 0x0 max 0xFF
+    - help: Min Write Recovery Time, 0: AUTO
+  - **tWTR** (Numeric) [VarStore SaSetup @ 0x16, QID 0x1024, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 28
+  - **tRFCpb** (Numeric) [VarStore SaSetup @ 0x434, QID 0x1194, size 16]  min 0x0 max 0x3A98
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 15000
+  - **tRFC2** (Numeric) [VarStore SaSetup @ 0x436, QID 0x1195, size 16]  min 0x0 max 0x3A98
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 15000
+  - **tRFC4** (Numeric) [VarStore SaSetup @ 0x438, QID 0x1196, size 16]  min 0x0 max 0x3A98
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 15000
+  - **tRRD_L** (Numeric) [VarStore SaSetup @ 0x43A, QID 0x1197, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max:80
+  - **tRRD_S** (Numeric) [VarStore SaSetup @ 0x43B, QID 0x1198, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 80
+  - **tWTR_L** (Numeric) [VarStore SaSetup @ 0x43C, QID 0x1199, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 127
+  - **tCCD_L** (Numeric) [VarStore SaSetup @ 0x43D, QID 0x119A, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 80
+  - **tWTR_S** (Numeric) [VarStore SaSetup @ 0x43E, QID 0x119B, size 8]  min 0x0 max 0xFF
+    - help: Min Internal Write to Read Command Delay Time, 0: AUTO, max: 50
+  - **NMode** (Numeric) [VarStore SaSetup @ 0x17, QID 0x1021, size 8]  min 0x0 max 0x2
+    - help: System command rate, range 0-2, 0 means auto, 1 = 1N, 2 = 2N
+  - **Memory Voltage** (Numeric) [VarStore SaSetup @ 0x3, QID 0x484, size 16]  min 0x0 max 0x7D0
+    - help: Memory Voltage Override (Vdd) at DRAM Side. 0 = no override
+  - **Memory Voltage VDDQ** (Numeric) [VarStore SaSetup @ 0x3F5, QID 0x485, size 16]  min 0x0 max 0x7D0
+    - help: Memory Voltage Override (Vddq) at DRAM Side. 0 = no override
+  - **Memory Voltage VPP** (Numeric) [VarStore SaSetup @ 0x3F7, QID 0x486, size 16]  min 0x0 max 0x8FC
+    - help: Memory Voltage Override (Vpp) at DRAM Side. 0 = no override
+
+## Form 0x102A: Graphics Configuration
+  - _(section)_ **Graphics Configuration**
+  - _(section)_ ****
+  - **Graphics Turbo IMON Current** (Numeric) [VarStore SaSetup @ 0xB8, QID 0x487, size 8]  min 0xE max 0x1F
+    - help: Graphics turbo IMON current values supported (14-31)
+  - **Skip Scaning of External Gfx Card** (OneOf) [VarStore SaSetup @ 0x256, QID 0x488, size 8]
+    - options: (no options listed)
+    - help: If Enable, it will not scan for External Gfx Card on PEG and PCH PCIE Ports
+  - _(section)_ ****
+  - **Primary Display** (OneOf) [VarStore SaSetup @ 0xB1, QID 0x489, size 8]
+    - options: (no options listed)
+    - help: Select which of IGFX/PEG/PCI Graphics device should be Primary Display Or select HG for Hybrid Gfx.
+  - **HG Support** (OneOf) [VarStore SaSetup @ 0x41B, QID 0x48A, size 8]
+    - options: (no options listed)
+    - help: HG Support on PEG Port
+  - **Select PCIE Card** (OneOf) [VarStore SaSetup @ 0xB2, QID 0x48B, size 8]
+    - options: (no options listed)
+    - help: Select the card used on the platform Auto       : Skip GPIO based Power Enable to dGPU Elk Creek 4: DGPU Power Enable = ActiveLow PEG Eval   : DGPU Power Enable = ActiveHigh
+  - **HG Delay After Power Enable** (Numeric) [VarStore SaSetup @ 0xB3, QID 0x48C, size 16]  min 0x0 max 0x3E8
+    - help: Delay in milli-seconds after power enable
+  - **HG Delay After Hold Reset** (Numeric) [VarStore SaSetup @ 0xB5, QID 0x48D, size 16]  min 0x0 max 0x3E8
+    - help: Delay in milli-seconds after hold reset
+  - **Primary Display** (OneOf) [VarStore SaSetup @ 0xB1, QID 0x48E, size 8]
+    - options: (no options listed)
+    - help: Select which of IGFX/PEG/PCI Graphics device should be Primary Display Or select HG for Hybrid Gfx.
+  - **Internal Graphics** (OneOf) [VarStore SaSetup @ 0xB7, QID 0x48F, size 8]
+    - options: (no options listed)
+    - help: Keep IGFX enabled based on the setup options.
+  - **GTT Size** (OneOf) [VarStore SaSetup @ 0x33, QID 0x490, size 8]
+    - options: (no options listed)
+    - help: Select the GTT Size
+  - **Aperture Size** (OneOf) [VarStore SaSetup @ 0x34, QID 0x491, size 8]
+    - options: (no options listed)
+    - help: Select the Aperture Size  Note : Above 4GB MMIO BIOS assignment is automatically enabled when selecting 2048MB aperture. To use this feature, please disable CSM Support.
+  - **PSMI SUPPORT** (OneOf) [VarStore SaSetup @ 0x35, QID 0x492, size 8]
+    - options: (no options listed)
+    - help: PSMI Enable/Disable
+  - **PSMI Region Size** (OneOf) [VarStore SaSetup @ 0x36, QID 0x493, size 8]
+    - options: (no options listed)
+    - help: Select the PSMI Region Size : Range from 32MB to 1024MB
+  - **DVMT Pre-Allocated** (OneOf) [VarStore SaSetup @ 0x7A, QID 0x494, size 8]
+    - options: (no options listed)
+    - help: Select DVMT 5.0 Pre-Allocated (Fixed) Graphics Memory size used by the Internal Graphics Device.
+  - **Igfx Gsm2** (OneOf) [VarStore SaSetup @ 0x481, QID 0x495, size 8]
+    - options: (no options listed)
+    - help: Graphics Stolen Memory 2
+  - **Intel Graphics Pei Display Peim** (OneOf) [VarStore SaSetup @ 0x39, QID 0x496, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Pei (Early) Display
+  - **ALS Support** (OneOf) [VarStore SaSetup @ 0x30, QID 0x497, size 8]
+    - options: (no options listed)
+    - help: Valid only for ACPI.  Legacy = ALS Support through the IGFX INT10 function.  ACPI = ALS support through an ACPI ALS driver.
+  - **VDD Enable** (OneOf) [VarStore SaSetup @ 0x37, QID 0x498, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable forcing of VDD in the BIOS
+  - **Configure GT for use** (OneOf) [VarStore SaSetup @ 0x38, QID 0x1410, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable GT configuration in BIOS
+  - **RC1p Support** (OneOf) [VarStore SaSetup @ 0x42, QID 0x499, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable RC1p support. If RC1p is enabled, send a RC1p frequency request to PMA based other conditions being met
+  - **PAVP Enable** (OneOf) [VarStore SaSetup @ 0x3A, QID 0x49A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable PAVP
+  - **Cdynmax Clamping Enable** (OneOf) [VarStore SaSetup @ 0x3D, QID 0x49B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Cdynmax Clamping
+  - **Cd Clock Frequency** (OneOf) [VarStore SaSetup @ 0x3E, QID 0x49C, size 8]
+    - options: (no options listed)
+    - help: Select the highest Cd Clock frequency supported by the platform
+  - **Cd Clock Frequency** (OneOf) [VarStore SaSetup @ 0x3E, QID 0x49D, size 8]
+    - options: (no options listed)
+    - help: Select the highest Cd Clock frequency supported by the platform
+  - **Skip Full CD Clock Init** (OneOf) [VarStore SaSetup @ 0x41, QID 0x49E, size 8]
+    - options: (no options listed)
+    - help: Enabled: Skip Full CD clock initializaton. Disabled: Initialize the full CD clock if not initialized by Gfx PEIM
+  - **VBT Select** (OneOf) [VarStore SaSetup @ 0x3B, QID 0x49F, size 8]
+    - options: (no options listed)
+    - help: Select VBT for GOP Driver Select Vbt to MIPI if any of the Display has MIPI
+  - **Enable Display Audio Link in Pre-OS** (OneOf) [VarStore SaSetup @ 0x3EE, QID 0x4A0, size 8]
+    - options: (no options listed)
+    - help: Enable : Display Audio Link will be enabled in Pre-OS. Disabled : Display Audio Link will be disabled in Pre-OS.
+  - **IUER Button Enable** (OneOf) [VarStore SaSetup @ 0x25C, QID 0x4A1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IUER Button Functionality
+  - **LCD Control** -> Form 0x102D  
+    - help: LCD Control
+  - **Intel(R) Ultrabook Event Support** -> Form 0x1112  
+    - help: Intel(R) Ultrabook Event Support
+
+## Form 0x102B: DMI/OPI Configuration
+  - _(section)_ **DMI/OPI Configuration**
+  - _(section)_ ****
+  - _(section)_ ****
+  - **DMI Max Link Speed** (OneOf) [VarStore SaSetup @ 0x8B, QID 0x4A4, size 8]
+    - options: (no options listed)
+    - help: Set DMI Speed Gen1/Gen2/Gen3
+  - **CDR Relock for CPU DMI** (OneOf) [VarStore SaSetup @ 0x3FE, QID 0x4A5, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CDR Relock
+  - **DMI Gen3 Eq Phase 2** (OneOf) [VarStore SaSetup @ 0x8D, QID 0x4A6, size 8]
+    - options: (no options listed)
+    - help: Perform Gen3 Equalization Phase 2
+  - **DMI Gen3 Eq Phase 3 Method** (OneOf) [VarStore SaSetup @ 0x8E, QID 0x4A7, size 8]
+    - options: (no options listed)
+    - help: Select Method for Gen3 Equalization Phase 3
+  - **Program Static Phase1 Eq** (OneOf) [VarStore SaSetup @ 0x8F, QID 0x4A8, size 8]
+    - options: (no options listed)
+    - help: Program Phase1 Presets/CTLEp
+  - **Gen3 Root Port Preset value for each Lane** -> Form 0x1126  
+    - help: Root Port preset value per lane for Gen3 Equalization
+  - **Gen3 Endpoint Preset value for each Lane** -> Form 0x1127  
+    - help: Endpoint preset value per lane for Gen3 Equalization
+  - **Gen3 Endpoint Hint value for each Lane** -> Form 0x1128  
+    - help: Endpoint Hint value per lane for Gen3 Equalization
+  - **Gen3 RxCTLE Control** -> Form 0x1129  
+    - help: Gen3 RxCTLE Control per Bundle
+  - **DMI De-emphasis Control** (OneOf) [VarStore SaSetup @ 0x8C, QID 0x4AD, size 8]
+    - options: (no options listed)
+    - help: Configure the De-emphasis control on DMI
+  - **DMI Gen3 ASPM** (OneOf) [VarStore SaSetup @ 0xAC, QID 0x4AE, size 8]
+    - options: (no options listed)
+    - help: DMI Gen3 ASPM Support
+  - **DMI ASPM** (OneOf) [VarStore SaSetup @ 0xAD, QID 0x4AF, size 8]
+    - options: (no options listed)
+    - help: DMI ASPM Support
+  - **DMI Gen3 L1 Exit Latency** (Numeric) [VarStore SaSetup @ 0xAE, QID 0x4B0, size 8]  min 0x0 max 0x7
+    - help: DMI Gen3 L1 Exit Latency
+  - **New FOM for CPU DMI** (OneOf) [VarStore SaSetup @ 0x3FD, QID 0x4B1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable New FOM
+  - **DMI Advanced Menu** -> Form 0x1634  
+    - help: DMI Advanced Menu
+
+## Form 0x1126:  Gen3 Root Port Preset value for each Lane
+  - _(section)_ **Gen3 Root Port Preset value for each Lane**
+  - _(section)_ ****
+  - **Lane 0** (Numeric) [VarStore SaSetup @ 0x90, QID 0x4B3, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 0
+  - **Lane 1** (Numeric) [VarStore SaSetup @ 0x91, QID 0x4B4, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 1
+  - **Lane 2** (Numeric) [VarStore SaSetup @ 0x92, QID 0x4B5, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 2
+  - **Lane 3** (Numeric) [VarStore SaSetup @ 0x93, QID 0x4B6, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 3
+  - **Lane 4** (Numeric) [VarStore SaSetup @ 0x94, QID 0x4B7, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 4
+  - **Lane 5** (Numeric) [VarStore SaSetup @ 0x95, QID 0x4B8, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 5
+  - **Lane 6** (Numeric) [VarStore SaSetup @ 0x96, QID 0x4B9, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 6
+  - **Lane 7** (Numeric) [VarStore SaSetup @ 0x97, QID 0x4BA, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 7
+
+## Form 0x1127:  Gen3 Endpoint Preset value for each Lane
+  - _(section)_ **Gen3 Endpoint Preset value for each Lane**
+  - _(section)_ ****
+  - **Lane 0** (Numeric) [VarStore SaSetup @ 0x98, QID 0x4BB, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 0
+  - **Lane 1** (Numeric) [VarStore SaSetup @ 0x99, QID 0x4BC, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 1
+  - **Lane 2** (Numeric) [VarStore SaSetup @ 0x9A, QID 0x4BD, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 2
+  - **Lane 3** (Numeric) [VarStore SaSetup @ 0x9B, QID 0x4BE, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 3
+  - **Lane 4** (Numeric) [VarStore SaSetup @ 0x9C, QID 0x4BF, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 4
+  - **Lane 5** (Numeric) [VarStore SaSetup @ 0x9D, QID 0x4C0, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 5
+  - **Lane 6** (Numeric) [VarStore SaSetup @ 0x9E, QID 0x4C1, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 6
+  - **Lane 7** (Numeric) [VarStore SaSetup @ 0x9F, QID 0x4C2, size 8]  min 0x0 max 0x9
+    - help: Value for Lane 7
+
+## Form 0x1128:  Gen3 Endpoint Hint value for each Lane
+  - _(section)_ **Gen3 Endpoint Hint value for each Lane**
+  - _(section)_ ****
+  - **Lane 0** (Numeric) [VarStore SaSetup @ 0xA0, QID 0x4C3, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 0
+  - **Lane 1** (Numeric) [VarStore SaSetup @ 0xA1, QID 0x4C4, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 1
+  - **Lane 2** (Numeric) [VarStore SaSetup @ 0xA2, QID 0x4C5, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 2
+  - **Lane 3** (Numeric) [VarStore SaSetup @ 0xA3, QID 0x4C6, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 3
+  - **Lane 4** (Numeric) [VarStore SaSetup @ 0xA4, QID 0x4C7, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 4
+  - **Lane 5** (Numeric) [VarStore SaSetup @ 0xA5, QID 0x4C8, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 5
+  - **Lane 6** (Numeric) [VarStore SaSetup @ 0xA6, QID 0x4C9, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 6
+  - **Lane 7** (Numeric) [VarStore SaSetup @ 0xA7, QID 0x4CA, size 8]  min 0x0 max 0x6
+    - help: Value for Lane 7
+
+## Form 0x1129: Gen3 RxCTLE Control
+  - _(section)_ **Gen3 RxCTLE Control**
+  - _(section)_ ****
+  - **Bundle0** (Numeric) [VarStore SaSetup @ 0xA8, QID 0x4CB, size 8]  min 0x0 max 0xF
+    - help: Gen3 RxCTLE setting for Bundle0 (Lane0, Lane1)
+  - **Bundle1** (Numeric) [VarStore SaSetup @ 0xA9, QID 0x4CC, size 8]  min 0x0 max 0xF
+    - help: Gen3 RxCTLE setting for Bundle1 (Lane2, Lane3)
+  - **Bundle2** (Numeric) [VarStore SaSetup @ 0xAA, QID 0x4CD, size 8]  min 0x0 max 0xF
+    - help: Gen3 RxCTLE setting for Bundle2 (Lane4, Lane5)
+  - **Bundle3** (Numeric) [VarStore SaSetup @ 0xAB, QID 0x4CE, size 8]  min 0x0 max 0xF
+    - help: Gen3 RxCTLE setting for Bundle3 (Lane6, Lane7)
+
+## Form 0x1634: DMI Advanced Menu
+  - _(section)_ **DMI Advanced Menu**
+  - _(section)_ ****
+  - **DMI Gen4 EQ Mode** (OneOf) [VarStore Setup @ 0xB8F, QID 0x4CF, size 8]
+    - options: (no options listed)
+    - help: DMI Gen4 EQ Mode
+  - **DMI Gen4 RTCO Cpre Lane0** (Numeric) [VarStore Setup @ 0xB7F, QID 0x4D0, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane0** (Numeric) [VarStore Setup @ 0xB87, QID 0x4D1, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane1** (Numeric) [VarStore Setup @ 0xB80, QID 0x4D2, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane1** (Numeric) [VarStore Setup @ 0xB88, QID 0x4D3, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane2** (Numeric) [VarStore Setup @ 0xB81, QID 0x4D4, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane2** (Numeric) [VarStore Setup @ 0xB89, QID 0x4D5, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane3** (Numeric) [VarStore Setup @ 0xB82, QID 0x4D6, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane3** (Numeric) [VarStore Setup @ 0xB8A, QID 0x4D7, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane4** (Numeric) [VarStore Setup @ 0xB83, QID 0x4D8, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane4** (Numeric) [VarStore Setup @ 0xB8B, QID 0x4D9, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane5** (Numeric) [VarStore Setup @ 0xB84, QID 0x4DA, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane5** (Numeric) [VarStore Setup @ 0xB8C, QID 0x4DB, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane6** (Numeric) [VarStore Setup @ 0xB85, QID 0x4DC, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane6** (Numeric) [VarStore Setup @ 0xB8D, QID 0x4DD, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpost Lane7** (Numeric) [VarStore Setup @ 0xB86, QID 0x4DE, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen4 RTCO Cpre Lane7** (Numeric) [VarStore Setup @ 0xB8E, QID 0x4DF, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen4 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane0** (Numeric) [VarStore Setup @ 0xB6F, QID 0x4E0, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane0** (Numeric) [VarStore Setup @ 0xB77, QID 0x4E1, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane1** (Numeric) [VarStore Setup @ 0xB70, QID 0x4E2, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane1** (Numeric) [VarStore Setup @ 0xB78, QID 0x4E3, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane2** (Numeric) [VarStore Setup @ 0xB71, QID 0x4E4, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane2** (Numeric) [VarStore Setup @ 0xB79, QID 0x4E5, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane3** (Numeric) [VarStore Setup @ 0xB72, QID 0x4E6, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane3** (Numeric) [VarStore Setup @ 0xB7A, QID 0x4E7, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane4** (Numeric) [VarStore Setup @ 0xB73, QID 0x4E8, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane4** (Numeric) [VarStore Setup @ 0xB7B, QID 0x4E9, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane5** (Numeric) [VarStore Setup @ 0xB74, QID 0x4EA, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane5** (Numeric) [VarStore Setup @ 0xB7C, QID 0x4EB, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane6** (Numeric) [VarStore Setup @ 0xB75, QID 0x4EC, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane6** (Numeric) [VarStore Setup @ 0xB7D, QID 0x4ED, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpre Lane7** (Numeric) [VarStore Setup @ 0xB76, QID 0x4EE, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+  - **DMI Gen3 RTCO Cpost Lane7** (Numeric) [VarStore Setup @ 0xB7E, QID 0x4EF, size 8]  min 0x0 max 0x3F
+    - help: DMI Gen3 Lane Transmitter Pre/Post-Cursor Coefficient values.
+
+## Form 0x102D: LCD Control
+  - _(section)_ **LCD Control**
+  - _(section)_ ****
+  - **Primary IGFX Boot Display** (OneOf) [VarStore SaSetup @ 0x2A, QID 0x4F0, size 8]
+    - options: (no options listed)
+    - help: Select the Video Device which will be activated during POST. This has no effect if external graphics present. Secondary boot display selection will appear based on your selection. VGA modes will be supported only on primary display
+  - **Secondary IGFX Boot Display** (OneOf) [VarStore SaSetup @ 0x2B, QID 0x4F1, size 8]
+    - options: (no options listed)
+    - help: Select Secondary Display Device
+  - **LCD Panel Type** (OneOf) [VarStore SaSetup @ 0x2C, QID 0x4F2, size 8]
+    - options: (no options listed)
+    - help: Select LCD panel used by Internal Graphics Device by selecting the appropriate setup item.
+  - **Panel Scaling** (OneOf) [VarStore SaSetup @ 0x2D, QID 0x4F3, size 8]
+    - options: (no options listed)
+    - help: Select the LCD panel scaling option used by the Internal Graphics Device.
+  - **Backlight Control** (OneOf) [VarStore SaSetup @ 0x2F, QID 0x4F4, size 8]
+    - options: (no options listed)
+    - help: Back Light Control Setting
+  - **Active LFP** (OneOf) [VarStore SaSetup @ 0x31, QID 0x4F5, size 8]
+    - options: (no options listed)
+    - help: Select the Active LFP Configuration.  No LVDS:VBIOS does not enable LVDS. Int-LVDS:VBIOS enables LVDS driver by Integrated encoder. SDVO LVDS:VBIOS enables LVDS driver by SDVO encoder. eDP Port-A:LFP Driven by Int-DisplayPort encoder from Port-A. eDP Port-D:LFP Driven by Int-DisplayPort encoder from Port-D(through PCH).
+  - **Panel Color Depth** (OneOf) [VarStore SaSetup @ 0x32, QID 0x4F6, size 8]
+    - options: (no options listed)
+    - help: Select the LFP Panel Color Depth
+  - **Backlight Brightness** (Numeric) [VarStore SaSetup @ 0x3C, QID 0x4F7, size 8]  min 0x0 max 0xFF
+    - help: Set VBIOS Brightness. Range : 0-255.
+
+## Form 0x1112: Intel(R) Ultrabook Event Support
+  - _(section)_ **Intel(R) Ultrabook Event Support**
+  - _(section)_ ****
+  - **IUER Slate Enable** (OneOf) [VarStore SaSetup @ 0x25D, QID 0x4F8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IUER Slate Functionality
+  - **Slate Mode boot value** (OneOf) [VarStore SaSetup @ 0x258, QID 0x4F9, size 8]
+    - options: (no options listed)
+    - help: Choose Slate or Laptop as boot mode.
+  - **Slate Mode on S3 and S4 resume** (OneOf) [VarStore SaSetup @ 0x259, QID 0x4FA, size 8]
+    - options: (no options listed)
+    - help: Keep it the same as Sx entry or toggle it.
+  - **IUER Dock Enable** (OneOf) [VarStore SaSetup @ 0x25E, QID 0x4FB, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable IUER Dock Functionality
+  - **Dock Mode boot value** (OneOf) [VarStore SaSetup @ 0x25A, QID 0x4FC, size 8]
+    - options: (no options listed)
+    - help: Choose Docked or Undocked as boot mode.
+  - **Dock Mode upon S3 and S4 resume** (OneOf) [VarStore SaSetup @ 0x25B, QID 0x4FD, size 8]
+    - options: (no options listed)
+    - help: Keep it the same as Sx entry or toggle it.
+
+## Form 0x102E: GT - Power Management Control
+  - _(section)_ **GT - Power Management Control**
+  - _(section)_ ****
+  - **RC6(Render Standby)** (OneOf) [VarStore SaSetup @ 0x2E, QID 0x140F, size 8]
+    - options: (no options listed)
+    - help: Check to enable render standby support.
+  - **Maximum GT frequency** (OneOf) [VarStore SaSetup @ 0x3F, QID 0x4FE, size 8]
+    - options: (no options listed)
+    - help: Auto Updated
+  - **Disable Turbo GT frequency** (OneOf) [VarStore SaSetup @ 0x40, QID 0x4FF, size 8]
+    - options: (no options listed)
+    - help: Enabled: Disables Turbo GT frequency. Disabled: GT frequency is not limited
+
+## Form 0x10E4: Memory Training Algorithms
+  - **Early Command Training** (OneOf) [VarStore SaSetup @ 0x1FF, QID 0x500, size 8]
+    - options: (no options listed)
+    - help: Early Command Training
+  - **SenseAmp Offset Training** (OneOf) [VarStore SaSetup @ 0x200, QID 0x501, size 8]
+    - options: (no options listed)
+    - help: SenseAmp Offset Training
+  - **Early ReadMPR Timing Centering 2D** (OneOf) [VarStore SaSetup @ 0x201, QID 0x502, size 8]
+    - options: (no options listed)
+  - **Read MPR Training** (OneOf) [VarStore SaSetup @ 0x202, QID 0x503, size 8]
+    - options: (no options listed)
+    - help: Read MPR Training
+  - **Receive Enable Training** (OneOf) [VarStore SaSetup @ 0x203, QID 0x504, size 8]
+    - options: (no options listed)
+    - help: Receive Enable Training
+  - **Jedec Write Leveling** (OneOf) [VarStore SaSetup @ 0x204, QID 0x505, size 8]
+    - options: (no options listed)
+    - help: Jedec Write Leveling
+  - **Early Write Time Centering 2D** (OneOf) [VarStore SaSetup @ 0x205, QID 0x506, size 8]
+    - options: (no options listed)
+    - help: Early Write Time Centering 2D
+  - **Early Read Time Centering 2D** (OneOf) [VarStore SaSetup @ 0x206, QID 0x507, size 8]
+    - options: (no options listed)
+  - **Write Timing Centering 1D** (OneOf) [VarStore SaSetup @ 0x207, QID 0x508, size 8]
+    - options: (no options listed)
+    - help: Write Timing Centering 1D
+  - **Write Voltage Centering 1D** (OneOf) [VarStore SaSetup @ 0x208, QID 0x509, size 8]
+    - options: (no options listed)
+  - **Read Timing Centering 1D** (OneOf) [VarStore SaSetup @ 0x209, QID 0x50A, size 8]
+    - options: (no options listed)
+    - help: Read Timing Centering 1D
+  - **Dimm ODT Training*** (OneOf) [VarStore SaSetup @ 0x20A, QID 0x50B, size 8]
+    - options: (no options listed)
+    - help: Dimm On-Die Termination Training
+  - **Max RTT_WR** (OneOf) [VarStore SaSetup @ 0x244, QID 0x50C, size 8]
+    - options: (no options listed)
+    - help: Caps the maximum RTT_WR in power training.
+  - **DIMM RON Training*** (OneOf) [VarStore SaSetup @ 0x20B, QID 0x50D, size 8]
+    - options: (no options listed)
+    - help: DIMM RON Training
+  - **Write Drive Strength/Equalization 2D*** (OneOf) [VarStore SaSetup @ 0x20C, QID 0x50E, size 8]
+    - options: (no options listed)
+  - **Write Slew Rate Training*** (OneOf) [VarStore SaSetup @ 0x20D, QID 0x50F, size 8]
+    - options: (no options listed)
+    - help: Write Slew Rate Training
+  - **Read ODT Training*** (OneOf) [VarStore SaSetup @ 0x20E, QID 0x510, size 8]
+    - options: (no options listed)
+    - help: Read On-Die Termination Training
+  - **Read Equalization Training*** (OneOf) [VarStore SaSetup @ 0x20F, QID 0x511, size 8]
+    - options: (no options listed)
+    - help: Read Equalization Training
+  - **Read Amplifier Training*** (OneOf) [VarStore SaSetup @ 0x210, QID 0x512, size 8]
+    - options: (no options listed)
+    - help: Read Amplifier Training
+  - **Write Timing Centering 2D** (OneOf) [VarStore SaSetup @ 0x211, QID 0x513, size 8]
+    - options: (no options listed)
+    - help: Write Dq-Dqs Timing Centering 2D
+  - **Read Timing Centering 2D** (OneOf) [VarStore SaSetup @ 0x212, QID 0x514, size 8]
+    - options: (no options listed)
+    - help: Read Dq-Dqs Timing Centering 2D
+  - **Command Voltage Centering** (OneOf) [VarStore SaSetup @ 0x213, QID 0x515, size 8]
+    - options: (no options listed)
+    - help: Command Voltage Centering
+  - **Write Voltage Centering 2D** (OneOf) [VarStore SaSetup @ 0x214, QID 0x516, size 8]
+    - options: (no options listed)
+    - help: Write Voltage Centering 2D
+  - **Read Voltage Centering 2D** (OneOf) [VarStore SaSetup @ 0x215, QID 0x517, size 8]
+    - options: (no options listed)
+    - help: Read Voltage Centering 2D
+  - **Late Command Training** (OneOf) [VarStore SaSetup @ 0x216, QID 0x518, size 8]
+    - options: (no options listed)
+    - help: Late Command Training
+  - **Round Trip Latency** (OneOf) [VarStore SaSetup @ 0x217, QID 0x519, size 8]
+    - options: (no options listed)
+    - help: Round Trip Latency Training
+  - **Turn Around Timing Training** (OneOf) [VarStore SaSetup @ 0x218, QID 0x51A, size 8]
+    - options: (no options listed)
+    - help: Turn Around Timing Training
+  - **CMD CTL CLK Slew Rate** (OneOf) [VarStore SaSetup @ 0x24E, QID 0x51B, size 8]
+    - options: (no options listed)
+    - help: CMD CTL CLK Slew Rate
+  - **CMD/CTL DS & E 2D** (OneOf) [VarStore SaSetup @ 0x24D, QID 0x51C, size 8]
+    - options: (no options listed)
+    - help: CMD/CTL Drive Strength and Equalization 2D
+  - **Read Voltage Centering 1D** (OneOf) [VarStore SaSetup @ 0x248, QID 0x51D, size 8]
+    - options: (no options listed)
+    - help: Read Voltage Centering 1D
+  - **TxDqTCO Comp Training*** (OneOf) [VarStore SaSetup @ 0x249, QID 0x51E, size 8]
+    - options: (no options listed)
+    - help: TxDqTCO Comp Training*
+  - **ClkTCO Comp Training*** (OneOf) [VarStore SaSetup @ 0x24C, QID 0x51F, size 8]
+    - options: (no options listed)
+    - help: ClkTCO Comp Training*
+  - **TxDqsTCO Comp Training*** (OneOf) [VarStore SaSetup @ 0x24A, QID 0x520, size 8]
+    - options: (no options listed)
+    - help: TxDqsTCO Comp Training*
+  - **VccDLL Bypass Training** (OneOf) [VarStore SaSetup @ 0x24B, QID 0x521, size 8]
+    - options: (no options listed)
+    - help: VccDLL Bypass Training
+  - **CMD/CTL Drive Strength Up/Dn 2D** (OneOf) [VarStore SaSetup @ 0x24F, QID 0x522, size 8]
+    - options: (no options listed)
+    - help: CMD/CTL Drive Strength Up/Dn 2D
+  - **DIMM CA ODT Training** (OneOf) [VarStore SaSetup @ 0x250, QID 0x523, size 8]
+    - options: (no options listed)
+    - help: DIMM CA ODT Training
+  - **PanicVttDnLp Training*** (OneOf) [VarStore SaSetup @ 0x251, QID 0x524, size 8]
+    - options: (no options listed)
+    - help: PanicVttDnLp Training*
+  - **Read Vref Decap Training*** (OneOf) [VarStore SaSetup @ 0x252, QID 0x525, size 8]
+    - options: (no options listed)
+    - help: Read Vref Decap Training*
+  - **Vddq Training** (OneOf) [VarStore SaSetup @ 0x253, QID 0x526, size 8]
+    - options: (no options listed)
+    - help: Vddq Training
+  - **Duty Cycle Correction Training** (OneOf) [VarStore SaSetup @ 0x254, QID 0x527, size 8]
+    - options: (no options listed)
+    - help: Duty Cycle Correction Training
+  - **Rank Margin Tool Per Bit** (OneOf) [VarStore SaSetup @ 0x255, QID 0x528, size 8]
+    - options: (no options listed)
+    - help: Rank Margin Tool Per Bit
+  - **DIMM DFE Training** (OneOf) [VarStore SaSetup @ 0x403, QID 0x529, size 8]
+    - options: (no options listed)
+    - help: DIMM DFE Training
+  - **EARLY DIMM DFE Training** (OneOf) [VarStore SaSetup @ 0x476, QID 0x1577, size 8]
+    - options: (no options listed)
+    - help: EARLY DIMM DFE Training
+  - **Tx Dqs Dcc Training** (OneOf) [VarStore SaSetup @ 0x433, QID 0x52A, size 8]
+    - options: (no options listed)
+    - help: Tx Dqs duty cycle Training
+  - **DRAM DCA Training** (OneOf) [VarStore SaSetup @ 0x467, QID 0x52B, size 8]
+    - options: (no options listed)
+    - help: DRAM DCA Training
+  - **Write Driver Strength Training** (OneOf) [VarStore SaSetup @ 0x475, QID 0x52C, size 8]
+    - options: (no options listed)
+    - help: Write Driver Strength Training
+  - **Rank Margin Tool** (OneOf) [VarStore SaSetup @ 0x219, QID 0x52D, size 8]
+    - options: (no options listed)
+    - help: Rank Margin Tool Training
+  - **Memory Test** (OneOf) [VarStore SaSetup @ 0x21A, QID 0x52E, size 8]
+    - options: (no options listed)
+    - help: Memory Test Training
+  - **DQS OFFSET ADJUST Training** (OneOf) [VarStore SaSetup @ 0x479, QID 0x52F, size 8]
+    - options: (no options listed)
+    - help: DQS OFFSET ADJUST Training
+  - **DRAM EMPHASIS Training** (OneOf) [VarStore SaSetup @ 0x47E, QID 0x157B, size 8]
+    - options: (no options listed)
+    - help: DRAM EMPHASIS Training
+  - **DIMM SPD Alias Test** (OneOf) [VarStore SaSetup @ 0x21B, QID 0x530, size 8]
+    - options: (no options listed)
+    - help: Test to determine if the SPD has been corrupted to cause memory aliasing.
+  - **Receive Enable Centering 1D** (OneOf) [VarStore SaSetup @ 0x21C, QID 0x531, size 8]
+    - options: (no options listed)
+    - help: Receive Enable Centering 1D
+  - **Retrain Margin Check** (OneOf) [VarStore SaSetup @ 0x21D, QID 0x532, size 8]
+    - options: (no options listed)
+    - help: Retrain Margin Check
+  - **Write Drive Strength Up/Dn independently** (OneOf) [VarStore SaSetup @ 0x21E, QID 0x533, size 8]
+    - options: (no options listed)
+    - help: Write Drive Strength Up/Dn independently
+  - **Post Package Repair Training** (OneOf) [VarStore SaSetup @ 0x47F, QID 0x534, size 8]
+    - options: (no options listed)
+    - help: Post Package Repair Training
+  - **Margin Check Limit** (OneOf) [VarStore SaSetup @ 0x3F0, QID 0x535, size 8]
+    - options: (no options listed)
+    - help: Checks Margin to Limit to see if next boot memory needs to be retrain
+  - **Margin Limit Check L2** (Numeric) [VarStore SaSetup @ 0x3F1, QID 0x536, size 16]  min 0x1 max 0x12C
+    - help: L2 check threshold is scale of L1 check. Ex. 200 is 2 x L1 Check
+
+## Form 0x1541: SA TCSS USB Configuration
+  - **USB CONNECT OVERRIDE** (OneOf) [VarStore SaSetup @ 0xC3, QID 0x537, size 8]
+    - options: (no options listed)
+    - help: Option will allow VCCSTTPC to turn off even when there is a connection for a USB3 port.
+  - **TCSS xDCI Support** (OneOf) [VarStore SaSetup @ 0xBF, QID 0x538, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable TCSS xDCI
+  - **TCSS CPU USB PDO Programming** (OneOf) [VarStore SaSetup @ 0x3E8, QID 0x539, size 8]
+    - options: (no options listed)
+    - help: Select 'Enabled' if Port Disable Override functionality is used.
+  - _(section)_ ****
+  - **TCSS CPU USB Port Disable Override** (OneOf) [VarStore SaSetup @ 0x3E9, QID 0x53A, size 8]
+    - options: (no options listed)
+    - help: Selectively Enable/Disable the corresponding USB port from reporting a Device Connection to the controller.
+  - _(section)_ ****
+  - **TCSS CPU USB SS Physical Connector #0** (OneOf) [VarStore SaSetup @ 0x3EA, QID 0x53B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **TCSS CPU USB SS Physical Connector #1** (OneOf) [VarStore SaSetup @ 0x3EB, QID 0x53C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **TCSS CPU USB SS Physical Connector #2** (OneOf) [VarStore SaSetup @ 0x3EC, QID 0x53D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **TCSS CPU USB SS Physical Connector #3** (OneOf) [VarStore SaSetup @ 0x3ED, QID 0x53E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+
+## Form 0x1048: Memory Thermal Configuration
+  - _(section)_ **Memory Thermal Configuration**
+  - _(section)_ ****
+  - **Memory Power and Thermal Throttling** -> Form 0x10E8  
+    - help: .
+  - **Memory Thermal Management** (OneOf) [VarStore SaSetup @ 0x22C, QID 0x540, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Memory Thermal Management.
+  - **PECI Injected Temperature** (OneOf) [VarStore SaSetup @ 0x22D, QID 0x541, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable memory temperatures to be injected to the processor via PECI.
+  - **EXTTS# via TS-on-Board** (OneOf) [VarStore SaSetup @ 0x22E, QID 0x542, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable routing TS-on-Board's ALERT# and THERM# to EXTTS# pins on the PCH.
+  - **EXTTS# via TS-on-DIMM** (OneOf) [VarStore SaSetup @ 0x22F, QID 0x543, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable routing TS-on-DIMM's ALERT# to EXTTS# pin on the PCH.
+  - **Virtual Temperature Sensor (VTS)** (OneOf) [VarStore SaSetup @ 0x230, QID 0x544, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Virtual Temperature Sensor (VTS).
+
+## Form 0x10E8: Memory Power and Thermal Throttling
+  - _(section)_ **Memory Power and Thermal Throttling**
+  - _(section)_ ****
+  - **DDR PowerDown and idle counter** (OneOf) [VarStore SaSetup @ 0x21F, QID 0x545, size 8]
+    - options: (no options listed)
+    - help: BIOS: BIOS is in control of DDR CKE mode and idle timer value. PCODE: pcode will manage the modes.
+  - **For LPDDR Only: DDR PowerDown and idle counter** (OneOf) [VarStore SaSetup @ 0x220, QID 0x546, size 8]
+    - options: (no options listed)
+    - help: For LPDDR Only: BIOS: BIOS is in control of DDR CKE mode and idle timer value. PCODE: pcode will manage the modes.
+  - **REFRESH_2X_MODE** (OneOf) [VarStore SaSetup @ 0x221, QID 0x547, size 8]
+    - options: (no options listed)
+    - help: 0- Disabled 1-iMC enables 2xRef when Warm and Hot 2- iMC enables 2xRef when Hot
+  - **SelfRefresh Enable** (OneOf) [VarStore SaSetup @ 0x223, QID 0x548, size 8]
+    - options: (no options listed)
+    - help: Enable, Disable(Enable= Def)
+  - **SelfRefresh IdleTimer** (Numeric) [VarStore SaSetup @ 0x224, QID 0x549, size 16]  min 0x200 max 0xFFFF
+    - help: range [64K-1;512]in DLCK800s, (512= Def)
+  - **Throttler CKEMin Defeature** (OneOf) [VarStore SaSetup @ 0x226, QID 0x54A, size 8]
+    - options: (no options listed)
+    - help: On, Off
+  - **Throttler CKEMin Timer** (Numeric) [VarStore SaSetup @ 0x227, QID 0x54B, size 8]  min 0x0 max 0xFF
+    - help: Timer value for CKEMin, range[255;0]. Req'd min of SC_ROUND_T + BYTE_LENGTH (4)
+  - **Allow Opp Ref Below Write Threhold** (OneOf) [VarStore SaSetup @ 0x22A, QID 0x54C, size 8]
+    - options: (no options listed)
+    - help: Allow opportunistic refreshes while we don't exit power down.
+  - **Write Threshold** (Numeric) [VarStore SaSetup @ 0x22B, QID 0x54D, size 8]  min 0x0 max 0x3F
+    - help: Number of writes that can be accumulated while CKE is low before CKE is asserted.
+  - **For LPDDR Only: Throttler CKEMin Defeature** (OneOf) [VarStore SaSetup @ 0x228, QID 0x54E, size 8]
+    - options: (no options listed)
+    - help: For LPDDR Only: On, Off
+  - **For LPDDR Only: Throttler CKEMin Timer** (Numeric) [VarStore SaSetup @ 0x229, QID 0x54F, size 8]  min 0x0 max 0xFF
+    - help: For LPDDR Only: Timer value for CKEMin, range[255;0]. Req'd min of SC_ROUND_T + BYTE_LENGTH (4)
+
+## Form 0x13B2: MIPI Camera Configuration
+  - **CVF Support** (OneOf) [VarStore Setup @ 0x9BA, QID 0x550, size 8]
+    - options: (no options listed)
+    - help: Disables/Enables CVF using either Native IOs or USB IOs Expansion.
+  - **Control Logic 1** (OneOf) [VarStore Setup @ 0x4F, QID 0x551, size 8]
+    - options: (no options listed)
+    - help: Control Logic 1
+  - **Control Logic options** -> Form 0x93  
+    - help: Control Logic options
+  - **Control Logic 2** (OneOf) [VarStore Setup @ 0x50, QID 0x553, size 8]
+    - options: (no options listed)
+    - help: Control Logic 2
+  - **Control Logic options** -> Form 0x94  
+    - help: Control Logic options
+  - **Control Logic 3** (OneOf) [VarStore Setup @ 0x51, QID 0x555, size 8]
+    - options: (no options listed)
+    - help: Control Logic 3
+  - **Control Logic options** -> Form 0x95  
+    - help: Control Logic options
+  - **Control Logic 4** (OneOf) [VarStore Setup @ 0x52, QID 0x557, size 8]
+    - options: (no options listed)
+    - help: Control Logic 4
+  - **Control Logic options** -> Form 0x96  
+    - help: Control Logic options
+  - **Control Logic 5** (OneOf) [VarStore Setup @ 0x53, QID 0x559, size 8]
+    - options: (no options listed)
+    - help: Control Logic 5
+  - **Control Logic options** -> Form 0x97  
+    - help: Control Logic options
+  - **Control Logic 6** (OneOf) [VarStore Setup @ 0x54, QID 0x55B, size 8]
+    - options: (no options listed)
+    - help: Control Logic 6
+  - **Control Logic options** -> Form 0x98  
+    - help: Control Logic options
+  - **Camera1** (OneOf) [VarStore Setup @ 0x55, QID 0x55D, size 8]
+    - options: (no options listed)
+    - help: Camera1
+  - **Link options** -> Form 0x8D  
+    - help: Link options
+  - **Flash Options** -> Form 0x154A  
+    - help: Flash Options
+  - **Camera2** (OneOf) [VarStore Setup @ 0x56, QID 0x560, size 8]
+    - options: (no options listed)
+    - help: Camera2
+  - **Link options** -> Form 0x8E  
+    - help: Link options
+  - **Flash Options** -> Form 0x154B  
+    - help: Flash Options
+  - **Camera3** (OneOf) [VarStore Setup @ 0x57, QID 0x563, size 8]
+    - options: (no options listed)
+    - help: Camera3
+  - **Link options** -> Form 0x8F  
+    - help: Link options
+  - **Flash Options** -> Form 0x154C  
+    - help: Flash Options
+  - **Camera4** (OneOf) [VarStore Setup @ 0x58, QID 0x566, size 8]
+    - options: (no options listed)
+    - help: Camera4
+  - **Link options** -> Form 0x90  
+    - help: Link options
+  - **Flash Options** -> Form 0x154D  
+    - help: Flash Options
+  - **Camera5** (OneOf) [VarStore Setup @ 0x59, QID 0x569, size 8]
+    - options: (no options listed)
+    - help: Camera5
+  - **Link options** -> Form 0x91  
+    - help: Link options
+  - **Flash Options** -> Form 0x154E  
+    - help: Flash Options
+  - **Camera6** (OneOf) [VarStore Setup @ 0x5A, QID 0x56C, size 8]
+    - options: (no options listed)
+    - help: Camera6
+  - **Link options** -> Form 0x92  
+    - help: Link options
+  - **Flash Options** -> Form 0x154F  
+    - help: Flash Options
+
+## Form 0x8D: Link0 options
+  - _(section)_ **Camera1**
+  - **Sensor Model** (OneOf) [VarStore Setup @ 0x184, QID 0x56F, size 8]
+    - options: (no options listed)
+    - help: Sensor Model
+  - **Lanes Clock division** (OneOf) [VarStore Setup @ 0xA73, QID 0x571, size 8]
+    - options: (no options listed)
+    - help: Lanes Clock division
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x1F5, QID 0x572, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **GPIO control** (OneOf) [VarStore Setup @ 0x203, QID 0x573, size 8]
+    - options: (no options listed)
+    - help: GPIO control
+  - **Camera position** (OneOf) [VarStore Setup @ 0x1AD, QID 0x574, size 8]
+    - options: (no options listed)
+    - help: Camera position
+  - **Flash Support** (OneOf) [VarStore Setup @ 0x204, QID 0x575, size 8]
+    - options: (no options listed)
+    - help: Flash Support
+  - **Privacy LED** (OneOf) [VarStore Setup @ 0x205, QID 0x576, size 8]
+    - options: (no options listed)
+    - help: Privacy LED
+  - **Rotation** (OneOf) [VarStore Setup @ 0x206, QID 0x577, size 8]
+    - options: (no options listed)
+    - help: Rotation
+  - **PMIC Position** (OneOf) [VarStore Setup @ 0x207, QID 0x578, size 8]
+    - options: (no options listed)
+    - help: PMIC Position Position 1 indicates the current module is placed on the left side of the CRD-G2 card Position 2 indicates the current module is placed on the right side of the CRD-G2 card
+  - **Voltage Rail** (OneOf) [VarStore Setup @ 0x208, QID 0x579, size 8]
+    - options: (no options listed)
+    - help: Voltage Rail
+  - **MIPI port** (Numeric) [VarStore Setup @ 0x1F6, QID 0x57B, size 8]  min 0x0 max 0xA
+    - help: LinkUsed
+  - **LaneUsed** (OneOf) [VarStore Setup @ 0x1F7, QID 0x57C, size 8]
+    - options: (no options listed)
+    - help: LaneUsed
+  - **PortSpeed** (OneOf) [VarStore Setup @ 0x1F8, QID 0x57D, size 8]
+    - options: (no options listed)
+    - help: PortSpeed: 0:Sensor Default, 1:<416Mbps, 2:<1.5Gbps, 3:<2Gbps, 4:<2.5Gbps, 5:<4Gbps, 6:>4Gbps
+  - **MCLK** (Numeric) [VarStore Setup @ 0x1FF, QID 0x57E, size 32]  min 0x5B8D80 max 0x19BFCC0
+    - help: MCLK
+  - **EEPROM Type** (OneOf) [VarStore Setup @ 0x1F9, QID 0x57F, size 8]
+    - options: (no options listed)
+    - help: EEPROM Type 0x00: ROM_NONE 0x01: ROM_OTP 0x02: ROM_EEPROM_16K_64 0x03: ROM_EEPROM_16K_16 0x04: ROM_OTP_ACPI_ACPI 0x05: ROM_ACPI 0x06: ROM_EEPROM_BRCA016GWZ 0x07: ROM_EEPROM_24AA32 0x08: ROM_EEPROM_CAT24C08 0x09: ROM_M24C64 0x0A: ROM_DW9806B 0x10: ROM_EEPROM_CAT24C16 0x11: ROM_EEPROM_CAT24C64 0x12: ROM_EEPROM_24AA16
+  - **VCM Type** (OneOf) [VarStore Setup @ 0x1FA, QID 0x580, size 8]
+    - options: (no options listed)
+    - help: VCM Type 0x00: VCM_NONE 0x01: VCM_AD5823 0x02: VCM_DW9714 0x03: VCM_AD5816 0x04: VCM_DW9719 0x05: VCM_DW9718 0x06: VCM_DW9806B 0x07: VCM_WV517S 0x08: VCM_LC898122XA 0x09: VCM_LC898212AXB 0x0F: VCM_AK7371 0x10: VCM_BU64297GWZ
+  - **Number of I2C Components** (Numeric) [VarStore Setup @ 0x1CE, QID 0x581, size 8]  min 0x0 max 0xC
+    - help: Number of I2C Components
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x1CF, QID 0x582, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - _(section)_ **Device 0**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1D0, QID 0x583, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1E8, QID 0x584, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 1**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1D2, QID 0x585, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1E9, QID 0x586, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 2**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1D4, QID 0x587, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1EA, QID 0x588, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 3**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1D6, QID 0x589, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1EB, QID 0x58A, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 4**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1D8, QID 0x58B, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1EC, QID 0x58C, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 5**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1DA, QID 0x58D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1ED, QID 0x58E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 6**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1DC, QID 0x58F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1EE, QID 0x590, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 7**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1DE, QID 0x591, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1EF, QID 0x592, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 8**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1E0, QID 0x593, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1F0, QID 0x594, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 9**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1E2, QID 0x595, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1F1, QID 0x596, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 10**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1E4, QID 0x597, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1F2, QID 0x598, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 11**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x1E6, QID 0x599, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x1F3, QID 0x59A, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0x20B, QID 0x59B, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0xAD7, QID 0x59C, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+
+## Form 0x8E: Link1 options
+  - _(section)_ **Camera2**
+  - **Sensor Model** (OneOf) [VarStore Setup @ 0x20C, QID 0x59D, size 8]
+    - options: (no options listed)
+    - help: Sensor Model
+  - **Lanes Clock division** (OneOf) [VarStore Setup @ 0xA74, QID 0x59F, size 8]
+    - options: (no options listed)
+    - help: Lanes Clock division
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x27E, QID 0x5A0, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **GPIO control** (OneOf) [VarStore Setup @ 0x28B, QID 0x5A1, size 8]
+    - options: (no options listed)
+    - help: GPIO control
+  - **Camera position** (OneOf) [VarStore Setup @ 0x235, QID 0x5A2, size 8]
+    - options: (no options listed)
+    - help: Camera position
+  - **Flash Support** (OneOf) [VarStore Setup @ 0x28C, QID 0x5A3, size 8]
+    - options: (no options listed)
+    - help: Flash Support
+  - **Privacy LED** (OneOf) [VarStore Setup @ 0x28D, QID 0x5A4, size 8]
+    - options: (no options listed)
+    - help: Privacy LED
+  - **Rotation** (OneOf) [VarStore Setup @ 0x28E, QID 0x5A5, size 8]
+    - options: (no options listed)
+    - help: Rotation
+  - **PMIC Position** (OneOf) [VarStore Setup @ 0x28F, QID 0x5A6, size 8]
+    - options: (no options listed)
+    - help: PMIC Position Position 1 indicates the current module is placed on the left side of the CRD-G2 card Position 2 indicates the current module is placed on the right side of the CRD-G2 card
+  - **Voltage Rail** (OneOf) [VarStore Setup @ 0x290, QID 0x5A7, size 8]
+    - options: (no options listed)
+    - help: Voltage Rail
+  - **MIPI port** (Numeric) [VarStore Setup @ 0x27D, QID 0x5A9, size 8]  min 0x0 max 0xA
+    - help: LinkUsed
+  - **LaneUsed** (OneOf) [VarStore Setup @ 0x27F, QID 0x5AA, size 8]
+    - options: (no options listed)
+    - help: LaneUsed
+  - **PortSpeed** (OneOf) [VarStore Setup @ 0x280, QID 0x5AB, size 8]
+    - options: (no options listed)
+    - help: PortSpeed: 0:Sensor Default, 1:<416Mbps, 2:<1.5Gbps, 3:<2Gbps, 4:<2.5Gbps, 5:<4Gbps, 6:>4Gbps
+  - **MCLK** (Numeric) [VarStore Setup @ 0x287, QID 0x5AC, size 32]  min 0x5B8D80 max 0x19BFCC0
+    - help: MCLK
+  - **EEPROM Type** (OneOf) [VarStore Setup @ 0x281, QID 0x5AD, size 8]
+    - options: (no options listed)
+    - help: EEPROM Type 0x00: ROM_NONE 0x01: ROM_OTP 0x02: ROM_EEPROM_16K_64 0x03: ROM_EEPROM_16K_16 0x04: ROM_OTP_ACPI_ACPI 0x05: ROM_ACPI 0x06: ROM_EEPROM_BRCA016GWZ 0x07: ROM_EEPROM_24AA32 0x08: ROM_EEPROM_CAT24C08 0x09: ROM_M24C64 0x0A: ROM_DW9806B 0x10: ROM_EEPROM_CAT24C16 0x11: ROM_EEPROM_CAT24C64 0x12: ROM_EEPROM_24AA16
+  - **VCM Type** (OneOf) [VarStore Setup @ 0x282, QID 0x5AE, size 8]
+    - options: (no options listed)
+    - help: VCM Type 0x00: VCM_NONE 0x01: VCM_AD5823 0x02: VCM_DW9714 0x03: VCM_AD5816 0x04: VCM_DW9719 0x05: VCM_DW9718 0x06: VCM_DW9806B 0x07: VCM_WV517S 0x08: VCM_LC898122XA 0x09: VCM_LC898212AXB 0x0F: VCM_AK7371 0x10: VCM_BU64297GWZ
+  - **Number of I2C Components** (Numeric) [VarStore Setup @ 0x256, QID 0x5AF, size 8]  min 0x0 max 0xC
+    - help: Number of I2C Components
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x257, QID 0x5B0, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - _(section)_ **Device 0**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x258, QID 0x5B1, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x270, QID 0x5B2, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 1**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x25A, QID 0x5B3, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x271, QID 0x5B4, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 2**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x25C, QID 0x5B5, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x272, QID 0x5B6, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 3**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x25E, QID 0x5B7, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x273, QID 0x5B8, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 4**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x260, QID 0x5B9, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x274, QID 0x5BA, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 5**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x262, QID 0x5BB, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x275, QID 0x5BC, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 6**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x264, QID 0x5BD, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x276, QID 0x5BE, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 7**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x266, QID 0x5BF, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x277, QID 0x5C0, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 8**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x268, QID 0x5C1, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x278, QID 0x5C2, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 9**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x26A, QID 0x5C3, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x279, QID 0x5C4, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 10**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x26C, QID 0x5C5, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x27A, QID 0x5C6, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 11**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x26E, QID 0x5C7, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x27B, QID 0x5C8, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0x293, QID 0x5C9, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0xAD8, QID 0x5CA, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+
+## Form 0x8F: Link2 options
+  - _(section)_ **Camera3**
+  - **Sensor Model** (OneOf) [VarStore Setup @ 0x294, QID 0x5CB, size 8]
+    - options: (no options listed)
+    - help: Sensor Model
+  - **Lanes Clock division** (OneOf) [VarStore Setup @ 0xA75, QID 0x5CD, size 8]
+    - options: (no options listed)
+    - help: Lanes Clock division
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x305, QID 0x5CE, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **GPIO control** (OneOf) [VarStore Setup @ 0x313, QID 0x5CF, size 8]
+    - options: (no options listed)
+    - help: GPIO control
+  - **Camera position** (OneOf) [VarStore Setup @ 0x2BD, QID 0x5D0, size 8]
+    - options: (no options listed)
+    - help: Camera position
+  - **Flash Support** (OneOf) [VarStore Setup @ 0x314, QID 0x5D1, size 8]
+    - options: (no options listed)
+    - help: Flash Support
+  - **Privacy LED** (OneOf) [VarStore Setup @ 0x315, QID 0x5D2, size 8]
+    - options: (no options listed)
+    - help: Privacy LED
+  - **Rotation** (OneOf) [VarStore Setup @ 0x316, QID 0x5D3, size 8]
+    - options: (no options listed)
+    - help: Rotation
+  - **PMIC Position** (OneOf) [VarStore Setup @ 0x317, QID 0x5D4, size 8]
+    - options: (no options listed)
+    - help: PMIC Position Position 1 indicates the current module is placed on the left side of the CRD-G2 card Position 2 indicates the current module is placed on the right side of the CRD-G2 card
+  - **Voltage Rail** (OneOf) [VarStore Setup @ 0x318, QID 0x5D5, size 8]
+    - options: (no options listed)
+    - help: Voltage Rail
+  - **MIPI port** (Numeric) [VarStore Setup @ 0x306, QID 0x5D7, size 8]  min 0x0 max 0xA
+    - help: LinkUsed
+  - **LaneUsed** (OneOf) [VarStore Setup @ 0x307, QID 0x5D8, size 8]
+    - options: (no options listed)
+    - help: LaneUsed
+  - **PortSpeed** (OneOf) [VarStore Setup @ 0x308, QID 0x5D9, size 8]
+    - options: (no options listed)
+    - help: PortSpeed: 0:Sensor Default, 1:<416Mbps, 2:<1.5Gbps, 3:<2Gbps, 4:<2.5Gbps, 5:<4Gbps, 6:>4Gbps
+  - **MCLK** (Numeric) [VarStore Setup @ 0x30F, QID 0x5DA, size 32]  min 0x5B8D80 max 0x19BFCC0
+    - help: MCLK
+  - **EEPROM Type** (OneOf) [VarStore Setup @ 0x309, QID 0x5DB, size 8]
+    - options: (no options listed)
+    - help: EEPROM Type 0x00: ROM_NONE 0x01: ROM_OTP 0x02: ROM_EEPROM_16K_64 0x03: ROM_EEPROM_16K_16 0x04: ROM_OTP_ACPI_ACPI 0x05: ROM_ACPI 0x06: ROM_EEPROM_BRCA016GWZ 0x07: ROM_EEPROM_24AA32 0x08: ROM_EEPROM_CAT24C08 0x09: ROM_M24C64 0x0A: ROM_DW9806B 0x10: ROM_EEPROM_CAT24C16 0x11: ROM_EEPROM_CAT24C64 0x12: ROM_EEPROM_24AA16
+  - **VCM Type** (OneOf) [VarStore Setup @ 0x30A, QID 0x5DC, size 8]
+    - options: (no options listed)
+    - help: VCM Type 0x00: VCM_NONE 0x01: VCM_AD5823 0x02: VCM_DW9714 0x03: VCM_AD5816 0x04: VCM_DW9719 0x05: VCM_DW9718 0x06: VCM_DW9806B 0x07: VCM_WV517S 0x08: VCM_LC898122XA 0x09: VCM_LC898212AXB 0x0F: VCM_AK7371 0x10: VCM_BU64297GWZ
+  - **Number of I2C Components** (Numeric) [VarStore Setup @ 0x2DE, QID 0x5DD, size 8]  min 0x0 max 0xC
+    - help: Number of I2C Components
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x2DF, QID 0x5DE, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - _(section)_ **Device 0**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2E0, QID 0x5DF, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2F8, QID 0x5E0, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 1**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2E2, QID 0x5E1, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2F9, QID 0x5E2, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 2**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2E4, QID 0x5E3, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2FA, QID 0x5E4, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 3**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2E6, QID 0x5E5, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2FB, QID 0x5E6, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 4**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2E8, QID 0x5E7, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2FC, QID 0x5E8, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 5**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2EA, QID 0x5E9, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2FD, QID 0x5EA, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 6**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2EC, QID 0x5EB, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2FE, QID 0x5EC, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 7**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2EE, QID 0x5ED, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x2FF, QID 0x5EE, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 8**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2F0, QID 0x5EF, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x300, QID 0x5F0, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 9**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2F2, QID 0x5F1, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x301, QID 0x5F2, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 10**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2F4, QID 0x5F3, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x302, QID 0x5F4, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 11**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x2F6, QID 0x5F5, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x303, QID 0x5F6, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0x31B, QID 0x5F7, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0xAD9, QID 0x5F8, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+
+## Form 0x90: Link3 options
+  - _(section)_ **Camera4**
+  - **Sensor Model** (OneOf) [VarStore Setup @ 0x31C, QID 0x5F9, size 8]
+    - options: (no options listed)
+    - help: Sensor Model
+  - **Lanes Clock division** (OneOf) [VarStore Setup @ 0xA76, QID 0x5FB, size 8]
+    - options: (no options listed)
+    - help: Lanes Clock division
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x38D, QID 0x5FC, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **GPIO control** (OneOf) [VarStore Setup @ 0x39B, QID 0x5FD, size 8]
+    - options: (no options listed)
+    - help: GPIO control
+  - **Camera position** (OneOf) [VarStore Setup @ 0x345, QID 0x5FE, size 8]
+    - options: (no options listed)
+    - help: Camera position
+  - **Flash Support** (OneOf) [VarStore Setup @ 0x39C, QID 0x5FF, size 8]
+    - options: (no options listed)
+    - help: Flash Support
+  - **Privacy LED** (OneOf) [VarStore Setup @ 0x39D, QID 0x600, size 8]
+    - options: (no options listed)
+    - help: Privacy LED
+  - **Rotation** (OneOf) [VarStore Setup @ 0x39E, QID 0x601, size 8]
+    - options: (no options listed)
+    - help: Rotation
+  - **PMIC Position** (OneOf) [VarStore Setup @ 0x39F, QID 0x602, size 8]
+    - options: (no options listed)
+    - help: PMIC Position Position 1 indicates the current module is placed on the left side of the CRD-G2 card Position 2 indicates the current module is placed on the right side of the CRD-G2 card
+  - **Voltage Rail** (OneOf) [VarStore Setup @ 0x3A0, QID 0x603, size 8]
+    - options: (no options listed)
+    - help: Voltage Rail
+  - **MIPI port** (Numeric) [VarStore Setup @ 0x38E, QID 0x605, size 8]  min 0x0 max 0xA
+    - help: LinkUsed
+  - **LaneUsed** (OneOf) [VarStore Setup @ 0x38F, QID 0x606, size 8]
+    - options: (no options listed)
+    - help: LaneUsed
+  - **PortSpeed** (OneOf) [VarStore Setup @ 0x390, QID 0x607, size 8]
+    - options: (no options listed)
+    - help: PortSpeed: 0:Sensor Default, 1:<416Mbps, 2:<1.5Gbps, 3:<2Gbps, 4:<2.5Gbps, 5:<4Gbps, 6:>4Gbps
+  - **MCLK** (Numeric) [VarStore Setup @ 0x397, QID 0x608, size 32]  min 0x5B8D80 max 0x19BFCC0
+    - help: MCLK
+  - **EEPROM Type** (OneOf) [VarStore Setup @ 0x391, QID 0x609, size 8]
+    - options: (no options listed)
+    - help: EEPROM Type 0x00: ROM_NONE 0x01: ROM_OTP 0x02: ROM_EEPROM_16K_64 0x03: ROM_EEPROM_16K_16 0x04: ROM_OTP_ACPI_ACPI 0x05: ROM_ACPI 0x06: ROM_EEPROM_BRCA016GWZ 0x07: ROM_EEPROM_24AA32 0x08: ROM_EEPROM_CAT24C08 0x09: ROM_M24C64 0x0A: ROM_DW9806B 0x10: ROM_EEPROM_CAT24C16 0x11: ROM_EEPROM_CAT24C64 0x12: ROM_EEPROM_24AA16
+  - **VCM Type** (OneOf) [VarStore Setup @ 0x392, QID 0x60A, size 8]
+    - options: (no options listed)
+    - help: VCM Type 0x00: VCM_NONE 0x01: VCM_AD5823 0x02: VCM_DW9714 0x03: VCM_AD5816 0x04: VCM_DW9719 0x05: VCM_DW9718 0x06: VCM_DW9806B 0x07: VCM_WV517S 0x08: VCM_LC898122XA 0x09: VCM_LC898212AXB 0x0F: VCM_AK7371 0x10: VCM_BU64297GWZ
+  - **Number of I2C Components** (Numeric) [VarStore Setup @ 0x366, QID 0x60B, size 8]  min 0x0 max 0xC
+    - help: Number of I2C Components
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x367, QID 0x60C, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - _(section)_ **Device 0**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x368, QID 0x60D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x380, QID 0x60E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 1**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x36A, QID 0x60F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x381, QID 0x610, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 2**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x36C, QID 0x611, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x382, QID 0x612, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 3**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x36E, QID 0x613, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x383, QID 0x614, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 4**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x370, QID 0x615, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x384, QID 0x616, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 5**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x372, QID 0x617, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x385, QID 0x618, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 6**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x374, QID 0x619, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x386, QID 0x61A, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 7**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x376, QID 0x61B, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x387, QID 0x61C, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 8**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x378, QID 0x61D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x388, QID 0x61E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 9**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x37A, QID 0x61F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x389, QID 0x620, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 10**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x37C, QID 0x621, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x38A, QID 0x622, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 11**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x37E, QID 0x623, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x38B, QID 0x624, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0x3A3, QID 0x625, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0xADA, QID 0x626, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+
+## Form 0x91: Link4 options
+  - _(section)_ **Camera5**
+  - **Sensor Model** (OneOf) [VarStore Setup @ 0x3A4, QID 0x627, size 8]
+    - options: (no options listed)
+    - help: Sensor Model
+  - **Lanes Clock division** (OneOf) [VarStore Setup @ 0xA77, QID 0x629, size 8]
+    - options: (no options listed)
+    - help: Lanes Clock division
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x415, QID 0x62A, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **GPIO control** (OneOf) [VarStore Setup @ 0x423, QID 0x62B, size 8]
+    - options: (no options listed)
+    - help: GPIO control
+  - **Camera position** (OneOf) [VarStore Setup @ 0x3CD, QID 0x62C, size 8]
+    - options: (no options listed)
+    - help: Camera position
+  - **Flash Support** (OneOf) [VarStore Setup @ 0x424, QID 0x62D, size 8]
+    - options: (no options listed)
+    - help: Flash Support
+  - **Privacy LED** (OneOf) [VarStore Setup @ 0x425, QID 0x62E, size 8]
+    - options: (no options listed)
+    - help: Privacy LED
+  - **Rotation** (OneOf) [VarStore Setup @ 0x426, QID 0x62F, size 8]
+    - options: (no options listed)
+    - help: Rotation
+  - **PMIC Position** (OneOf) [VarStore Setup @ 0x427, QID 0x630, size 8]
+    - options: (no options listed)
+    - help: PMIC Position Position 1 indicates the current module is placed on the left side of the CRD-G2 card Position 2 indicates the current module is placed on the right side of the CRD-G2 card
+  - **Voltage Rail** (OneOf) [VarStore Setup @ 0x428, QID 0x631, size 8]
+    - options: (no options listed)
+    - help: Voltage Rail
+  - **MIPI port** (Numeric) [VarStore Setup @ 0x416, QID 0x633, size 8]  min 0x0 max 0xA
+    - help: LinkUsed
+  - **LaneUsed** (OneOf) [VarStore Setup @ 0x417, QID 0x634, size 8]
+    - options: (no options listed)
+    - help: LaneUsed
+  - **PortSpeed** (OneOf) [VarStore Setup @ 0x418, QID 0x635, size 8]
+    - options: (no options listed)
+    - help: PortSpeed: 0:Sensor Default, 1:<416Mbps, 2:<1.5Gbps, 3:<2Gbps, 4:<2.5Gbps, 5:<4Gbps, 6:>4Gbps
+  - **MCLK** (Numeric) [VarStore Setup @ 0x41F, QID 0x636, size 32]  min 0x5B8D80 max 0x19BFCC0
+    - help: MCLK
+  - **EEPROM Type** (OneOf) [VarStore Setup @ 0x419, QID 0x637, size 8]
+    - options: (no options listed)
+    - help: EEPROM Type 0x00: ROM_NONE 0x01: ROM_OTP 0x02: ROM_EEPROM_16K_64 0x03: ROM_EEPROM_16K_16 0x04: ROM_OTP_ACPI_ACPI 0x05: ROM_ACPI 0x06: ROM_EEPROM_BRCA016GWZ 0x07: ROM_EEPROM_24AA32 0x08: ROM_EEPROM_CAT24C08 0x09: ROM_M24C64 0x0A: ROM_DW9806B 0x10: ROM_EEPROM_CAT24C16 0x11: ROM_EEPROM_CAT24C64 0x12: ROM_EEPROM_24AA16
+  - **VCM Type** (OneOf) [VarStore Setup @ 0x41A, QID 0x638, size 8]
+    - options: (no options listed)
+    - help: VCM Type 0x00: VCM_NONE 0x01: VCM_AD5823 0x02: VCM_DW9714 0x03: VCM_AD5816 0x04: VCM_DW9719 0x05: VCM_DW9718 0x06: VCM_DW9806B 0x07: VCM_WV517S 0x08: VCM_LC898122XA 0x09: VCM_LC898212AXB 0x0F: VCM_AK7371 0x10: VCM_BU64297GWZ
+  - **Number of I2C Components** (Numeric) [VarStore Setup @ 0x3EE, QID 0x639, size 8]  min 0x0 max 0xC
+    - help: Number of I2C Components
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x3EF, QID 0x63A, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - _(section)_ **Device 0**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3F0, QID 0x63B, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x408, QID 0x63C, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 1**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3F2, QID 0x63D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x409, QID 0x63E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 2**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3F4, QID 0x63F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x40A, QID 0x640, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 3**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3F6, QID 0x641, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x40B, QID 0x642, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 4**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3F8, QID 0x643, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x40C, QID 0x644, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 5**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3FA, QID 0x645, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x40D, QID 0x646, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 6**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3FC, QID 0x647, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x40E, QID 0x648, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 7**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x3FE, QID 0x649, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x40F, QID 0x64A, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 8**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x400, QID 0x64B, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x410, QID 0x64C, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 9**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x402, QID 0x64D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x411, QID 0x64E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 10**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x404, QID 0x64F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x412, QID 0x650, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 11**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x406, QID 0x651, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x413, QID 0x652, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0x42B, QID 0x653, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0xADB, QID 0x654, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+
+## Form 0x92: Link5 options
+  - _(section)_ **Camera6**
+  - **Sensor Model** (OneOf) [VarStore Setup @ 0x42C, QID 0x655, size 8]
+    - options: (no options listed)
+    - help: Sensor Model
+  - **Lanes Clock division** (OneOf) [VarStore Setup @ 0xA78, QID 0x657, size 8]
+    - options: (no options listed)
+    - help: Lanes Clock division
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x49D, QID 0x658, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **GPIO control** (OneOf) [VarStore Setup @ 0x4AB, QID 0x659, size 8]
+    - options: (no options listed)
+    - help: GPIO control
+  - **Camera position** (OneOf) [VarStore Setup @ 0x455, QID 0x65A, size 8]
+    - options: (no options listed)
+    - help: Camera position
+  - **Flash Support** (OneOf) [VarStore Setup @ 0x4AC, QID 0x65B, size 8]
+    - options: (no options listed)
+    - help: Flash Support
+  - **Privacy LED** (OneOf) [VarStore Setup @ 0x4AD, QID 0x65C, size 8]
+    - options: (no options listed)
+    - help: Privacy LED
+  - **Rotation** (OneOf) [VarStore Setup @ 0x4AE, QID 0x65D, size 8]
+    - options: (no options listed)
+    - help: Rotation
+  - **PMIC Position** (OneOf) [VarStore Setup @ 0x4AF, QID 0x65E, size 8]
+    - options: (no options listed)
+    - help: PMIC Position Position 1 indicates the current module is placed on the left side of the CRD-G2 card Position 2 indicates the current module is placed on the right side of the CRD-G2 card
+  - **Voltage Rail** (OneOf) [VarStore Setup @ 0x4B0, QID 0x65F, size 8]
+    - options: (no options listed)
+    - help: Voltage Rail
+  - **MIPI port** (Numeric) [VarStore Setup @ 0x49E, QID 0x661, size 8]  min 0x0 max 0xA
+    - help: LinkUsed
+  - **LaneUsed** (OneOf) [VarStore Setup @ 0x49F, QID 0x662, size 8]
+    - options: (no options listed)
+    - help: LaneUsed
+  - **PortSpeed** (OneOf) [VarStore Setup @ 0x4A0, QID 0x663, size 8]
+    - options: (no options listed)
+    - help: PortSpeed: 0:Sensor Default, 1:<416Mbps, 2:<1.5Gbps, 3:<2Gbps, 4:<2.5Gbps, 5:<4Gbps, 6:>4Gbps
+  - **MCLK** (Numeric) [VarStore Setup @ 0x4A7, QID 0x664, size 32]  min 0x5B8D80 max 0x19BFCC0
+    - help: MCLK
+  - **EEPROM Type** (OneOf) [VarStore Setup @ 0x4A1, QID 0x665, size 8]
+    - options: (no options listed)
+    - help: EEPROM Type 0x00: ROM_NONE 0x01: ROM_OTP 0x02: ROM_EEPROM_16K_64 0x03: ROM_EEPROM_16K_16 0x04: ROM_OTP_ACPI_ACPI 0x05: ROM_ACPI 0x06: ROM_EEPROM_BRCA016GWZ 0x07: ROM_EEPROM_24AA32 0x08: ROM_EEPROM_CAT24C08 0x09: ROM_M24C64 0x0A: ROM_DW9806B 0x10: ROM_EEPROM_CAT24C16 0x11: ROM_EEPROM_CAT24C64 0x12: ROM_EEPROM_24AA16
+  - **VCM Type** (OneOf) [VarStore Setup @ 0x4A2, QID 0x666, size 8]
+    - options: (no options listed)
+    - help: VCM Type 0x00: VCM_NONE 0x01: VCM_AD5823 0x02: VCM_DW9714 0x03: VCM_AD5816 0x04: VCM_DW9719 0x05: VCM_DW9718 0x06: VCM_DW9806B 0x07: VCM_WV517S 0x08: VCM_LC898122XA 0x09: VCM_LC898212AXB 0x0F: VCM_AK7371 0x10: VCM_BU64297GWZ
+  - **Number of I2C Components** (Numeric) [VarStore Setup @ 0x476, QID 0x667, size 8]  min 0x0 max 0xC
+    - help: Number of I2C Components
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x477, QID 0x668, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - _(section)_ **Device 0**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x478, QID 0x669, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x490, QID 0x66A, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 1**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x47A, QID 0x66B, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x491, QID 0x66C, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 2**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x47C, QID 0x66D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x492, QID 0x66E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 3**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x47E, QID 0x66F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x493, QID 0x670, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 4**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x480, QID 0x671, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x494, QID 0x672, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 5**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x482, QID 0x673, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x495, QID 0x674, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 6**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x484, QID 0x675, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x496, QID 0x676, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 7**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x486, QID 0x677, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x497, QID 0x678, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 8**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x488, QID 0x679, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x498, QID 0x67A, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 9**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x48A, QID 0x67B, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x499, QID 0x67C, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 10**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x48C, QID 0x67D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x49A, QID 0x67E, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - _(section)_ **Device 11**
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x48E, QID 0x67F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **Device Type** (OneOf) [VarStore Setup @ 0x49B, QID 0x680, size 8]
+    - options: (no options listed)
+    - help: Device Type
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0x4B3, QID 0x681, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+  - **Flash Driver Selection** (OneOf) [VarStore Setup @ 0xADC, QID 0x682, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver as External or Internal PMIC
+
+## Form 0x93: Control Logic options
+  - _(section)_ **Control Logic options**
+  - **Control Logic Type** (OneOf) [VarStore Setup @ 0x5E, QID 0x683, size 8]
+    - options: (no options listed)
+    - help: Control Logic Type
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x5F, QID 0x684, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **Input Clock** (OneOf) [VarStore Setup @ 0x60, QID 0x685, size 32]
+    - options: (no options listed)
+    - help: Input Clock
+  - **PCH Clock Source** (OneOf) [VarStore Setup @ 0x64, QID 0x686, size 8]
+    - options: (no options listed)
+    - help: This option specifies which IMGCLKOUT is chosen
+  - **PMIC Flash Panel** (OneOf) [VarStore Setup @ 0x69, QID 0x687, size 8]
+    - options: (no options listed)
+    - help: PMIC Flash Panel
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x66, QID 0x688, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x67, QID 0x689, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **WLED1 Type** (OneOf) [VarStore Setup @ 0x6F, QID 0x68A, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED1 Flash Max Current** (Numeric) [VarStore Setup @ 0x6A, QID 0x68B, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED1 Torch Max Current** (Numeric) [VarStore Setup @ 0x6B, QID 0x68C, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **WLED2 Type** (OneOf) [VarStore Setup @ 0x70, QID 0x68D, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED2 Flash Max Current** (Numeric) [VarStore Setup @ 0x6C, QID 0x68E, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED2 Torch Max Current** (Numeric) [VarStore Setup @ 0x6D, QID 0x68F, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **SubPlatformId** (Numeric) [VarStore Setup @ 0x6E, QID 0x690, size 8]  min 0x0 max 0xF
+    - help: SubPlatformId
+  - **Number of GPIO Pins** (Numeric) [VarStore Setup @ 0x65, QID 0x691, size 8]  min 0x0 max 0x6
+    - help: Number of GPIO Pins
+  - _(section)_ **GPIO 0**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x71, QID 0x692, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x77, QID 0x693, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x7D, QID 0x694, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x83, QID 0x695, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x89, QID 0x696, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 1**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x72, QID 0x697, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x78, QID 0x698, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x7E, QID 0x699, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x84, QID 0x69A, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x8A, QID 0x69B, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 2**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x73, QID 0x69C, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x79, QID 0x69D, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x7F, QID 0x69E, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x85, QID 0x69F, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x8B, QID 0x6A0, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 3**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x74, QID 0x6A1, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x7A, QID 0x6A2, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x80, QID 0x6A3, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x86, QID 0x6A4, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x8C, QID 0x6A5, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 4**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x75, QID 0x6A6, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x7B, QID 0x6A7, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x81, QID 0x6A8, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x87, QID 0x6A9, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x8D, QID 0x6AA, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 5**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x76, QID 0x6AB, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x7C, QID 0x6AC, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x82, QID 0x6AD, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x88, QID 0x6AE, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x8E, QID 0x6AF, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+
+## Form 0x94: Control Logic options
+  - _(section)_ **Control Logic options**
+  - **Control Logic Type** (OneOf) [VarStore Setup @ 0x8F, QID 0x6B0, size 8]
+    - options: (no options listed)
+    - help: Control Logic Type
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x90, QID 0x6B1, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **Input Clock** (OneOf) [VarStore Setup @ 0x91, QID 0x6B2, size 32]
+    - options: (no options listed)
+    - help: Input Clock
+  - **PCH Clock Source** (OneOf) [VarStore Setup @ 0x95, QID 0x6B3, size 8]
+    - options: (no options listed)
+    - help: This option specifies which IMGCLKOUT is chosen
+  - **PMIC Flash Panel** (OneOf) [VarStore Setup @ 0x9A, QID 0x6B4, size 8]
+    - options: (no options listed)
+    - help: PMIC Flash Panel
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x97, QID 0x6B5, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x98, QID 0x6B6, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **WLED1 Type** (OneOf) [VarStore Setup @ 0xA0, QID 0x6B7, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED1 Flash Max Current** (Numeric) [VarStore Setup @ 0x9B, QID 0x6B8, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED1 Torch Max Current** (Numeric) [VarStore Setup @ 0x9C, QID 0x6B9, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **WLED2 Type** (OneOf) [VarStore Setup @ 0xA1, QID 0x6BA, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED2 Flash Max Current** (Numeric) [VarStore Setup @ 0x9D, QID 0x6BB, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED2 Torch Max Current** (Numeric) [VarStore Setup @ 0x9E, QID 0x6BC, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **SubPlatformId** (Numeric) [VarStore Setup @ 0x9F, QID 0x6BD, size 8]  min 0x0 max 0xF
+    - help: SubPlatformId
+  - **Number of GPIO Pins** (Numeric) [VarStore Setup @ 0x96, QID 0x6BE, size 8]  min 0x0 max 0x6
+    - help: Number of GPIO Pins
+  - _(section)_ **GPIO 0**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xA2, QID 0x6BF, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xA8, QID 0x6C0, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xAE, QID 0x6C1, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xB4, QID 0x6C2, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xBA, QID 0x6C3, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 1**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xA3, QID 0x6C4, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xA9, QID 0x6C5, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xAF, QID 0x6C6, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xB5, QID 0x6C7, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xBB, QID 0x6C8, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 2**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xA4, QID 0x6C9, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xAA, QID 0x6CA, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xB0, QID 0x6CB, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xB6, QID 0x6CC, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xBC, QID 0x6CD, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 3**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xA5, QID 0x6CE, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xAB, QID 0x6CF, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xB1, QID 0x6D0, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xB7, QID 0x6D1, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xBD, QID 0x6D2, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 4**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xA6, QID 0x6D3, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xAC, QID 0x6D4, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xB2, QID 0x6D5, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xB8, QID 0x6D6, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xBE, QID 0x6D7, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 5**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xA7, QID 0x6D8, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xAD, QID 0x6D9, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xB3, QID 0x6DA, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xB9, QID 0x6DB, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xBF, QID 0x6DC, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+
+## Form 0x95: Control Logic options
+  - _(section)_ **Control Logic options**
+  - **Control Logic Type** (OneOf) [VarStore Setup @ 0xC0, QID 0x6DD, size 8]
+    - options: (no options listed)
+    - help: Control Logic Type
+  - **CRD Version** (OneOf) [VarStore Setup @ 0xC1, QID 0x6DE, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **Input Clock** (OneOf) [VarStore Setup @ 0xC2, QID 0x6DF, size 32]
+    - options: (no options listed)
+    - help: Input Clock
+  - **PCH Clock Source** (OneOf) [VarStore Setup @ 0xC6, QID 0x6E0, size 8]
+    - options: (no options listed)
+    - help: This option specifies which IMGCLKOUT is chosen
+  - **PMIC Flash Panel** (OneOf) [VarStore Setup @ 0xCB, QID 0x6E1, size 8]
+    - options: (no options listed)
+    - help: PMIC Flash Panel
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0xC8, QID 0x6E2, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0xC9, QID 0x6E3, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **WLED1 Type** (OneOf) [VarStore Setup @ 0xD1, QID 0x6E4, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED1 Flash Max Current** (Numeric) [VarStore Setup @ 0xCC, QID 0x6E5, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED1 Torch Max Current** (Numeric) [VarStore Setup @ 0xCD, QID 0x6E6, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **WLED2 Type** (OneOf) [VarStore Setup @ 0xD2, QID 0x6E7, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED2 Flash Max Current** (Numeric) [VarStore Setup @ 0xCE, QID 0x6E8, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED2 Torch Max Current** (Numeric) [VarStore Setup @ 0xCF, QID 0x6E9, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **SubPlatformId** (Numeric) [VarStore Setup @ 0xD0, QID 0x6EA, size 8]  min 0x0 max 0xF
+    - help: SubPlatformId
+  - **Number of GPIO Pins** (Numeric) [VarStore Setup @ 0xC7, QID 0x6EB, size 8]  min 0x0 max 0x6
+    - help: Number of GPIO Pins
+  - _(section)_ **GPIO 0**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xD3, QID 0x6EC, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xD9, QID 0x6ED, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xDF, QID 0x6EE, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xE5, QID 0x6EF, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xEB, QID 0x6F0, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 1**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xD4, QID 0x6F1, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xDA, QID 0x6F2, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xE0, QID 0x6F3, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xE6, QID 0x6F4, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xEC, QID 0x6F5, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 2**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xD5, QID 0x6F6, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xDB, QID 0x6F7, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xE1, QID 0x6F8, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xE7, QID 0x6F9, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xED, QID 0x6FA, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 3**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xD6, QID 0x6FB, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xDC, QID 0x6FC, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xE2, QID 0x6FD, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xE8, QID 0x6FE, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xEE, QID 0x6FF, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 4**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xD7, QID 0x700, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xDD, QID 0x701, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xE3, QID 0x702, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xE9, QID 0x703, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xEF, QID 0x704, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 5**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0xD8, QID 0x705, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0xDE, QID 0x706, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0xE4, QID 0x707, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0xEA, QID 0x708, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0xF0, QID 0x709, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+
+## Form 0x96: Control Logic options
+  - _(section)_ **Control Logic options**
+  - **Control Logic Type** (OneOf) [VarStore Setup @ 0xF1, QID 0x70A, size 8]
+    - options: (no options listed)
+    - help: Control Logic Type
+  - **CRD Version** (OneOf) [VarStore Setup @ 0xF2, QID 0x70B, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **Input Clock** (OneOf) [VarStore Setup @ 0xF3, QID 0x70C, size 32]
+    - options: (no options listed)
+    - help: Input Clock
+  - **PCH Clock Source** (OneOf) [VarStore Setup @ 0xF7, QID 0x70D, size 8]
+    - options: (no options listed)
+    - help: This option specifies which IMGCLKOUT is chosen
+  - **PMIC Flash Panel** (OneOf) [VarStore Setup @ 0xFC, QID 0x70E, size 8]
+    - options: (no options listed)
+    - help: PMIC Flash Panel
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0xF9, QID 0x70F, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0xFA, QID 0x710, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **WLED1 Type** (OneOf) [VarStore Setup @ 0x102, QID 0x711, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED1 Flash Max Current** (Numeric) [VarStore Setup @ 0xFD, QID 0x712, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED1 Torch Max Current** (Numeric) [VarStore Setup @ 0xFE, QID 0x713, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **WLED2 Type** (OneOf) [VarStore Setup @ 0x103, QID 0x714, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED2 Flash Max Current** (Numeric) [VarStore Setup @ 0xFF, QID 0x715, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED2 Torch Max Current** (Numeric) [VarStore Setup @ 0x100, QID 0x716, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **SubPlatformId** (Numeric) [VarStore Setup @ 0x101, QID 0x717, size 8]  min 0x0 max 0xF
+    - help: SubPlatformId
+  - **Number of GPIO Pins** (Numeric) [VarStore Setup @ 0xF8, QID 0x718, size 8]  min 0x0 max 0x6
+    - help: Number of GPIO Pins
+  - _(section)_ **GPIO 0**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x104, QID 0x719, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x10A, QID 0x71A, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x110, QID 0x71B, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x116, QID 0x71C, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x11C, QID 0x71D, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 1**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x105, QID 0x71E, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x10B, QID 0x71F, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x111, QID 0x720, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x117, QID 0x721, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x11D, QID 0x722, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 2**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x106, QID 0x723, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x10C, QID 0x724, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x112, QID 0x725, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x118, QID 0x726, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x11E, QID 0x727, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 3**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x107, QID 0x728, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x10D, QID 0x729, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x113, QID 0x72A, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x119, QID 0x72B, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x11F, QID 0x72C, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 4**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x108, QID 0x72D, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x10E, QID 0x72E, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x114, QID 0x72F, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x11A, QID 0x730, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x120, QID 0x731, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 5**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x109, QID 0x732, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x10F, QID 0x733, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x115, QID 0x734, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x11B, QID 0x735, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x121, QID 0x736, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+
+## Form 0x97: Control Logic options
+  - _(section)_ **Control Logic options**
+  - **Control Logic Type** (OneOf) [VarStore Setup @ 0x122, QID 0x737, size 8]
+    - options: (no options listed)
+    - help: Control Logic Type
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x123, QID 0x738, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **Input Clock** (OneOf) [VarStore Setup @ 0x124, QID 0x739, size 32]
+    - options: (no options listed)
+    - help: Input Clock
+  - **PCH Clock Source** (OneOf) [VarStore Setup @ 0x128, QID 0x73A, size 8]
+    - options: (no options listed)
+    - help: This option specifies which IMGCLKOUT is chosen
+  - **PMIC Flash Panel** (OneOf) [VarStore Setup @ 0x12D, QID 0x73B, size 8]
+    - options: (no options listed)
+    - help: PMIC Flash Panel
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x12A, QID 0x73C, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x12B, QID 0x73D, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **WLED1 Type** (OneOf) [VarStore Setup @ 0x133, QID 0x73E, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED1 Flash Max Current** (Numeric) [VarStore Setup @ 0x12E, QID 0x73F, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED1 Torch Max Current** (Numeric) [VarStore Setup @ 0x12F, QID 0x740, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **WLED2 Type** (OneOf) [VarStore Setup @ 0x134, QID 0x741, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED2 Flash Max Current** (Numeric) [VarStore Setup @ 0x130, QID 0x742, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED2 Torch Max Current** (Numeric) [VarStore Setup @ 0x131, QID 0x743, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **SubPlatformId** (Numeric) [VarStore Setup @ 0x132, QID 0x744, size 8]  min 0x0 max 0xF
+    - help: SubPlatformId
+  - **Number of GPIO Pins** (Numeric) [VarStore Setup @ 0x129, QID 0x745, size 8]  min 0x0 max 0x6
+    - help: Number of GPIO Pins
+  - _(section)_ **GPIO 0**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x135, QID 0x746, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x13B, QID 0x747, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x141, QID 0x748, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x147, QID 0x749, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x14D, QID 0x74A, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 1**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x136, QID 0x74B, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x13C, QID 0x74C, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x142, QID 0x74D, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x148, QID 0x74E, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x14E, QID 0x74F, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 2**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x137, QID 0x750, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x13D, QID 0x751, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x143, QID 0x752, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x149, QID 0x753, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x14F, QID 0x754, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 3**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x138, QID 0x755, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x13E, QID 0x756, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x144, QID 0x757, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x14A, QID 0x758, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x150, QID 0x759, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 4**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x139, QID 0x75A, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x13F, QID 0x75B, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x145, QID 0x75C, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x14B, QID 0x75D, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x151, QID 0x75E, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 5**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x13A, QID 0x75F, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x140, QID 0x760, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x146, QID 0x761, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x14C, QID 0x762, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x152, QID 0x763, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+
+## Form 0x98: Control Logic options
+  - _(section)_ **Control Logic options**
+  - **Control Logic Type** (OneOf) [VarStore Setup @ 0x153, QID 0x764, size 8]
+    - options: (no options listed)
+    - help: Control Logic Type
+  - **CRD Version** (OneOf) [VarStore Setup @ 0x154, QID 0x765, size 8]
+    - options: (no options listed)
+    - help: CRD Version
+  - **Input Clock** (OneOf) [VarStore Setup @ 0x155, QID 0x766, size 32]
+    - options: (no options listed)
+    - help: Input Clock
+  - **PCH Clock Source** (OneOf) [VarStore Setup @ 0x159, QID 0x767, size 8]
+    - options: (no options listed)
+    - help: This option specifies which IMGCLKOUT is chosen
+  - **PMIC Flash Panel** (OneOf) [VarStore Setup @ 0x15E, QID 0x768, size 8]
+    - options: (no options listed)
+    - help: PMIC Flash Panel
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x15B, QID 0x769, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x15C, QID 0x76A, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - **WLED1 Type** (OneOf) [VarStore Setup @ 0x164, QID 0x76B, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED1 Flash Max Current** (Numeric) [VarStore Setup @ 0x15F, QID 0x76C, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED1 Torch Max Current** (Numeric) [VarStore Setup @ 0x160, QID 0x76D, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **WLED2 Type** (OneOf) [VarStore Setup @ 0x165, QID 0x76E, size 8]
+    - options: (no options listed)
+    - help: WLED Type
+  - **WLED2 Flash Max Current** (Numeric) [VarStore Setup @ 0x161, QID 0x76F, size 8]  min 0x0 max 0x1F
+    - help: WLED Flash Max Current Valid range is 0x00-0x1F 0x00 for HW default max current
+  - **WLED2 Torch Max Current** (Numeric) [VarStore Setup @ 0x162, QID 0x770, size 8]  min 0x0 max 0x7
+    - help: WLED Torch Max Current Valid range is 0x00-0x07 0x00 for HW default max current
+  - **SubPlatformId** (Numeric) [VarStore Setup @ 0x163, QID 0x771, size 8]  min 0x0 max 0xF
+    - help: SubPlatformId
+  - **Number of GPIO Pins** (Numeric) [VarStore Setup @ 0x15A, QID 0x772, size 8]  min 0x0 max 0x6
+    - help: Number of GPIO Pins
+  - _(section)_ **GPIO 0**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x166, QID 0x773, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x16C, QID 0x774, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x172, QID 0x775, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x178, QID 0x776, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x17E, QID 0x777, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 1**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x167, QID 0x778, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x16D, QID 0x779, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x173, QID 0x77A, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x179, QID 0x77B, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x17F, QID 0x77C, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 2**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x168, QID 0x77D, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x16E, QID 0x77E, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x174, QID 0x77F, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x17A, QID 0x780, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x180, QID 0x781, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 3**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x169, QID 0x782, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x16F, QID 0x783, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x175, QID 0x784, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x17B, QID 0x785, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x181, QID 0x786, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 4**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x16A, QID 0x787, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x170, QID 0x788, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x176, QID 0x789, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x17C, QID 0x78A, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x182, QID 0x78B, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - _(section)_ **GPIO 5**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x16B, QID 0x78C, size 8]  min 0x0 max 0x17
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x171, QID 0x78D, size 8]
+    - options: (no options listed)
+    - help: Group Number
+  - **Function** (OneOf) [VarStore Setup @ 0x177, QID 0x78E, size 8]
+    - options: (no options listed)
+    - help: Function
+  - **Active Value** (Numeric) [VarStore Setup @ 0x17D, QID 0x78F, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x183, QID 0x790, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+
+## Form 0x154A: Flash Options
+  - _(section)_ **Flash1**
+  - **Flash Model** (OneOf) [VarStore Setup @ 0x4B4, QID 0x791, size 8]
+    - options: (no options listed)
+    - help: Flash Model
+  - **Flash Mode** (OneOf) [VarStore Setup @ 0x9AD, QID 0x792, size 8]
+    - options: (no options listed)
+    - help: Select Flash Mode White LED/Warm LED/IR LED/Xeon LED
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x4D5, QID 0x794, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x4D6, QID 0x795, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - _(section)_ **Flash Trigger Gpio**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x4D8, QID 0x796, size 8]  min 0x0 max 0x58
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x4D9, QID 0x797, size 16]
+    - options: (no options listed)
+    - help: Group Number
+  - **Active Value** (Numeric) [VarStore Setup @ 0x4DB, QID 0x798, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x4DC, QID 0x799, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - **Flash Driver Operating Mode** (OneOf) [VarStore Setup @ 0x4DD, QID 0x79A, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver Operating Mode as Disabled , Torch or Flash
+
+## Form 0x154B: Flash Options
+  - _(section)_ **Flash2**
+  - **Flash Model** (OneOf) [VarStore Setup @ 0x4DE, QID 0x79B, size 8]
+    - options: (no options listed)
+    - help: Flash Model
+  - **Flash Mode** (OneOf) [VarStore Setup @ 0x9AE, QID 0x79C, size 8]
+    - options: (no options listed)
+    - help: Select Flash Mode White LED/Warm LED/IR LED/Xeon LED
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x4FF, QID 0x79E, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x500, QID 0x79F, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - _(section)_ **Flash Trigger Gpio**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x502, QID 0x7A0, size 8]  min 0x0 max 0x58
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x503, QID 0x7A1, size 16]
+    - options: (no options listed)
+    - help: Group Number
+  - **Active Value** (Numeric) [VarStore Setup @ 0x505, QID 0x7A2, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x506, QID 0x7A3, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - **Flash Driver Operating Mode** (OneOf) [VarStore Setup @ 0x507, QID 0x7A4, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver Operating Mode as Disabled , Torch or Flash
+
+## Form 0x154C: Flash Options
+  - _(section)_ **Flash3**
+  - **Flash Model** (OneOf) [VarStore Setup @ 0x508, QID 0x7A5, size 8]
+    - options: (no options listed)
+    - help: Flash Model
+  - **Flash Mode** (OneOf) [VarStore Setup @ 0x9AF, QID 0x7A6, size 8]
+    - options: (no options listed)
+    - help: Select Flash Mode White LED/Warm LED/IR LED/Xeon LED
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x529, QID 0x7A8, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x52A, QID 0x7A9, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - _(section)_ **Flash Trigger Gpio**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x52C, QID 0x7AA, size 8]  min 0x0 max 0x58
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x52D, QID 0x7AB, size 16]
+    - options: (no options listed)
+    - help: Group Number
+  - **Active Value** (Numeric) [VarStore Setup @ 0x52F, QID 0x7AC, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x530, QID 0x7AD, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - **Flash Driver Operating Mode** (OneOf) [VarStore Setup @ 0x531, QID 0x7AE, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver Operating Mode as Disabled , Torch or Flash
+
+## Form 0x154D: Flash Options
+  - _(section)_ **Flash4**
+  - **Flash Model** (OneOf) [VarStore Setup @ 0x532, QID 0x7AF, size 8]
+    - options: (no options listed)
+    - help: Flash Model
+  - **Flash Mode** (OneOf) [VarStore Setup @ 0x9B0, QID 0x7B0, size 8]
+    - options: (no options listed)
+    - help: Select Flash Mode White LED/Warm LED/IR LED/Xeon LED
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x553, QID 0x7B2, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x554, QID 0x7B3, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - _(section)_ **Flash Trigger Gpio**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x556, QID 0x7B4, size 8]  min 0x0 max 0x58
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x557, QID 0x7B5, size 16]
+    - options: (no options listed)
+    - help: Group Number
+  - **Active Value** (Numeric) [VarStore Setup @ 0x559, QID 0x7B6, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x55A, QID 0x7B7, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - **Flash Driver Operating Mode** (OneOf) [VarStore Setup @ 0x55B, QID 0x7B8, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver Operating Mode as Disabled , Torch or Flash
+
+## Form 0x154E: Flash Options
+  - _(section)_ **Flash5**
+  - **Flash Model** (OneOf) [VarStore Setup @ 0x55C, QID 0x7B9, size 8]
+    - options: (no options listed)
+    - help: Flash Model
+  - **Flash Mode** (OneOf) [VarStore Setup @ 0x9B1, QID 0x7BA, size 8]
+    - options: (no options listed)
+    - help: Select Flash Mode White LED/Warm LED/IR LED/Xeon LED
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x57D, QID 0x7BC, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x57E, QID 0x7BD, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - _(section)_ **Flash Trigger Gpio**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x580, QID 0x7BE, size 8]  min 0x0 max 0x58
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x581, QID 0x7BF, size 16]
+    - options: (no options listed)
+    - help: Group Number
+  - **Active Value** (Numeric) [VarStore Setup @ 0x583, QID 0x7C0, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x584, QID 0x7C1, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - **Flash Driver Operating Mode** (OneOf) [VarStore Setup @ 0x585, QID 0x7C2, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver Operating Mode as Disabled , Torch or Flash
+
+## Form 0x154F: Flash Options
+  - _(section)_ **Flash6**
+  - **Flash Model** (OneOf) [VarStore Setup @ 0x586, QID 0x7C3, size 8]
+    - options: (no options listed)
+    - help: Flash Model
+  - **Flash Mode** (OneOf) [VarStore Setup @ 0x9B2, QID 0x7C4, size 8]
+    - options: (no options listed)
+    - help: Select Flash Mode White LED/Warm LED/IR LED/Xeon LED
+  - **I2C Channel** (OneOf) [VarStore Setup @ 0x5A7, QID 0x7C6, size 8]
+    - options: (no options listed)
+    - help: I2C Channel
+  - **I2C Address** (Numeric) [VarStore Setup @ 0x5A8, QID 0x7C7, size 16]  min 0x0 max 0x7F
+    - help: I2C Address
+  - _(section)_ **Flash Trigger Gpio**
+  - **Group Pad Number** (Numeric) [VarStore Setup @ 0x5AA, QID 0x7C8, size 8]  min 0x0 max 0x58
+    - help: Group Pad Number
+  - **Group Number** (OneOf) [VarStore Setup @ 0x5AB, QID 0x7C9, size 16]
+    - options: (no options listed)
+    - help: Group Number
+  - **Active Value** (Numeric) [VarStore Setup @ 0x5AD, QID 0x7CA, size 8]  min 0x0 max 0x1
+    - help: Active Value
+  - **Initial Value** (Numeric) [VarStore Setup @ 0x5AE, QID 0x7CB, size 8]  min 0x0 max 0x1
+    - help: Initial Value
+  - **Flash Driver Operating Mode** (OneOf) [VarStore Setup @ 0x5AF, QID 0x7CC, size 8]
+    - options: (no options listed)
+    - help: Select the Flash Driver Operating Mode as Disabled , Torch or Flash
+
+## Form 0x1464: VMD setup menu
+  - _(section)_ **VMD Configuration**
+  - _(section)_ ****
+  - **Enable VMD controller** (OneOf) [VarStore SaSetup @ 0xF8, QID 0x7CD, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable to VMD controller
+  - _(section)_ ****
+  - **Enable VMD Global Mapping** (OneOf) [VarStore SaSetup @ 0x3E6, QID 0x1465, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable to VMD Global Mapping
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xF9, QID 0x7CE, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xFA, QID 0x7CF, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xFB, QID 0x7D0, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xFC, QID 0x7D1, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xFD, QID 0x7D2, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xFE, QID 0x7D3, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0xFF, QID 0x7D4, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x100, QID 0x7D5, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x101, QID 0x7D6, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x102, QID 0x7D7, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x103, QID 0x7D8, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x104, QID 0x7D9, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x105, QID 0x7DA, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x106, QID 0x7DB, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x107, QID 0x7DC, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x108, QID 0x7DD, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x109, QID 0x7DE, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x10A, QID 0x7DF, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x10B, QID 0x7E0, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x10C, QID 0x7E1, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x10D, QID 0x7E2, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x10E, QID 0x7E3, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x10F, QID 0x7E4, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x110, QID 0x7E5, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x111, QID 0x7E6, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x112, QID 0x7E7, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x113, QID 0x7E8, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x114, QID 0x7E9, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x115, QID 0x7EA, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x116, QID 0x7EB, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **Map this Root Port under VMD** (OneOf) [VarStore SaSetup @ 0x117, QID 0x7EC, size 8]
+    - options: (no options listed)
+    - help: Map/UnMap this Root Port to VMD
+  - _(section)_ ****
+  - **VMD Config Bar Size** (Numeric) [VarStore SaSetup @ 0x175, QID 0x7ED, size 8]  min 0x14 max 0x1B
+    - help: Set The VMD Config Bar Size
+  - **VMD Config Bar Attributes** (OneOf) [VarStore SaSetup @ 0x176, QID 0x7EE, size 8]
+    - options: (no options listed)
+    - help: Set The VMD Config Bar Attributes
+  - **VMD Mem Bar1 Size** (Numeric) [VarStore SaSetup @ 0x177, QID 0x7EF, size 8]  min 0x14 max 0x27
+    - help: Set The VMD Mem Bar1 Size
+  - **VMD Mem Bar1 Attributes** (OneOf) [VarStore SaSetup @ 0x178, QID 0x7F0, size 8]
+    - options: (no options listed)
+    - help: Set The VMD Mem Bar1 Attributes
+  - **VMD Mem Bar2 Size** (Numeric) [VarStore SaSetup @ 0x179, QID 0x7F1, size 8]  min 0x14 max 0x27
+    - help: Set The VMD Mem Bar2 Size
+  - **VMD Mem Bar2 Attributes** (OneOf) [VarStore SaSetup @ 0x17A, QID 0x7F2, size 8]
+    - options: (no options listed)
+    - help: Set The VMD Mem Bar2 Attributes
+  - _(section)_ ****
+  - **RAID0** (OneOf) [VarStore SaSetup @ 0x17F, QID 0x7F3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable RAID0 support
+  - **RAID1** (OneOf) [VarStore SaSetup @ 0x180, QID 0x7F4, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable RAID1 support
+  - **RAID5** (OneOf) [VarStore SaSetup @ 0x182, QID 0x7F5, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable RAID5 support
+  - **RAID10** (OneOf) [VarStore SaSetup @ 0x181, QID 0x7F6, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable RAID10 support
+  - **ZPODD** (OneOf) [VarStore Setup @ 0xB90, QID 0x1466, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable ZPODD.  The option is only needed to be enabled when ZPODD is connected in VMD mode
+
+## Form 0x10ED: Display setup menu
+  - _(section)_ **Display Configuration**
+  - _(section)_ ****
+
+## Form 0x159A: PCI Express Configuration
+  - _(section)_ **PCI Express Configuration**
+  - _(section)_ ****
+  - **Fia Programming** (OneOf) [VarStore SaSetup @ 0x2A4, QID 0x7F7, size 8]
+    - options: (no options listed)
+    - help: Load Fia Configuration if Enabled for each root port.
+  - **Compliance Test Mode** (OneOf) [VarStore SaSetup @ 0x2AD, QID 0x7F8, size 8]
+    - options: (no options listed)
+    - help: Enable when using Compliance Load Board
+  - **CDR Relock** (OneOf) [VarStore SaSetup @ 0x3FF, QID 0x7F9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CDR Relock
+  - **Assertion on Link Down GPIOs** (OneOf) [VarStore SaSetup @ 0x327, QID 0x7FA, size 8]
+    - options: (no options listed)
+    - help: GPIO Assertion on Link Down
+  - **PCI Express Slot Selection** (OneOf) [VarStore SaSetup @ 0x32C, QID 0x7FB, size 8]
+    - options: (no options listed)
+    - help: Select the PCIe M2 or CEMx4 slot
+  - **PCIE Resizable BAR Support** (OneOf) [VarStore SaSetup @ 0x42B, QID 0x7FC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable PCIE Resizable BAR Support
+  - **PCI Express Root Port 1** -> Form 0x1582  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 2** -> Form 0x1583  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 3** -> Form 0x1584  
+    - help: PCI Express Root Port Settings.
+
+## Form 0x1582: PCI Express Root Port 1
+  - **PCI Express Root Port 1** (OneOf) [VarStore SaSetup @ 0x278, QID 0x800, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore SaSetup @ 0x331, QID 0x801, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **PCI Express Clock Gating** (OneOf) [VarStore SaSetup @ 0x2A5, QID 0x1568, size 8]
+    - options: (no options listed)
+    - help: PCI Express Clock Gating Enable/Disable for each root port.
+  - **PCI Express Power Gating** (OneOf) [VarStore SaSetup @ 0x2A9, QID 0x802, size 8]
+    - options: (no options listed)
+    - help: PCI Express Power Gating Enable/Disable for each root port.
+  - **ASPM** (OneOf) [VarStore SaSetup @ 0x379, QID 0x1586, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore SaSetup @ 0x37D, QID 0x158A, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.L1SS cannot be enabled when CLKREQMSG is disabled
+  - **Gen3 Eq Phase3 Method** (OneOf) [VarStore SaSetup @ 0x36D, QID 0x803, size 8]
+    - options: (no options listed)
+    - help: PCIe Gen3 Equalization Phase 3 Method
+  - **Gen4 Eq Phase3 Method** (OneOf) [VarStore SaSetup @ 0x371, QID 0x804, size 8]
+    - options: (no options listed)
+    - help: PCIe Gen3 Equalization Phase 3 Method
+  - **ACS** (OneOf) [VarStore SaSetup @ 0x33D, QID 0x805, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore SaSetup @ 0x399, QID 0x158E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore SaSetup @ 0x361, QID 0x806, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **FOM Scoreboard Control Policy** (OneOf) [VarStore SaSetup @ 0x3DD, QID 0x807, size 8]
+    - options: (no options listed)
+    - help: Select the FOM Scoreboard Control Policy, when set to Auto, speed is based on TLS
+  - **Multi-VC** (OneOf) [VarStore SaSetup @ 0x3A5, QID 0x1596, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Multi Virtual Channel
+  - **EDPC** (OneOf) [VarStore SaSetup @ 0x365, QID 0x808, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore SaSetup @ 0x345, QID 0x809, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore SaSetup @ 0x349, QID 0x80A, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore SaSetup @ 0x34D, QID 0x80B, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore SaSetup @ 0x351, QID 0x80C, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **CTO** (OneOf) [VarStore PchSetup @ 0x1A7, QID 0x80D, size 8]
+    - options: (no options listed)
+    - help: PCI Express Completion Timer TO Enable/Disable.
+  - **SEFE** (OneOf) [VarStore SaSetup @ 0x355, QID 0x80E, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore SaSetup @ 0x359, QID 0x80F, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore SaSetup @ 0x35D, QID 0x810, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore SaSetup @ 0x335, QID 0x811, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore SaSetup @ 0x32D, QID 0x812, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore SaSetup @ 0x341, QID 0x813, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore SaSetup @ 0x369, QID 0x814, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Enable ClockReq Messaging** (OneOf) [VarStore SaSetup @ 0x328, QID 0x815, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable ClockReq Messaging
+  - **Transmitter Half Swing** (OneOf) [VarStore SaSetup @ 0x339, QID 0x816, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore SaSetup @ 0x39D, QID 0x817, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **P2P Support** (OneOf) [VarStore SaSetup @ 0x3E2, QID 0x818, size 8]
+    - options: (no options listed)
+    - help: Program P2P Support Registers according to setup option
+  - **CPU PCIE Func0 Link Disable** (OneOf) [VarStore SaSetup @ 0x423, QID 0x819, size 8]
+    - options: (no options listed)
+    - help: CPU PCIE Func0 Link Disable while Device attached into Port having Func0 and FuncN
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0x3AD, QID 0x81A, size 8]
+    - options: (no options listed)
+    - help: SA PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0x3B5, QID 0x81B, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0x3BD, QID 0x81C, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0x3B9, QID 0x81D, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0x3C5, QID 0x81E, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0x3CD, QID 0x81F, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0x3C9, QID 0x820, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0x3D5, QID 0x821, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for SA PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0x3B1, QID 0x822, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen3 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x381, QID 0x823, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x385, QID 0x824, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen4 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x389, QID 0x825, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x38D, QID 0x826, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen5 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x391, QID 0x827, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x395, QID 0x828, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+
+## Form 0x1583: PCI Express Root Port 2
+  - **PCI Express Root Port 2** (OneOf) [VarStore SaSetup @ 0x279, QID 0x829, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore SaSetup @ 0x332, QID 0x82A, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **PCI Express Clock Gating** (OneOf) [VarStore SaSetup @ 0x2A6, QID 0x1569, size 8]
+    - options: (no options listed)
+    - help: PCI Express Clock Gating Enable/Disable for each root port.
+  - **PCI Express Power Gating** (OneOf) [VarStore SaSetup @ 0x2AA, QID 0x82B, size 8]
+    - options: (no options listed)
+    - help: PCI Express Power Gating Enable/Disable for each root port.
+  - **ASPM** (OneOf) [VarStore SaSetup @ 0x37A, QID 0x1587, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore SaSetup @ 0x37E, QID 0x158B, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.L1SS cannot be enabled when CLKREQMSG is disabled
+  - **Gen3 Eq Phase3 Method** (OneOf) [VarStore SaSetup @ 0x36E, QID 0x82C, size 8]
+    - options: (no options listed)
+    - help: PCIe Gen3 Equalization Phase 3 Method
+  - **Gen4 Eq Phase3 Method** (OneOf) [VarStore SaSetup @ 0x372, QID 0x82D, size 8]
+    - options: (no options listed)
+    - help: PCIe Gen3 Equalization Phase 3 Method
+  - **ACS** (OneOf) [VarStore SaSetup @ 0x33E, QID 0x82E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore SaSetup @ 0x39A, QID 0x158F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore SaSetup @ 0x362, QID 0x82F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **FOM Scoreboard Control Policy** (OneOf) [VarStore SaSetup @ 0x3DE, QID 0x830, size 8]
+    - options: (no options listed)
+    - help: Select the FOM Scoreboard Control Policy, when set to Auto, speed is based on TLS
+  - **Multi-VC** (OneOf) [VarStore SaSetup @ 0x3A6, QID 0x1597, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Multi Virtual Channel
+  - **EDPC** (OneOf) [VarStore SaSetup @ 0x366, QID 0x831, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore SaSetup @ 0x346, QID 0x832, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore SaSetup @ 0x34A, QID 0x833, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore SaSetup @ 0x34E, QID 0x834, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore SaSetup @ 0x352, QID 0x835, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **CTO** (OneOf) [VarStore PchSetup @ 0x1A8, QID 0x836, size 8]
+    - options: (no options listed)
+    - help: PCI Express Completion Timer TO Enable/Disable.
+  - **SEFE** (OneOf) [VarStore SaSetup @ 0x356, QID 0x837, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore SaSetup @ 0x35A, QID 0x838, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore SaSetup @ 0x35E, QID 0x839, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore SaSetup @ 0x336, QID 0x83A, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore SaSetup @ 0x32E, QID 0x83B, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore SaSetup @ 0x342, QID 0x83C, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore SaSetup @ 0x36A, QID 0x83D, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Enable ClockReq Messaging** (OneOf) [VarStore SaSetup @ 0x329, QID 0x83E, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable ClockReq Messaging
+  - **Transmitter Half Swing** (OneOf) [VarStore SaSetup @ 0x33A, QID 0x83F, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore SaSetup @ 0x39F, QID 0x840, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **P2P Support** (OneOf) [VarStore SaSetup @ 0x3E3, QID 0x841, size 8]
+    - options: (no options listed)
+    - help: Program P2P Support Registers according to setup option
+  - **CPU PCIE Func0 Link Disable** (OneOf) [VarStore SaSetup @ 0x424, QID 0x842, size 8]
+    - options: (no options listed)
+    - help: CPU PCIE Func0 Link Disable while Device attached into Port having Func0 and FuncN
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0x3AE, QID 0x843, size 8]
+    - options: (no options listed)
+    - help: SA PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0x3B6, QID 0x844, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0x3BF, QID 0x845, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0x3BA, QID 0x846, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0x3C6, QID 0x847, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0x3CF, QID 0x848, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0x3CA, QID 0x849, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0x3D6, QID 0x84A, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for SA PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0x3B2, QID 0x84B, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen3 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x382, QID 0x84C, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x386, QID 0x84D, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen4 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x38A, QID 0x84E, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x38E, QID 0x84F, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen5 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x392, QID 0x850, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x396, QID 0x851, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+
+## Form 0x1584: PCI Express Root Port 3
+  - **PCI Express Root Port 3** (OneOf) [VarStore SaSetup @ 0x27A, QID 0x852, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore SaSetup @ 0x333, QID 0x853, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **PCI Express Clock Gating** (OneOf) [VarStore SaSetup @ 0x2A7, QID 0x156A, size 8]
+    - options: (no options listed)
+    - help: PCI Express Clock Gating Enable/Disable for each root port.
+  - **PCI Express Power Gating** (OneOf) [VarStore SaSetup @ 0x2AB, QID 0x854, size 8]
+    - options: (no options listed)
+    - help: PCI Express Power Gating Enable/Disable for each root port.
+  - **ASPM** (OneOf) [VarStore SaSetup @ 0x37B, QID 0x1588, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore SaSetup @ 0x37F, QID 0x158C, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.L1SS cannot be enabled when CLKREQMSG is disabled
+  - **Gen3 Eq Phase3 Method** (OneOf) [VarStore SaSetup @ 0x36F, QID 0x855, size 8]
+    - options: (no options listed)
+    - help: PCIe Gen3 Equalization Phase 3 Method
+  - **Gen4 Eq Phase3 Method** (OneOf) [VarStore SaSetup @ 0x373, QID 0x856, size 8]
+    - options: (no options listed)
+    - help: PCIe Gen3 Equalization Phase 3 Method
+  - **ACS** (OneOf) [VarStore SaSetup @ 0x33F, QID 0x857, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore SaSetup @ 0x39B, QID 0x1590, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore SaSetup @ 0x363, QID 0x858, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **FOM Scoreboard Control Policy** (OneOf) [VarStore SaSetup @ 0x3DF, QID 0x859, size 8]
+    - options: (no options listed)
+    - help: Select the FOM Scoreboard Control Policy, when set to Auto, speed is based on TLS
+  - **Multi-VC** (OneOf) [VarStore SaSetup @ 0x3A7, QID 0x1598, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Multi Virtual Channel
+  - **EDPC** (OneOf) [VarStore SaSetup @ 0x367, QID 0x85A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore SaSetup @ 0x347, QID 0x85B, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore SaSetup @ 0x34B, QID 0x85C, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore SaSetup @ 0x34F, QID 0x85D, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore SaSetup @ 0x353, QID 0x85E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **CTO** (OneOf) [VarStore PchSetup @ 0x1A9, QID 0x85F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Completion Timer TO Enable/Disable.
+  - **SEFE** (OneOf) [VarStore SaSetup @ 0x357, QID 0x860, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore SaSetup @ 0x35B, QID 0x861, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore SaSetup @ 0x35F, QID 0x862, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore SaSetup @ 0x337, QID 0x863, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore SaSetup @ 0x32F, QID 0x864, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore SaSetup @ 0x343, QID 0x865, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore SaSetup @ 0x36B, QID 0x866, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Enable ClockReq Messaging** (OneOf) [VarStore SaSetup @ 0x32A, QID 0x867, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable ClockReq Messaging
+  - **Transmitter Half Swing** (OneOf) [VarStore SaSetup @ 0x33B, QID 0x868, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore SaSetup @ 0x3A1, QID 0x869, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **P2P Support** (OneOf) [VarStore SaSetup @ 0x3E4, QID 0x86A, size 8]
+    - options: (no options listed)
+    - help: Program P2P Support Registers according to setup option
+  - **CPU PCIE Func0 Link Disable** (OneOf) [VarStore SaSetup @ 0x425, QID 0x86B, size 8]
+    - options: (no options listed)
+    - help: CPU PCIE Func0 Link Disable while Device attached into Port having Func0 and FuncN
+  - _(section)_ ****
+  - _(section)_ **SA PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore SaSetup @ 0x3AF, QID 0x86C, size 8]
+    - options: (no options listed)
+    - help: SA PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0x3B7, QID 0x86D, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0x3C1, QID 0x86E, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of SA PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0x3BB, QID 0x86F, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of SA PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore SaSetup @ 0x3C7, QID 0x870, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for SA PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore SaSetup @ 0x3D1, QID 0x871, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore SaSetup @ 0x3CB, QID 0x872, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of SA PCIE
+  - **Force LTR Override** (OneOf) [VarStore SaSetup @ 0x3D7, QID 0x873, size 8]
+    - options: (no options listed)
+    - help: Force LTR Override for SA PCIE. Disabled: LTR override values will not be forced. Enable: LTR override values will be forced and LTR messages from the device will be ignored.
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore SaSetup @ 0x3B3, QID 0x874, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen3 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x383, QID 0x875, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x387, QID 0x876, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen4 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x38B, QID 0x877, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x38F, QID 0x878, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+  - _(section)_ **CPU PCIe Gen5 HWEQ Config**
+  - **UPTP** (Numeric) [VarStore SaSetup @ 0x393, QID 0x879, size 8]  min 0x0 max 0xA
+    - help: Upstream Port Transmitter Preset
+  - **DPTP** (Numeric) [VarStore SaSetup @ 0x397, QID 0x87A, size 8]  min 0x0 max 0xA
+    - help: Downstream Port Transmitter Preset
+  - _(section)_ ****
+
+## Form 0x1539: PCIE Configuration
+  - _(section)_ **PCIE Configuration**
+  - _(section)_ ****
+  - **IMR Configuration** -> Form 0x13D3  
+    - help: IMR Configuration
+  - _(section)_ ****
+
+## Form 0x13D3: IMR Configuration
+  - **PCIe IMR** (OneOf) [VarStore SiSetup @ 0x2, QID 0x87C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable PCIe IMR
+  - **PCIe IMR Size** (Numeric) [VarStore SiSetup @ 0x3, QID 0x87D, size 16]  min 0x0 max 0x400
+    - help: PCIe Reserved Memory Size to be requested in MB. Maximum value of 1024 MB
+  - **PCIe RP Location for IMR** (OneOf) [VarStore SiSetup @ 0x5, QID 0x87E, size 8]
+    - options: (no options listed)
+    - help: Select SA or PCH roor port associated with IMR
+  - **RP index for IMR** (Numeric) [VarStore SiSetup @ 0x6, QID 0x87F, size 8]  min 0x0 max 0x3
+    - help: Selects which root port will be associated with IMR
+  - **RP index for IMR** (Numeric) [VarStore SiSetup @ 0x6, QID 0x880, size 8]  min 0x0 max 0x1B
+    - help: Selects which root port will be associated with IMR
+
+## Form 0x102F: PCH-IO Configuration
+  - _(section)_ **PCH-IO Configuration**
+  - _(section)_ ****
+  - **PCI Express Configuration** -> Form 0x1030  
+    - help: PCI Express Configuration settings
+  - **SATA Configuration** -> Form 0x1032  
+    - help: SATA Device Options Settings
+  - **USB Configuration** -> Form 0x1031  
+    - help: USB Configuration settings
+  - **Security Configuration** -> Form 0x103D  
+    - help: Security Configuration settings
+  - **HD Audio Configuration** -> Form 0x103C  
+    - help: HD Audio Subsystem Configuration Settings
+  - **THC Configuration** -> Form 0x152E  
+    - help: Touch Host Controller Configuration Settings
+  - **SerialIo Configuration** -> Form 0x7A  
+    - help: SerialIo Configuration Settings
+  - **ISH Configuration** -> Form 0x13B6  
+    - help: Integrated Sensor Hub (ISH) Configuration
+  - **Pch Thermal Throttling Control** -> Form 0x13BE  
+    - help: Pch Thermal Throttling Control
+  - **Skip VCCIN_AUX Configuration** (OneOf) [VarStore PchSetup @ 0x790, QID 0x88A, size 8]
+    - options: (no options listed)
+    - help: Skips VCCIN_AUX Configuration if enabled
+  - **FIVR Configuration** -> Form 0x13E1  
+    - help: Menu for changing FIVR configuration parameters
+  - **PMC Configuration** -> Form 0x13E2  
+    - help: Power management controller configuration
+  - _(section)_ ****
+  - _(section)_ ****
+  - **PCH LAN Controller** (OneOf) [VarStore PchSetup @ 0x9, QID 0x88D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable onboard NIC.
+  - **LAN Wake From DeepSx** (OneOf) [VarStore PchSetup @ 0x5, QID 0x88E, size 8]
+    - options: (no options listed)
+    - help: Wake from DeepSx by the assertion of LAN_WAKE# pin
+  - **Wake on LAN Enable** (OneOf) [VarStore PchSetup @ 0xC, QID 0x88F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable integrated LAN to wake the system.
+  - **SLP_LAN# Low on DC Power** (OneOf) [VarStore PchSetup @ 0xD, QID 0x890, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SLP_LAN# Low on DC Power. Please notice this knob only applies to CNVd.
+  - **Foxville I225 LAN Controller** (OneOf) [VarStore PchSetup @ 0x784, QID 0x891, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Foxville I225 LAN Controller.
+  - **Foxville I225 Wake on LAN Support** (OneOf) [VarStore PchSetup @ 0x785, QID 0x892, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Foxville I225 Wake on LAN Support.
+  - **EFI Network** (OneOf) [VarStore Setup @ 0x49, QID 0x893, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable EFI Network support for onboard LAN or WiFi module.
+  - **Sensor Hub Type** (OneOf) [VarStore Setup @ 0x46, QID 0x894, size 8]
+    - options: (no options listed)
+    - help: Choose the Sensor Hub Type, 'None' will Suppress 'I2C Sensor Hub' Setup Option','I2C' Will Suppress 'ALS' Setup Option and 'USB' will Suppress Both I2C and ALS.
+  - **DeepSx Power Policies** (OneOf) [VarStore PchSetup @ 0x4, QID 0x895, size 8]
+    - options: (no options listed)
+    - help: configure the DeepSx Mode configuration.
+  - **PS_ON Enable** (OneOf) [VarStore PchSetup @ 0x1E, QID 0x896, size 8]
+    - options: (no options listed)
+    - help: Enable or disable PS_ON ()support a new C10 state from the CPU on desktop SKUs that enables a lower power target that will be required by the California Energy Commission (CEC).
+  - **Wake on WLAN and BT Enable** (OneOf) [VarStore PchSetup @ 0xE, QID 0x897, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable PCI Express Wireless LAN and Bluetooth to wake the system.
+  - **DeepSx Wake on WLAN and BT Enable** (OneOf) [VarStore PchSetup @ 0xF, QID 0x898, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable PCI Express Wireless LAN and Bluetooth to wake the system from DeepSx.
+  - **Disable DSX ACPRESENT PullDown** (OneOf) [VarStore PchSetup @ 0x6, QID 0x899, size 8]
+    - options: (no options listed)
+    - help: Disable PCH internal ACPRESENT PullDown when DeepSx or G3 exit.
+  - **High Precision Timer** (OneOf) [VarStore PchSetup @ 0x1F, QID 0x89A, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable the High Precision Event Timer.
+  - **State After G3** (OneOf) [VarStore PchSetup @ 0x20, QID 0x1094, size 8]
+    - options: (no options listed)
+    - help: Specify what state to go to when power is re-applied after a power failure (G3 state).
+  - **Port 80h Redirection** (OneOf) [VarStore PchSetup @ 0x21, QID 0x89B, size 8]
+    - options: (no options listed)
+    - help: Control where the Port 80h cycles are sent.
+  - **Enhance Port 80h LPC Decoding** (OneOf) [VarStore PchSetup @ 0x22, QID 0x89C, size 8]
+    - options: (no options listed)
+    - help: Support the word/dword decoding of port 80h behind LPC
+  - **Compatible Revision ID** (OneOf) [VarStore PchSetup @ 0x12, QID 0x89D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable the PCH Compatible Revision ID feature
+  - **Legacy IO Low Latency** (OneOf) [VarStore PchSetup @ 0x76F, QID 0x1416, size 8]
+    - options: (no options listed)
+    - help: Set to enable low latency of legacy IO. Some systems require lower IO latency irrespective of power. This is a tradeoff between power and IO latency.
+  - **PCH Cross Throttling** (OneOf) [VarStore PchSetup @ 0x6BE, QID 0x89E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable the PCH Cross Throttling feature. Only ULT support this feature.
+  - **PCH Energy Reporting** (OneOf) [VarStore PchSetup @ 0x10, QID 0x89F, size 8]
+    - options: (no options listed)
+    - help: Enable Energy Report. MUST set it as ENABLED. This is only for test purpose.
+  - **LPM S0i2.0** (OneOf) [VarStore PchSetup @ 0x13, QID 0x8A0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **LPM S0i2.1** (OneOf) [VarStore PchSetup @ 0x14, QID 0x8A1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **LPM S0i3.0** (OneOf) [VarStore PchSetup @ 0x16, QID 0x8A2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **LPM S0i2.2** (OneOf) [VarStore PchSetup @ 0x15, QID 0x8A3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **LPM S0i3.2** (OneOf) [VarStore PchSetup @ 0x18, QID 0x8A4, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **LPM S0i3.3** (OneOf) [VarStore PchSetup @ 0x19, QID 0x8A5, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **LPM S0i3.4** (OneOf) [VarStore PchSetup @ 0x1A, QID 0x8A6, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable S0ix sub-state. This setting is for test purpose. S0ix sub-states should be enabled for production.
+  - **C10 Dynamic threshold adjustment** (OneOf) [VarStore PchSetup @ 0x77D, QID 0x8A7, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable C10 dynamic threshold adjustment
+  - **IEH Mode** (OneOf) [VarStore PchSetup @ 0x51E, QID 0x8A8, size 8]
+    - options: (no options listed)
+    - help: Enable/Bypass IEH Mode
+  - **Enable TCO Timer** (OneOf) [VarStore PchSetup @ 0x11, QID 0x8A9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable TCO timer. When disabled, it disables PCH ACPI timer, stops TCO timer, and ACPI WDAT table will not be published.
+  - **Pcie Pll SSC** (OneOf) [VarStore PchSetup @ 0x23, QID 0x8AA, size 8]
+    - options: (no options listed)
+    - help: Pcie Pll SSC percentage.AUTO - Keep hw default, no BIOS override. Range is 0.0%-2.0%.
+  - **IOAPIC 24-119 Entries** (OneOf) [VarStore PchSetup @ 0x6BC, QID 0x8AB, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables IOAPIC 24-119 Entries. IRQ24-119 may be used by PCH devices. Disabling those interrupts may cause certain devices failure.
+  - **Enable 8254 Clock Gate** (OneOf) [VarStore PchSetup @ 0x6BD, QID 0x8AC, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 8254 clock gate in early phase. Set 8254CGE is necessary for SLP_S0 support. Platform is able to disable this policy and set 8254CGE in late phase.
+  - **Lock PCH Sideband Access** (OneOf) [VarStore PchSetup @ 0x73C, QID 0x8AD, size 8]
+    - options: (no options listed)
+    - help: Lock PCH Sideband access, include SideBand interface lock and SideBand PortID mask for certain end point (e.g. PSFx). The option is invalid if POSTBOOT SAI is set.
+  - **Flash Protection Range Registers (FPRR)** (OneOf) [VarStore PchSetup @ 0x73D, QID 0x8AE, size 8]
+    - options: (no options listed)
+    - help: Enable Flash Protection Range Registers
+  - **SPD Write Disable** (OneOf) [VarStore PchSetup @ 0x73B, QID 0x8AF, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable setting SPD Write Disable. For security recommendations, SPD write disable bit must be set.
+  - **LGMR** (OneOf) [VarStore PchSetup @ 0x739, QID 0x8B0, size 8]
+    - options: (no options listed)
+    - help: 64KB memory block for LGMR (LPC Memory Range Decode)
+  - **HOST_C10 reporting to Target** (OneOf) [VarStore PchSetup @ 0x73A, QID 0x8B1, size 8]
+    - options: (no options listed)
+    - help: This option enables HOST_C10 reporting to Target via eSPI Virtual Wire
+  - **OS IDLE Mode** (OneOf) [VarStore PchSetup @ 0x76E, QID 0x8B2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable OS Idle Mode Feature
+  - **S0ix Auto Demotion** (OneOf) [VarStore PchSetup @ 0x25, QID 0x8B3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Host Low Power Mode S0ix Auto-Demotion
+  - **Latch Events C10 Exit** (OneOf) [VarStore PchSetup @ 0x26, QID 0x8B4, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Latch Events on C10 Exit
+  - **Hybrid Storage Detection and Configuration Mode** (OneOf) [VarStore PchSetup @ 0x775, QID 0x8B5, size 8]
+    - options: (no options listed)
+    - help: Select Hybrid Storage Detection and Configuration Mode
+  - **Cpu Root port used for hybrid storage** (Numeric) [VarStore PchSetup @ 0x787, QID 0x8B6, size 8]  min 0x0 max 0xFF
+    - help: Select cpu root port used for hybrid storage value between 0 to 2
+  - **Pch root port used for hybrid storage** (Numeric) [VarStore PchSetup @ 0x788, QID 0x8B7, size 8]  min 0x0 max 0xFF
+    - help: Select pch root port used in combination with cpu root port for hybrid storage enter value between 0 to 16
+  - **Extended BIOS Range Decode** (OneOf) [VarStore PchSetup @ 0x77E, QID 0x8B8, size 8]
+    - options: (no options listed)
+    - help: Enabling this will make memory cycles falling in a specific area to be redirected to SPI flash controller
+  - **ACPI L6D PME Handling** (OneOf) [VarStore PchSetup @ 0x78A, QID 0x8B9, size 8]
+    - options: (no options listed)
+    - help: BIOS through ACPI code can associate specific method to a particular GPE. In this case _L6D for Level-triggered Event, BIOS-ACPI can verify PMEENABLE and PMESTATUS of each device that requires GPE related wake.
+
+## Form 0x1030: PCI Express Configuration
+  - _(section)_ **PCI Express Configuration**
+  - _(section)_ ****
+  - **DMI Link ASPM Control** (OneOf) [VarStore PchSetup @ 0x517, QID 0x1414, size 8]
+    - options: (no options listed)
+    - help: The control of Active State Power Management of the DMI Link.
+  - **Port8xh Decode** (OneOf) [VarStore PchSetup @ 0xBC, QID 0x8BA, size 8]
+    - options: (no options listed)
+    - help: PCI Express Port8xh Decode Enable/Disable.
+  - **Port8xh Decode Port#** (Numeric) [VarStore PchSetup @ 0xBD, QID 0x8BB, size 8]  min 0x0 max 0x1B
+    - help: Select PCI Express Port8xh Decode Root Port. User to ensure port availability
+  - **Compliance Test Mode** (OneOf) [VarStore PchSetup @ 0xDA, QID 0x8BC, size 8]
+    - options: (no options listed)
+    - help: Enable when using Compliance Load Board
+  - **PCIe function swap** (OneOf) [VarStore PchSetup @ 0x3BB, QID 0x8BD, size 8]
+    - options: (no options listed)
+    - help: When Disabled, prevents PCIE rootport function swap. If any function other than 0th is enabled, 0th will become visible.
+  - **PCIe EQ settings** -> Form 0x1130  
+    - help: This form contains options for controlling PCIe EQ process
+  - _(section)_ ****
+  - **PCI Express Root Port 1** -> Form 0x157C  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 2** -> Form 0x1034  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 3** -> Form 0x1035  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 4** -> Form 0x1036  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 5** -> Form 0x1037  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 6** -> Form 0x1038  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 7** -> Form 0x1039  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 8** -> Form 0x103A  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 9** -> Form 0x103B  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 10** -> Form 0x13ED  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 11** -> Form 0x13EE  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 12** -> Form 0x13EF  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 13** -> Form 0x13F0  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 14** -> Form 0x13F1  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 15** -> Form 0x13F2  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 16** -> Form 0x13F3  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 17** -> Form 0x13F4  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 18** -> Form 0x13F5  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 19** -> Form 0x13F6  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 20** -> Form 0x13F7  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 21** -> Form 0x13F8  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 22** -> Form 0x157D  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 23** -> Form 0x157E  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 24** -> Form 0x157F  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 25** -> Form 0x1587  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 26** -> Form 0x1588  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 27** -> Form 0x1589  
+    - help: PCI Express Root Port Settings.
+  - **PCI Express Root Port 28** -> Form 0x158A  
+    - help: PCI Express Root Port Settings.
+  - _(section)_ ****
+  - **PCIE clocks** -> Form 0x1580  
+    - help: PCIE clocks
+
+## Form 0x1031: USB Configuration
+  - _(section)_ **USB Configuration**
+  - _(section)_ ****
+  - **xDCI Support** (OneOf) [VarStore PchSetup @ 0x47, QID 0x8DC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable xDCI (USB OTG Device).
+  - _(section)_ ****
+  - **USB PDO Programming** (OneOf) [VarStore PchSetup @ 0x42, QID 0x8DD, size 8]
+    - options: (no options listed)
+    - help: Select 'Enabled' if Port Disable Override functionality is used.
+  - **USB Overcurrent** (OneOf) [VarStore PchSetup @ 0x43, QID 0x8DE, size 8]
+    - options: (no options listed)
+    - help: Select 'Disabled' for pin-based debug. If pin-based debug is enabled but USB overcurrent is not disabled, USB DbC does not work.
+  - **USB Overcurrent Lock** (OneOf) [VarStore PchSetup @ 0x44, QID 0x8DF, size 8]
+    - options: (no options listed)
+    - help: Select 'Enabled' if Overcurrent functionality is used. Enabling this will make xHCI controller consume the Overcurrent mapping data
+  - **USB Audio Offload** (OneOf) [VarStore PchSetup @ 0x783, QID 0x8E0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable USB Audio Offload functionality
+  - **Enable HSII on xHCI** (OneOf) [VarStore PchSetup @ 0x7F4, QID 0x8E1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable HSII feature. It may lead to increased power consumption.
+  - _(section)_ ****
+  - **USB Port Disable Override** (OneOf) [VarStore PchSetup @ 0x27, QID 0x8E2, size 8]
+    - options: (no options listed)
+    - help: Selectively Enable/Disable the corresponding USB port from reporting a Device Connection to the controller.
+  - _(section)_ ****
+  - **USB SS Physical Connector #0** (OneOf) [VarStore PchSetup @ 0x38, QID 0x8E3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #1** (OneOf) [VarStore PchSetup @ 0x39, QID 0x8E4, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #2** (OneOf) [VarStore PchSetup @ 0x3A, QID 0x8E5, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #3** (OneOf) [VarStore PchSetup @ 0x3B, QID 0x8E6, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #4** (OneOf) [VarStore PchSetup @ 0x3C, QID 0x8E7, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #5** (OneOf) [VarStore PchSetup @ 0x3D, QID 0x8E8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #6** (OneOf) [VarStore PchSetup @ 0x3E, QID 0x8E9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #7** (OneOf) [VarStore PchSetup @ 0x3F, QID 0x8EA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #8** (OneOf) [VarStore PchSetup @ 0x40, QID 0x8EB, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB SS Physical Connector #9** (OneOf) [VarStore PchSetup @ 0x41, QID 0x8EC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #0** (OneOf) [VarStore PchSetup @ 0x28, QID 0x8ED, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #1** (OneOf) [VarStore PchSetup @ 0x29, QID 0x8EE, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #2** (OneOf) [VarStore PchSetup @ 0x2A, QID 0x8EF, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #3** (OneOf) [VarStore PchSetup @ 0x2B, QID 0x8F0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #4** (OneOf) [VarStore PchSetup @ 0x2C, QID 0x8F1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #5** (OneOf) [VarStore PchSetup @ 0x2D, QID 0x8F2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #6** (OneOf) [VarStore PchSetup @ 0x2E, QID 0x8F3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #7** (OneOf) [VarStore PchSetup @ 0x2F, QID 0x8F4, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #8** (OneOf) [VarStore PchSetup @ 0x30, QID 0x8F5, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #9** (OneOf) [VarStore PchSetup @ 0x31, QID 0x8F6, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #10** (OneOf) [VarStore PchSetup @ 0x32, QID 0x8F7, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #11** (OneOf) [VarStore PchSetup @ 0x33, QID 0x8F8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #12** (OneOf) [VarStore PchSetup @ 0x34, QID 0x8F9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - **USB HS Physical Connector #13** (OneOf) [VarStore PchSetup @ 0x35, QID 0x8FA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable this USB Physical Connector (physical port).  Once disabled, any USB devices plug into the connector will not be detected by BIOS or OS.
+  - _(section)_ ****
+  - **USB Sensor Hub** (OneOf) [VarStore Setup @ 0x4B, QID 0x8FB, size 8]
+    - options: (no options listed)
+    - help: USB Sensor Hub enable/disable
+
+## Form 0x1032: SATA Configuration
+  - _(section)_ **SATA Configuration**
+  - _(section)_ ****
+  - **SATA Controller(s)** (OneOf) [VarStore PchSetup @ 0x48, QID 0x8FC, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Device.
+  - **SATA Mode Selection** (OneOf) [VarStore PchSetup @ 0x49, QID 0x8FD, size 8]
+    - options: (no options listed)
+    - help: Determines how SATA controller(s) operate.
+  - **SATA Test Mode** (OneOf) [VarStore PchSetup @ 0x93, QID 0x8FE, size 8]
+    - options: (no options listed)
+    - help: Test Mode Enable/Disable (Loop Back).
+  - **Software Feature Mask Configuration** -> Form 0x1033  
+    - help: RST Legacy OROM/RST UEFI driver will refer to the SWFM configuration to enable/disable the storage features.
+  - **Aggressive LPM Support** (OneOf) [VarStore PchSetup @ 0x92, QID 0x900, size 8]
+    - options: (no options listed)
+    - help: Enable PCH to aggressively enter link power state.
+  - _(section)_ ****
+  - **Port 0** (OneOf) [VarStore PchSetup @ 0x4A, QID 0x901, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x52, QID 0x902, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x6A, QID 0x903, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x5A, QID 0x904, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x62, QID 0x905, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x72, QID 0x906, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x7A, QID 0x907, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 0 DevSlp** (OneOf) [VarStore PchSetup @ 0x94, QID 0x908, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 0 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0x9C, QID 0x909, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xA4, QID 0x90A, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xB4, QID 0x90B, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 1** (OneOf) [VarStore PchSetup @ 0x4B, QID 0x90C, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x53, QID 0x90D, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x6B, QID 0x90E, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x5B, QID 0x90F, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x63, QID 0x910, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x73, QID 0x911, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x7B, QID 0x912, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 1 DevSlp** (OneOf) [VarStore PchSetup @ 0x95, QID 0x913, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 1 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0x9D, QID 0x914, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xA6, QID 0x915, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xB5, QID 0x916, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 2** (OneOf) [VarStore PchSetup @ 0x4C, QID 0x917, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x54, QID 0x918, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x6C, QID 0x919, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x5C, QID 0x91A, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x64, QID 0x91B, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x74, QID 0x91C, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x7C, QID 0x91D, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 2 DevSlp** (OneOf) [VarStore PchSetup @ 0x96, QID 0x91E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 2 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0x9E, QID 0x91F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xA8, QID 0x920, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xB6, QID 0x921, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 3** (OneOf) [VarStore PchSetup @ 0x4D, QID 0x922, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x55, QID 0x923, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x6D, QID 0x924, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x5D, QID 0x925, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x65, QID 0x926, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x75, QID 0x927, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x7D, QID 0x928, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 3 DevSlp** (OneOf) [VarStore PchSetup @ 0x97, QID 0x929, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 3 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0x9F, QID 0x92A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xAA, QID 0x92B, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xB7, QID 0x92C, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 4** (OneOf) [VarStore PchSetup @ 0x4E, QID 0x92D, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x56, QID 0x92E, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x6E, QID 0x92F, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x5E, QID 0x930, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x66, QID 0x931, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x76, QID 0x932, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x7E, QID 0x933, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 4 DevSlp** (OneOf) [VarStore PchSetup @ 0x98, QID 0x934, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 4 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0xA0, QID 0x935, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xAC, QID 0x936, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xB8, QID 0x937, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 5** (OneOf) [VarStore PchSetup @ 0x4F, QID 0x938, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x57, QID 0x939, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x6F, QID 0x93A, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x5F, QID 0x93B, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x67, QID 0x93C, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x77, QID 0x93D, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x7F, QID 0x93E, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 5 DevSlp** (OneOf) [VarStore PchSetup @ 0x99, QID 0x93F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 5 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0xA1, QID 0x940, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xAE, QID 0x941, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xB9, QID 0x942, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 6** (OneOf) [VarStore PchSetup @ 0x50, QID 0x943, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x58, QID 0x944, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x70, QID 0x945, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x60, QID 0x946, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x68, QID 0x947, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x78, QID 0x948, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x80, QID 0x949, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 6 DevSlp** (OneOf) [VarStore PchSetup @ 0x9A, QID 0x94A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 6 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0xA2, QID 0x94B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xB0, QID 0x94C, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xBA, QID 0x94D, size 8]  min 0x0 max 0xF
+    - help: DM Value
+  - **Port 7** (OneOf) [VarStore PchSetup @ 0x51, QID 0x94E, size 8]
+    - options: (no options listed)
+    - help: Enable or Disable SATA Port
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x59, QID 0x94F, size 8]
+    - options: (no options listed)
+    - help: Designates this port as Hot Pluggable.
+  - **External** (OneOf) [VarStore PchSetup @ 0x71, QID 0x950, size 8]
+    - options: (no options listed)
+    - help: Marks this port as external.
+  - **Mechanical Presence Switch** (OneOf) [VarStore PchSetup @ 0x61, QID 0x951, size 8]
+    - options: (no options listed)
+    - help: Controls reporting if this port has an Mechanical Presence Switch.  Note: Requires hardware support.
+  - **Spin Up Device** (OneOf) [VarStore PchSetup @ 0x69, QID 0x952, size 8]
+    - options: (no options listed)
+    - help: If enabled for any of ports Staggerred Spin Up will be performed and only the drives which have this option enabled will spin up at boot. Otherwise all drives spin up at boot.
+  - **SATA Device Type** (OneOf) [VarStore PchSetup @ 0x79, QID 0x953, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA port is connected to Solid State Drive or Hard Disk Drive
+  - **Topology** (OneOf) [VarStore PchSetup @ 0x81, QID 0x954, size 8]
+    - options: (no options listed)
+    - help: Identify the SATA Topology if it is Default or ISATA or Flex or DirectConnect or M2
+  - **SATA Port 7 DevSlp** (OneOf) [VarStore PchSetup @ 0x9B, QID 0x955, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable SATA Port 7 DevSlp. For DevSlp to work, both hard drive and SATA port need to support DevSlp function, otherwise an unexpected behavior might happen. Please check board design before enabling it.
+  - **DITO Configuration** (OneOf) [VarStore PchSetup @ 0xA3, QID 0x956, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable DITO Configuration
+  - **DITO Value** (Numeric) [VarStore PchSetup @ 0xB2, QID 0x957, size 16]  min 0x0 max 0x3FF
+    - help: DITO Value
+  - **DM Value** (Numeric) [VarStore PchSetup @ 0xBB, QID 0x958, size 8]  min 0x0 max 0xF
+    - help: DM Value
+
+## Form 0x1130: PCIe EQ settings
+  - **PCIe EQ method** (OneOf) [VarStore PchSetup @ 0x3BD, QID 0x95A, size 8]
+    - options: (no options listed)
+    - help: Choose PCIe EQ method
+  - **PCIe EQ mode** (OneOf) [VarStore PchSetup @ 0x3BE, QID 0x95B, size 8]
+    - options: (no options listed)
+    - help: Choose EQ mode. Preset mode - root port will use presets during EQ process, Coefficient mode - root port will use coefficients during EQ process
+  - **EQ PH1 downstream port transmitter preset** (Numeric) [VarStore PchSetup @ 0x3C0, QID 0x95C, size 8]  min 0x0 max 0xA
+    - help: Choose the value of the preset that will be used during phase 1 of the equalization
+  - **EQ PH1 upstream port transmitter preset** (Numeric) [VarStore PchSetup @ 0x3C1, QID 0x95D, size 8]  min 0x0 max 0xA
+    - help: Choose the value of the preset that will be used during phase 1 of the equalization
+  - **EQ Phase 2 local transmitter override preset** (Numeric) [VarStore PchSetup @ 0x3E2, QID 0x95F, size 8]  min 0x0 max 0xA
+    - help: Select preset which will be used during phase 2 of the PCIe EQ process
+  - **Number of presets or coefficients used during phase 3** (Numeric) [VarStore PchSetup @ 0x3C2, QID 0x960, size 8]  min 0x0 max 0xB
+    - help: Select how many presets or coefficients will be used during phase 3 of EQ. Please not that you have to set all of the list entries to valid values. The interpretation of this field depends on PCIe EQ mode
+  - **Preset 0** (Numeric) [VarStore PchSetup @ 0x3D7, QID 0x961, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 1** (Numeric) [VarStore PchSetup @ 0x3D8, QID 0x962, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 2** (Numeric) [VarStore PchSetup @ 0x3D9, QID 0x963, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 3** (Numeric) [VarStore PchSetup @ 0x3DA, QID 0x964, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 4** (Numeric) [VarStore PchSetup @ 0x3DB, QID 0x965, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 5** (Numeric) [VarStore PchSetup @ 0x3DC, QID 0x966, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 6** (Numeric) [VarStore PchSetup @ 0x3DD, QID 0x967, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 7** (Numeric) [VarStore PchSetup @ 0x3DE, QID 0x968, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 8** (Numeric) [VarStore PchSetup @ 0x3DF, QID 0x969, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 9** (Numeric) [VarStore PchSetup @ 0x3E0, QID 0x96A, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Preset 10** (Numeric) [VarStore PchSetup @ 0x3E1, QID 0x96B, size 8]  min 0x0 max 0x3F
+    - help: Choose the target preset value
+  - **Pre-cursor coefficient 0** (Numeric) [VarStore PchSetup @ 0x3C3, QID 0x96C, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 0** (Numeric) [VarStore PchSetup @ 0x3CD, QID 0x96D, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 1** (Numeric) [VarStore PchSetup @ 0x3C4, QID 0x96E, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 1** (Numeric) [VarStore PchSetup @ 0x3CE, QID 0x96F, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 2** (Numeric) [VarStore PchSetup @ 0x3C5, QID 0x970, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 2** (Numeric) [VarStore PchSetup @ 0x3CF, QID 0x971, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 3** (Numeric) [VarStore PchSetup @ 0x3C6, QID 0x972, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 3** (Numeric) [VarStore PchSetup @ 0x3D0, QID 0x973, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 4** (Numeric) [VarStore PchSetup @ 0x3C7, QID 0x974, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 4** (Numeric) [VarStore PchSetup @ 0x3D1, QID 0x975, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 5** (Numeric) [VarStore PchSetup @ 0x3C8, QID 0x976, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 5** (Numeric) [VarStore PchSetup @ 0x3D2, QID 0x977, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 6** (Numeric) [VarStore PchSetup @ 0x3C9, QID 0x978, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 6** (Numeric) [VarStore PchSetup @ 0x3D3, QID 0x979, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 7** (Numeric) [VarStore PchSetup @ 0x3CA, QID 0x97A, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 7** (Numeric) [VarStore PchSetup @ 0x3D4, QID 0x97B, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 8** (Numeric) [VarStore PchSetup @ 0x3CB, QID 0x97C, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 8** (Numeric) [VarStore PchSetup @ 0x3D5, QID 0x97D, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+  - **Pre-cursor coefficient 9** (Numeric) [VarStore PchSetup @ 0x3CC, QID 0x97E, size 8]  min 0x0 max 0x3F
+    - help: Choose the target pre-cursor coefficient value
+  - **Post-cursor coefficient 9** (Numeric) [VarStore PchSetup @ 0x3D6, QID 0x97F, size 8]  min 0x0 max 0x3F
+    - help: Choose the target post-curosr coefficient value
+
+## Form 0x157C: PCI Express Root Port 1
+  - **PCI Express Root Port 1** (OneOf) [VarStore PchSetup @ 0xFF, QID 0x980, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x367, QID 0x981, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x11B, QID 0x15E0, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2BF, QID 0x15FC, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2DB, QID 0x982, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2F7, QID 0x983, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x313, QID 0x1618, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x32F, QID 0x984, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x34B, QID 0x985, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x137, QID 0x986, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x153, QID 0x987, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x16F, QID 0x988, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x18B, QID 0x989, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1DF, QID 0x98A, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x1FB, QID 0x98B, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x217, QID 0x98C, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x233, QID 0x98D, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x24F, QID 0x98E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x26B, QID 0x98F, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x287, QID 0x990, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A3, QID 0x991, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x383, QID 0x992, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x51F, QID 0x993, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x53B, QID 0x994, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x573, QID 0x995, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E3, QID 0x996, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x41B, QID 0x997, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x48B, QID 0x998, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x437, QID 0x999, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x453, QID 0x99A, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4C3, QID 0x99B, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x46F, QID 0x99C, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x3FF, QID 0x99D, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xBE, QID 0x99E, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1034: PCI Express Root Port 2
+  - **PCI Express Root Port 2** (OneOf) [VarStore PchSetup @ 0x100, QID 0x99F, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x368, QID 0x9A0, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x11C, QID 0x15E1, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C0, QID 0x15FD, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2DC, QID 0x9A1, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2F8, QID 0x9A2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x314, QID 0x1619, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x330, QID 0x9A3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x34C, QID 0x9A4, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x138, QID 0x9A5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x154, QID 0x9A6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x170, QID 0x9A7, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x18C, QID 0x9A8, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E0, QID 0x9A9, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x1FC, QID 0x9AA, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x218, QID 0x9AB, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x234, QID 0x9AC, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x250, QID 0x9AD, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x26C, QID 0x9AE, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x288, QID 0x9AF, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A4, QID 0x9B0, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x385, QID 0x9B1, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x520, QID 0x9B2, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x53D, QID 0x9B3, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x574, QID 0x9B4, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E4, QID 0x9B5, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x41C, QID 0x9B6, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x48D, QID 0x9B7, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x438, QID 0x9B8, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x454, QID 0x9B9, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4C5, QID 0x9BA, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x470, QID 0x9BB, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x400, QID 0x9BC, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xBF, QID 0x9BD, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1035: PCI Express Root Port 3
+  - **PCI Express Root Port 3** (OneOf) [VarStore PchSetup @ 0x101, QID 0x9BE, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x369, QID 0x9BF, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x11D, QID 0x15E2, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C1, QID 0x15FE, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2DD, QID 0x9C0, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2F9, QID 0x9C1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x315, QID 0x161A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x331, QID 0x9C2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x34D, QID 0x9C3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x139, QID 0x9C4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x155, QID 0x9C5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x171, QID 0x9C6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x18D, QID 0x9C7, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E1, QID 0x9C8, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x1FD, QID 0x9C9, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x219, QID 0x9CA, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x235, QID 0x9CB, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x251, QID 0x9CC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x26D, QID 0x9CD, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x289, QID 0x9CE, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A5, QID 0x9CF, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x387, QID 0x9D0, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x521, QID 0x9D1, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x53F, QID 0x9D2, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x575, QID 0x9D3, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E5, QID 0x9D4, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x41D, QID 0x9D5, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x48F, QID 0x9D6, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x439, QID 0x9D7, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x455, QID 0x9D8, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4C7, QID 0x9D9, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x471, QID 0x9DA, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x401, QID 0x9DB, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC0, QID 0x9DC, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1036: PCI Express Root Port 4
+  - **PCI Express Root Port 4** (OneOf) [VarStore PchSetup @ 0x102, QID 0x9DD, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x36A, QID 0x9DE, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x11E, QID 0x15E3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C2, QID 0x15FF, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2DE, QID 0x9DF, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2FA, QID 0x9E0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x316, QID 0x161B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x332, QID 0x9E1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x34E, QID 0x9E2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x13A, QID 0x9E3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x156, QID 0x9E4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x172, QID 0x9E5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x18E, QID 0x9E6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E2, QID 0x9E7, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x1FE, QID 0x9E8, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x21A, QID 0x9E9, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x236, QID 0x9EA, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x252, QID 0x9EB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x26E, QID 0x9EC, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x28A, QID 0x9ED, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A6, QID 0x9EE, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x389, QID 0x9EF, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x522, QID 0x9F0, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x541, QID 0x9F1, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x576, QID 0x9F2, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E6, QID 0x9F3, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x41E, QID 0x9F4, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x491, QID 0x9F5, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x43A, QID 0x9F6, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x456, QID 0x9F7, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4C9, QID 0x9F8, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x472, QID 0x9F9, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x402, QID 0x9FA, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC1, QID 0x9FB, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1037: PCI Express Root Port 5
+  - **PCI Express Root Port 5** (OneOf) [VarStore PchSetup @ 0x103, QID 0x9FC, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x36B, QID 0x9FD, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x11F, QID 0x15E4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C3, QID 0x1600, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2DF, QID 0x9FE, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2FB, QID 0x9FF, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x317, QID 0x161C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x333, QID 0xA00, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x34F, QID 0xA01, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x13B, QID 0xA02, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x157, QID 0xA03, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x173, QID 0xA04, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x18F, QID 0xA05, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E3, QID 0xA06, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x1FF, QID 0xA07, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x21B, QID 0xA08, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x237, QID 0xA09, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x253, QID 0xA0A, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x26F, QID 0xA0B, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x28B, QID 0xA0C, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A7, QID 0xA0D, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x38B, QID 0xA0E, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x523, QID 0xA0F, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x543, QID 0xA10, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x577, QID 0xA11, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E7, QID 0xA12, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x41F, QID 0xA13, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x493, QID 0xA14, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x43B, QID 0xA15, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x457, QID 0xA16, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4CB, QID 0xA17, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x473, QID 0xA18, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x403, QID 0xA19, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC2, QID 0xA1A, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1038: PCI Express Root Port 6
+  - **PCI Express Root Port 6** (OneOf) [VarStore PchSetup @ 0x104, QID 0xA1B, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x36C, QID 0xA1C, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x120, QID 0x15E5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C4, QID 0x1601, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E0, QID 0xA1D, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2FC, QID 0xA1E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x318, QID 0x161D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x334, QID 0xA1F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x350, QID 0xA20, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x13C, QID 0xA21, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x158, QID 0xA22, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x174, QID 0xA23, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x190, QID 0xA24, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E4, QID 0xA25, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x200, QID 0xA26, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x21C, QID 0xA27, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x238, QID 0xA28, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x254, QID 0xA29, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x270, QID 0xA2A, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x28C, QID 0xA2B, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A8, QID 0xA2C, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x38D, QID 0xA2D, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x524, QID 0xA2E, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x545, QID 0xA2F, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x578, QID 0xA30, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E8, QID 0xA31, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x420, QID 0xA32, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x495, QID 0xA33, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x43C, QID 0xA34, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x458, QID 0xA35, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4CD, QID 0xA36, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x474, QID 0xA37, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x404, QID 0xA38, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC3, QID 0xA39, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1039: PCI Express Root Port 7
+  - **PCI Express Root Port 7** (OneOf) [VarStore PchSetup @ 0x105, QID 0xA3A, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x36D, QID 0xA3B, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x121, QID 0x15E6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C5, QID 0x1602, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E1, QID 0xA3C, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2FD, QID 0xA3D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x319, QID 0x161E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x335, QID 0xA3E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x351, QID 0xA3F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x13D, QID 0xA40, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x159, QID 0xA41, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x175, QID 0xA42, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x191, QID 0xA43, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E5, QID 0xA44, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x201, QID 0xA45, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x21D, QID 0xA46, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x239, QID 0xA47, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x255, QID 0xA48, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x271, QID 0xA49, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x28D, QID 0xA4A, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2A9, QID 0xA4B, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x38F, QID 0xA4C, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x525, QID 0xA4D, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x547, QID 0xA4E, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x579, QID 0xA4F, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3E9, QID 0xA50, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x421, QID 0xA51, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x497, QID 0xA52, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x43D, QID 0xA53, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x459, QID 0xA54, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4CF, QID 0xA55, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x475, QID 0xA56, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x405, QID 0xA57, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC4, QID 0xA58, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x103A: PCI Express Root Port 8
+  - **PCI Express Root Port 8** (OneOf) [VarStore PchSetup @ 0x106, QID 0xA59, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x36E, QID 0xA5A, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x122, QID 0x15E7, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C6, QID 0x1603, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E2, QID 0xA5B, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2FE, QID 0xA5C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x31A, QID 0x161F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x336, QID 0xA5D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x352, QID 0xA5E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x13E, QID 0xA5F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x15A, QID 0xA60, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x176, QID 0xA61, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x192, QID 0xA62, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E6, QID 0xA63, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x202, QID 0xA64, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x21E, QID 0xA65, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x23A, QID 0xA66, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x256, QID 0xA67, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x272, QID 0xA68, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x28E, QID 0xA69, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2AA, QID 0xA6A, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x391, QID 0xA6B, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x526, QID 0xA6C, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x549, QID 0xA6D, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x57A, QID 0xA6E, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3EA, QID 0xA6F, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x422, QID 0xA70, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x499, QID 0xA71, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x43E, QID 0xA72, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x45A, QID 0xA73, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4D1, QID 0xA74, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x476, QID 0xA75, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x406, QID 0xA76, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC5, QID 0xA77, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x103B: PCI Express Root Port 9
+  - **PCI Express Root Port 9** (OneOf) [VarStore PchSetup @ 0x107, QID 0xA78, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x36F, QID 0xA79, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x123, QID 0x15E8, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C7, QID 0x1604, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E3, QID 0xA7A, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x2FF, QID 0xA7B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x31B, QID 0x1620, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x337, QID 0xA7C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x353, QID 0xA7D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x13F, QID 0xA7E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x15B, QID 0xA7F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x177, QID 0xA80, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x193, QID 0xA81, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E7, QID 0xA82, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x203, QID 0xA83, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x21F, QID 0xA84, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x23B, QID 0xA85, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x257, QID 0xA86, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x273, QID 0xA87, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x28F, QID 0xA88, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2AB, QID 0xA89, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x393, QID 0xA8A, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x527, QID 0xA8B, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x54B, QID 0xA8C, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x57B, QID 0xA8D, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3EB, QID 0xA8E, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x423, QID 0xA8F, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x49B, QID 0xA90, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x43F, QID 0xA91, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x45B, QID 0xA92, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4D3, QID 0xA93, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x477, QID 0xA94, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x407, QID 0xA95, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC6, QID 0xA96, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13ED: PCI Express Root Port 10
+  - **PCI Express Root Port 10** (OneOf) [VarStore PchSetup @ 0x108, QID 0xA97, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x370, QID 0xA98, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x124, QID 0x15E9, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C8, QID 0x1605, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E4, QID 0xA99, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x300, QID 0xA9A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x31C, QID 0x1621, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x338, QID 0xA9B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x354, QID 0xA9C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x140, QID 0xA9D, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x15C, QID 0xA9E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x178, QID 0xA9F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x194, QID 0xAA0, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E8, QID 0xAA1, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x204, QID 0xAA2, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x220, QID 0xAA3, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x23C, QID 0xAA4, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x258, QID 0xAA5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x274, QID 0xAA6, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x290, QID 0xAA7, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2AC, QID 0xAA8, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x395, QID 0xAA9, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x528, QID 0xAAA, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x54D, QID 0xAAB, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x57C, QID 0xAAC, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3EC, QID 0xAAD, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x424, QID 0xAAE, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x49D, QID 0xAAF, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x440, QID 0xAB0, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x45C, QID 0xAB1, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4D5, QID 0xAB2, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x478, QID 0xAB3, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x408, QID 0xAB4, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC7, QID 0xAB5, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13EE: PCI Express Root Port 11
+  - **PCI Express Root Port 11** (OneOf) [VarStore PchSetup @ 0x109, QID 0xAB6, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x371, QID 0xAB7, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x125, QID 0x15EA, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2C9, QID 0x1606, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E5, QID 0xAB8, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x301, QID 0xAB9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x31D, QID 0x1622, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x339, QID 0xABA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x355, QID 0xABB, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x141, QID 0xABC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x15D, QID 0xABD, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x179, QID 0xABE, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x195, QID 0xABF, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1E9, QID 0xAC0, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x205, QID 0xAC1, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x221, QID 0xAC2, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x23D, QID 0xAC3, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x259, QID 0xAC4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x275, QID 0xAC5, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x291, QID 0xAC6, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2AD, QID 0xAC7, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x397, QID 0xAC8, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x529, QID 0xAC9, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x54F, QID 0xACA, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x57D, QID 0xACB, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3ED, QID 0xACC, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x425, QID 0xACD, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x49F, QID 0xACE, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x441, QID 0xACF, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x45D, QID 0xAD0, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4D7, QID 0xAD1, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x479, QID 0xAD2, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x409, QID 0xAD3, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC8, QID 0xAD4, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13EF: PCI Express Root Port 12
+  - **PCI Express Root Port 12** (OneOf) [VarStore PchSetup @ 0x10A, QID 0xAD5, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x372, QID 0xAD6, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x126, QID 0x15EB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2CA, QID 0x1607, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E6, QID 0xAD7, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x302, QID 0xAD8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x31E, QID 0x1623, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x33A, QID 0xAD9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x356, QID 0xADA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x142, QID 0xADB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x15E, QID 0xADC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x17A, QID 0xADD, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x196, QID 0xADE, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1EA, QID 0xADF, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x206, QID 0xAE0, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x222, QID 0xAE1, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x23E, QID 0xAE2, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x25A, QID 0xAE3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x276, QID 0xAE4, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x292, QID 0xAE5, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2AE, QID 0xAE6, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x399, QID 0xAE7, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x52A, QID 0xAE8, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x551, QID 0xAE9, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x57E, QID 0xAEA, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3EE, QID 0xAEB, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x426, QID 0xAEC, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4A1, QID 0xAED, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x442, QID 0xAEE, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x45E, QID 0xAEF, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4D9, QID 0xAF0, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x47A, QID 0xAF1, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x40A, QID 0xAF2, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xC9, QID 0xAF3, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F0: PCI Express Root Port 13
+  - **PCI Express Root Port 13** (OneOf) [VarStore PchSetup @ 0x10B, QID 0xAF4, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x373, QID 0xAF5, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x127, QID 0x15EC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2CB, QID 0x1608, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E7, QID 0xAF6, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x303, QID 0xAF7, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x31F, QID 0x1624, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x33B, QID 0xAF8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x357, QID 0xAF9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x143, QID 0xAFA, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x15F, QID 0xAFB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x17B, QID 0xAFC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x197, QID 0xAFD, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1EB, QID 0xAFE, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x207, QID 0xAFF, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x223, QID 0xB00, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x23F, QID 0xB01, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x25B, QID 0xB02, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x277, QID 0xB03, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x293, QID 0xB04, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2AF, QID 0xB05, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x39B, QID 0xB06, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x52B, QID 0xB07, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x553, QID 0xB08, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x57F, QID 0xB09, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3EF, QID 0xB0A, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x427, QID 0xB0B, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4A3, QID 0xB0C, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x443, QID 0xB0D, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x45F, QID 0xB0E, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4DB, QID 0xB0F, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x47B, QID 0xB10, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x40B, QID 0xB11, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xCA, QID 0xB12, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F1: PCI Express Root Port 14
+  - **PCI Express Root Port 14** (OneOf) [VarStore PchSetup @ 0x10C, QID 0xB13, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x374, QID 0xB14, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x128, QID 0x15ED, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2CC, QID 0x1609, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E8, QID 0xB15, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x304, QID 0xB16, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x320, QID 0x1625, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x33C, QID 0xB17, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x358, QID 0xB18, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x144, QID 0xB19, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x160, QID 0xB1A, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x17C, QID 0xB1B, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x198, QID 0xB1C, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1EC, QID 0xB1D, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x208, QID 0xB1E, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x224, QID 0xB1F, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x240, QID 0xB20, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x25C, QID 0xB21, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x278, QID 0xB22, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x294, QID 0xB23, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B0, QID 0xB24, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x39D, QID 0xB25, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x52C, QID 0xB26, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x555, QID 0xB27, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x580, QID 0xB28, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F0, QID 0xB29, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x428, QID 0xB2A, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4A5, QID 0xB2B, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x444, QID 0xB2C, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x460, QID 0xB2D, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4DD, QID 0xB2E, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x47C, QID 0xB2F, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x40C, QID 0xB30, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xCB, QID 0xB31, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F2: PCI Express Root Port 15
+  - **PCI Express Root Port 15** (OneOf) [VarStore PchSetup @ 0x10D, QID 0xB32, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x375, QID 0xB33, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x129, QID 0x15EE, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2CD, QID 0x160A, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2E9, QID 0xB34, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x305, QID 0xB35, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x321, QID 0x1626, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x33D, QID 0xB36, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x359, QID 0xB37, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x145, QID 0xB38, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x161, QID 0xB39, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x17D, QID 0xB3A, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x199, QID 0xB3B, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1ED, QID 0xB3C, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x209, QID 0xB3D, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x225, QID 0xB3E, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x241, QID 0xB3F, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x25D, QID 0xB40, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x279, QID 0xB41, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x295, QID 0xB42, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B1, QID 0xB43, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x39F, QID 0xB44, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x52D, QID 0xB45, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x557, QID 0xB46, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x581, QID 0xB47, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F1, QID 0xB48, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x429, QID 0xB49, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4A7, QID 0xB4A, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x445, QID 0xB4B, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x461, QID 0xB4C, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4DF, QID 0xB4D, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x47D, QID 0xB4E, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x40D, QID 0xB4F, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xCC, QID 0xB50, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F3: PCI Express Root Port 16
+  - **PCI Express Root Port 16** (OneOf) [VarStore PchSetup @ 0x10E, QID 0xB51, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x376, QID 0xB52, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x12A, QID 0x15EF, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2CE, QID 0x160B, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2EA, QID 0xB53, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x306, QID 0xB54, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x322, QID 0x1627, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x33E, QID 0xB55, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x35A, QID 0xB56, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x146, QID 0xB57, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x162, QID 0xB58, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x17E, QID 0xB59, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x19A, QID 0xB5A, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1EE, QID 0xB5B, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x20A, QID 0xB5C, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x226, QID 0xB5D, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x242, QID 0xB5E, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x25E, QID 0xB5F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x27A, QID 0xB60, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x296, QID 0xB61, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B2, QID 0xB62, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3A1, QID 0xB63, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x52E, QID 0xB64, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x559, QID 0xB65, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x582, QID 0xB66, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F2, QID 0xB67, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x42A, QID 0xB68, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4A9, QID 0xB69, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x446, QID 0xB6A, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x462, QID 0xB6B, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4E1, QID 0xB6C, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x47E, QID 0xB6D, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x40E, QID 0xB6E, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xCD, QID 0xB6F, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F4: PCI Express Root Port 17
+  - **PCI Express Root Port 17** (OneOf) [VarStore PchSetup @ 0x10F, QID 0xB70, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x377, QID 0xB71, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x12B, QID 0x15F0, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2CF, QID 0x160C, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2EB, QID 0xB72, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x307, QID 0xB73, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x323, QID 0x1628, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x33F, QID 0xB74, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x35B, QID 0xB75, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x147, QID 0xB76, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x163, QID 0xB77, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x17F, QID 0xB78, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x19B, QID 0xB79, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1EF, QID 0xB7A, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x20B, QID 0xB7B, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x227, QID 0xB7C, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x243, QID 0xB7D, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x25F, QID 0xB7E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x27B, QID 0xB7F, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x297, QID 0xB80, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B3, QID 0xB81, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3A3, QID 0xB82, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x52F, QID 0xB83, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x55B, QID 0xB84, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x583, QID 0xB85, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F3, QID 0xB86, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x42B, QID 0xB87, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4AB, QID 0xB88, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x447, QID 0xB89, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x463, QID 0xB8A, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4E3, QID 0xB8B, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x47F, QID 0xB8C, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x40F, QID 0xB8D, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xCE, QID 0xB8E, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F5: PCI Express Root Port 18
+  - **PCI Express Root Port 18** (OneOf) [VarStore PchSetup @ 0x110, QID 0xB8F, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x378, QID 0xB90, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x12C, QID 0x15F1, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D0, QID 0x160D, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2EC, QID 0xB91, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x308, QID 0xB92, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x324, QID 0x1629, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x340, QID 0xB93, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x35C, QID 0xB94, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x148, QID 0xB95, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x164, QID 0xB96, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x180, QID 0xB97, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x19C, QID 0xB98, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F0, QID 0xB99, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x20C, QID 0xB9A, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x228, QID 0xB9B, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x244, QID 0xB9C, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x260, QID 0xB9D, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x27C, QID 0xB9E, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x298, QID 0xB9F, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B4, QID 0xBA0, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3A5, QID 0xBA1, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x530, QID 0xBA2, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x55D, QID 0xBA3, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x584, QID 0xBA4, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F4, QID 0xBA5, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x42C, QID 0xBA6, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4AD, QID 0xBA7, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x448, QID 0xBA8, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x464, QID 0xBA9, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4E5, QID 0xBAA, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x480, QID 0xBAB, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x410, QID 0xBAC, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xCF, QID 0xBAD, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F6: PCI Express Root Port 19
+  - **PCI Express Root Port 19** (OneOf) [VarStore PchSetup @ 0x111, QID 0xBAE, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x379, QID 0xBAF, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x12D, QID 0x15F2, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D1, QID 0x160E, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2ED, QID 0xBB0, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x309, QID 0xBB1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x325, QID 0x162A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x341, QID 0xBB2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x35D, QID 0xBB3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x149, QID 0xBB4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x165, QID 0xBB5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x181, QID 0xBB6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x19D, QID 0xBB7, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F1, QID 0xBB8, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x20D, QID 0xBB9, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x229, QID 0xBBA, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x245, QID 0xBBB, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x261, QID 0xBBC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x27D, QID 0xBBD, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x299, QID 0xBBE, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B5, QID 0xBBF, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3A7, QID 0xBC0, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x531, QID 0xBC1, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x55F, QID 0xBC2, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x585, QID 0xBC3, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F5, QID 0xBC4, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x42D, QID 0xBC5, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4AF, QID 0xBC6, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x449, QID 0xBC7, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x465, QID 0xBC8, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4E7, QID 0xBC9, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x481, QID 0xBCA, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x411, QID 0xBCB, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD0, QID 0xBCC, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F7: PCI Express Root Port 20
+  - **PCI Express Root Port 20** (OneOf) [VarStore PchSetup @ 0x112, QID 0xBCD, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x37A, QID 0xBCE, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x12E, QID 0x15F3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D2, QID 0x160F, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2EE, QID 0xBCF, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x30A, QID 0xBD0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x326, QID 0x162B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x342, QID 0xBD1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x35E, QID 0xBD2, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x14A, QID 0xBD3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x166, QID 0xBD4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x182, QID 0xBD5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x19E, QID 0xBD6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F2, QID 0xBD7, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x20E, QID 0xBD8, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x22A, QID 0xBD9, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x246, QID 0xBDA, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x262, QID 0xBDB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x27E, QID 0xBDC, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x29A, QID 0xBDD, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B6, QID 0xBDE, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3A9, QID 0xBDF, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x532, QID 0xBE0, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x561, QID 0xBE1, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x586, QID 0xBE2, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F6, QID 0xBE3, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x42E, QID 0xBE4, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4B1, QID 0xBE5, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x44A, QID 0xBE6, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x466, QID 0xBE7, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4E9, QID 0xBE8, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x482, QID 0xBE9, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x412, QID 0xBEA, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD1, QID 0xBEB, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x13F8: PCI Express Root Port 21
+  - **PCI Express Root Port 21** (OneOf) [VarStore PchSetup @ 0x113, QID 0xBEC, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x37B, QID 0xBED, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x12F, QID 0x15F4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D3, QID 0x1610, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2EF, QID 0xBEE, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x30B, QID 0xBEF, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x327, QID 0x162C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x343, QID 0xBF0, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x35F, QID 0xBF1, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x14B, QID 0xBF2, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x167, QID 0xBF3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x183, QID 0xBF4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x19F, QID 0xBF5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F3, QID 0xBF6, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x20F, QID 0xBF7, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x22B, QID 0xBF8, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x247, QID 0xBF9, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x263, QID 0xBFA, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x27F, QID 0xBFB, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x29B, QID 0xBFC, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B7, QID 0xBFD, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3AB, QID 0xBFE, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x533, QID 0xBFF, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x563, QID 0xC00, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x587, QID 0xC01, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F7, QID 0xC02, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x42F, QID 0xC03, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4B3, QID 0xC04, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x44B, QID 0xC05, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x467, QID 0xC06, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4EB, QID 0xC07, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x483, QID 0xC08, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x413, QID 0xC09, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD2, QID 0xC0A, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x157D: PCI Express Root Port 22
+  - **PCI Express Root Port 22** (OneOf) [VarStore PchSetup @ 0x114, QID 0xC0B, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x37C, QID 0xC0C, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x130, QID 0x15F5, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D4, QID 0x1611, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F0, QID 0xC0D, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x30C, QID 0xC0E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x328, QID 0x162D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x344, QID 0xC0F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x360, QID 0xC10, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x14C, QID 0xC11, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x168, QID 0xC12, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x184, QID 0xC13, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A0, QID 0xC14, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F4, QID 0xC15, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x210, QID 0xC16, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x22C, QID 0xC17, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x248, QID 0xC18, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x264, QID 0xC19, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x280, QID 0xC1A, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x29C, QID 0xC1B, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B8, QID 0xC1C, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3AD, QID 0xC1D, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x534, QID 0xC1E, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x565, QID 0xC1F, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x588, QID 0xC20, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F8, QID 0xC21, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x430, QID 0xC22, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4B5, QID 0xC23, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x44C, QID 0xC24, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x468, QID 0xC25, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4ED, QID 0xC26, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x484, QID 0xC27, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x414, QID 0xC28, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD3, QID 0xC29, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x157E: PCI Express Root Port 23
+  - **PCI Express Root Port 23** (OneOf) [VarStore PchSetup @ 0x115, QID 0xC2A, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x37D, QID 0xC2B, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x131, QID 0x15F6, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D5, QID 0x1612, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F1, QID 0xC2C, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x30D, QID 0xC2D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x329, QID 0x162E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x345, QID 0xC2E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x361, QID 0xC2F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x14D, QID 0xC30, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x169, QID 0xC31, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x185, QID 0xC32, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A1, QID 0xC33, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F5, QID 0xC34, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x211, QID 0xC35, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x22D, QID 0xC36, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x249, QID 0xC37, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x265, QID 0xC38, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x281, QID 0xC39, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x29D, QID 0xC3A, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2B9, QID 0xC3B, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3AF, QID 0xC3C, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x535, QID 0xC3D, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x567, QID 0xC3E, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x589, QID 0xC3F, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3F9, QID 0xC40, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x431, QID 0xC41, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4B7, QID 0xC42, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x44D, QID 0xC43, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x469, QID 0xC44, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4EF, QID 0xC45, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x485, QID 0xC46, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x415, QID 0xC47, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD4, QID 0xC48, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x157F: PCI Express Root Port 24
+  - **PCI Express Root Port 24** (OneOf) [VarStore PchSetup @ 0x116, QID 0xC49, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x37E, QID 0xC4A, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x132, QID 0x15F7, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D6, QID 0x1613, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F2, QID 0xC4B, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x30E, QID 0xC4C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x32A, QID 0x162F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x346, QID 0xC4D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x362, QID 0xC4E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x14E, QID 0xC4F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x16A, QID 0xC50, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x186, QID 0xC51, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A2, QID 0xC52, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F6, QID 0xC53, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x212, QID 0xC54, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x22E, QID 0xC55, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x24A, QID 0xC56, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x266, QID 0xC57, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x282, QID 0xC58, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x29E, QID 0xC59, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2BA, QID 0xC5A, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3B1, QID 0xC5B, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x536, QID 0xC5C, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x569, QID 0xC5D, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x58A, QID 0xC5E, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3FA, QID 0xC5F, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x432, QID 0xC60, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4B9, QID 0xC61, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x44E, QID 0xC62, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x46A, QID 0xC63, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4F1, QID 0xC64, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x486, QID 0xC65, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x416, QID 0xC66, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD5, QID 0xC67, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1587: PCI Express Root Port 25
+  - **PCI Express Root Port 25** (OneOf) [VarStore PchSetup @ 0x117, QID 0xC68, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x37F, QID 0xC69, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x133, QID 0x15F8, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D7, QID 0x1614, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F3, QID 0xC6A, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x30F, QID 0xC6B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x32B, QID 0x1630, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x347, QID 0xC6C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x363, QID 0xC6D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x14F, QID 0xC6E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x16B, QID 0xC6F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x187, QID 0xC70, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A3, QID 0xC71, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F7, QID 0xC72, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x213, QID 0xC73, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x22F, QID 0xC74, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x24B, QID 0xC75, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x267, QID 0xC76, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x283, QID 0xC77, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x29F, QID 0xC78, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2BB, QID 0xC79, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3B3, QID 0xC7A, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x537, QID 0xC7B, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x56B, QID 0xC7C, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x58B, QID 0xC7D, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3FB, QID 0xC7E, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x433, QID 0xC7F, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4BB, QID 0xC80, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x44F, QID 0xC81, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x46B, QID 0xC82, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4F3, QID 0xC83, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x487, QID 0xC84, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x417, QID 0xC85, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD6, QID 0xC86, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1588: PCI Express Root Port 26
+  - **PCI Express Root Port 26** (OneOf) [VarStore PchSetup @ 0x118, QID 0xC87, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x380, QID 0xC88, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x134, QID 0x15F9, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D8, QID 0x1615, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F4, QID 0xC89, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x310, QID 0xC8A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x32C, QID 0x1631, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x348, QID 0xC8B, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x364, QID 0xC8C, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x150, QID 0xC8D, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x16C, QID 0xC8E, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x188, QID 0xC8F, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A4, QID 0xC90, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F8, QID 0xC91, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x214, QID 0xC92, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x230, QID 0xC93, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x24C, QID 0xC94, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x268, QID 0xC95, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x284, QID 0xC96, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x2A0, QID 0xC97, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2BC, QID 0xC98, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3B5, QID 0xC99, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x538, QID 0xC9A, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x56D, QID 0xC9B, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x58C, QID 0xC9C, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3FC, QID 0xC9D, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x434, QID 0xC9E, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4BD, QID 0xC9F, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x450, QID 0xCA0, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x46C, QID 0xCA1, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4F5, QID 0xCA2, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x488, QID 0xCA3, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x418, QID 0xCA4, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD7, QID 0xCA5, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1589: PCI Express Root Port 27
+  - **PCI Express Root Port 27** (OneOf) [VarStore PchSetup @ 0x119, QID 0xCA6, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x381, QID 0xCA7, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x135, QID 0x15FA, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2D9, QID 0x1616, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F5, QID 0xCA8, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x311, QID 0xCA9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x32D, QID 0x1632, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x349, QID 0xCAA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x365, QID 0xCAB, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x151, QID 0xCAC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x16D, QID 0xCAD, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x189, QID 0xCAE, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A5, QID 0xCAF, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1F9, QID 0xCB0, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x215, QID 0xCB1, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x231, QID 0xCB2, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x24D, QID 0xCB3, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x269, QID 0xCB4, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x285, QID 0xCB5, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x2A1, QID 0xCB6, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2BD, QID 0xCB7, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3B7, QID 0xCB8, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x539, QID 0xCB9, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x56F, QID 0xCBA, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x58D, QID 0xCBB, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3FD, QID 0xCBC, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x435, QID 0xCBD, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4BF, QID 0xCBE, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x451, QID 0xCBF, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x46D, QID 0xCC0, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4F7, QID 0xCC1, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x489, QID 0xCC2, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x419, QID 0xCC3, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD8, QID 0xCC4, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x158A: PCI Express Root Port 28
+  - **PCI Express Root Port 28** (OneOf) [VarStore PchSetup @ 0x11A, QID 0xCC5, size 8]
+    - options: (no options listed)
+    - help: Control the PCI Express Root Port.
+  - **Connection Type** (OneOf) [VarStore PchSetup @ 0x382, QID 0xCC6, size 8]
+    - options: (no options listed)
+    - help: Built-In: a built-in device is connected to this rootport. SlotImplemented bit will be clear. Slot: this rootport connects to user-accessible slot. SlotImplemented bit will be set.
+  - **ASPM** (OneOf) [VarStore PchSetup @ 0x136, QID 0x15FB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Active State Power Management settings.
+  - **L1 Substates** (OneOf) [VarStore PchSetup @ 0x2DA, QID 0x1617, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Substates settings.
+  - **L1 Low** (OneOf) [VarStore PchSetup @ 0x2F6, QID 0xCC7, size 8]
+    - options: (no options listed)
+    - help: PCI Express L1 Low Substate Enable/Disable.
+  - **ACS** (OneOf) [VarStore PchSetup @ 0x312, QID 0xCC8, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Access Control Services Extended Capability
+  - **PTM** (OneOf) [VarStore PchSetup @ 0x32E, QID 0x1633, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Precision Time Measurement
+  - **DPC** (OneOf) [VarStore PchSetup @ 0x34A, QID 0xCC9, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Downstream Port Containment
+  - **EDPC** (OneOf) [VarStore PchSetup @ 0x366, QID 0xCCA, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Rootport extensions for Downstream Port Containment
+  - **URR** (OneOf) [VarStore PchSetup @ 0x152, QID 0xCCB, size 8]
+    - options: (no options listed)
+    - help: PCI Express Unsupported Request Reporting Enable/Disable.
+  - **FER** (OneOf) [VarStore PchSetup @ 0x16E, QID 0xCCC, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Fatal Error Reporting Enable/Disable.
+  - **NFER** (OneOf) [VarStore PchSetup @ 0x18A, QID 0xCCD, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Non-Fatal Error Reporting Enable/Disable.
+  - **CER** (OneOf) [VarStore PchSetup @ 0x1A6, QID 0xCCE, size 8]
+    - options: (no options listed)
+    - help: PCI Express Device Correctable Error Reporting Enable/Disable.
+  - **SEFE** (OneOf) [VarStore PchSetup @ 0x1FA, QID 0xCCF, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Fatal Error Enable/Disable.
+  - **SENFE** (OneOf) [VarStore PchSetup @ 0x216, QID 0xCD0, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Non-Fatal Error Enable/Disable.
+  - **SECE** (OneOf) [VarStore PchSetup @ 0x232, QID 0xCD1, size 8]
+    - options: (no options listed)
+    - help: Root PCI Express System Error on Correctable Error Enable/Disable.
+  - **PME SCI** (OneOf) [VarStore PchSetup @ 0x24E, QID 0xCD2, size 8]
+    - options: (no options listed)
+    - help: PCI Express PME SCI Enable/Disable.
+  - **Hot Plug** (OneOf) [VarStore PchSetup @ 0x26A, QID 0xCD3, size 8]
+    - options: (no options listed)
+    - help: PCI Express Hot Plug Enable/Disable.
+  - **Advanced Error Reporting** (OneOf) [VarStore PchSetup @ 0x286, QID 0xCD4, size 8]
+    - options: (no options listed)
+    - help: Advanced Error Reporting Enable/Disable.
+  - **PCIe Speed** (OneOf) [VarStore PchSetup @ 0x2A2, QID 0xCD5, size 8]
+    - options: (no options listed)
+    - help: Configure PCIe Speed
+  - **Transmitter Half Swing** (OneOf) [VarStore PchSetup @ 0x2BE, QID 0xCD6, size 8]
+    - options: (no options listed)
+    - help: Transmitter Half Swing Enable/Disable.
+  - **Detect Timeout** (Numeric) [VarStore PchSetup @ 0x3B9, QID 0xCD7, size 16]  min 0x0 max 0xFFFF
+    - help: The number of milliseconds reference code will wait for link to exit Detect state for enabled ports before assuming there is no device and potentially disabling the port.
+  - **Extra Bus Reserved** (Numeric) [VarStore PchSetup @ 0x53A, QID 0xCD8, size 8]  min 0x0 max 0x7
+    - help: Extra Bus Reserved (0-7) for bridges behind this Root Bridge.
+  - **Reserved Memory** (Numeric) [VarStore PchSetup @ 0x571, QID 0xCD9, size 16]  min 0x1 max 0x14
+    - help: Reserved Memory for this Root Bridge (1-20) MB
+  - **Reserved I/O** (Numeric) [VarStore PchSetup @ 0x58E, QID 0xCDA, size 8]  min 0x4 max 0x14
+    - help: Reserved I/O (4K/8K/12K/16K/20K) Range for this Root Bridge.
+  - _(section)_ ****
+  - _(section)_ **PCH PCIe LTR Configuration**
+  - **LTR** (OneOf) [VarStore PchSetup @ 0x3FE, QID 0xCDB, size 8]
+    - options: (no options listed)
+    - help: PCH PCIE Latency Reporting Enable/Disable
+  - **Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x436, QID 0xCDC, size 8]
+    - options: (no options listed)
+    - help: Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4C1, QID 0xCDD, size 16]  min 0x0 max 0x3FF
+    - help: LTR Snoop Latency value of PCH PCIE
+  - **Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x452, QID 0xCDE, size 8]
+    - options: (no options listed)
+    - help: LTR Snoop Latency Multiplier of PCH PCIE
+  - **Non Snoop Latency Override** (OneOf) [VarStore PchSetup @ 0x46E, QID 0xCDF, size 8]
+    - options: (no options listed)
+    - help: Non Snoop Latency Override for PCH PCIE. Disabled: Disable override. Manual: Manually enter override values. Auto (default): Maintain default BIOS flow.
+  - **Non Snoop Latency Value** (Numeric) [VarStore PchSetup @ 0x4F9, QID 0xCE0, size 16]  min 0x0 max 0x3FF
+    - help: LTR Non Snoop Latency value of PCH PCIE
+  - **Non Snoop Latency Multiplier** (OneOf) [VarStore PchSetup @ 0x48A, QID 0xCE1, size 8]
+    - options: (no options listed)
+    - help: LTR Non Snoop Latency Multiplier of PCH PCIE
+  - _(section)_ ****
+  - **LTR Lock** (OneOf) [VarStore PchSetup @ 0x41A, QID 0xCE2, size 8]
+    - options: (no options listed)
+    - help: PCIE LTR Configuration Lock
+  - **Peer Memory Write Enable** (OneOf) [VarStore PchSetup @ 0xD9, QID 0xCE3, size 8]
+    - options: (no options listed)
+    - help: Peer Memory Write Enable/Disable
+
+## Form 0x1580: PCIE clocks
+  - **Clock0 assignment** (OneOf) [VarStore PchSetup @ 0xDB, QID 0xCE4, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock0** (OneOf) [VarStore PchSetup @ 0xED, QID 0xCE5, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock1 assignment** (OneOf) [VarStore PchSetup @ 0xDC, QID 0xCE6, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock1** (OneOf) [VarStore PchSetup @ 0xEE, QID 0xCE7, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock2 assignment** (OneOf) [VarStore PchSetup @ 0xDD, QID 0xCE8, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock2** (OneOf) [VarStore PchSetup @ 0xEF, QID 0xCE9, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock3 assignment** (OneOf) [VarStore PchSetup @ 0xDE, QID 0xCEA, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock3** (OneOf) [VarStore PchSetup @ 0xF0, QID 0xCEB, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock4 assignment** (OneOf) [VarStore PchSetup @ 0xDF, QID 0xCEC, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock4** (OneOf) [VarStore PchSetup @ 0xF1, QID 0xCED, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock5 assignment** (OneOf) [VarStore PchSetup @ 0xE0, QID 0xCEE, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock5** (OneOf) [VarStore PchSetup @ 0xF2, QID 0xCEF, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock6 assignment** (OneOf) [VarStore PchSetup @ 0xE1, QID 0xCF0, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock6** (OneOf) [VarStore PchSetup @ 0xF3, QID 0xCF1, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock7 assignment** (OneOf) [VarStore PchSetup @ 0xE2, QID 0xCF2, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock7** (OneOf) [VarStore PchSetup @ 0xF4, QID 0xCF3, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock8 assignment** (OneOf) [VarStore PchSetup @ 0xE3, QID 0xCF4, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock8** (OneOf) [VarStore PchSetup @ 0xF5, QID 0xCF5, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock9 assignment** (OneOf) [VarStore PchSetup @ 0xE4, QID 0xCF6, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock9** (OneOf) [VarStore PchSetup @ 0xF6, QID 0xCF7, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock10 assignment** (OneOf) [VarStore PchSetup @ 0xE5, QID 0xCF8, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock10** (OneOf) [VarStore PchSetup @ 0xF7, QID 0xCF9, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock11 assignment** (OneOf) [VarStore PchSetup @ 0xE6, QID 0xCFA, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock11** (OneOf) [VarStore PchSetup @ 0xF8, QID 0xCFB, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock12 assignment** (OneOf) [VarStore PchSetup @ 0xE7, QID 0xCFC, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock12** (OneOf) [VarStore PchSetup @ 0xF9, QID 0xCFD, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock13 assignment** (OneOf) [VarStore PchSetup @ 0xE8, QID 0xCFE, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock13** (OneOf) [VarStore PchSetup @ 0xFA, QID 0xCFF, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock14 assignment** (OneOf) [VarStore PchSetup @ 0xE9, QID 0xD00, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock14** (OneOf) [VarStore PchSetup @ 0xFB, QID 0xD01, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock15 assignment** (OneOf) [VarStore PchSetup @ 0xEA, QID 0xD02, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock15** (OneOf) [VarStore PchSetup @ 0xFC, QID 0xD03, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock16 assignment** (OneOf) [VarStore PchSetup @ 0xEB, QID 0xD04, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock16** (OneOf) [VarStore PchSetup @ 0xFD, QID 0xD05, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+  - **Clock17 assignment** (OneOf) [VarStore PchSetup @ 0xEC, QID 0xD06, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = clock is assigned to PCIe port or LAN according to board layout. Enabled = keep clock enabledeven if unused. Disabled = Disable clock.
+  - **ClkReq for Clock17** (OneOf) [VarStore PchSetup @ 0xFE, QID 0xD07, size 8]
+    - options: (no options listed)
+    - help: Platform-POR = CLKREQ signal is assigned to CLKSRC according to board layout. Disabled = CLKREQ will not be used.
+
+## Form 0x152E: THC Configuration
+  - _(section)_ **Touch Host Controller Configuration Settings**
+  - _(section)_ ****
+  - **THC Port Configuration** (OneOf) [VarStore PchSetup @ 0x518, QID 0xD08, size 8]
+    - options: (no options listed)
+    - help: Assign Port to THC
+  - **Port Clock** (OneOf) [VarStore PchSetup @ 0x519, QID 0xD09, size 8]
+    - options: (no options listed)
+    - help: SPI_DFX_CLK_EN BIT set to 0 or 1
+  - **Active LTR** (Numeric) [VarStore PchSetup @ 0x794, QID 0xD0A, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Expose Active LTR data through ACPI _DSM for OS driver to configure
+  - **Idle LTR** (Numeric) [VarStore PchSetup @ 0x79C, QID 0xD0B, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Expose Idle LTR data through ACPI _DSM for OS driver to configure
+  - **HID Over SPI Limit Packet Size** (Numeric) [VarStore PchSetup @ 0x7A4, QID 0xD0C, size 32]  min 0x0 max 0x1
+    - help: When set, limits SPI read & write packet size to 64B. Otherwise, THC uses Max Soc packet size for SPI Read and Write  0 - Max Soc Packet Size  1 - 64 Bytes
+  - **Hid Over Spi Performance Limitation** (Numeric) [VarStore PchSetup @ 0x7AC, QID 0xD0D, size 32]  min 0x0 max 0xFFFF
+    - help: Minimum amount of delay the driver must wait between end of write operation and begin of read operation. This value shall be in 10us multiples  0-Disabled  1-65535 (0xFFFF) up to 655350us
+  - **Wake On Touch** (OneOf) [VarStore PchSetup @ 0x51A, QID 0xD0E, size 8]
+    - options: (no options listed)
+    - help: Based on this setting vGPIO for given THC will be in native mode, and additional _CRS for wake will be exposed in ACPI
+  - **THC Mode** (OneOf) [VarStore PchSetup @ 0x792, QID 0xD0F, size 8]
+    - options: (no options listed)
+    - help: Switch between Intel THC protcol and Industry standard HID Over SPI protocol.
+  - **Connection Speed** (Numeric) [VarStore PchSetup @ 0x7BC, QID 0xD10, size 32]  min 0x0 max 0x2625A00
+    - help: HID Over SPI Connection Speed in Hz
+  - **Flags** (OneOf) [VarStore PchSetup @ 0x7B4, QID 0xD11, size 32]
+    - options: (no options listed)
+    - help: HID Over SPI Flags
+  - **Input Report Body Address** (Numeric) [VarStore PchSetup @ 0x7C4, QID 0xD12, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Input Report Body Address
+  - **Input Report Header Address** (Numeric) [VarStore PchSetup @ 0x7CC, QID 0xD13, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Input Report Header Address
+  - **Output Report Address** (Numeric) [VarStore PchSetup @ 0x7D4, QID 0xD14, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Output Report Address
+  - **Write Opcode** (Numeric) [VarStore PchSetup @ 0x7E4, QID 0xD15, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Write Opcode
+  - **Read Opcode** (Numeric) [VarStore PchSetup @ 0x7DC, QID 0xD16, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Read Opcode
+  - **Reset Pad Trigger** (OneOf) [VarStore PchSetup @ 0x7EC, QID 0xD17, size 32]
+    - options: (no options listed)
+    - help: HID Over SPI Reset Pad Trigger
+  - **THC Port Configuration** (OneOf) [VarStore PchSetup @ 0x51B, QID 0xD18, size 8]
+    - options: (no options listed)
+    - help: Assign Port to THC
+  - **Port Clock** (OneOf) [VarStore PchSetup @ 0x51C, QID 0xD19, size 8]
+    - options: (no options listed)
+    - help: SPI_DFX_CLK_EN BIT set to 0 or 1
+  - **Active LTR** (Numeric) [VarStore PchSetup @ 0x798, QID 0xD1A, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Expose Active LTR data through ACPI _DSM for OS driver to configure
+  - **Idle LTR** (Numeric) [VarStore PchSetup @ 0x7A0, QID 0xD1B, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: Expose Idle LTR data through ACPI _DSM for OS driver to configure
+  - **HID Over SPI Limit Packet Size** (Numeric) [VarStore PchSetup @ 0x7A8, QID 0xD1C, size 32]  min 0x0 max 0x1
+    - help: When set, limits SPI read & write packet size to 64B. Otherwise, THC uses Max Soc packet size for SPI Read and Write  0 - Max Soc Packet Size  1 - 64 Bytes
+  - **Hid Over Spi Performance Limitation** (Numeric) [VarStore PchSetup @ 0x7B0, QID 0xD1D, size 32]  min 0x0 max 0xFFFF
+    - help: Minimum amount of delay the driver must wait between end of write operation and begin of read operation. This value shall be in 10us multiples  0-Disabled  1-65535 (0xFFFF) up to 655350us
+  - **Wake On Touch** (OneOf) [VarStore PchSetup @ 0x51D, QID 0xD1E, size 8]
+    - options: (no options listed)
+    - help: Based on this setting vGPIO for given THC will be in native mode, and additional _CRS for wake will be exposed in ACPI
+  - **THC Mode** (OneOf) [VarStore PchSetup @ 0x793, QID 0xD1F, size 8]
+    - options: (no options listed)
+    - help: Switch between Intel THC protcol and Industry standard HID Over SPI protocol.
+  - **Connection Speed** (Numeric) [VarStore PchSetup @ 0x7C0, QID 0xD20, size 32]  min 0x0 max 0x2625A00
+    - help: HID Over SPI Connection Speed in Hz
+  - **Flags** (OneOf) [VarStore PchSetup @ 0x7B8, QID 0xD21, size 32]
+    - options: (no options listed)
+    - help: HID Over SPI Flags
+  - **Input Report Body Address** (Numeric) [VarStore PchSetup @ 0x7C8, QID 0xD22, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Input Report Body Address
+  - **Input Report Header Address** (Numeric) [VarStore PchSetup @ 0x7D0, QID 0xD23, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Input Report Header Address
+  - **Output Report Address** (Numeric) [VarStore PchSetup @ 0x7D8, QID 0xD24, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Output Report Address
+  - **Write Opcode** (Numeric) [VarStore PchSetup @ 0x7E8, QID 0xD25, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Write Opcode
+  - **Read Opcode** (Numeric) [VarStore PchSetup @ 0x7E0, QID 0xD26, size 32]  min 0x0 max 0xFFFFFFFF
+    - help: HID Over SPI Read Opcode
+  - **Reset Pad Trigger** (OneOf) [VarStore PchSetup @ 0x7F0, QID 0xD27, size 32]
+    - options: (no options listed)
+    - help: HID Over SPI Reset Pad Trigger
+  - _(section)_ **THC is not available**
+  - _(section)_ ****
+
+## Form 0x103C: HD Audio Configuration
+  - _(section)_ **HD Audio Subsystem Configuration Settings**
+  - _(section)_ ****
+  - **HD Audio** (OneOf) [VarStore PchSetup @ 0x58F, QID 0xD28, size 8]
+    - options: (no options listed)
+    - help: Control Detection of the HD-Audio device.  Disabled = HDA will be unconditionally disabled  Enabled = HDA will be unconditionally enabled.
+  - **Audio DSP** (OneOf) [VarStore PchSetup @ 0x590, QID 0xD29, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Audio DSP.
+  - **Audio DSP Compliance Mode** (OneOf) [VarStore PchSetup @ 0x591, QID 0xD2A, size 8]
+    - options: (no options listed)
+    - help: Specifies DSP enabled system compliance: 1. Non-UAA (IntelSST driver support only - CC_040100) 2. UAA (HD Audio Inbox or IntelSST driver support - CC_040380)  Note: NHLT (DMIC/BT/I2S configuration) is published for non-UAA only.
+  - **HDA Link** (OneOf) [VarStore PchSetup @ 0x594, QID 0xD2B, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **DMIC #0** (OneOf) [VarStore PchSetup @ 0x595, QID 0xD2C, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **Dmic Clock Source Select** (OneOf) [VarStore PchSetup @ 0x597, QID 0xD2D, size 8]
+    - options: (no options listed)
+    - help: N/A
+  - **DMIC #1** (OneOf) [VarStore PchSetup @ 0x596, QID 0xD2E, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **Dmic Clock Source Select** (OneOf) [VarStore PchSetup @ 0x598, QID 0xD2F, size 8]
+    - options: (no options listed)
+    - help: N/A
+  - **SSP #0** (OneOf) [VarStore PchSetup @ 0x59D, QID 0xD30, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SSP #1** (OneOf) [VarStore PchSetup @ 0x59E, QID 0xD31, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SSP #2** (OneOf) [VarStore PchSetup @ 0x59F, QID 0xD32, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SSP #3** (OneOf) [VarStore PchSetup @ 0x5A0, QID 0xD33, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SSP #4** (OneOf) [VarStore PchSetup @ 0x5A1, QID 0xD34, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SSP #5** (OneOf) [VarStore PchSetup @ 0x5A2, QID 0xD35, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SNDW #1** (OneOf) [VarStore PchSetup @ 0x599, QID 0xD36, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SNDW #2** (OneOf) [VarStore PchSetup @ 0x59A, QID 0xD37, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SNDW #3** (OneOf) [VarStore PchSetup @ 0x59B, QID 0xD38, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **SNDW #4** (OneOf) [VarStore PchSetup @ 0x59C, QID 0xD39, size 8]
+    - options: (no options listed)
+    - help: Muxed interfaces: 1) HDA/SSP0 2) HDA[SDI1]/SSP1 3) DMIC0/SNDW4 4) DMIC1/SNDW3 CNL only: 5) HDA/SNDW1 6) SSP1/SNDW2
+  - **HD Audio Advanced Configuration** -> Form 0x103F  
+    - help: HD Audio Subsystem Advanced Configuration Settings
+  - **HD Audio DSP Features Configuration** -> Form 0x1040  
+    - help: HD Audio Subsystem Features Configuration (ACPI)
+  - **HDA Codec ALC245 Configuration** (OneOf) [VarStore PchSetup @ 0x791, QID 0xD3C, size 8]
+    - options: (no options listed)
+    - help: Option for configuring DMIC connection to ALC245.
+
+## Form 0x103F: HD Audio Advanced Configuration
+  - _(section)_ **HD Audio Subsystem Advanced Configuration Settings**
+  - _(section)_ ****
+  - **iDisplay Audio Disconnect** (OneOf) [VarStore PchSetup @ 0x592, QID 0xD3D, size 8]
+    - options: (no options listed)
+    - help: Disconnects SDI2 signal to hide/disable iDisplay Audio Codec.
+  - **Codec Sx Wake Capability** (OneOf) [VarStore PchSetup @ 0x5A6, QID 0xD3E, size 8]
+    - options: (no options listed)
+    - help: Capability to detect wake initiated by a codec in Sx (eg by modem codec)
+  - **PME Enable** (OneOf) [VarStore PchSetup @ 0x593, QID 0xD3F, size 8]
+    - options: (no options listed)
+    - help: Enables PME wake of HD Audio controller during POST.
+  - **HD Audio Link Frequency** (OneOf) [VarStore PchSetup @ 0x5A3, QID 0xD40, size 8]
+    - options: (no options listed)
+    - help: Selects HD Audio Link frequency. Applicable only if HDA codec supports selected frequency.
+  - **iDisplay Audio Link Frequency** (OneOf) [VarStore PchSetup @ 0x5A4, QID 0xD41, size 8]
+    - options: (no options listed)
+    - help: Selects iDisplay Link frequency.
+  - **iDisplay Audio Link T-Mode** (OneOf) [VarStore PchSetup @ 0x5A5, QID 0xD42, size 8]
+    - options: (no options listed)
+    - help: Indicates whether SDI is operating in 1T, 2T (CNL) or 2T, 4T, 8T mode (ICL).
+  - **Autonomous Clock Stop SNDW #1** (OneOf) [VarStore PchSetup @ 0x5A7, QID 0xD43, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Autonomous Clock Stop for SoundWire LINK1
+  - **Autonomous Clock Stop SNDW #2** (OneOf) [VarStore PchSetup @ 0x5A8, QID 0xD44, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Autonomous Clock Stop for SoundWire LINK2
+  - **Autonomous Clock Stop SNDW #3** (OneOf) [VarStore PchSetup @ 0x5A9, QID 0xD45, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Autonomous Clock Stop for SoundWire LINK3
+  - **Autonomous Clock Stop SNDW #4** (OneOf) [VarStore PchSetup @ 0x5AA, QID 0xD46, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Autonomous Clock Stop for SoundWire LINK4
+  - **Data On Active Interval Select SNDW #1** (OneOf) [VarStore PchSetup @ 0x5AB, QID 0xD47, size 8]
+    - options: (no options listed)
+    - help: Data On Active Interval Select: 1) 6 clock periods 2) 7 clock periods 3) 8 clock periods 4) 11 clock periods
+  - **Data On Active Interval Select SNDW #2** (OneOf) [VarStore PchSetup @ 0x5AC, QID 0xD48, size 8]
+    - options: (no options listed)
+    - help: Data On Active Interval Select: 1) 6 clock periods 2) 7 clock periods 3) 8 clock periods 4) 11 clock periods
+  - **Data On Active Interval Select SNDW #3** (OneOf) [VarStore PchSetup @ 0x5AD, QID 0xD49, size 8]
+    - options: (no options listed)
+    - help: Data On Active Interval Select: 1) 6 clock periods 2) 7 clock periods 3) 8 clock periods 4) 11 clock periods
+  - **Data On Active Interval Select SNDW #4** (OneOf) [VarStore PchSetup @ 0x5AE, QID 0xD4A, size 8]
+    - options: (no options listed)
+    - help: Data On Active Interval Select: 1) 6 clock periods 2) 7 clock periods 3) 8 clock periods 4) 11 clock periods
+  - **Data On Delay Select SNDW #1** (OneOf) [VarStore PchSetup @ 0x5AF, QID 0xD4B, size 8]
+    - options: (no options listed)
+    - help: Data On Delay Select: 1) 2 clock periods 2) 3 clock periods
+  - **Data On Delay Select SNDW #2** (OneOf) [VarStore PchSetup @ 0x5B0, QID 0xD4C, size 8]
+    - options: (no options listed)
+    - help: Data On Delay Select: 1) 2 clock periods 2) 3 clock periods
+  - **Data On Delay Select SNDW #3** (OneOf) [VarStore PchSetup @ 0x5B1, QID 0xD4D, size 8]
+    - options: (no options listed)
+    - help: Data On Delay Select: 1) 2 clock periods 2) 3 clock periods
+  - **Data On Delay Select SNDW #4** (OneOf) [VarStore PchSetup @ 0x5B2, QID 0xD4E, size 8]
+    - options: (no options listed)
+    - help: Data On Delay Select: 1) 2 clock periods 2) 3 clock periods
+  - **ACX SSID 305610EC Codecs Topology** (OneOf) [VarStore PchSetup @ 0x7FF, QID 0xD4F, size 8]
+    - options: (no options listed)
+    - help: Codecs: ALC711-VD1, ALC714-VC1, 2x ALC316
+
+## Form 0x1040: HD Audio DSP Features Configuration
+  - _(section)_ **HD Audio Subsystem Features Configuration (ACPI)**
+  - _(section)_ ****
+  - **Dmic Mono 38.4MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x1, QID 0xD50, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 1 Mic Array Endpoint in NHLT ACPI table. XTAL: 38.4MHz.
+  - **Dmic Stereo 38.4MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x2, QID 0xD51, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 2 Mic Array Endpoint in NHLT ACPI table. XTAL: 38.4MHz.
+  - **Dmic Quad 38.4MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x3, QID 0xD52, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 4 Mic Array Endpoint in NHLT ACPI table. XTAL: 38.4MHz.
+  - **Dmic Mono 24MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x6, QID 0xD53, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 1 Mic Array Endpoint in NHLT ACPI table. XTAL: 24MHz.
+  - **Dmic Stereo 24MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x7, QID 0xD54, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 2 Mic Array Endpoint in NHLT ACPI table. XTAL: 24MHz.
+  - **Dmic Quad 24MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x8, QID 0xD55, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables 4 Mic Array Endpoint in NHLT ACPI table. XTAL: 24MHz.
+  - **Bluetooth 38.4MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x4, QID 0xD56, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables Bluetooth Endpoint in NHLT ACPI table. XTAL: 38.4MHz.
+  - **Bluetooth 24MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x9, QID 0xD57, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables Bluetooth Endpoint in NHLT ACPI table. XTAL: 24MHz.
+  - **I2S Alc274 38.4MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0x5, QID 0xD58, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables I2S Endpoint for ALC274 in NHLT ACPI table. XTAL: 38.4MHz.
+  - **I2S Alc274 24MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0xA, QID 0xD59, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables I2S Endpoint for ALC274 in NHLT ACPI table. XTAL: 24MHz.
+  - **I2S Es8326 24MHz** (OneOf) [VarStore NhltEndpointsTableConfigurationVariable @ 0xB, QID 0xD5A, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables I2S Endpoint for Everest Codec 8326 and 8336 in NHLT ACPI table. XTAL: 24MHz.
+  - **I2S Codec Select** (OneOf) [VarStore PchSetup @ 0x5B3, QID 0xD5B, size 8]
+    - options: (no options listed)
+    - help: Selects I2S Audio Codec support. Note: SerialIo UART0 must be disabled to enable external I2S codec (due to GPIO pin muxing).
+  - **I2S Codec Bus Number** (OneOf) [VarStore PchSetup @ 0x5B4, QID 0xD5C, size 8]
+    - options: (no options listed)
+    - help: Selectcs Codec Bus from Serial IO I2C0/1/2/3/4/5
+  - _(section)_ ****
+  - **Voice Activity Detection** (OneOf) [VarStore PchSetup @ 0x808, QID 0xD65, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables DSP Feature. Bitmask structure: [BIT0] - WoV [BIT1] - BT Sideband [BIT2] - Codec based VAD [BIT5] - BT Intel HFP [BIT6] - BT Intel A2DP [BIT7] - DSP based speech pre-processing disabled (for Intel WoV mode) [BIT8] - WoV Mode: Intel WoV / Windows Voice Activation for Cortana
+  - **Discrete BT HCI Audio Offload Support** (OneOf) [VarStore PchSetup @ 0x80D, QID 0xD66, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables Discrete Bluetooth HCI Audio Offload Support
+  - **Discrete BT HCI Audio Offload Link** (OneOf) [VarStore PchSetup @ 0x80E, QID 0xD67, size 8]
+    - options: (no options listed)
+    - help: Selects used SSP port for the discrete BT HCI Audio Offload
+  - _(section)_ ****
+
+## Form 0x103D: Security Configuration
+  - _(section)_ **Security Configuration**
+  - _(section)_ ****
+  - **RTC Memory Lock** (OneOf) [VarStore PchSetup @ 0x1B, QID 0xD80, size 8]
+    - options: (no options listed)
+    - help: Enable will lock bytes 38h-3Fh in the lower/upper 128-byte bank of RTC RAM
+  - **BIOS Lock** (OneOf) [VarStore PchSetup @ 0x1C, QID 0xD81, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable the PCH BIOS Lock Enable feature. Required to be enabled to ensure SMM protection of flash.
+  - **Force unlock on all GPIO pads** (OneOf) [VarStore PchSetup @ 0x1D, QID 0xD82, size 8]
+    - options: (no options listed)
+    - help: If Enabled BIOS will force all GPIO pads to be in unlocked state
+
+## Form 0x7A: SerialIo Configuration
+  - _(section)_ **SerialIo Configuration**
+  - **I2C0 Controller** (OneOf) [VarStore PchSetup @ 0x705, QID 0xD83, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **I2C1 Controller** (OneOf) [VarStore PchSetup @ 0x706, QID 0xD84, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **I2C2 Controller** (OneOf) [VarStore PchSetup @ 0x707, QID 0xD85, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **I2C3 Controller** (OneOf) [VarStore PchSetup @ 0x708, QID 0xD86, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **I2C4 Controller** (OneOf) [VarStore PchSetup @ 0x709, QID 0xD87, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller For I2C5 and UART2 to work this device has to be enabled
+  - **I2C5 Controller** (OneOf) [VarStore PchSetup @ 0x70A, QID 0xD88, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller For this device to work I2C4 has to be enabled
+  - **I2C6 Controller** (OneOf) [VarStore PchSetup @ 0x70B, QID 0xD89, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **I2C7 Controller** (OneOf) [VarStore PchSetup @ 0x70C, QID 0xD8A, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **SPI0 Controller** (OneOf) [VarStore PchSetup @ 0x6E0, QID 0xD8B, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **SPI1 Controller** (OneOf) [VarStore PchSetup @ 0x6E1, QID 0xD8C, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **SPI2 Controller** (OneOf) [VarStore PchSetup @ 0x6E2, QID 0xD8D, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo SPI2 Controller The following device depends from: Thermal Subsystem in PCI mode Otherwise SPI2 will not appear in the OS
+  - **SPI3 Controller** (OneOf) [VarStore PchSetup @ 0x6E3, QID 0xD8E, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **SPI4 Controller** (OneOf) [VarStore PchSetup @ 0x6E4, QID 0xD8F, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **SPI5 Controller** (OneOf) [VarStore PchSetup @ 0x6E5, QID 0xD90, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **SPI6 Controller** (OneOf) [VarStore PchSetup @ 0x6E6, QID 0xD91, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **UART0 Controller** (OneOf) [VarStore PchSetup @ 0x6E9, QID 0xD92, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **UART1 Controller** (OneOf) [VarStore PchSetup @ 0x6EA, QID 0xD93, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **UART2 Controller** (OneOf) [VarStore PchSetup @ 0x6EB, QID 0xD94, size 8]
+    - options: (no options listed)
+    - help: Set UART2 mode  - DBG used for BIOS log print and/or Kernel OS Debug   - COM - 16550 compatible serial port with Power Gating support
+  - **UART3 Controller** (OneOf) [VarStore PchSetup @ 0x6EC, QID 0xD95, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **UART4 Controller** (OneOf) [VarStore PchSetup @ 0x6ED, QID 0xD96, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **UART5 Controller** (OneOf) [VarStore PchSetup @ 0x6EE, QID 0xD97, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **UART6 Controller** (OneOf) [VarStore PchSetup @ 0x6EF, QID 0xD98, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables SerialIo Controller If given device is Function 0 PSF disabling is skipped. PSF default will remain and device PCI CFG Space will still be visible. This is needed to allow PCI enumerator access functions above 0 in a multifunction device. The following devices depend on each other: I2C0 and I2C1,2,3 UART0 and UART1,SPI0,1 UART2 and I2C4,5   UART 0 (00:30:00) cannot be disabled when: 1. Child device is enabled like CNVi Bluetooth (\_SB.PC00.UA00.BTH0)  UART 0 (00:30:00) cannot be enabled when: 1. I2S Audio codec is enabled (\_SB.PC00.I2C0.HDAC)
+  - **GPIO IRQ Route** (OneOf) [VarStore PchSetup @ 0x70F, QID 0xD99, size 8]
+    - options: (no options listed)
+    - help: Route all GPIOs to one of the IRQ.
+  - _(section)_ ****
+  - **Serial IO I2C0 Settings** -> Form 0x80  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C1 Settings** -> Form 0x81  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C2 Settings** -> Form 0x87  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C3 Settings** -> Form 0x88  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C4 Settings** -> Form 0x89  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C5 Settings** -> Form 0x8A  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C6 Settings** -> Form 0x99  
+    - help: Configure SerialIo Controller
+  - **Serial IO I2C7 Settings** -> Form 0x9A  
+    - help: Configure SerialIo Controller
+  - **Serial IO SPI0 Settings** -> Form 0x82  
+    - help: Configure SerialIo Controller
+  - **Serial IO SPI1 Settings** -> Form 0x83  
+    - help: Configure SerialIo Controller
+  - **Serial IO SPI2 Settings** -> Form 0x8C  
+    - help: Configure SerialIo Controller
+  - **Serial IO UART0 Settings** -> Form 0x84  
+    - help: Configure SerialIo Controller
+  - **Serial IO UART1 Settings** -> Form 0x85  
+    - help: Configure SerialIo Controller
+  - **Serial IO UART2 Settings** -> Form 0x8B  
+    - help: Configure SerialIo Controller
+  - _(section)_ ****
+  - **WITT/MITT Test Device** (OneOf) [VarStore Setup @ 0x5CF, QID 0xDA8, size 8]
+    - options: (no options listed)
+    - help: Choose if WITT Device is used and with which controller
+  - **WITT/MITT Device selection** (OneOf) [VarStore Setup @ 0x5D0, QID 0xDA9, size 8]
+    - options: (no options listed)
+    - help: Change WITT Device version
+  - **UART Test Device** (OneOf) [VarStore Setup @ 0x5D1, QID 0xDAA, size 8]
+    - options: (no options listed)
+    - help: Choose if UART Test Device is used and with which controller
+
+## Form 0x80: Serial IO I2C0 Settings
+  - _(section)_ **Serial IO I2C0 Settings**
+  - **Connected device** (Numeric) [VarStore Setup @ 0x5B0, QID 0xDAD, size 8]  min 0x0 max 0xFF
+    - help: Indicates what type of device is connected to this SerialIo controller
+  - _(section)_ ****
+  - **Serial IO Touch Pad Settings** -> Form 0x111E  
+    - help: Indicates what type of I2C Touch Pad is connected to this SerialIo controller
+  - **Serial IO Touch Panel Settings** -> Form 0x111F  
+    - help: Indicates what type of I2C Touch Panel is connected to this SerialIo controller
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0x5D5, QID 0xDB0, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0x5D7, QID 0xDB1, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x5D9, QID 0xDB2, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0x5DB, QID 0xDB3, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0x5DD, QID 0xDB4, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x5DF, QID 0xDB5, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0x5E1, QID 0xDB6, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0x5E3, QID 0xDB7, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0x5E5, QID 0xDB8, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0x5E7, QID 0xDB9, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0x5E9, QID 0xDBA, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x5EB, QID 0xDBB, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x665, QID 0xDBC, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x667, QID 0xDBD, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x81: Serial IO I2C1 Settings
+  - _(section)_ **Serial IO I2C1 Settings**
+  - **Connected device** (Numeric) [VarStore Setup @ 0x5B1, QID 0xDBE, size 8]  min 0x0 max 0xFF
+    - help: Indicates what type of device is connected to this SerialIo controller
+  - _(section)_ ****
+  - **Serial IO Touch Pad Settings** -> Form 0x111E  
+    - help: Indicates what type of I2C Touch Pad is connected to this SerialIo controller
+  - **Serial IO Touch Panel Settings** -> Form 0x111F  
+    - help: Indicates what type of I2C Touch Panel is connected to this SerialIo controller
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0x5ED, QID 0xDC1, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0x5EF, QID 0xDC2, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x5F1, QID 0xDC3, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0x5F3, QID 0xDC4, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0x5F5, QID 0xDC5, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x5F7, QID 0xDC6, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0x5F9, QID 0xDC7, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0x5FB, QID 0xDC8, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0x5FD, QID 0xDC9, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0x5FF, QID 0xDCA, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0x601, QID 0xDCB, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x603, QID 0xDCC, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x669, QID 0xDCD, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x66B, QID 0xDCE, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x87: Serial IO I2C2 Settings
+  - _(section)_ **Serial IO I2C2 Settings**
+  - **Connected device** (Numeric) [VarStore Setup @ 0x5B2, QID 0xDCF, size 8]  min 0x0 max 0xFF
+    - help: Indicates what type of device is connected to this SerialIo controller
+  - _(section)_ ****
+  - **Serial IO Touch Pad Settings** -> Form 0x111E  
+    - help: Indicates what type of I2C Touch Pad is connected to this SerialIo controller
+  - **Serial IO Touch Panel Settings** -> Form 0x111F  
+    - help: Indicates what type of I2C Touch Panel is connected to this SerialIo controller
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0x605, QID 0xDD2, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0x607, QID 0xDD3, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x609, QID 0xDD4, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0x60B, QID 0xDD5, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0x60D, QID 0xDD6, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x60F, QID 0xDD7, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0x611, QID 0xDD8, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0x613, QID 0xDD9, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0x615, QID 0xDDA, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0x617, QID 0xDDB, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0x619, QID 0xDDC, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x61B, QID 0xDDD, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x66D, QID 0xDDE, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x66F, QID 0xDDF, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x88: Serial IO I2C3 Settings
+  - _(section)_ **Serial IO I2C3 Settings**
+  - **Connected device** (Numeric) [VarStore Setup @ 0x5B3, QID 0xDE0, size 8]  min 0x0 max 0xFF
+    - help: Indicates what type of device is connected to this SerialIo controller
+  - _(section)_ ****
+  - **Serial IO Touch Pad Settings** -> Form 0x111E  
+    - help: Indicates what type of I2C Touch Pad is connected to this SerialIo controller
+  - **Serial IO Touch Panel Settings** -> Form 0x111F  
+    - help: Indicates what type of I2C Touch Panel is connected to this SerialIo controller
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0x61D, QID 0xDE3, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0x61F, QID 0xDE4, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x621, QID 0xDE5, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0x623, QID 0xDE6, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0x625, QID 0xDE7, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x627, QID 0xDE8, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0x629, QID 0xDE9, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0x62B, QID 0xDEA, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0x62D, QID 0xDEB, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0x62F, QID 0xDEC, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0x631, QID 0xDED, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x633, QID 0xDEE, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x671, QID 0xDEF, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x673, QID 0xDF0, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x89: Serial IO I2C4 Settings
+  - _(section)_ **Serial IO I2C4 Settings**
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0x635, QID 0xDF1, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0x637, QID 0xDF2, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x639, QID 0xDF3, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0x63B, QID 0xDF4, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0x63D, QID 0xDF5, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x63F, QID 0xDF6, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0x641, QID 0xDF7, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0x643, QID 0xDF8, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0x645, QID 0xDF9, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0x647, QID 0xDFA, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0x649, QID 0xDFB, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x64B, QID 0xDFC, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x675, QID 0xDFD, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x677, QID 0xDFE, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x8A: Serial IO I2C5 Settings
+  - _(section)_ **Serial IO I2C5 Settings**
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0x64D, QID 0xDFF, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0x64F, QID 0xE00, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x651, QID 0xE01, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0x653, QID 0xE02, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0x655, QID 0xE03, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x657, QID 0xE04, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0x659, QID 0xE05, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0x65B, QID 0xE06, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0x65D, QID 0xE07, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0x65F, QID 0xE08, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0x661, QID 0xE09, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0x663, QID 0xE0A, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x679, QID 0xE0B, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x67B, QID 0xE0C, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x99: Serial IO I2C6 Settings
+  - _(section)_ **Serial IO I2C6 Settings**
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0xADD, QID 0xE0D, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0xADF, QID 0xE0E, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0xAE1, QID 0xE0F, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0xAE3, QID 0xE10, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0xAE5, QID 0xE11, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0xAE7, QID 0xE12, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0xAE9, QID 0xE13, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0xAEB, QID 0xE14, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0xAED, QID 0xE15, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0xAEF, QID 0xE16, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0xAF1, QID 0xE17, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0xAF3, QID 0xE18, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0xAF5, QID 0xE19, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0xAF7, QID 0xE1A, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x9A: Serial IO I2C7 Settings
+  - _(section)_ **Serial IO I2C7 Settings**
+  - _(section)_ **Timing parameters**
+  - **StandardSpeed SCL High** (Numeric) [VarStore Setup @ 0xAFA, QID 0xE1B, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 612 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SCL Low** (Numeric) [VarStore Setup @ 0xAFC, QID 0xE1C, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 706 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **StandardSpeed SDA Hold** (Numeric) [VarStore Setup @ 0xAFE, QID 0xE1D, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL High** (Numeric) [VarStore Setup @ 0xB00, QID 0xE1E, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 110 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SCL Low** (Numeric) [VarStore Setup @ 0xB02, QID 0xE1F, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 207 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeed SDA Hold** (Numeric) [VarStore Setup @ 0xB04, QID 0xE20, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL High** (Numeric) [VarStore Setup @ 0xB06, QID 0xE21, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 43 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SCL Low** (Numeric) [VarStore Setup @ 0xB08, QID 0xE22, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 76 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **FastSpeedPlus SDA Hold** (Numeric) [VarStore Setup @ 0xB0A, QID 0xE23, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 30 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL High** (Numeric) [VarStore Setup @ 0xB0C, QID 0xE24, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 11 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SCL Low** (Numeric) [VarStore Setup @ 0xB0E, QID 0xE25, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 22 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **HighSpeed SDA Hold** (Numeric) [VarStore Setup @ 0xB10, QID 0xE26, size 16]  min 0x0 max 0xFFFF
+    - help: Default: 8 [DEC]  Minimum: 1 [DEC]  Maximum: 65535 [DEC]
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0xB12, QID 0xE27, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0xB14, QID 0xE28, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x82: Serial IO SPI0 Settings
+  - _(section)_ **Serial IO SPI0 Settings**
+  - **ChipSelect 0 polarity** (OneOf) [VarStore PchSetup @ 0x6D2, QID 0xE29, size 8]
+    - options: (no options listed)
+    - help: Sets initial polarity for ChipSelect signal. Active low is with initial idle polarity of low and vice versa
+  - **ChipSelect 1 polarity** (OneOf) [VarStore PchSetup @ 0x6D3, QID 0xE2A, size 8]
+    - options: (no options listed)
+    - help: Sets initial polarity for ChipSelect signal. Active low is with initial idle polarity of low and vice versa
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x67D, QID 0xE2B, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x67F, QID 0xE2C, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x83: Serial IO SPI1 Settings
+  - _(section)_ **Serial IO SPI1 Settings**
+  - **ChipSelect 0 polarity** (OneOf) [VarStore PchSetup @ 0x6D4, QID 0xE2D, size 8]
+    - options: (no options listed)
+    - help: Sets initial polarity for ChipSelect signal. Active low is with initial idle polarity of low and vice versa
+  - **ChipSelect 1 polarity** (OneOf) [VarStore PchSetup @ 0x6D5, QID 0xE2E, size 8]
+    - options: (no options listed)
+    - help: Sets initial polarity for ChipSelect signal. Active low is with initial idle polarity of low and vice versa
+  - **Connected device** (Numeric) [VarStore Setup @ 0x5C5, QID 0xE2F, size 8]  min 0x0 max 0xFF
+    - help: Indicates what type of device is connected to this SerialIo controller
+  - _(section)_ ****
+  - **Serial IO Finger Print Settings** -> Form 0x1120  
+    - help: Select the HID to enable Finger Print Sensor
+
+## Form 0x8C: Serial IO SPI2 Settings
+  - _(section)_ **Serial IO SPI2 Settings**
+  - **ChipSelect 0 polarity** (OneOf) [VarStore PchSetup @ 0x6D6, QID 0xE31, size 8]
+    - options: (no options listed)
+    - help: Sets initial polarity for ChipSelect signal. Active low is with initial idle polarity of low and vice versa
+  - **ChipSelect 1 polarity** (OneOf) [VarStore PchSetup @ 0x6D7, QID 0xE32, size 8]
+    - options: (no options listed)
+    - help: Sets initial polarity for ChipSelect signal. Active low is with initial idle polarity of low and vice versa
+  - **Connected device** (Numeric) [VarStore Setup @ 0x5C6, QID 0xE33, size 8]  min 0x0 max 0xFF
+    - help: Indicates what type of device is connected to this SerialIo controller
+  - _(section)_ ****
+  - **Serial IO Finger Print Settings** -> Form 0x1120  
+    - help: Select the HID to enable Finger Print Sensor
+
+## Form 0x84: Serial IO UART0 Settings
+  - _(section)_ **Serial IO UART0 Settings**
+  - **Hardware Flow Control** (OneOf) [VarStore PchSetup @ 0x6F7, QID 0xE35, size 8]
+    - options: (no options listed)
+    - help: When enabled configures additional 2 GPIO pads for use as RTS/CTS signals for UART
+  - **DMA Enable** (OneOf) [VarStore PchSetup @ 0x6F0, QID 0xE36, size 8]
+    - options: (no options listed)
+    - help: Enabled: UART OS driver will use DMA when possible. Disabled: OS driver will enforce PIO mode
+  - **Power Gating** (OneOf) [VarStore PchSetup @ 0x6FE, QID 0xE37, size 8]
+    - options: (no options listed)
+    - help: Disabled:  No _PS0 _PS3 support, device is left in D0, after initialization Enabled:  _PS0 _PS3 that supports getting device out of reset Auto:  _PS0 and _PS3 detection through ACPI if device was initialized prior to first PG. If it was used (DBG2) PG is disabled
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x689, QID 0xE38, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x68B, QID 0xE39, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x85: Serial IO UART1 Settings
+  - _(section)_ **Serial IO UART1 Settings**
+  - **Hardware Flow Control** (OneOf) [VarStore PchSetup @ 0x6F8, QID 0xE3A, size 8]
+    - options: (no options listed)
+    - help: When enabled configures additional 2 GPIO pads for use as RTS/CTS signals for UART
+  - **DMA Enable** (OneOf) [VarStore PchSetup @ 0x6F1, QID 0xE3B, size 8]
+    - options: (no options listed)
+    - help: Enabled: UART OS driver will use DMA when possible. Disabled: OS driver will enforce PIO mode
+  - **Power Gating** (OneOf) [VarStore PchSetup @ 0x6FF, QID 0xE3C, size 8]
+    - options: (no options listed)
+    - help: Disabled:  No _PS0 _PS3 support, device is left in D0, after initialization Enabled:  _PS0 _PS3 that supports getting device out of reset Auto:  _PS0 and _PS3 detection through ACPI if device was initialized prior to first PG. If it was used (DBG2) PG is disabled
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x68D, QID 0xE3D, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x68F, QID 0xE3E, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x8B: Serial IO UART2 Settings
+  - _(section)_ **Serial IO UART2 Settings**
+  - **Hardware Flow Control** (OneOf) [VarStore PchSetup @ 0x6F9, QID 0xE3F, size 8]
+    - options: (no options listed)
+    - help: When enabled configures additional 2 GPIO pads for use as RTS/CTS signals for UART
+  - **DMA Enable** (OneOf) [VarStore PchSetup @ 0x6F2, QID 0xE40, size 8]
+    - options: (no options listed)
+    - help: Enabled: UART OS driver will use DMA when possible. Disabled: OS driver will enforce PIO mode
+  - **Power Gating** (OneOf) [VarStore PchSetup @ 0x700, QID 0xE41, size 8]
+    - options: (no options listed)
+    - help: Disabled:  No _PS0 _PS3 support, device is left in D0, after initialization Enabled:  _PS0 _PS3 that supports getting device out of reset Auto:  _PS0 and _PS3 detection through ACPI if device was initialized prior to first PG. If it was used (DBG2) PG is disabled
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x691, QID 0xE42, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x693, QID 0xE43, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x13B6: ISH Configuration
+  - **ISH Controller** (OneOf) [VarStore PchSetup @ 0x6C1, QID 0xE44, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables Integrated Sensor Hub (ISH) Device
+  - _(section)_ **ISH is not available**
+  - _(section)_ ****
+
+## Form 0x13BE: Pch Thermal Throttling Control
+  - **Thermal Throttling Level** (OneOf) [VarStore PchSetup @ 0x717, QID 0xE55, size 8]
+    - options: (no options listed)
+    - help: Determine if use Intel suggested setting
+  - **T0 Level** (Numeric) [VarStore PchSetup @ 0x718, QID 0xE59, size 16]  min 0x0 max 0xFFFF
+    - help: If Trip Point Temperature <= T0Level, the system is in T0 state
+  - **T1 Level** (Numeric) [VarStore PchSetup @ 0x71A, QID 0xE5A, size 16]  min 0x0 max 0xFFFF
+    - help: If T1Level >= Trip Point Temperature > T0Level, the system is in T1 state
+  - **T2 Level** (Numeric) [VarStore PchSetup @ 0x71C, QID 0xE5B, size 16]  min 0x0 max 0xFFFF
+    - help: If T2Level >= Trip Point Temperature > T1Level, the system is in T2 state
+  - **DMI Thermal Setting** (OneOf) [VarStore PchSetup @ 0x721, QID 0xE5C, size 8]
+    - options: (no options listed)
+    - help: Determine if use Intel suggested setting
+  - **Thermal Sensor 0 Width** (OneOf) [VarStore PchSetup @ 0x722, QID 0xE5E, size 8]
+    - options: (no options listed)
+    - help: Determine the DMI Link Width when the output from the Thermal Sensor is T0
+  - **Thermal Sensor 1 Width** (OneOf) [VarStore PchSetup @ 0x723, QID 0xE5F, size 8]
+    - options: (no options listed)
+    - help: Determine the DMI Link Width when the output from the Thermal Sensor is T1
+  - **Thermal Sensor 2 Width** (OneOf) [VarStore PchSetup @ 0x724, QID 0xE60, size 8]
+    - options: (no options listed)
+    - help: Determine the DMI Link Width when the output from the Thermal Sensor is T2
+  - **Thermal Sensor 3 Width** (OneOf) [VarStore PchSetup @ 0x725, QID 0xE61, size 8]
+    - options: (no options listed)
+    - help: Determine the DMI Link Width when the output from the Thermal Sensor is T3
+  - **SATA Thermal Setting** (OneOf) [VarStore PchSetup @ 0x727, QID 0xE62, size 8]
+    - options: (no options listed)
+    - help: Determine if use Intel suggested setting
+  - _(section)_ **Port 0**
+  - **T1 Multipler** (OneOf) [VarStore PchSetup @ 0x728, QID 0xE63, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port T1 Multipler
+  - **T2 Multipler** (OneOf) [VarStore PchSetup @ 0x729, QID 0xE64, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port T2 Multipler
+  - **T3 Multipler** (OneOf) [VarStore PchSetup @ 0x72A, QID 0xE65, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port T3 Multipler
+  - **Tdispatch** (OneOf) [VarStore PchSetup @ 0x72B, QID 0xE67, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tdispatch
+  - **Tinactive** (OneOf) [VarStore PchSetup @ 0x72C, QID 0xE68, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tinactive
+  - **Tdispatch** (OneOf) [VarStore PchSetup @ 0x72B, QID 0xE69, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tdispatch
+  - **Tinactive** (OneOf) [VarStore PchSetup @ 0x72C, QID 0xE6A, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tinactive
+  - _(section)_ **Port 1**
+  - **T1 Multipler** (OneOf) [VarStore PchSetup @ 0x72E, QID 0xE6B, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port T1 Multipler
+  - **T2 Multipler** (OneOf) [VarStore PchSetup @ 0x72F, QID 0xE6C, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port T2 Multipler
+  - **T3 Multipler** (OneOf) [VarStore PchSetup @ 0x730, QID 0xE6D, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port T3 Multipler
+  - **Tdispatch** (OneOf) [VarStore PchSetup @ 0x731, QID 0xE6F, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tdispatch
+  - **Tinactive** (OneOf) [VarStore PchSetup @ 0x732, QID 0xE70, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tinactive
+  - **Tdispatch** (OneOf) [VarStore PchSetup @ 0x731, QID 0xE71, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tdispatch
+  - **Tinactive** (OneOf) [VarStore PchSetup @ 0x732, QID 0xE72, size 8]
+    - options: (no options listed)
+    - help: Determine the value of SATA Port Tinactive
+
+## Form 0x111E: Serial IO Touch Pad Settings
+  - **Touch Pad** (OneOf) [VarStore Setup @ 0x5B8, QID 0xE73, size 8]
+    - options: (no options listed)
+    - help: Indicates what type of I2C Touch Pad is connected to this SerialIo controller
+  - **Touch Pad Interrupt Mode** (OneOf) [VarStore Setup @ 0x5B9, QID 0xE74, size 8]
+    - options: (no options listed)
+    - help: Selects different routing for interrupts from Touch Pad
+  - **Device's bus address** (Numeric) [VarStore Setup @ 0x5BA, QID 0xE75, size 8]  min 0x0 max 0x7F
+    - help: Specify parameters of custom I2C device
+  - **Device's HID address** (Numeric) [VarStore Setup @ 0x5BB, QID 0xE76, size 16]  min 0x0 max 0xFFFF
+    - help: Specify parameters of custom I2C device
+  - **Device's bus speed** (OneOf) [VarStore Setup @ 0x5BD, QID 0xE77, size 8]
+    - options: (no options listed)
+    - help: Specify parameters of custom I2C device
+
+## Form 0x111F: Serial IO Touch Panel Settings
+  - **Touch Panel** (OneOf) [VarStore Setup @ 0x5BE, QID 0xE78, size 8]
+    - options: (no options listed)
+    - help: Indicates what type of I2C Touch Panel is connected to this SerialIo controller
+  - **Touch Panel Interrupt Mode** (OneOf) [VarStore Setup @ 0x5BF, QID 0xE79, size 8]
+    - options: (no options listed)
+    - help: Selects different routing for interrupts from Touch Panel
+  - **Device's bus address** (Numeric) [VarStore Setup @ 0x5C0, QID 0xE7A, size 8]  min 0x0 max 0x7F
+    - help: Specify parameters of custom I2C device
+  - **Device's HID address** (Numeric) [VarStore Setup @ 0x5C1, QID 0xE7B, size 16]  min 0x0 max 0xFFFF
+    - help: Specify parameters of custom I2C device
+  - **Device's bus speed** (OneOf) [VarStore Setup @ 0x5C3, QID 0xE7C, size 8]
+    - options: (no options listed)
+    - help: Specify parameters of custom I2C device
+
+## Form 0x1120: Serial IO Finger Print Settings
+  - **Finger Print Sensor** (OneOf) [VarStore Setup @ 0x5CB, QID 0xE7D, size 8]
+    - options: (no options listed)
+    - help: Select the HID to enable Finger Print Sensor
+  - **Finger Print Interrupt Mode** (OneOf) [VarStore Setup @ 0x5CC, QID 0xE7E, size 8]
+    - options: (no options listed)
+    - help: Selects different routing for interrupts from Finger Print
+  - _(section)_ ****
+  - _(section)_ **Timing parameters**
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x681, QID 0xE7F, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x683, QID 0xE80, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+  - _(section)_ **Timing parameters**
+  - **D0->D3 idle timeout (screen off)** (Numeric) [VarStore Setup @ 0x685, QID 0xE81, size 16]  min 0x1 max 0x2710
+    - help: Default: 200 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - **D0->D3 idle timeout (screen on)** (Numeric) [VarStore Setup @ 0x687, QID 0xE82, size 16]  min 0x1 max 0x2710
+    - help: Default: 2000 [DEC]  Minimum: 1 [DEC]  Maximum: 10000 [DEC]
+  - _(section)_ **Timing parameters disabled**
+
+## Form 0x13E1: FIVR Configuration
+  - **Off to High Current Mode** (Numeric) [VarStore PchSetup @ 0x76B, QID 0xE83, size 16]  min 0x0 max 0x7FF
+    - help: Transition time in microseconds from Off (0V) to High Current Mode Voltage. This field has 1us resolution. 0 = Transition to 0V is disabled. The value must be greater than or equal to VccST board FET ramp time
+
+## Form 0x13E2: PMC Configuration
+  - **PMC ADR Configuration** -> Form 0x13E3  
+    - help: PMC ADR Configuration
+
+## Form 0x13E3: PMC ADR Configuration
+  - **ADR enable** (OneOf) [VarStore PchSetup @ 0x77F, QID 0xE85, size 8]
+    - options: (no options listed)
+    - help: Enable asynchronous DRAM refresh
+  - **Host Partition Reset ADR Enable** (OneOf) [VarStore PchSetup @ 0x782, QID 0xE86, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables ADR on Host Partition Reset
+  - **ADR timer 1 expire time** (Numeric) [VarStore PchSetup @ 0x780, QID 0xE87, size 8]  min 0x1 max 0xFF
+    - help: Type desired ADR timer expire time, valid values - <1, 256>. Entered time is scaled by ADR timer time unit.
+  - **ADR timer 1 time unit** (OneOf) [VarStore PchSetup @ 0x781, QID 0xE88, size 8]
+    - options: (no options listed)
+    - help: Select ADR timer time unit.
+
+## Form 0x103E: PCH-FW Configuration
+  - _(section)_ ****
+  - **ME State** (OneOf) [VarStore MeSetupStorage @ 0x2, QID 0xE89, size 8]
+    - options: (no options listed)
+    - help: When Disabled ME will be put into ME Temporarily Disabled Mode.
+  - **Local Platform Erase Configuration** -> Form 0x1136  
+    - help: Local Platform Erase configuration menu
+  - **ME Unconfig on RTC Clear** (OneOf) [VarStore MeSetup @ 0x10, QID 0xE8B, size 8]
+    - options: (no options listed)
+    - help: When Disabled ME will not be unconfigured on RTC Clear
+  - **Comms Hub Support** (OneOf) [VarStore MeSetup @ 0x4, QID 0xE8C, size 8]
+    - options: (no options listed)
+    - help: Enables/Disables support for Comms Hub.
+  - **JHI Support** (OneOf) [VarStore MeSetup @ 0x13, QID 0xE8D, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Intel(R) DAL Host Interface Service (JHI)
+  - **Core Bios Done Message** (OneOf) [VarStore MeSetup @ 0x11, QID 0xE8E, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Core Bios Done message sent to ME
+  - **CSE Data Resilience Support** (OneOf) [VarStore MeSetup @ 0x35, QID 0xE8F, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable CSE Data Resilience Support
+  - _(section)_ ****
+  - **Firmware Update Configuration** -> Form 0x1043  
+    - help: Configure Management Engine Technology Parameters
+  - **PTT Configuration** -> Form 0x1041  
+    - help: Configure PTT
+  - **FIPS Configuration** -> Form 0x1055  
+    - help: FIPS Mode help
+  - **Unique Platform Id Configuration** -> Form 0x1058  
+    - help: Configure Unique Platform Id Feature
+  - **ME Debug Configuration** -> Form 0x1042  
+    - help: Configure ME debug options  NOTE: This menu is provided for testing purposes. It is recommended to leave the options in their default states
+  - **Anti-Rollback SVN Configuration** -> Form 0x1044  
+    - help: Configure Anti-Rollback SVN
+  - **Extend CSME Measurement to TPM-PCR** (OneOf) [VarStore MeSetup @ 0x27, QID 0xE96, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Extend CSME Measurement to TPM-PCR[0] and AMT Config to TPM-PCR[1]
+
+## Form 0x1041: PTT Configuration
+  - _(section)_ ****
+  - **TPM 1.2 Deactivate** (OneOf) [VarStore MeSetupStorage @ 0x6, QID 0xE97, size 8]
+    - options: (no options listed)
+    - help: Enabling this option will invoke the TPM 1.2 De-activate flow
+
+## Form 0x1043: Firmware Update Configuration
+  - **Me FW Image Re-Flash** (OneOf) [VarStore MeSetup @ 0x3, QID 0xE98, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Me FW Image Re-Flash function.
+  - **FW Update** (OneOf) [VarStore MeSetupStorage @ 0x1, QID 0xE99, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable ME FW Update function.
+
+## Form 0x1058: Unique Platform Id Configuration
+  - _(section)_ ****
+  - **Upid State** (OneOf) [VarStore MeSetupStorage @ 0xE, QID 0xE9A, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Upid Feature
+  - **Upid OS Control State** (OneOf) [VarStore MeSetupStorage @ 0xF, QID 0xE9B, size 8]
+    - options: (no options listed)
+    - help: Allows OS to enable/disable the Upid feature state
+
+## Form 0x1042: ME Debug Configuration
+  - _(section)_ ****
+  - **Force ME DID Init Status** (OneOf) [VarStore MeSetup @ 0x6, QID 0xE9D, size 8]
+    - options: (no options listed)
+    - help: Forces the DID Initialization Status value.
+  - **CPU Replaced Polling Disable** (OneOf) [VarStore MeSetup @ 0x7, QID 0xE9E, size 8]
+    - options: (no options listed)
+    - help: Setting this option disables CPU replacement polling loop
+  - **HECI Message check Disable** (OneOf) [VarStore MeSetup @ 0x8, QID 0xE9F, size 8]
+    - options: (no options listed)
+    - help: Setting this option disables message check for Bios Boot Path when sending
+  - **MBP HOB Skip** (OneOf) [VarStore MeSetup @ 0x9, QID 0xEA0, size 8]
+    - options: (no options listed)
+    - help: Setting this option will skip MBP HOB
+  - **End Of Post Message** (OneOf) [VarStore MeSetup @ 0x12, QID 0xEA3, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable End of Post message sent to ME
+  - **D0I3 Setting for HECI Disable** (OneOf) [VarStore MeSetup @ 0xC, QID 0xEA4, size 8]
+    - options: (no options listed)
+    - help: Setting this option disables setting D0I3 bit for all HECI devices
+  - **MCTP Broadcast Cycle** (OneOf) [VarStore MeSetup @ 0xD, QID 0xEA5, size 8]
+    - options: (no options listed)
+    - help: Enable/Disable Management Component Transport Protocol Broadcast Cycle and Set PMT as Bus Owner
+
+## Form 0x1055: FIPS Mode
+  - **FIPS Mode Select** (OneOf) [VarStore MeSetupStorage @ 0xA, QID 0xEA6, size 8]
+    - options: (no options listed)
+    - help: FIPS Mode configuration
+  - **FIPS Mode auto sync** (OneOf) [VarStore SystemConfig @ 0x1AB, QID 0xEA7, size 8]
+    - options: (no options listed)
+    - help: When enabled, it always synchronizes FIPS mode automatically.  (Spending 250ms at least)
+
+## Form 0x1044: Anti-Rollback SVN Configuration
+  - **Automatic HW-Enforced Anti-Rollback SVN** (OneOf) [VarStore MeSetup @ 0x28, QID 0xEA8, size 8]
+    - options: (no options listed)
+    - help: When enabled, hardware-enforced Anti-Rollback mechanism is automatically activated: once ME FW was successfully run on a platform, FW with lower ARB-SVN will be blocked from execution
+  - **Set HW-Enforced Anti-Rollback for Current SVN** (OneOf) [VarStore MeSetupStorage @ 0xB, QID 0xEA9, size 8]
+    - options: (no options listed)
+    - help: Enable hardware-enforced Anti-Rollback mechanism for current ARB-SVN value. FW with lower ARB-SVN will be blocked from execution. The value will be restored to disable after the command is sent.
+
+## Form 0x1136: Local Platform Erase Configuration
+  - **Perform Platform Erase Operations** (OneOf) [VarStore LpeSetup @ 0x1, QID 0x113F, size 8]
+    - options: (no options listed)
+    - help: Enabling this Feature will trigger Platform Erase Operations on the Next Boot
+  - **Erase All** (OneOf) [VarStore LpeSetup @ 0x2, QID 0x1137, size 8]
+    - options: (no options listed)
+    - help: Performs SSD Erase, TPM Clear, Reload BIOS golden config, Clear NVME and  OEM Custom actions
+  - **SSD Erase Mode** (OneOf) [VarStore LpeSetup @ 0x9, QID 0xEAA, size 8]
+    - options: (no options listed)
+    - help: Change LPE SSD Erase Action behavior: Simulated: Performs LPE SSD Erase flow without erasing SSD Real: Erase SSD. *** If SATA device is used, OEM could use SECURE_ERASE_HOOK_PROTOCOL to remove SATA power to skip G3 cycle. ***
+  - **Storage Erase Verification** (OneOf) [VarStore LpeSetup @ 0xA, QID 0xEAB, size 8]
+    - options: (no options listed)
+    - help: Perform storage erase verification
+
+## Form 0x1046: Thermal Configuration
+  - _(section)_ **Thermal Configuration**
+  - _(section)_ ****

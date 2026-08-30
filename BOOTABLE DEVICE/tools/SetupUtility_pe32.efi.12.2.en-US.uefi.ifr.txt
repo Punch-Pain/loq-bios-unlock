@@ -1,0 +1,585 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 5204F764-DF25-48A2-B337-9EC122B85E0D, Title: "Security", Help: " "
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x4
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x12
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	VarStore Guid: F72DEEF6-13EF-4958-B027-0E45CE7FA45E, VarStoreId: 0x1235, Size: 0x53, Name: "PasswordConfig"
+	VarStore Guid: 07A66697-D400-4903-B3DA-67A61D2B7058, VarStoreId: 0x1237, Size: 0xA, Name: "Tcg2ConfigInfo"
+	VarStoreNameValue Guid: F72DEEF6-13EF-4958-B027-0E45CE7FA45E, VarStoreId: 0x1236
+	VarStore Guid: EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9, VarStoreId: 0x100B, Size: 0x6D, Name: "SetupVolatileData"
+	VarStoreEfi Guid: 72C5E28C-7783-43A1-8767-FAD73FCCAFA4, VarStoreId: 0x2, Attributes: 0x7, Size: 0x578, Name: "SaSetup"
+	VarStoreEfi Guid: B08F97FF-E6E8-4193-A997-5E9E9B0ADB32, VarStoreId: 0x3, Attributes: 0x7, Size: 0x3C1, Name: "CpuSetup"
+	VarStoreEfi Guid: 4570B7F1-ADE8-4943-8DC3-406472842384, VarStoreId: 0x5, Attributes: 0x7, Size: 0x80F, Name: "PchSetup"
+	VarStore Guid: EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9, VarStoreId: 0x100C, Size: 0x39, Name: "SetupCpuFeatures"
+	VarStore Guid: E6560C55-28A7-4AD8-A87B-E75187196B6E, VarStoreId: 0xE201, Size: 0x181, Name: "L05HddPasswordConfig"
+	Form FormId: 0x1, Title: "Security"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				True 
+				OneOf Prompt: "Current TPM Device", Help: "Current TPM Device: TPM1.2, or TPM2.0.", QuestionFlags: 0x4, QuestionId: 0x11B9, VarStoreId: 0x1234, VarOffset: 0xE3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Not Detected" Value: 0
+					OneOfOption Option: "TPM 1.2" Value: 1
+					OneOfOption Option: "TPM 2.0" Value: 2, Default
+				End 
+			End 
+			GrayOutIf 
+				True 
+				Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x760
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x1
+					Not 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "TPM Availability", Help: "When Hidden, don’t exposes TPM to OS", QuestionFlags: 0x4, QuestionId: 0x11BA, VarStoreId: 0x1234, VarOffset: 0x9D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Available" Value: 0, Default
+						OneOfOption Option: "Hidden" Value: 1
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x1
+					Not 
+					EqIdVal QuestionId: 0xD, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "TPM Operation", Help: "Enable/Disable TPM Function. This option will automatically return to No-Operation.", QuestionFlags: 0x0, QuestionId: 0x11C3, VarStoreId: 0x1234, VarOffset: 0x62, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+						OneOfOption Option: "No Operation" Value: 0, Default
+						OneOfOption Option: "Disable and Deactivate" Value: 1
+						OneOfOption Option: "Enable and Activate" Value: 2
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x2
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					True 
+					Text Prompt: "TPM Active PCR Hash Algorithm", Help: "TPM Active PCR Hash Algorithm: SHA1, SHA256, SHA384, SHA512, SM3_256", Text: ""
+					Text Prompt: "TPM Hardware Supported Hash Algorithm", Help: "TPM Hardware Supported Hash Algorithm: SHA1, SHA256, SHA384, SHA512, SM3_256", Text: ""
+					Text Prompt: "BIOS Supported Hash Algorithm", Help: "BIOS Supported Hash Algorithm: SHA1, SHA256, SHA384, SHA512, SM3_256", Text: ""
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x2
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "TrEE Protocol Version", Help: "TrEE Protocol Version: 1.0 or 1.1", QuestionFlags: 0x4, QuestionId: 0x11C0, VarStoreId: 0x1234, VarOffset: 0x9E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "1.0" Value: 0
+						OneOfOption Option: "1.1" Value: 1, Default
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11B9, Value: 0x2
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				GrayOutIf 
+					EqIdVal QuestionId: 0x1927, Value: 0x2
+						EqIdVal QuestionId: 0x3, Value: 0x1
+						And 
+					End 
+					Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x761
+					Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x762
+				End 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x11C3, Value: 0x17
+					Not 
+					EqIdVal QuestionId: 0xB, Value: 0xFF
+					Or 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x19, Value: 0x0
+					CheckBox Prompt: "  PCR Bank: SHA1", Help: "TCG2 Request PCR Bank: SHA1", QuestionFlags: 0x4, QuestionId: 0x1200, VarStoreId: 0x1237, VarOffset: 0x5, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x18, Value: 0x0
+					CheckBox Prompt: "  PCR Bank: SHA256", Help: "TCG2 Request PCR Bank: SHA256", QuestionFlags: 0x4, QuestionId: 0x1201, VarStoreId: 0x1237, VarOffset: 0x6, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x17, Value: 0x0
+					CheckBox Prompt: "  PCR Bank: SHA384", Help: "TCG2 Request PCR Bank: SHA384", QuestionFlags: 0x4, QuestionId: 0x1202, VarStoreId: 0x1237, VarOffset: 0x7, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x16, Value: 0x0
+					CheckBox Prompt: "  PCR Bank: SHA512", Help: "TCG2 Request PCR Bank: SHA512", QuestionFlags: 0x4, QuestionId: 0x1203, VarStoreId: 0x1237, VarOffset: 0x8, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+				SuppressIf 
+					EqIdVal QuestionId: 0x15, Value: 0x0
+					CheckBox Prompt: "  PCR Bank: SM3_256", Help: "TCG2 Request PCR Bank: SM3_256", QuestionFlags: 0x4, QuestionId: 0x1204, VarStoreId: 0x1237, VarOffset: 0x9, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+						Default DefaultId: 0x0 Value: 0
+					End 
+				End 
+			End 
+			SuppressIf 
+				True 
+				CheckBox Prompt: " ", Help: " ", QuestionFlags: 0x0, QuestionId: 0x11B7, VarStoreId: 0x1234, VarOffset: 0x67, Flags: 0x0, Default: Disabled, MfgDefault: Disabled
+					Default DefaultId: 0x0 Value: 1
+				End 
+			End 
+			SuppressIf 
+				True 
+				OneOf Prompt: " ", Help: " ", QuestionFlags: 0x0, QuestionId: 0x11C4, VarStoreId: 0x1234, VarOffset: 0x6B, Flags: 0x10, Size: 8, Min: 0x2, Max: 0x2, Step: 0x0
+					OneOfOption Option: " " Value: 2, Default
+				End 
+			End 
+			Subtitle Prompt: " ", Help: "", Flags: 0x0
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "Administrator Password", Help: " ", Text: "Not Set"
+			Text Prompt: "User Password", Help: " ", Text: "Not Set"
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B68
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B69
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x1927, Values: [1, 3, 4]
+				EqIdVal QuestionId: 0x3, Value: 0x0
+				Or 
+			End 
+			Text Prompt: " ", Help: " ", Text: " "
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x1927, Value: 0x2
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0x1927, Values: [3, 4]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				Password Prompt: "Set Administrator Password", Help: "Set or change the Administrator Password. Passwords must be at least one character in length.
+Administrator Password must be set in order to set a Power on Password and User Password.", QuestionFlags: 0x4, QuestionId: 0x1037, VarStoreId: 0x1236, VarStoreInfo: 0x155, MinSize: 0x1, MaxSize: 0x80
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x3, Value: 0x1
+				EqIdVal QuestionId: 0x13, Value: 0x0
+				Or 
+			End 
+			OneOf Prompt: "Power on Password", Help: "[Enabled]
+System will prompt for password at POST.
+[Disabled]
+System will prompt for password to enter Setup Utility.", QuestionFlags: 0x0, QuestionId: 0x1925, VarStoreId: 0x1234, VarOffset: 0x9F, Flags: 0x10, Size: 8, Min: 0x1, Max: 0x2, Step: 0x0
+				OneOfOption Option: "Enabled" Value: 2
+				OneOfOption Option: "Disabled" Value: 1, Default
+			End 
+		End 
+		SuppressIf 
+			True 
+			SuppressIf 
+				EqIdVal QuestionId: 0x3, Value: 0x1
+					EqIdVal QuestionId: 0x13, Value: 0x0
+					Or 
+				End 
+				OneOf Prompt: "User Access Level", Help: "Limited:Only limited fields can be changed. No Access:Prevent User access to InsydeH2O Setup.View Only:Access to InsydeH2O Setup allowed but the fields cannot be changed.Full:Any field can be changed except the Supervisor password.", QuestionFlags: 0x0, QuestionId: 0x1927, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x2, Max: 0x4, Step: 0x0
+					OneOfOption Option: "View Only" Value: 2
+					OneOfOption Option: "Limited" Value: 3
+					OneOfOption Option: "Full" Value: 4, Default
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x13, Value: 0x0
+			Password Prompt: "Set User Password", Help: "Set or change the User Password. Passwords must be at least one character in length.
+User Password could only change fewer items in Setup Utility.", QuestionFlags: 0x4, QuestionId: 0x1038, VarStoreId: 0x1236, VarStoreInfo: 0x156, MinSize: 0x1, MaxSize: 0x80
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x14, Value: 0x0
+				EqIdVal QuestionId: 0x13, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "Clear User Password", Help: "Select to clear User Password.", QuestionFlags: 0x4, QuestionId: 0x1039, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 164, 0]
+			End 
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6A
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6B
+		SuppressIf 
+			EqIdVal QuestionId: 0x12, Value: 0x0
+				EqIdVal QuestionId: 0x11, Value: 0x1
+				Not 
+				Or 
+			End 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x3, Value: 0x1
+					EqIdVal QuestionId: 0x10, Value: 0x0
+					Or 
+				End 
+				OneOf Prompt: "Natural File Guard", Help: "[Enabled]
+Natural File Guard enabled. Hard Disk Passwords are not prompted and continue to boot the OS. To protect unauthorized access to the system, recommend to set user authentication on the OS. Boot order will limited to internal storage.
+[Disabled]
+Natural File Guard disabled. The system will prompt for Hard Disk Passwords when boot.
+", QuestionFlags: 0x14, QuestionId: 0xE06F, VarStoreId: 0x1234, VarOffset: 0x125, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1
+					OneOfOption Option: "Disabled" Value: 0, Default
+				End 
+			End 
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6D
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5B6E
+		GrayOutIf 
+			EqIdVal QuestionId: 0x1927, Value: 0x3
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "Set Strong Password", Help: "[Enabled]
+If enabled, Administrator Password, User Password and Hard Disk Password lengths must be no less than 8 characters and no more than 128 characters,must include at least one uppercase character, one lowercase character and one number. 
+[Disabled]
+If disabled,they can be 1 to 128 characters.
+", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x172, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Enabled" Value: 1
+				OneOfOption Option: "Disabled" Value: 0, Default
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x1927, Value: 0x3
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0xF, Value: 0x0
+				OneOf Prompt: "Enhanced Windows Biometric Security", Help: "[Enabled]
+Enhanced sign-in security is enabled. Contact Microsoft for more information about this feature.
+
+[Disabled]
+Enhanced sign-in security is disabled. Disabled should be selected for Windows 10 version 2004 and earlier, which do not support.", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0x17C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+			End 
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				True 
+				Text Prompt: "Firmware TPM", Help: "[Enabled]
+Enable Firmware TPM.
+[Disabled]
+Disable Firmware TPM.", Text: "MFG MODE"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				True 
+				Text Prompt: "Security Chip", Help: "[Enabled]
+Security chip is functional.
+[Disabled]
+Security chip is hidden and is not functional.", Text: "MFG MODE"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Firmware TPM", Help: "[Enabled]
+Enable Firmware TPM.
+[Disabled]
+Disable Firmware TPM.", QuestionFlags: 0x14, QuestionId: 0xE06A, VarStoreId: 0x1234, VarOffset: 0xFC, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE, Value: 0x0
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Security Chip", Help: "[Enabled]
+Security chip is functional.
+[Disabled]
+Security chip is hidden and is not functional.", QuestionFlags: 0x4, QuestionId: 0x11BB, VarStoreId: 0x1234, VarOffset: 0x9D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 0, Default
+					OneOfOption Option: "Disabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x11B9, Value: 0x1
+				Not 
+				EqIdVal QuestionId: 0xD, Value: 0xFF
+				Or 
+				EqIdVal QuestionId: 0x11BB, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				EqIdVal QuestionId: 0xE06A, Value: 0x0
+				And 
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+					EqIdVal QuestionId: 0xC, Value: 0x1
+					Or 
+				End 
+				Action Prompt: "Clear TPM Key", Help: "Select to clear TPM key.", QuestionFlags: 0x4, QuestionId: 0x11B5, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+					Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x11B9, Value: 0x2
+				Not 
+				EqIdVal QuestionId: 0xB, Value: 0xFF
+				Or 
+				EqIdVal QuestionId: 0x11BB, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0xA, Value: 0x2
+				Not 
+				Or 
+				EqIdVal QuestionId: 0x9, Value: 0x1
+				EqIdVal QuestionId: 0xE06A, Value: 0x0
+				And 
+				Or 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				Action Prompt: "Clear TPM Key", Help: "Select to clear TPM key.", QuestionFlags: 0x4, QuestionId: 0x11B8, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+					Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xE081, Value: 0x2
+			GrayOutIf 
+				EqIdValList QuestionId: 0x1927, Values: [2, 3]
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+					EqIdVal QuestionId: 0x8, Value: 0x1
+					Or 
+				End 
+				OneOf Prompt: "Absolute Persistence® Module Activation", Help: "[Enabled]
+Enable the BIOS interface to active Absolute Persistence® Module.
+[Disabled]
+Disable the BIOS interface to active Absolute Persistence® Module.
+[Permanently Disabled]
+Permanently disable the BIOS interface to active Absolute.Persistence® Module.
+", QuestionFlags: 0x14, QuestionId: 0xE081, VarStoreId: 0x1234, VarOffset: 0x128, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Permanently Disabled" Value: 2
+				End 
+				GrayOutIf 
+					True 
+					Text Prompt: "Absolute Persistence® Module Activation Status", Help: " ", Text: ""
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7, Value: 0x0
+			SuppressIf 
+				EqIdValList QuestionId: 0x6, Values: [0, 1]
+				GrayOutIf 
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					Subtitle Prompt: " ", Help: "", Flags: 0x0
+					End 
+					OneOf Prompt: "Device Guard", Help: "Setup feature to support Microsoft ® Device Guard.
+
+To complete the configuration of Device Guard, Administrator Password must be set.
+
+[Enabled]
+Device Guard function is enabled.
+[Disabled]
+Device Guard function is disabled.", QuestionFlags: 0x14, QuestionId: 0xE06E, VarStoreId: 0x1234, VarOffset: 0x121, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Enabled" Value: 1
+						OneOfOption Option: "Disabled" Value: 0, Default
+					End 
+				End 
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x1927, Values: [2, 3]
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0xE06E, Value: 0x1
+				Or 
+			End 
+			Subtitle Prompt: " ", Help: "", Flags: 0x0
+			End 
+			OneOf Prompt: "Secure Boot", Help: "Enabled or Disabled Secure Boot support.
+
+[Enabled]
+
+[Disabled]", QuestionFlags: 0x4, QuestionId: 0xE060, VarStoreId: 0x1234, VarOffset: 0x101, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Enabled" Value: 1, Default
+				OneOfOption Option: "Disabled" Value: 0
+			End 
+			GrayOutIf 
+				True 
+				Text Prompt: "Secure Boot Status", Help: "Display current Secure Boot Status", Text: "Disabled"
+			End 
+		End 
+		GrayOutIf 
+			True 
+			SuppressIf 
+				EqIdVal QuestionId: 0x5, Value: 0x1
+				Text Prompt: "Platform Mode", Help: " ", Text: "User Mode"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x5, Value: 0x0
+				Text Prompt: "Platform Mode", Help: " ", Text: "Setup Mode"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x4, Value: 0x1
+				Text Prompt: "Secure Boot Mode", Help: " ", Text: "Standard"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x4, Value: 0x0
+				Text Prompt: "Secure Boot Mode", Help: " ", Text: "Custom"
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x1927, Values: [2, 3]
+				EqIdVal QuestionId: 0x3, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0xE06E, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "Reset to Setup Mode", Help: "[Enter] 
+Clear PK, disable secure boot and enter Setup Mode.", QuestionFlags: 0x4, QuestionId: 0xE061, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+			End 
+			Action Prompt: "Restore Factory Keys", Help: "[Enter] 
+Restore all secure boot databases to factory default include PK, KEK, db and dbx.", QuestionFlags: 0x4, QuestionId: 0xE062, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 139, 0]
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0xE06E, Values: [0]
+			Text Prompt: "* Unselectable for Device Guard", Help: " ", Text: " "
+		End 
+		Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1234, VarOffset: 0x103, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1234, VarOffset: 0x102, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1234, VarOffset: 0x79, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1234, VarOffset: 0x120, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x1234, VarOffset: 0x129, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x1234, VarOffset: 0xFD, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x1234, VarOffset: 0xFE, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x1234, VarOffset: 0x66, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x1234, VarOffset: 0x6C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x1234, VarOffset: 0x61, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x1234, VarOffset: 0xFB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x1234, VarOffset: 0x17B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x10, VarStoreId: 0x1235, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x11, VarStoreId: 0xE201, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x12, VarStoreId: 0x1235, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x13, VarStoreId: 0x1234, VarOffset: 0xA8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x14, VarStoreId: 0x1234, VarOffset: 0xA9, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x15, VarStoreId: 0x1237, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x16, VarStoreId: 0x1237, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x17, VarStoreId: 0x1237, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x18, VarStoreId: 0x1237, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x19, VarStoreId: 0x1237, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

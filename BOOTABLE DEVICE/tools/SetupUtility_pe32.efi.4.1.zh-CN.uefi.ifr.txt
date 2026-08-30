@@ -1,0 +1,101 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 457E0F74-289D-4FC6-957B-4D285973940E, Title: "￱电源管理￰", Help: "InvalidId"
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x5
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	Form FormId: 0x1, Title: "￱电源管理￰"
+		SuppressIf 
+			EqIdVal QuestionId: 0x9, Value: 0x0
+			GrayOutIf 
+				EqIdVal QuestionId: 0x5, Value: 0x3
+					EqIdVal QuestionId: 0x4, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱电池电量均衡￰", Help: "[￱自动￰]
+ ￱接入电源时，动态平衡峰值功率以控制电池取电量。￰
+[￱打开￰]
+EC ￱限制系统功耗和性能。￰
+[￱关闭￰]
+ ￱接入电源时，通过电池与电源混合供电以保持峰值功率输出。￰", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x17F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "￱自动￰" Value: 2, Default
+					OneOfOption Option: "￱打开￰" Value: 1
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x8, Value: 0x0
+			GrayOutIf 
+				EqIdVal QuestionId: 0x5, Value: 0x3
+					EqIdVal QuestionId: 0x4, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "USB￱持续供电￰", Help: "￱主机处于低功耗状态￰（￱如睡眠￰，￱休眠￰，￱或者关机￰），USB￱接口依然可以为外接设备充电￰￱。￰
+
+
+[￱打开￰]
+￱打开￰USB￱持续供电￰￱。￰
+[￱关闭￰]
+￱关闭￰USB￱持续供电￰￱。￰", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0xF4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7, Value: 0x0
+				EqIdVal QuestionId: 0x2, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x5, Value: 0x3
+					EqIdVal QuestionId: 0x4, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱电池模式￰USB￱持续供电￰", Help: "￱主机不接电源状态下￰，￱可以使用内置电池为外接设备充电￰￱。￰
+
+[￱打开￰]
+￱允许主机仅使用内置电池为外接设备充电￰￱。￰
+[￱关闭￰]
+￱不允许主机使用内置电池为外接设备充电￰￱。￰", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1234, VarOffset: 0xF6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x6, Value: 0x0
+			GrayOutIf 
+				EqIdVal QuestionId: 0x5, Value: 0x3
+					EqIdVal QuestionId: 0x4, Value: 0x1
+					And 
+				End 
+				Action Prompt: "￱临时禁用电池￰", Help: "[￱进入￰]
+￱临时禁用电池状态以维护系统。选择此项后，系统将自动关闭电源，准备进行维修。￰
+
+￱提示￰:
+ ￱当接通电源后，电池会自动启用。￰", QuestionFlags: 0x4, QuestionId: 0xE069, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+					Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 234, 29]
+				End 
+			End 
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1234, VarOffset: 0xF7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1234, VarOffset: 0xF5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x1234, VarOffset: 0xF3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x1234, VarOffset: 0x17E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

@@ -1,0 +1,527 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 2D068309-12AC-45AB-9600-9187513CCDD8, Title: "￱启动设置￰", Help: "InvalidId"
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x13
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1489, Size: 0x407, Name: "BootConfig"
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x148A, Size: 0x1, Name: "NetworkConfig"
+	Form FormId: 0x1, Title: "￱启动设置￰"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱启动方式￰", Help: "[UEFI]
+￱系统会从￰UEFI￱启动项启动。￰
+[Legacy]
+￱系统会从￰Legacy￱启动项启动。￰", QuestionFlags: 0x4, QuestionId: 0x105E, VarStoreId: 0x1234, VarOffset: 0x79, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 0
+					OneOfOption Option: "InvalidId" Value: 1
+					OneOfOption Option: "InvalidId" Value: 2, Default
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1063, VarStoreId: 0x1234, VarOffset: 0x6D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1064, VarStoreId: 0x1234, VarOffset: 0x6E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [1]
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x105F, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "￱关闭￰" Value: 0, Default
+						OneOfOption Option: "￱打开￰" Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [0, 2]
+					OneOf Prompt: "PXE￱启动￰", Help: "￱打开￰ ￱或￰ ￱关闭￰ ￱从￰PXE￱启动￰￱。￰
+
+[￱打开￰]
+￱支持系统从￰PXE￱启动￰￱。￰
+[￱关闭￰]
+￱关闭系统从￰PXE￱启动￰￱。￰", QuestionFlags: 0x0, QuestionId: 0x1062, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "￱关闭￰" Value: 0, Default
+						OneOfOption Option: "￱打开￰" Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [1]
+					GrayOutIf 
+						EqIdValList QuestionId: 0x1062, Values: [0]
+						OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1065, VarStoreId: 0x1234, VarOffset: 0x64, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xA, Step: 0x0
+							OneOfOption Option: "￱关闭￰" Value: 4, Default
+							SuppressIf 
+								EqIdValList QuestionId: 0x105E, Values: [1]
+									EqIdValList QuestionId: 0x1062, Values: [0]
+									Or 
+								End 
+								OneOfOption Option: "InvalidId" Value: 0
+								OneOfOption Option: "InvalidId" Value: 5
+								OneOfOption Option: "InvalidId" Value: 8
+								OneOfOption Option: "InvalidId" Value: 1
+								OneOfOption Option: "InvalidId" Value: 6
+								OneOfOption Option: "InvalidId" Value: 9
+								OneOfOption Option: "InvalidId" Value: 2
+								OneOfOption Option: "InvalidId" Value: 7
+								OneOfOption Option: "InvalidId" Value: 10
+							End 
+							SuppressIf 
+								EqIdValList QuestionId: 0x105E, Values: [2]
+								OneOfOption Option: "InvalidId" Value: 3
+							End 
+						End 
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x1065, Values: [4]
+					Numeric Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1083, VarStoreId: 0x148A, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x1
+					End 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1066, VarStoreId: 0x1234, VarOffset: 0xE2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1
+					OneOfOption Option: "￱关闭￰" Value: 0, Default
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1081, VarStoreId: 0x1234, VarOffset: 0xE4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1082, VarStoreId: 0x1234, VarOffset: 0xCF, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x105D, VarStoreId: 0x1234, VarOffset: 0x7D, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 0
+					OneOfOption Option: "InvalidId" Value: 1
+					OneOfOption Option: "InvalidId" Value: 2, Default
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1067, VarStoreId: 0x1234, VarOffset: 0x60, Flags: 0x10, Size: 8, Min: 0x1, Max: 0x7, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 1
+					OneOfOption Option: "InvalidId" Value: 2
+					OneOfOption Option: "InvalidId" Value: 3, Default
+					OneOfOption Option: "InvalidId" Value: 4
+					OneOfOption Option: "InvalidId" Value: 5
+					OneOfOption Option: "InvalidId" Value: 6
+					OneOfOption Option: "InvalidId" Value: 7
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x2, Value: 0x3
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱快速启动￰", Help: "￱打开￰ ￱或￰ ￱关闭￰ ￱快速启动￰￱。￰
+
+[￱打开￰]
+￱减少￰BIOS￱初始化的时间￰，BIOS￱只能设置为从内置存储设备启动￰￱。￱只支持内置显示器和键盘￰，￱进入到系统后无限制￰￱。￰
+[￱关闭￰]
+￱正常启动到系统￰￱。￰", QuestionFlags: 0x0, QuestionId: 0xE065, VarStoreId: 0x1234, VarOffset: 0x105, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "USB￱启动￰", Help: "￱打开￰ ￱或￰ ￱关闭￰ ￱从￰USB￱启动￰￱。￰
+
+[￱打开￰]
+￱支持系统从￰USB￱启动￰￱。￰
+[￱关闭￰]
+￱关闭系统从￰USB￱启动￰￱。￰", QuestionFlags: 0x0, QuestionId: 0x1061, VarStoreId: 0x1234, VarOffset: 0x5C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "￱打开￰" Value: 0, Default
+				OneOfOption Option: "￱关闭￰" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x2, Value: 0x3
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "PXE￱启动￰", Help: "￱打开￰ ￱或￰ ￱关闭￰ ￱从￰PXE￱启动￰￱。￰
+
+[￱打开￰]
+￱支持系统从￰PXE￱启动￰￱。￰
+[￱关闭￰]
+￱关闭系统从￰PXE￱启动￰￱。￰", QuestionFlags: 0x4, QuestionId: 0xE067, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "￱打开￰" Value: 1
+				OneOfOption Option: "￱关闭￰" Value: 0, Default
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x2, Value: 0x3
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0xE067, Values: [0]
+				OneOf Prompt: "IPV4￱协议优先￰", Help: "[￱打开￰]
+￱系统优先尝试￰IPV4￱协议￰￱。￰
+[￱关闭￰]
+￱系统优先尝试￰IPV6￱协议￰￱。￰", QuestionFlags: 0x0, QuestionId: 0xE068, VarStoreId: 0x1234, VarOffset: 0x106, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+					OneOfOption Option: "￱关闭￰" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			SuppressIf 
+				EqIdValList QuestionId: 0x105E, Values: [0, 1]
+				GrayOutIf 
+					EqIdValList QuestionId: 0x2, Values: [2, 3]
+						EqIdVal QuestionId: 0x1, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1068, VarStoreId: 0x1234, VarOffset: 0x65, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "￱打开￰" Value: 0, Default
+						OneOfOption Option: "￱关闭￰" Value: 1
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0x105E, Values: [0, 1]
+					EqIdVal QuestionId: 0x1068, Value: 0x1
+					Or 
+				End 
+				GrayOutIf 
+					EqIdValList QuestionId: 0x2, Values: [2, 3]
+						EqIdVal QuestionId: 0x1, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1069, VarStoreId: 0x1234, VarOffset: 0xE1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "￱关闭￰" Value: 0, Default
+						OneOfOption Option: "￱打开￰" Value: 1
+					End 
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				Numeric Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x106A, VarStoreId: 0x1234, VarOffset: 0x69, Flags: 0x11, Size: 16, Min: 0x0, Max: 0xA, Step: 0x1
+					Default DefaultId: 0x0 Value: 0
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x106B, VarStoreId: 0x1234, VarOffset: 0xDE, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱关闭￰" Value: 0
+					OneOfOption Option: "￱打开￰" Value: 1, Default
+				End 
+			End 
+			Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x105E, Value: 0x1
+					EqIdVal QuestionId: 0xF, Value: 0x0
+					Or 
+				End 
+				Ref Prompt: "UEFI￱启动顺序￰", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1076, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x53A
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x105E, Value: 0x2
+					EqIdVal QuestionId: 0x3, Value: 0x0
+					Or 
+				End 
+				Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x106C, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x530
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105E, Value: 0x1
+			Text Prompt: "UEFI￱启动顺序￰", Help: "<↑> / <↓>: ￱选择一个启动项￰
+F5: ￱向下移动该启动项￰
+F6: ￱向上移动该启动项￰
+Esc: ￱退出￰", Text: ""
+			GrayOutIf 
+				EqIdVal QuestionId: 0xE, Value: 0x1
+					EqIdVal QuestionId: 0xD, Value: 0x1
+					Or 
+				End 
+				Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C9
+			End 
+		End 
+		Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+		End 
+	End 
+	Form FormId: 0x53A, Title: "UEFI￱启动顺序￰"
+		Subtitle Prompt: "UEFI￱启动顺序￰", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0x105D, Value: 0x2
+				Or 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C9
+		End 
+	End 
+	Form FormId: 0x53D, Title: "InvalidId"
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12CB
+	End 
+	Form FormId: 0x530, Title: "InvalidId"
+		Subtitle Prompt: "Legacy￱启动顺序￰", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x4, QuestionId: 0x105B, VarStoreId: 0x1234, VarOffset: 0x76, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "InvalidId" Value: 0, Default
+				OneOfOption Option: "InvalidId" Value: 1
+			End 
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xC, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1077, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x53B
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xB, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x106D, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x531
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xA, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x106E, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x532
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x106F, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x533
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x8, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1070, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x534
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x7, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1071, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x535
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x6, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1072, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x536
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x5, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1073, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x537
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x4, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "InvalidId", Help: "InvalidId", QuestionFlags: 0x0, QuestionId: 0x1074, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x538
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x0
+				EqIdVal QuestionId: 0x3, Value: 0x0
+				Or 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12CA
+		End 
+	End 
+	Form FormId: 0x53B, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C0
+		End 
+	End 
+	Form FormId: 0x532, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C2
+		End 
+	End 
+	Form FormId: 0x533, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C3
+		End 
+	End 
+	Form FormId: 0x531, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C1
+		End 
+	End 
+	Form FormId: 0x538, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C8
+		End 
+	End 
+	Form FormId: 0x534, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C4
+		End 
+	End 
+	Form FormId: 0x535, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C5
+		End 
+	End 
+	Form FormId: 0x536, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C6
+		End 
+	End 
+	Form FormId: 0x537, Title: "InvalidId"
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "InvalidId", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C7
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1489, VarOffset: 0x405, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1489, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1489, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1489, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1489, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x1489, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x1489, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x1489, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x1489, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x1489, VarOffset: 0x404, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x1234, VarOffset: 0x125, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x1234, VarOffset: 0x121, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x1489, VarOffset: 0x406, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

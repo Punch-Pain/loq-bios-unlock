@@ -1,0 +1,504 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 2D068309-12AC-45AB-9600-9187513CCDD8, Title: "  BT Core", Help: "ATX Shutdown (PS_ON)"
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x13
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1489, Size: 0x407, Name: "BootConfig"
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x148A, Size: 0x1, Name: "NetworkConfig"
+	Form FormId: 0x1, Title: "  BT Core"
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Change Secure Erase module behavior:
+Simulated: Performs SE flow without erasing SSD
+Real: Erase SSD.
+*** If SATA device is used, OEM could use SECURE_ERASE_HOOK_PROTOCOL to remove SATA power to skip G3 cycle. ***", Help: "Simulated", QuestionFlags: 0x4, QuestionId: 0x105E, VarStoreId: 0x1234, VarOffset: 0x79, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Real" Value: 0
+					OneOfOption Option: "Force Secure Erase" Value: 1
+					OneOfOption Option: "Force Secure Erase on next boot" Value: 2, Default
+				End 
+				OneOf Prompt: "This is an option intended to Enable/Disable BT Core in CNVi", Help: "BT Audio Offload", QuestionFlags: 0x0, QuestionId: 0x1063, VarStoreId: 0x1234, VarOffset: 0x6D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+					OneOfOption Option: "" Value: 0
+				End 
+				OneOf Prompt: "This is an option to Enable/Disable BT Audio Offload which enables audio input from BT device to the audio DSP and enables power efficient audio output to BT device.", Help: "RFI Mitigation", QuestionFlags: 0x0, QuestionId: 0x1064, VarStoreId: 0x1234, VarOffset: 0x6E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+					OneOfOption Option: "" Value: 0
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [1]
+					OneOf Prompt: "Antenna A cable length possible values: 1-100cm in 1cm resolution", Help: " TRxDelay_B", QuestionFlags: 0x4, QuestionId: 0x105F, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "" Value: 0, Default
+						OneOfOption Option: "Platform Errors" Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [0, 2]
+					OneOf Prompt: "This is an option intended to Enable/Disable DDR-RFIM feature for Connectivity
+This RFI mitigation feature may result in temporary slowdown of the DDR speed.", Help: "DLVR RFI Mitigation", QuestionFlags: 0x0, QuestionId: 0x1062, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "" Value: 0, Default
+						OneOfOption Option: "Platform Errors" Value: 1
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x105E, Values: [1]
+					GrayOutIf 
+						EqIdValList QuestionId: 0x1062, Values: [0]
+						OneOf Prompt: "UART", Help: " BT Interrupt Mode", QuestionFlags: 0x0, QuestionId: 0x1065, VarStoreId: 0x1234, VarOffset: 0x64, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xA, Step: 0x0
+							OneOfOption Option: "" Value: 4, Default
+							SuppressIf 
+								EqIdValList QuestionId: 0x105E, Values: [1]
+									EqIdValList QuestionId: 0x1062, Values: [0]
+									Or 
+								End 
+								OneOfOption Option: "Configure ACPI objects for wireless devices" Value: 0
+								OneOfOption Option: " Default Time Window" Value: 5
+								OneOfOption Option: " TRxDelay_A" Value: 8
+								OneOfOption Option: " Default Power Limit" Value: 1
+								OneOfOption Option: "Time Window in milli seconds" Value: 6
+								OneOfOption Option: "Antenna A delay possible values: 1-100 in 10ths of nano seconds resolution" Value: 9
+								OneOfOption Option: "Power Limit in milli watts" Value: 2
+								OneOfOption Option: "WAND" Value: 7
+								OneOfOption Option: " TRxCableLength_A" Value: 10
+							End 
+							SuppressIf 
+								EqIdValList QuestionId: 0x105E, Values: [2]
+								OneOfOption Option: "Set 1" Value: 3
+							End 
+						End 
+					End 
+				End 
+				SuppressIf 
+					EqIdValList QuestionId: 0x1065, Values: [4]
+					Numeric Prompt: "Selects routing of interrupt from BT Module", Help: "Advanced settings", QuestionFlags: 0x0, QuestionId: 0x1083, VarStoreId: 0x148A, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x1
+					End 
+				End 
+				OneOf Prompt: "This is an option intended to Enable/Disable DLVR RFIM feature for Connectivity
+This option is only valid when global DLVR is enabled.", Help: "  BT RF-Kill Delay Time", QuestionFlags: 0x0, QuestionId: 0x1066, VarStoreId: 0x1234, VarOffset: 0xE2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1
+					OneOfOption Option: "" Value: 0, Default
+				End 
+				OneOf Prompt: "This is the delay Time to switch on/off BT RF-KILL signal during S3/S4 resume. Unit is ms", Help: "Discrete Bluetooth Interface", QuestionFlags: 0x0, QuestionId: 0x1081, VarStoreId: 0x1234, VarOffset: 0xE4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+					OneOfOption Option: "" Value: 0
+				End 
+				OneOf Prompt: "SerialIo UART0 needs to be enabled to select BT interface", Help: "USB", QuestionFlags: 0x0, QuestionId: 0x1082, VarStoreId: 0x1234, VarOffset: 0xCF, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+					OneOfOption Option: "" Value: 0
+				End 
+				OneOf Prompt: " SAR 6695-6835 MHz Set2 Chain A", Help: " SAR 2400 MHz Set2 Chain B", QuestionFlags: 0x4, QuestionId: 0x105D, VarStoreId: 0x1234, VarOffset: 0x7D, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: " SAR 5180-5320 MHz Set2 Chain B" Value: 0
+					OneOfOption Option: " SAR 5340-5440 MHz Set2 Chain B" Value: 1
+					OneOfOption Option: " SAR 5460-5700 MHz Set2 Chain B" Value: 2, Default
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: " Country Identifier", Help: "Country identifier as defined in ISO/IEC 3166-1 Alpha 2 code", QuestionFlags: 0x0, QuestionId: 0x1067, VarStoreId: 0x1234, VarOffset: 0x60, Flags: 0x10, Size: 8, Min: 0x1, Max: 0x7, Step: 0x0
+					OneOfOption Option: "WRDS Package" Value: 1
+					OneOfOption Option: " WiFi SAR" Value: 2
+					OneOfOption Option: "Enable/Disable WiFi SAR Tx Power Limit; DISABLE - Device ignores WiFi SAR Configuration Table; ENABLE - Device uses WiFi SAR Configuration Table" Value: 3, Default
+					OneOfOption Option: "EWRD Package" Value: 4
+					OneOfOption Option: " WiFi Dynamic SAR" Value: 5
+					OneOfOption Option: "Enable/Disable WiFi Dynamic SAR Tx Power Limit which shell be set dynamically accorting to the Proximity Sensor" Value: 6
+					OneOfOption Option: " Extended SAR Range Sets" Value: 7
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x2, Value: 0x3
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "Add VMD in PEP mitigation list", Help: "EC Notification", QuestionFlags: 0x0, QuestionId: 0xE065, VarStoreId: 0x1234, VarOffset: 0x105, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+					OneOfOption Option: "" Value: 0
+				End 
+			End 
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "Antenna B delay possible values: 1-100 in 10ths of nano seconds resolution", Help: " TRxCableLength_B", QuestionFlags: 0x0, QuestionId: 0x1061, VarStoreId: 0x1234, VarOffset: 0x5C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Platform Errors" Value: 0, Default
+				OneOfOption Option: "" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x2, Value: 0x3
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "This is an option intended to Enable/Disable DDR-RFIM feature for Connectivity
+This RFI mitigation feature may result in temporary slowdown of the DDR speed.", Help: "DLVR RFI Mitigation", QuestionFlags: 0x4, QuestionId: 0xE067, VarStoreId: 0x1234, VarOffset: 0x6F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Platform Errors" Value: 1
+				OneOfOption Option: "" Value: 0, Default
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x2, Value: 0x3
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0xE067, Values: [0]
+				OneOf Prompt: "Sends EC notification of Low Power S0 Idle State", Help: "EC CS Debug Light", QuestionFlags: 0x0, QuestionId: 0xE068, VarStoreId: 0x1234, VarOffset: 0x106, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+					OneOfOption Option: "" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			SuppressIf 
+				EqIdValList QuestionId: 0x105E, Values: [0, 1]
+				GrayOutIf 
+					EqIdValList QuestionId: 0x2, Values: [2, 3]
+						EqIdVal QuestionId: 0x1, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: " SAR 5720-5825 MHz Set2 Chain B", Help: " SAR 5845-6135 MHz Set2 Chain B", QuestionFlags: 0x0, QuestionId: 0x1068, VarStoreId: 0x1234, VarOffset: 0x65, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "Platform Errors" Value: 0, Default
+						OneOfOption Option: "" Value: 1
+					End 
+				End 
+			End 
+			SuppressIf 
+				EqIdValList QuestionId: 0x105E, Values: [0, 1]
+					EqIdVal QuestionId: 0x1068, Value: 0x1
+					Or 
+				End 
+				GrayOutIf 
+					EqIdValList QuestionId: 0x2, Values: [2, 3]
+						EqIdVal QuestionId: 0x1, Value: 0x1
+						And 
+					End 
+					OneOf Prompt: " SAR 6155-6375 MHz Set2 Chain B", Help: " SAR 6395-6495 MHz Set2 Chain B", QuestionFlags: 0x0, QuestionId: 0x1069, VarStoreId: 0x1234, VarOffset: 0xE1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						OneOfOption Option: "" Value: 0, Default
+						OneOfOption Option: "Platform Errors" Value: 1
+					End 
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				Numeric Prompt: " SAR 6515-6675 MHz Set2 Chain B", Help: " SAR 6695-6835 MHz Set2 Chain B", QuestionFlags: 0x0, QuestionId: 0x106A, VarStoreId: 0x1234, VarOffset: 0x69, Flags: 0x11, Size: 16, Min: 0x0, Max: 0xA, Step: 0x1
+					Default DefaultId: 0x0 Value: 0
+				End 
+			End 
+			GrayOutIf 
+				EqIdValList QuestionId: 0x2, Values: [2, 3]
+					EqIdVal QuestionId: 0x1, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: " SAR 6855-7095 MHz Set2 Chain B", Help: " SAR 2400 MHz Set3 Chain A", QuestionFlags: 0x0, QuestionId: 0x106B, VarStoreId: 0x1234, VarOffset: 0xDE, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "" Value: 0
+					OneOfOption Option: "Platform Errors" Value: 1, Default
+				End 
+			End 
+			Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x105E, Value: 0x1
+					EqIdVal QuestionId: 0xF, Value: 0x0
+					Or 
+				End 
+				Ref Prompt: "Set 3", Help: "Set 4", QuestionFlags: 0x0, QuestionId: 0x1076, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x53A
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x105E, Value: 0x2
+					EqIdVal QuestionId: 0x3, Value: 0x0
+					Or 
+				End 
+				Ref Prompt: "Set 1", Help: "Set 2", QuestionFlags: 0x0, QuestionId: 0x106C, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x530
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105E, Value: 0x1
+			Text Prompt: "Add TCSS IPs in PEP mitigation list", Help: "PEP VMD", Text: ""
+			GrayOutIf 
+				EqIdVal QuestionId: 0xE, Value: 0x1
+					EqIdVal QuestionId: 0xD, Value: 0x1
+					Or 
+				End 
+				Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C9
+			End 
+		End 
+		Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+		End 
+	End 
+	Form FormId: 0x53A, Title: "Set 3"
+		Subtitle Prompt: "Set 3", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+				EqIdVal QuestionId: 0x105D, Value: 0x2
+				Or 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C9
+		End 
+	End 
+	Form FormId: 0x53D, Title: "Antenna B Current Set"
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12CB
+	End 
+	Form FormId: 0x530, Title: "Set 1"
+		Subtitle Prompt: "Defines the WiFi SAR Tx Power Limit - 8bit unsigned with 5bit integer and 3bit fractional. 0x00 = 0b00000000 = 0.125dB; 0xFF = 0b11111111 = 31.875dB. Each step is equivalent to 0.125dB", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			OneOf Prompt: "Default OTP table", Help: "Antenna A Current Set", QuestionFlags: 0x4, QuestionId: 0x105B, VarStoreId: 0x1234, VarOffset: 0x76, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "No Additional sets" Value: 0, Default
+				OneOfOption Option: "Defines the WiFi SAR Sets that can be used to set the power limts dynamically based on the Proximity Sensor,Set 1 is always present if WiFi SAR enabled and Set 2-3 are additinoal sets" Value: 1
+			End 
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xC, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: "Antenna B Current Set", Help: "Current Set to be used 0 :Default OTP table 1-3 SAR Sets ", QuestionFlags: 0x0, QuestionId: 0x1077, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x53B
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xB, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 5720-5825 MHz Set1 Chain A", Help: " SAR 5845-6135 MHz Set1 Chain A", QuestionFlags: 0x0, QuestionId: 0x106D, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x531
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0xA, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 2400 MHz Set1 Chain A", Help: " SAR 5180-5320 MHz Set1 Chain A", QuestionFlags: 0x0, QuestionId: 0x106E, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x532
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x9, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 5340-5440 MHz Set1 Chain A", Help: " SAR 5460-5700 MHz Set1 Chain A", QuestionFlags: 0x0, QuestionId: 0x106F, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x533
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x8, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 6515-6675 MHz Set1 Chain A", Help: " SAR 6695-6835 MHz Set1 Chain A", QuestionFlags: 0x0, QuestionId: 0x1070, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x534
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x7, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 6155-6375 MHz Set1 Chain A", Help: " SAR 6395-6495 MHz Set1 Chain A", QuestionFlags: 0x0, QuestionId: 0x1071, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x535
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x6, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 6855-7095 MHz Set1 Chain A", Help: " SAR 2400 MHz Set1 Chain B", QuestionFlags: 0x0, QuestionId: 0x1072, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x536
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x5, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 5180-5320 MHz Set1 Chain B", Help: " SAR 5340-5440 MHz Set1 Chain B", QuestionFlags: 0x0, QuestionId: 0x1073, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x537
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x1
+				EqIdVal QuestionId: 0x4, Value: 0x0
+				Or 
+			End 
+			Ref Prompt: " SAR 5460-5700 MHz Set1 Chain B", Help: " SAR 5720-5825 MHz Set1 Chain B", QuestionFlags: 0x0, QuestionId: 0x1074, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x538
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x105B, Value: 0x0
+				EqIdVal QuestionId: 0x3, Value: 0x0
+				Or 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12CA
+		End 
+	End 
+	Form FormId: 0x53B, Title: "Antenna B Current Set"
+		Subtitle Prompt: "Antenna B Current Set", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C0
+		End 
+	End 
+	Form FormId: 0x532, Title: " SAR 2400 MHz Set1 Chain A"
+		Subtitle Prompt: " SAR 2400 MHz Set1 Chain A", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C2
+		End 
+	End 
+	Form FormId: 0x533, Title: " SAR 5340-5440 MHz Set1 Chain A"
+		Subtitle Prompt: " SAR 5340-5440 MHz Set1 Chain A", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C3
+		End 
+	End 
+	Form FormId: 0x531, Title: " SAR 5720-5825 MHz Set1 Chain A"
+		Subtitle Prompt: " SAR 5720-5825 MHz Set1 Chain A", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C1
+		End 
+	End 
+	Form FormId: 0x538, Title: " SAR 5460-5700 MHz Set1 Chain B"
+		Subtitle Prompt: " SAR 5460-5700 MHz Set1 Chain B", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C8
+		End 
+	End 
+	Form FormId: 0x534, Title: " SAR 6515-6675 MHz Set1 Chain A"
+		Subtitle Prompt: " SAR 6515-6675 MHz Set1 Chain A", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C4
+		End 
+	End 
+	Form FormId: 0x535, Title: " SAR 6155-6375 MHz Set1 Chain A"
+		Subtitle Prompt: " SAR 6155-6375 MHz Set1 Chain A", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C5
+		End 
+	End 
+	Form FormId: 0x536, Title: " SAR 6855-7095 MHz Set1 Chain A"
+		Subtitle Prompt: " SAR 6855-7095 MHz Set1 Chain A", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C6
+		End 
+	End 
+	Form FormId: 0x537, Title: " SAR 5180-5320 MHz Set1 Chain B"
+		Subtitle Prompt: " SAR 5180-5320 MHz Set1 Chain B", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: "ATX Shutdown (PS_ON)", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			EqIdValList QuestionId: 0x2, Values: [2, 3]
+				EqIdVal QuestionId: 0x1, Value: 0x1
+				And 
+			End 
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x12C7
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1489, VarOffset: 0x405, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1489, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1489, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1489, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1489, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x1489, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x1489, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x1489, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x1489, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x1489, VarOffset: 0x404, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x1234, VarOffset: 0x125, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x1234, VarOffset: 0x121, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x1489, VarOffset: 0x406, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

@@ -1,0 +1,42 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 1D09183D-66A4-489D-9FCA-CA8E6FEFF971, Title: "Information", Help: " "
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x1
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	Form FormId: 0x1, Title: "Information"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "Product Name", Help: " ", Text: "INVALID"
+			Action Prompt: "BIOS Version", Help: " ", QuestionFlags: 0x4, QuestionId: 0xE071, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 17, 31]
+			End 
+			Text Prompt: "EC Version", Help: " ", Text: "[Not Detected]"
+			Text Prompt: "MTM", Help: " ", Text: "None"
+			Action Prompt: "Lenovo SN", Help: " ", QuestionFlags: 0x4, QuestionId: 0xE072, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 155, 29]
+			End 
+			Text Prompt: "UUID Number", Help: " ", Text: "None"
+			Subtitle Prompt: " ", Help: "", Flags: 0x0
+			End 
+			Action Prompt: "CPU", Help: " ", QuestionFlags: 0x4, QuestionId: 0xE073, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [6, 0, 159, 29]
+			End 
+			Text Prompt: "System Memory", Help: " ", Text: "[Not Detected]"
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5780
+			Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5781
+			Subtitle Prompt: " ", Help: "", Flags: 0x0
+			End 
+			Text Prompt: "Preinstalled OS License", Help: " ", Text: "None"
+			Text Prompt: "OA3 Key ID", Help: " ", Text: "NO DPK"
+			Text Prompt: "Secure Boot", Help: " ", Text: "Disabled"
+		End 
+		Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Label, LabelNumber: 0x5783
+	End 
+	Guid Guid: 38237648-09CC-47C4-8B5F-B09F06890DF7, Optional data: [7, 0]
+	End 
+End 

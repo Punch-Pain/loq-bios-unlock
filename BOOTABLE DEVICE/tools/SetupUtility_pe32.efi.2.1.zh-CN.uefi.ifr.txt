@@ -1,0 +1,77 @@
+Program version: 1.6.1, Extraction mode: UEFI, SHA256: 6a8f6d72b9be61d3cafca88967d72a477c058d90f0625df5e193eb7d6382f1dd
+FormSet Guid: 50CEFAFD-75C1-4CAC-B06B-ED50659F9341, Title: "￱显示设置￰", Help: "InvalidId"
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	Image ImageId: 0x4
+	VarStore Guid: A04A27F4-DF00-4D42-B552-39511302113D, VarStoreId: 0x1234, Size: 0x4B0, Name: "SystemConfig"
+	VarStoreEfi Guid: 72C5E28C-7783-43A1-8767-FAD73FCCAFA4, VarStoreId: 0x2, Attributes: 0x7, Size: 0x578, Name: "SaSetup"
+	Form FormId: 0x1, Title: "￱显示设置￰"
+		SuppressIf 
+			EqIdVal QuestionId: 0x7, Value: 0x0
+			GrayOutIf 
+				EqIdVal QuestionId: 0x4, Value: 0x3
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱显卡模式￰", Help: "￱选择显卡模式。￰
+
+[￱混合模式￰]
+￱支持双显卡输出。￰", QuestionFlags: 0x4, QuestionId: 0xE06B, VarStoreId: 0x2, VarOffset: 0xB1, Flags: 0x10, Size: 8, Min: 0x4, Max: 0x4, Step: 0x0
+					OneOfOption Option: "￱混合模式￰" Value: 4, Default
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x6, Value: 0x0
+			GrayOutIf 
+				EqIdVal QuestionId: 0x4, Value: 0x3
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱内部显示器刷新率￰", Help: "￱设置内部显示器的最大刷新率￰
+
+[240Hz]
+￱设置内部显示器最大刷新率为￰240Hz￱。￰
+[165Hz]
+￱设置内部显示器最大刷新率为￰165Hz￱。￰", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1234, VarOffset: 0x159, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "InvalidId" Value: 1, Default
+					OneOfOption Option: "InvalidId" Value: 0
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x5, Value: 0x0
+			GrayOutIf 
+				EqIdVal QuestionId: 0x4, Value: 0x3
+					EqIdVal QuestionId: 0x3, Value: 0x1
+					And 
+				End 
+				OneOf Prompt: "￱默认的灯效控制者￰", Help: "￱选择默认的灯效控制者￰
+
+[￱应用或固件￰]
+￱默认灯效由应用程序或固件控制￰￱。￰
+
+[￱动态灯效或固件￰]
+￱默认灯效由￰Windows￱动态灯效或固件控制￰￱。￰", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x1234, VarOffset: 0x189, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "￱应用或固件￰" Value: 0, Default
+					OneOfOption Option: "Windows ￱动态灯效或固件￰" Value: 1
+				End 
+			End 
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x1234, VarOffset: 0x81, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x1234, VarOffset: 0x80, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x1234, VarOffset: 0x188, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x1234, VarOffset: 0x158, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x1234, VarOffset: 0xEB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 
