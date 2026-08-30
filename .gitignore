@@ -1,6 +1,9 @@
 # ROM dump (nested dirs exceed Windows MAX_PATH)
 BOOTABLE DEVICE/tools/signed_SE.ROM.dump/
 
+# Runtime NVRAM dumps (firmware-specific, never commit)
+osdump/
+
 # OS junk
 Thumbs.db
 Desktop.ini
