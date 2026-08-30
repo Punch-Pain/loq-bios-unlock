@@ -2,7 +2,7 @@ Lenovo LOQ Essential 15IRX11 (SECN22WW) — Advanced BIOS Unlock
 ================================================================
 Method: SREP (Setup ROTEP Entry Point) driver + Config G
 Status: WORKING — Advanced tab visible in native F2 BIOS setup
-Machine: Lenovo LOQ Essential 15IRX11 (model_r3cn)
+Machine: Lenovo LOQ Essential 15IRX11 (model_secn)
 BIOS:    SECN22WW
 SREP:    0.1.4c
 
@@ -333,6 +333,6 @@ MAP\ contains:
   HYPOTHESIS.md                    Reverse engineering notes
 
 Generated: 2026-08-30
-Machine:   Lenovo LOQ Essential 15IRX11 (model_r3cn)
+Machine:   Lenovo LOQ Essential 15IRX11 (model_secn)
 BIOS:      SECN22WW
 SREP:      0.1.4c
