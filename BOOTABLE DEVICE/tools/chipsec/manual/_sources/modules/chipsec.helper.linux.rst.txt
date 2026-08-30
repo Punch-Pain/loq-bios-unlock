@@ -1,0 +1,12 @@
+chipsec.helper.linux package
+============================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.helper.linux.linuxhelper
+
+.. automodule:: chipsec.helper.linux
+   
+   
+   

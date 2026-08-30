@@ -1,0 +1,6 @@
+mtl
+=======
+
+Path: chipsec\\cfg\\8086\\mtl.xml
+
+ XML configuration file for Ice Lake 

@@ -1,0 +1,15 @@
+chipsec.modules package
+=======================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.modules.bdw
+   chipsec.modules.byt
+   chipsec.modules.common
+   chipsec.modules.tools
+
+.. automodule:: chipsec.modules
+   
+   
+   

@@ -1,0 +1,7 @@
+chipsec.modules.common.memconfig module
+=======================================
+
+.. automodule:: chipsec.modules.common.memconfig
+   
+   
+   

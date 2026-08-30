@@ -1,0 +1,25 @@
+chipsec.helper package
+======================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.helper.dal
+   chipsec.helper.efi
+   chipsec.helper.linux
+   chipsec.helper.linuxnative
+   chipsec.helper.record
+   chipsec.helper.replay
+   chipsec.helper.windows
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.helper.basehelper
+   chipsec.helper.nonehelper
+   chipsec.helper.oshelper
+
+.. automodule:: chipsec.helper
+   
+   
+   

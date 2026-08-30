@@ -1,0 +1,7 @@
+chipsec.utilcmd.msgbus\_cmd module
+==================================
+
+.. automodule:: chipsec.utilcmd.msgbus_cmd
+   
+   
+   

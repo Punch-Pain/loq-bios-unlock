@@ -1,0 +1,761 @@
+# CHIPSEC: Platform Security Assessment Framework
+# Copyright (c) 2010-2021, Intel Corporation
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; Version 2.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+# Contact information:
+# chipsec@intel.com
+#
+
+"""
+Access to SPI Flash parts
+
+usage:
+    >>> read_spi( spi_fla, length )
+    >>> write_spi( spi_fla, buf )
+    >>> erase_spi_block( spi_fla )
+    >>> get_SPI_JEDEC_ID()
+    >>> get_SPI_JEDEC_ID_decoded()
+
+.. note::
+    !! IMPORTANT:
+    Size of the data chunk used in SPI read cycle (in bytes)
+    default = maximum 64 bytes (remainder is read in 4 byte chunks)
+
+    If you want to change logic to read SPI Flash in 4 byte chunks:
+    SPI_READ_WRITE_MAX_DBC = 4
+
+    @TBD: SPI write cycles operate on 4 byte chunks (not optimized yet)
+
+    Approximate performance (on 2-core SMT Intel Core i5-4300U (Haswell) CPU 1.9GHz):
+    SPI read: ~7 sec per 1MB (with DBC=64)
+"""
+
+import struct
+import time
+from typing import Dict, List, Tuple, Optional
+from chipsec.library.defines import BIT0, BIT1, BIT2, BIT5, is_all_ones
+from chipsec.library.register import NullRegister
+from chipsec.library.file import write_file, read_file
+from chipsec.library.logger import print_buffer_bytes
+from chipsec.hal import hal_base
+from chipsec.library.spi_jedec_ids import JEDEC_ID
+from chipsec.library.exceptions import CSReadError, SpiRuntimeError, HALInitializationError
+from chipsec.library.intel.spi import SPI_REGION, SPI_FLA_SHIFT, SPI_FLA_PAGE_MASK, SPI_REGION_NAMES, SPI_REGION_tuple, print_SPI_Flash_Regions
+
+SPI_READ_WRITE_MAX_DBC = 64
+SPI_READ_WRITE_DEF_DBC = 4
+SFDP_HEADER = 0x50444653
+
+SPI_MAX_PR_COUNT = 5
+
+SPI_MMIO_BASE_LENGTH = 0x200
+PCH_RCBA_SPI_HSFSTS_SCIP = BIT5                          # SPI cycle in progress
+PCH_RCBA_SPI_HSFSTS_AEL = BIT2                          # Access Error Log
+PCH_RCBA_SPI_HSFSTS_FCERR = BIT1                          # Flash Cycle Error
+PCH_RCBA_SPI_HSFSTS_FDONE = BIT0                          # Flash Cycle Done
+
+PCH_RCBA_SPI_HSFCTL_FCYCLE_READ = 0                             # Flash Cycle Read
+PCH_RCBA_SPI_HSFCTL_FCYCLE_WRITE = 2                             # Flash Cycle Write
+PCH_RCBA_SPI_HSFCTL_FCYCLE_ERASE = 3                             # Flash Cycle Block Erase
+PCH_RCBA_SPI_HSFCTL_FCYCLE_SFDP = 5
+PCH_RCBA_SPI_HSFCTL_FCYCLE_JEDEC = 6                             # Flash Cycle Read JEDEC ID
+PCH_RCBA_SPI_HSFCTL_FCYCLE_FGO = BIT0                          # Flash Cycle GO
+
+PCH_RCBA_SPI_FADDR_MASK = 0x07FFFFFF                      # SPI Flash Address Mask [0:26]
+
+PCH_RCBA_SPI_OPTYPE_RDNOADDR = 0x00
+PCH_RCBA_SPI_OPTYPE_WRNOADDR = 0x01
+PCH_RCBA_SPI_OPTYPE_RDADDR = 0x02
+PCH_RCBA_SPI_OPTYPE_WRADDR = 0x03
+
+PCH_RCBA_SPI_FDOC_FDSS_FSDM = 0x0000                        # Flash Signature and Descriptor Map
+PCH_RCBA_SPI_FDOC_FDSS_COMP = 0x1000                        # Component
+PCH_RCBA_SPI_FDOC_FDSS_REGN = 0x2000                        # Region
+PCH_RCBA_SPI_FDOC_FDSS_MSTR = 0x3000                        # Master
+PCH_RCBA_SPI_FDOC_FDSI_MASK = 0x0FFC                        # Flash Descriptor Section Index
+
+# agregated SPI Flash commands
+HSFCTL_READ_CYCLE = ((PCH_RCBA_SPI_HSFCTL_FCYCLE_READ << 1) | PCH_RCBA_SPI_HSFCTL_FCYCLE_FGO)
+HSFCTL_WRITE_CYCLE = ((PCH_RCBA_SPI_HSFCTL_FCYCLE_WRITE << 1) | PCH_RCBA_SPI_HSFCTL_FCYCLE_FGO)
+HSFCTL_ERASE_CYCLE = ((PCH_RCBA_SPI_HSFCTL_FCYCLE_ERASE << 1) | PCH_RCBA_SPI_HSFCTL_FCYCLE_FGO)
+HSFCTL_JEDEC_CYCLE = ((PCH_RCBA_SPI_HSFCTL_FCYCLE_JEDEC << 1) | PCH_RCBA_SPI_HSFCTL_FCYCLE_FGO)
+HSFCTL_SFDP_CYCLE = ((PCH_RCBA_SPI_HSFCTL_FCYCLE_SFDP << 1) | PCH_RCBA_SPI_HSFCTL_FCYCLE_FGO)
+
+HSFSTS_CLEAR = (PCH_RCBA_SPI_HSFSTS_AEL | PCH_RCBA_SPI_HSFSTS_FCERR | PCH_RCBA_SPI_HSFSTS_FDONE)
+
+#
+# Hardware Sequencing Flash Status (HSFSTS)
+#
+SPI_HSFSTS_OFFSET = 0x04
+# HSFSTS bit masks
+SPI_HSFSTS_FLOCKDN_MASK = (1 << 15)
+SPI_HSFSTS_FDOPSS_MASK = (1 << 13)
+
+DEFAULT_PROGRESS_MAX = 50
+
+
+class SPI(hal_base.HALBase):
+
+    def __init__(self, cs):
+        super(SPI, self).__init__(cs)
+        self.mmio = cs.hals.mmio
+        self.device_found = False
+        self.spi_base = 0
+        self.devices = cs.device.get_list_by_name('8086.SPI')
+        for device in reversed(self.devices):
+            for instance in device.instances.values():
+                try:
+                    self.set_instance(instance)
+                except (CSReadError, HALInitializationError):
+                    continue
+                self.device_found = True
+                break
+            else:
+                continue
+            break
+        if not self.device_found:
+            raise HALInitializationError("No SPI device found. Be sure to have it defined in the platform configuration XML file.")
+        # self.rcba_spi_base = self.get_SPI_MMIO_base()
+        # We try to map SPIBAR in the process memory, this will increase the
+        # speed of MMIO access later on.
+        # try:
+        #     self.cs.helper.map_io_space(self.rcba_spi_base, SPI_MMIO_BASE_LENGTH, 0)
+        # except UnimplementedAPIError:
+        #     pass
+
+        # Reading definitions of SPI flash controller registers
+        # which are required to send SPI cycles once for performance reasons
+    def get_registers(self) -> None:
+        self.hsfs = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.HSFS', self.instance)
+        if type(self.hsfs) is NullRegister:
+            raise HALInitializationError(f"Missing SPIBAR registers [{self.hsfs.name}]. Be sure to have them defined for the SPI HAL to work.")
+        self.hsfc = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.HSFC', self.instance)
+        self.faddr = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FADDR', self.instance)
+        self.fdata0 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA0', self.instance)
+        self.fdata1 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA1', self.instance)
+        self.fdata2 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA2', self.instance)
+        self.fdata3 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA3', self.instance)
+        self.fdata4 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA4', self.instance)
+        self.fdata5 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA5', self.instance)
+        self.fdata6 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA6', self.instance)
+        self.fdata7 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA7', self.instance)
+        self.fdata8 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA8', self.instance)
+        self.fdata9 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA9', self.instance)
+        self.fdata10 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA10', self.instance)
+        self.fdata11 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA11', self.instance)
+        self.fdata12 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA12', self.instance)
+        self.fdata13 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA13', self.instance)
+        self.fdata14 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA14', self.instance)
+        self.fdata15 = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDATA15', self.instance)
+        self.ptinx = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.BIOS_PTINX', self.instance)
+        self.ptdata = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.BIOS_PTDATA', self.instance)
+        self.fdoc = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDOC', self.instance)
+        self.fdod = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FDOD', self.instance)
+        self.frap = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.FRAP', self.instance)
+        self.bfpr = self.cs.register.get_instance_by_name('8086.SPI.SPIBAR.BFPR', self.instance)
+        self.ble = self.cs.control.get_instance_by_name('BiosLockEnable', self.instance)
+        self.bioswe = self.cs.control.get_instance_by_name('BiosWriteEnable', self.instance)
+        self.smmbwp = self.cs.control.get_instance_by_name('SmmBiosWriteProtection', self.instance)
+        self.get_SPI_MMIO_base()
+        if is_all_ones(self.hsfs.read(), self.hsfs.size):
+            raise CSReadError(f"SPI device [{self.instance}] does not appear to be flash backed.")
+
+        # self.logger.log_hal("[spi] Reading SPI flash controller registers definitions:")
+        # self.logger.log_hal(f'      HSFS   offset = 0x{self.hsfs.offset:04X}')
+        # self.logger.log_hal(f'      HSFC   offset = 0x{self.hsfc.offset:04X}')
+        # self.logger.log_hal(f'      FADDR  offset = 0x{self.faddr.offset:04X}')
+        # self.logger.log_hal(f'      FDATA0 offset = 0x{self.fdata0.offset:04X}')
+
+    def set_instance(self, instance: 'PCIObj') -> None:
+        self.instance = instance
+        self.spi_base = 0
+        self.get_registers()
+
+    def get_SPI_MMIO_base(self) -> int:
+        if self.spi_base != 0:
+            return self.spi_base
+        if self.mmio.is_MMIO_BAR_defined('8086.SPI.SPIBAR'):
+            (self.spi_base, _) = self.mmio.get_MMIO_BAR_base_address('8086.SPI.SPIBAR', self.instance)
+        else:
+            self.logger.log_hal('[spi] get_SPI_MMIO_base(): SPIBAR not defined. Returning spi_base = 0.')
+        self.logger.log_hal(f'[spi] SPI MMIO base: 0x{self.spi_base:016X} (assuming below 4GB)')
+        return self.spi_base
+
+    def spi_reg_read(self, reg: int, size: int = 4) -> int:
+        return self.mmio.read_MMIO_reg(self.get_SPI_MMIO_base(), reg, size)
+
+    def spi_reg_write(self, reg: int, value: int, size: int = 4) -> Optional[int]:
+        return self.mmio.write_MMIO_reg(self.get_SPI_MMIO_base(), reg, value, size)
+
+    def get_SPI_region(self, spi_region_id: int) -> Tuple[int, int, int]:
+        freg_name = SPI_REGION[spi_region_id]
+        if not self.cs.register.is_defined(freg_name):
+            return (0, 0, 0)
+        freg = self.cs.register.get_instance_by_name(freg_name, self.instance)
+        freg_val = freg.read()
+        # Region Base corresponds to FLA bits 24:12
+        range_base = freg.get_field('RB') << SPI_FLA_SHIFT
+        # Region Limit corresponds to FLA bits 24:12
+        range_limit = freg.get_field('RL') << SPI_FLA_SHIFT
+        # FLA bits 11:0 are assumed to be FFFh for the limit comparison
+        range_limit |= SPI_FLA_PAGE_MASK
+        return (range_base, range_limit, freg_val)
+
+    # all_regions = True : return all SPI regions
+    # all_regions = False: return only available SPI regions (limit >= base)
+    def get_SPI_regions(self, all_regions: bool = True) -> SPI_REGION_tuple:
+        spi_regions: Dict[int, Tuple[int, int, int, str, int]] = {}
+        for r in SPI_REGION:
+            (range_base, range_limit, freg) = self.get_SPI_region(r)
+            if range_base is None:
+                continue
+            if all_regions or (range_limit >= range_base):
+                spi_regions[r] = SPI_REGION_tuple(SPI_REGION_NAMES[r], freg, range_base, range_limit)
+        return spi_regions
+
+    def get_SPI_Protected_Ranges(self) -> List[Tuple[int, int, int, int, int, int]]:
+        # if pr_num > SPI_MAX_PR_COUNT:
+        #     return (0, 0, 0, 0, 0, 0)
+        pr_list = []
+        pr_name = '8086.SPI.SPIBAR.PR*'
+        pr_j_reg = self.cs.register.get_list_by_name(pr_name).filter_by_instance(self.instance)
+        pr_j_reg.read()
+        for pr_j in pr_j_reg:
+
+        # Protected Range Base corresponds to FLA bits 24:12
+            base = pr_j.get_field('PRB') << SPI_FLA_SHIFT
+        # Protected Range Limit corresponds to FLA bits 24:12
+            limit = pr_j.get_field('PRL') << SPI_FLA_SHIFT
+
+            wpe = (0 != pr_j.get_field('WPE'))
+            rpe = (0 != pr_j.get_field('RPE'))
+
+        # Check if this is a valid PRx config
+            if wpe or rpe:
+                # FLA bits 11:0 are assumed to be FFFh for the limit comparison
+                limit |= SPI_FLA_PAGE_MASK
+            pr_list.append((base, limit, wpe, rpe, pr_j.offset, pr_j))
+
+        return pr_list
+
+    ##############################################################################################################
+    # SPI configuration
+    ##############################################################################################################
+
+    def display_SPI_Flash_Descriptor(self) -> None:
+        self.logger.log("============================================================")
+        self.logger.log("SPI Flash Descriptor")
+        self.logger.log("------------------------------------------------------------")
+        self.logger.log("\nFlash Signature and Descriptor Map:")
+        for j in range(5):
+            self.fdoc.write((PCH_RCBA_SPI_FDOC_FDSS_FSDM | (j << 2)))
+            self.logger.log(f'{self.fdod.read():08X}')
+
+        self.logger.log("\nComponents:")
+        for j in range(3):
+            self.fdoc.write((PCH_RCBA_SPI_FDOC_FDSS_COMP | (j << 2)))
+            self.logger.log(f'{self.fdod.read():08X}')
+
+        self.logger.log("\nRegions:")
+        for j in range(5):
+            self.fdoc.write((PCH_RCBA_SPI_FDOC_FDSS_REGN | (j << 2)))
+            self.logger.log(f'{self.fdod.read():08X}')
+
+        self.logger.log("\nMasters:")
+        for j in range(3):
+            self.fdoc.write((PCH_RCBA_SPI_FDOC_FDSS_MSTR | (j << 2)))
+            self.logger.log(f'{self.fdod.read():08X}')
+
+    def display_SPI_opcode_info(self) -> None:
+        if not self.cs.register.is_defined('*.SPI.PREOP'):
+            self.logger.log_error("Could not locate the definition of 'SPI.PREOP' register..")
+            return
+        self.logger.log("============================================================")
+        self.logger.log("SPI Opcode Info")
+        self.logger.log("------------------------------------------------------------")
+        preop_reg = self.cs.register.get_instance_by_name('*.SPI.PREOP', self.instance)
+        optype_reg = self.cs.register.get_instance_by_name('*.SPI.OPTYPE', self.instance)
+        opmenu_lo_reg = self.cs.register.get_instance_by_name('*.SPI.OPMENU_LO', self.instance)
+        opmenu_hi_reg = self.cs.register.get_instance_by_name('*.SPI.OPMENU_HI', self.instance)
+        preop = preop_reg.read()
+        optype = optype_reg.read()
+        opmenu_lo = opmenu_lo_reg.read()
+        opmenu_hi = opmenu_hi_reg.read()
+        self.logger.log(f'PREOP : 0x{preop:04X}')
+        self.logger.log(f'OPTYPE: 0x{optype:04X}')
+        opmenu = ((opmenu_hi << 32) | opmenu_lo)
+        self.logger.log(f'OPMENU: 0x{opmenu:016X}')
+        self.logger.log('')
+        preop0 = preop & 0xFF
+        preop1 = (preop >> 8) & 0xFF
+        self.logger.log(f'Prefix Opcode 0 = 0x{preop0:02X}')
+        self.logger.log(f'Prefix Opcode 1 = 0x{preop1:02X}')
+
+        self.logger.log("------------------------------------------------------------")
+        self.logger.log("Opcode # | Opcode | Optype | Description")
+        self.logger.log("------------------------------------------------------------")
+        for j in range(8):
+            optype_j = ((optype >> j * 2) & 0x3)
+            if (PCH_RCBA_SPI_OPTYPE_RDNOADDR == optype_j):
+                desc = 'SPI read cycle without address'
+            elif (PCH_RCBA_SPI_OPTYPE_WRNOADDR == optype_j):
+                desc = 'SPI write cycle without address'
+            elif (PCH_RCBA_SPI_OPTYPE_RDADDR == optype_j):
+                desc = 'SPI read cycle with address'
+            elif (PCH_RCBA_SPI_OPTYPE_WRADDR == optype_j):
+                desc = 'SPI write cycle with address'
+            else:
+                desc = ''
+            self.logger.log(f'Opcode{j:d}  | 0x{(opmenu >> j * 8) & 0xFF:02X}   | {optype_j:x}      | {desc} ')
+
+    def display_SPI_Flash_Regions(self) -> None:
+        regions = self.get_SPI_regions()
+        print_SPI_Flash_Regions(regions)
+
+    def display_BIOS_region(self) -> None:
+        base = self.bfpr.read_field('PRB') << SPI_FLA_SHIFT
+        limit = self.bfpr.get_field('PRL') << SPI_FLA_SHIFT
+        limit |= SPI_FLA_PAGE_MASK
+        self.logger.log("BIOS Flash Primary Region")
+        self.logger.log("------------------------------------------------------------")
+        self.logger.log(f'BFPREG = {self.bfpr.value:08X}:')
+        self.logger.log(f'  Base  : {base:08X}')
+        self.logger.log(f'  Limit : {limit:08X}')
+
+    def display_SPI_Ranges_Access_Permissions(self) -> None:
+        self.logger.log("SPI Flash Region Access Permissions")
+        self.logger.log("------------------------------------------------------------")
+        self.frap.read()
+        self.logger.log_hal(self.frap)
+        brra = self.frap.get_field('BRRA')
+        brwa = self.frap.get_field('BRWA')
+        bmrag = self.frap.get_field('BMRAG')
+        bmwag = self.frap.get_field('BMWAG')
+        self.logger.log('')
+        self.logger.log(f'BIOS Region Write Access Grant ({bmwag:02X}):')
+        regions = self.get_SPI_regions()
+        for region_id in regions:
+            self.logger.log(f'  {SPI_REGION[region_id]:12}: {0 != bmwag & (1 << region_id):1d}')
+        self.logger.log(f'BIOS Region Read Access Grant ({bmrag:02X}):')
+        for region_id in regions:
+            self.logger.log(f'  {SPI_REGION[region_id]:12}: {0 != bmrag & (1 << region_id):1d}')
+        self.logger.log(f'BIOS Region Write Access ({brwa:02X}):')
+        for region_id in regions:
+            self.logger.log(f'  {SPI_REGION[region_id]:12}: {0 != brwa & (1 << region_id):1d}')
+        self.logger.log(f'BIOS Region Read Access ({brra:02X}):')
+        for region_id in regions:
+            self.logger.log(f'  {SPI_REGION[region_id]:12}: {0 != brra & (1 << region_id):1d}')
+
+    def display_SPI_Protected_Ranges(self) -> None:
+        self.logger.log("SPI Protected Ranges")
+        self.logger.log("------------------------------------------------------------")
+        self.logger.log("PRx (offset) | Value    | Base     | Limit    | WP? | RP?")
+        self.logger.log("------------------------------------------------------------")
+        for (base, limit, wpe, rpe, pr_reg_off, pr_reg) in self.get_SPI_Protected_Ranges():
+            self.logger.log(f'{pr_reg.name} ({pr_reg_off:02X})     | {pr_reg.value:08X} | {base:08X} | {limit:08X} | {wpe:d}   | {rpe:d} ')
+
+    def display_SPI_map(self) -> None:
+        self.logger.log("============================================================")
+        self.logger.log("SPI Flash Map")
+        self.logger.log("------------------------------------------------------------")
+        self.logger.log('')
+        self.display_BIOS_region()
+        self.logger.log('')
+        self.display_SPI_Flash_Regions()
+        self.logger.log('')
+        self.display_SPI_Flash_Descriptor()
+        self.logger.log('')
+        self.display_SPI_opcode_info()
+        self.logger.log('')
+        self.logger.log("============================================================")
+        self.logger.log("SPI Flash Protection")
+        self.logger.log("------------------------------------------------------------")
+        self.logger.log('')
+        self.display_SPI_Ranges_Access_Permissions()
+        self.logger.log('')
+        self.logger.log("BIOS Region Write Protection")
+        self.logger.log("------------------------------------------------------------")
+        self.display_BIOS_write_protection()
+        self.logger.log('')
+        self.display_SPI_Protected_Ranges()
+        self.logger.log('')
+
+    ##############################################################################################################
+    # BIOS Write Protection
+    ##############################################################################################################
+
+    def display_BIOS_write_protection(self) -> None:
+        if self.cs.register.is_defined('8086.SPI.BC'):
+            bc_reg = self.cs.register.get_instance_by_name('8086.SPI.BC', self.instance)
+            bc_reg.read()
+            bc_reg.print()
+        else:
+            if self.logger.HAL:
+                self.logger.log_error("Could not locate the definition of 'BIOS Control' register..")
+
+    def disable_BIOS_write_protection(self) -> bool:
+        if self.logger.HAL:
+            self.display_BIOS_write_protection()
+        ble = self.cs.control.get_instance_by_name('BiosLockEnable', self.instance).read()
+        bioswe = self.cs.control.get_instance_by_name('BiosWriteEnable', self.instance).read()
+        smmbwp = self.cs.control.get_instance_by_name('SmmBiosWriteProtection', self.instance).read()
+
+        if smmbwp == 1:
+            self.logger.log_hal("[spi] SMM BIOS write protection (SmmBiosWriteProtection) is enabled")
+
+        if bioswe == 1:
+            self.logger.log_hal("[spi] BIOS write protection (BiosWriteEnable) is not enabled")
+            return True
+        elif ble == 0:
+            self.logger.log_hal("[spi] BIOS write protection is enabled but not locked. Disabling..")
+        else:  # bioswe == 0 and ble == 1
+            self.logger.log_hal("[spi] BIOS write protection is enabled. Attempting to disable..")
+
+        # Set BiosWriteEnable control bit
+        self.cs.control.get_list_by_name('BiosWriteEnable').write(1)
+
+        # read BiosWriteEnable back to check if BIOS writes are enabled
+        bioswe = self.cs.control.get_instance_by_name('BiosWriteEnable', self.instance).read()
+
+        if self.logger.HAL:
+            self.display_BIOS_write_protection()
+        if self.logger.HAL:
+            protection = 'disabled' if bioswe else 'still enabled'
+            self.logger.log_important(f'BIOS write protection is {protection} (BiosWriteEnable = {bioswe:d})')
+
+        return (bioswe == 1)
+
+    ##############################################################################################################
+    # SPI Controller access functions
+    ##############################################################################################################
+
+    def _wait_SPI_flash_cycle_done(self) -> bool:
+        self.logger.log_hal('[spi] Wait for SPI cycle ready/done...')
+        hsfsts = 0
+        cycle_done = False
+
+        for i in range(1000):
+            # time.sleep(0.001)
+            hsfsts = self.spi_reg_read(self.hsfs.offset, 1)
+
+            # cycle_done = (hsfsts & Cfg.Cfg.PCH_RCBA_SPI_HSFSTS_FDONE) and (0 == (hsfsts & Cfg.PCH_RCBA_SPI_HSFSTS_SCIP))
+            cycle_done = not (hsfsts & PCH_RCBA_SPI_HSFSTS_SCIP)
+            if cycle_done:
+                break
+
+        if not cycle_done:
+            self.logger.log_hal('[spi] SPI cycle still in progress. Waiting 0.1 sec...')
+            time.sleep(0.1)
+            hsfsts = self.spi_reg_read(self.hsfs.offset, 1)
+            cycle_done = not (hsfsts & PCH_RCBA_SPI_HSFSTS_SCIP)
+
+        if cycle_done:
+            self.logger.log_hal('[spi] Clear FDONE/FCERR/AEL bits...')
+            self.spi_reg_write(self.hsfs.offset, HSFSTS_CLEAR, 1)
+            hsfsts = self.spi_reg_read(self.hsfs.offset, 1)
+            cycle_done = not ((hsfsts & PCH_RCBA_SPI_HSFSTS_AEL) or (hsfsts & PCH_RCBA_SPI_HSFSTS_FCERR))
+
+        self.logger.log_hal(f'[spi] HSFS: 0x{hsfsts:02X}')
+
+        return cycle_done
+
+    def _send_spi_cycle(self, hsfctl_spi_cycle_cmd: int, dbc: int, spi_fla: int) -> bool:
+        self.logger.log_hal(f'[spi] > Send SPI cycle 0x{hsfctl_spi_cycle_cmd:x} to address 0x{spi_fla:08X}')
+
+        # No need to check for SPI cycle DONE status before each cycle
+        # DONE status is checked once before entire SPI operation
+
+        self.spi_reg_write(self.faddr.offset, (spi_fla & PCH_RCBA_SPI_FADDR_MASK))
+        # Other options ;)
+        # chipsec.chipset.write_register( self.cs, "FADDR", (spi_fla & Cfg.PCH_RCBA_SPI_FADDR_MASK) )
+        # write_MMIO_reg( self.cs, spi_base, self.faddr.offset, (spi_fla & Cfg.PCH_RCBA_SPI_FADDR_MASK) )
+        # self.cs.hals.memory.write_physical_mem_dword( spi_base + self.faddr.offset, (spi_fla & Cfg.PCH_RCBA_SPI_FADDR_MASK) )
+
+        if self.logger.HAL:
+            _faddr = self.spi_reg_read(self.faddr.offset)
+            self.logger.log(f'[spi] FADDR: 0x{_faddr:08X}')
+
+        self.logger.log_hal(f'[spi] SPI cycle GO (DBC <- 0x{dbc:02X}, HSFC <- 0x{hsfctl_spi_cycle_cmd:x})')
+
+        if (HSFCTL_ERASE_CYCLE != hsfctl_spi_cycle_cmd):
+            self.spi_reg_write(self.hsfc.offset + 0x1, dbc, 1)
+
+        self.spi_reg_write(self.hsfc.offset, hsfctl_spi_cycle_cmd, 1)
+        # self.spi_reg_write( self.hsfc.offset, ((dbc<<8)|hsfctl_spi_cycle_cmd), 2 )
+
+        # Read HSFC back (logging only)
+        if self.logger.HAL:
+            _hsfc = self.spi_reg_read(self.hsfc.offset, 1)
+            self.logger.log(f'[spi] HSFC: 0x{_hsfc:04X}')
+
+        cycle_done = self._wait_SPI_flash_cycle_done()
+        if not cycle_done:
+            self.logger.log_warning(f'SPI cycle (HSFC = 0x{hsfctl_spi_cycle_cmd:x}) at FLA = 0x{spi_fla:x} did not complete before timeout')
+        else:
+            self.logger.log_hal('[spi] < SPI cycle done')
+
+        return cycle_done
+
+    def check_hardware_sequencing(self) -> None:
+        # Test if the flash decriptor is valid (and hardware sequencing enabled)
+        fdv = self.hsfs.read_field('FDV')
+        if fdv == 0:
+            self.logger.log_error("HSFS.FDV is 0, hardware sequencing is disabled")
+            raise SpiRuntimeError("Chipset does not support hardware sequencing")
+
+    #
+    # SPI Flash operations
+    #
+
+    def read_spi_to_file(self, spi_fla: int, data_byte_count: int, filename: str) -> bytes:
+        buf = self.read_spi(spi_fla, data_byte_count)
+        if buf is None:
+            return b''
+        if filename is not None:
+            write_file(filename, buf)
+        else:
+            print_buffer_bytes(buf, 16)
+        return buf
+
+    def write_spi_from_file(self, spi_fla: int, filename: str) -> bool:
+        buf = read_file(filename)
+        return self.write_spi(spi_fla, buf)
+        # return self.write_spi( spi_fla, struct.unpack('B'*len(buf), buf) )
+
+    def read_spi(self, spi_fla: int, data_byte_count: int) -> bytes:
+
+        self.check_hardware_sequencing()
+
+        buf = bytearray()
+        dbc = SPI_READ_WRITE_DEF_DBC
+        if (data_byte_count >= SPI_READ_WRITE_MAX_DBC):
+            dbc = SPI_READ_WRITE_MAX_DBC
+
+        n = data_byte_count // dbc
+        r = data_byte_count % dbc
+        if self.logger.UTIL_TRACE or self.logger.HAL:
+            self.logger.log(f'[spi] Reading 0x{data_byte_count:x} bytes from SPI at FLA = 0x{spi_fla:x} (in {n:d} 0x{dbc:x}-byte chunks + 0x{r:x}-byte remainder)')
+
+        cycle_done = self._wait_SPI_flash_cycle_done()
+        if not cycle_done:
+            self.logger.log_error(f'SPI controller is busy: a previous cycle is still pending, cannot start read at FLA = 0x{spi_fla:x}')
+            return b''
+        progress_max = DEFAULT_PROGRESS_MAX if n > DEFAULT_PROGRESS_MAX or n <= 0 else n
+        progress_tick = n // progress_max
+        if self.logger.UTIL_TRACE and not self.logger.HAL:
+            self.logger.log(f'_{"_" * progress_max}|')
+        for i in range(n):
+            if self.logger.UTIL_TRACE and not self.logger.HAL and ((i % progress_tick) == 0):
+                self.logger.log_inline('-')
+            self.logger.log_hal(f'[spi] Reading chunk {i:d} of 0x{dbc:x} bytes from 0x{spi_fla + i * dbc:x}')
+            if not self._send_spi_cycle(HSFCTL_READ_CYCLE, dbc - 1, spi_fla + i * dbc):
+                self.logger.log_error(f'SPI flash read of 0x{dbc:x} bytes at FLA = 0x{spi_fla + i * dbc:x} failed (chunk {i:d} of {n:d})')
+            else:
+                for fdata_idx in range(0, dbc // 4):
+                    dword_value = self.spi_reg_read(self.fdata0.offset + fdata_idx * 4)
+                    if self.logger.HAL:
+                        self.logger.log(f'[spi] FDATA00 + 0x{fdata_idx * 4:x}: 0x{dword_value:x}')
+                    buf += struct.pack("I", dword_value)
+        if self.logger.UTIL_TRACE:
+            self.logger.log('\nSPI read complete')
+
+        if (0 != r):
+            self.logger.log_hal(f'[spi] Reading remaining 0x{r:x} bytes from 0x{spi_fla + n * dbc:x}')
+            if not self._send_spi_cycle(HSFCTL_READ_CYCLE, r - 1, spi_fla + n * dbc):
+                self.logger.log_error(f'SPI flash read of the remaining 0x{r:x} bytes at FLA = 0x{spi_fla + n * dbc:x} failed')
+            else:
+                t = 4
+                n_dwords = (r + 3) // 4
+                for fdata_idx in range(0, n_dwords):
+                    dword_value = self.spi_reg_read(self.fdata0.offset + fdata_idx * 4)
+                    if self.logger.HAL:
+                        self.logger.log(f'[spi] FDATA00 + 0x{fdata_idx * 4:x}: 0x{dword_value:08X}')
+                    if (fdata_idx == (n_dwords - 1)) and (0 != r % 4):
+                        t = r % 4
+                    for j in range(t):
+                        buf += struct.pack('B', (dword_value >> (8 * j)) & 0xff)
+
+        self.logger.log_hal('[spi] Buffer read from SPI:')
+        if self.logger.HAL:
+            print_buffer_bytes(buf)
+
+        return bytes(buf)
+
+    def write_spi(self, spi_fla: int, buf: bytes) -> bool:
+
+        self.check_hardware_sequencing()
+
+        write_ok = True
+        data_byte_count = len(buf)
+        dbc = 4
+        n = data_byte_count // dbc
+        r = data_byte_count % dbc
+        if self.logger.UTIL_TRACE or self.logger.HAL:
+            self.logger.log(f'[spi] Writing 0x{data_byte_count:x} bytes to SPI at FLA = 0x{spi_fla:x} (in {n:d} 0x{dbc:x}-byte chunks + 0x{r:x}-byte remainder)')
+
+        cycle_done = self._wait_SPI_flash_cycle_done()
+        if not cycle_done:
+            self.logger.log_error(f'SPI controller is busy: a previous cycle is still pending, cannot start write at FLA = 0x{spi_fla:x}')
+            return False
+
+        for i in range(n):
+            if self.logger.UTIL_TRACE or self.logger.HAL:
+                self.logger.log(f'[spi] Writing chunk {i:d} of 0x{dbc:x} bytes to 0x{spi_fla + i * dbc:x}')
+            dword_value = ((buf[i * dbc + 3]) << 24) | ((buf[i * dbc + 2]) << 16) | ((buf[i * dbc + 1]) << 8) | (buf[i * dbc])
+            if self.logger.HAL:
+                self.logger.log(f'[spi] in FDATA00 = 0x{dword_value:08X}')
+            self.spi_reg_write(self.fdata0.offset, dword_value)
+            if not self._send_spi_cycle(HSFCTL_WRITE_CYCLE, dbc - 1, spi_fla + i * dbc):
+                write_ok = False
+                self.logger.log_error(f'SPI flash write of 0x{dbc:x} bytes at FLA = 0x{spi_fla + i * dbc:x} failed (chunk {i:d} of {n:d})')
+
+        if (0 != r):
+            if self.logger.UTIL_TRACE or self.logger.HAL:
+                self.logger.log(f'[spi] Writing remaining 0x{r:x} bytes to FLA = 0x{spi_fla + n * dbc:x}')
+            dword_value = 0
+            for j in range(r):
+                dword_value |= (buf[n * dbc + j] << 8 * j)
+            if self.logger.HAL:
+                self.logger.log(f'[spi] in FDATA00 = 0x{dword_value:08X}')
+            self.spi_reg_write(self.fdata0.offset, dword_value)
+            if not self._send_spi_cycle(HSFCTL_WRITE_CYCLE, r - 1, spi_fla + n * dbc):
+                write_ok = False
+                self.logger.log_error(f'SPI flash write of the remaining 0x{r:x} bytes at FLA = 0x{spi_fla + n * dbc:x} failed')
+
+        return write_ok
+
+    def erase_spi_block(self, spi_fla: int) -> bool:
+
+        self.check_hardware_sequencing()
+
+        if self.logger.UTIL_TRACE or self.logger.HAL:
+            self.logger.log(f'[spi] Erasing SPI Flash block @ 0x{spi_fla:x}')
+
+        cycle_done = self._wait_SPI_flash_cycle_done()
+        if not cycle_done:
+            self.logger.log_error(f'SPI controller is busy: a previous cycle is still pending, cannot erase block at FLA = 0x{spi_fla:x}')
+            return cycle_done
+
+        erase_ok = self._send_spi_cycle(HSFCTL_ERASE_CYCLE, 0, spi_fla)
+        if not erase_ok:
+            self.logger.log_error(f'SPI flash erase cycle for block at FLA = 0x{spi_fla:x} failed')
+
+        return erase_ok
+
+    #
+    # SPI SFDP operations
+    #
+    def ptmesg(self, offset: int) -> int:
+        self.spi_reg_write(self.bios_ptinx, offset)
+        self.spi_reg_read(self.bios_ptinx)
+        return self.spi_reg_read(self.bios_ptdata)
+
+    def get_SPI_SFDP(self) -> bool:
+        ret = False
+        for component in range(0, 2):
+            self.logger.log(f'Scanning for Flash device {component + 1:d}')
+            offset = 0x0000 | (component << 14)
+            sfdp_signature = self.ptmesg(offset)
+            if sfdp_signature == SFDP_HEADER:
+                self.logger.log(f'  * Found valid SFDP header for Flash device {component + 1:d}')
+                ret = True
+            else:
+                self.logger.log(f"  * Didn't find a valid SFDP header for Flash device {component + 1:d}")
+                continue
+            # Increment offset to read second dword of SFDP header structure
+            sfdp_data = self.ptmesg(offset + 0x4)
+            sfdp_minor_version = sfdp_data & 0xFF
+            sfdp_major_version = (sfdp_data >> 8) & 0xFF
+            self.logger.log(f'    SFDP version number: {sfdp_major_version}.{sfdp_minor_version}')
+            num_of_param_headers = ((sfdp_data >> 16) & 0xFF) + 1
+            self.logger.log(f'    Number of parameter headers: {num_of_param_headers:d}')
+            # Set offset to read 1st Parameter Table in the SFDP header structure
+            offset = offset | 0x1000
+            parameter_1 = self.ptmesg(offset)
+            param1_minor_version = (parameter_1 >> 8) & 0xFF
+            param1_major_version = (parameter_1 >> 16) & 0xFF
+            param1_length = (parameter_1 >> 24) & 0xFF
+            self.logger.log("  * Parameter Header 1 (JEDEC)")
+            self.logger.log(f'    ** Parameter version number: {param1_major_version}.{param1_minor_version}')
+            self.logger.log(f'    ** Parameter length in double words: {hex(param1_length)}')
+            if (num_of_param_headers > 1) and self.cs.register.has_field('HSFS', 'FCYCLE'):
+                self.check_hardware_sequencing()
+                self.spi_reg_write(self.fdata12.offset, 0x00000000)
+                self.spi_reg_write(self.fdata13.offset, 0x00000000)
+                self.spi_reg_write(self.fdata14.offset, 0x00000000)
+                self.spi_reg_write(self.fdata15.offset, 0x00000000)
+                if not self._send_spi_cycle(HSFCTL_SFDP_CYCLE, 0x3F, 0):
+                    self.logger.log_error('SPI SFDP signature cycle failed')
+                    continue
+                pTable_offset_list = []
+                pTable_length = []
+                # Calculate which fdata_offset registers to read, based on number of parameter headers present
+                for i in range(1, num_of_param_headers):
+                    self.logger.log(f'  * Parameter Header:{i + 1:d}')
+                    data_reg_1 = f'self.fdata{str(2 + (2 * i))}.offset'
+                    data_reg_2 = f'self.fdata{str(2 + (2 * i) + 1)}.offset'
+                    data_dword_1 = self.spi_reg_read(eval(data_reg_1))
+                    data_dword_2 = self.spi_reg_read(eval(data_reg_2))
+                    id_manuf = (data_dword_2 & 0xFF000000) >> 16 | (data_dword_1 & 0xFF)
+                    param_minor_version = (data_dword_1 >> 8) & 0xFF
+                    param_major_version = (data_dword_1 >> 16) & 0xFF
+                    param_length = (data_dword_1 >> 24) & 0xFF
+                    param_table_pointer = (data_dword_2 & 0x00FFFFFF)
+                    self.logger.log(f'    ** Parameter version number:{param_major_version}.{param_minor_version}')
+                    self.logger.log(f'    ** Parameter length in double words: {hex(param_length)}')
+                    self.logger.log(f'    ** Parameter ID: {hex(id_manuf)}')
+                    self.logger.log(f'    ** Parameter Table Pointer(byte address): {hex(param_table_pointer)} ')
+                    pTable_offset_list.append(param_table_pointer)
+                    pTable_length.append(param_length)
+            offset = 0x0000 | (component << 14)
+            # Set offset to read 1st Parameter table ( JEDEC Basic Flash Parameter Table) content and Parse it
+            offset = offset | 0x2000
+            self.logger.log("                                ")
+            self.logger.log("  * 1'st Parameter Table Content ")
+            for count in range(1, param1_length + 1):
+                sfdp_data = self.ptmesg(offset)
+                offset += 4
+                self.cs.register.print(f'DWORD{count}', sfdp_data)
+        return ret
+
+    #
+    # SPI JEDEC ID operations
+    #
+
+    def get_SPI_JEDEC_ID(self) -> int:
+
+        if self.hsfs.has_field('FCYCLE'):
+            self.check_hardware_sequencing()
+
+            if not self._send_spi_cycle(HSFCTL_JEDEC_CYCLE, 4, 0):
+                self.logger.log_error('SPI JEDEC ID cycle failed')
+            id = self.spi_reg_read(self.fdata0.offset)
+        else:
+            return False
+
+        return ((id & 0xFF) << 16) | (id & 0xFF00) | ((id >> 16) & 0xFF)
+
+    def get_SPI_JEDEC_ID_decoded(self) -> Tuple[int, str, str]:
+
+        jedec_id = self.get_SPI_JEDEC_ID()
+        if jedec_id is False:
+            return (False, '', '')
+        manu = JEDEC_ID.MANUFACTURER.get((jedec_id >> 16) & 0xff, 'Unknown')
+        part = JEDEC_ID.DEVICE.get(jedec_id, 'Unknown')
+
+        return (jedec_id, manu, part)
+
+
+haldata = {"arch": [hal_base.HALBase.MfgIds.Intel], 'name': {'spi': "SPI"}}

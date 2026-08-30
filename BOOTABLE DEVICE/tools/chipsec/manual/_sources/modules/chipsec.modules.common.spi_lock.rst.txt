@@ -1,0 +1,7 @@
+chipsec.modules.common.spi\_lock module
+=======================================
+
+.. automodule:: chipsec.modules.common.spi_lock
+   
+   
+   

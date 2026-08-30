@@ -1,0 +1,12 @@
+chipsec.helper.efi package
+==========================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.helper.efi.efihelper
+
+.. automodule:: chipsec.helper.efi
+   
+   
+   

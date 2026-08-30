@@ -1,0 +1,7 @@
+chipsec.modules.bdw package
+===========================
+
+.. automodule:: chipsec.modules.bdw
+   
+   
+   

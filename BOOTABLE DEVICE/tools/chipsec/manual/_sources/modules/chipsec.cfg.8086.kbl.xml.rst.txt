@@ -1,0 +1,6 @@
+kbl
+=======
+
+Path: chipsec\\cfg\\8086\\kbl.xml
+
+ XML configuration file for Ice Lake 

@@ -1,0 +1,13 @@
+chipsec.modules.common.uefi package
+===================================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.modules.common.uefi.access_uefispec
+   chipsec.modules.common.uefi.s3bootscript
+
+.. automodule:: chipsec.modules.common.uefi
+   
+   
+   

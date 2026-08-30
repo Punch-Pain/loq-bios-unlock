@@ -1,0 +1,7 @@
+chipsec.modules.common.cet module
+=================================
+
+.. automodule:: chipsec.modules.common.cet
+   
+   
+   

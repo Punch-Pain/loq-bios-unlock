@@ -1,0 +1,12 @@
+chipsec.modules.common.secureboot package
+=========================================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.modules.common.secureboot.variables
+
+.. automodule:: chipsec.modules.common.secureboot
+   
+   
+   

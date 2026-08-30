@@ -1,0 +1,12 @@
+chipsec.fuzzing package
+=======================
+
+.. toctree::
+   :maxdepth: 10
+
+   chipsec.fuzzing.primitives
+
+.. automodule:: chipsec.fuzzing
+   
+   
+   

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<configuration>
+    <registers>
+    <!-- SPI Interface Controller -->
+      <register name="SPIBAR0" type="pcicfg" offset="0x10" size="4" desc="SPI_BAR0">
+        <field name="MEMBAR" bit="12" size="20" desc="Memory Bar" />
+        <field name="MEMSIZE" bit="4" size="8" desc="Memory Size" />
+        <field name="PREFETCH" bit="3" size="1" desc="Prefetchable" />
+        <field name="TYP" bit="1" size="2" desc="Type" />
+        <field name="MEMSPACE" bit="0" size="1" desc="Memory Space Indicator" />
+      </register>
+      <register name="BC" type="pcicfg" offset="0xDC" size="4" desc="BIOS Control">
+        <field name="BIOSWE"   bit="0" size="1" desc="BIOS Write Enable" />
+        <field name="BLE"      bit="1" size="1" desc="BIOS Lock Enable" />
+        <field name="SRC"      bit="2" size="2" desc="SPI Read Configuration" />
+        <field name="TSS"      bit="4" size="1" desc="Top Swap Status" />
+        <field name="SMM_BWP"  bit="5" size="1" desc="SMM BIOS Write Protection" />
+        <field name="BBS"      bit="6" size="1" desc="Boot BIOS Strap" />
+        <field name="BILD"     bit="7" size="1" desc="BIOS Interface Lock Down"/>
+        <field name="OSFH"     bit="9" size="1" desc="OS Function Hide"/>
+        <field name="SPI_ASYNC_SS" bit="10" size="1" desc="Asynchronous SMI Status "/>
+        <field name="ASE_BWP"  bit="11" size="1" desc="Async SMI Enable for BIOS Write Protection"/>
+      </register>
+
+    </registers>
+
+  <!-- #################################### -->
+  <!--                                      -->
+  <!-- 'Controls'                           -->
+  <!--                                      -->
+  <!-- #################################### -->
+    <controls>
+        <control name="SmmBiosWriteProtection" register="BC"    field="SMM_BWP"  desc="SMM BIOS Write Protection"/>
+        <control name="BiosLockEnable"         register="BC"    field="BLE"      desc="BIOS Lock Enable"/>
+        <control name="BiosWriteEnable"        register="BC"    field="BIOSWE"   desc="BIOS Write Enable"/>
+        <control name="TopSwapStatus"          register="BC"    field="TSS"      desc="Top Swap Status"/>
+        <control name="BiosInterfaceLockDown"  register="BC"   field="BILD"     desc="BIOS Interface Lock-Down"/>
+    </controls>
+
+</configuration>

@@ -1,0 +1,7 @@
+chipsec.modules.tools.vmm.ept\_finder module
+============================================
+
+.. automodule:: chipsec.modules.tools.vmm.ept_finder
+   
+   
+   

@@ -1,0 +1,7 @@
+chipsec.modules.tools.vmm.hv.define module
+==========================================
+
+.. automodule:: chipsec.modules.tools.vmm.hv.define
+   
+   
+   

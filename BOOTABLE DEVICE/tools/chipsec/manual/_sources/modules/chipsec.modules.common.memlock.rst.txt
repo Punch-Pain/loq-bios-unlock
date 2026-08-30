@@ -1,0 +1,7 @@
+chipsec.modules.common.memlock module
+=====================================
+
+.. automodule:: chipsec.modules.common.memlock
+   
+   
+   

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Configuration Files &#8212; CHIPSEC  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=8eb72a20" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    
+    <link rel="icon" href="../_static/chipsec_favicon.jpg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="../modules/chipsec.cfg.8086.html" />
+    <link rel="prev" title="chipsec.fuzzing.primitives module" href="../modules/chipsec.fuzzing.primitives.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../modules/chipsec.cfg.8086.html" title="&lt;no title&gt;"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../modules/chipsec.fuzzing.primitives.html" title="chipsec.fuzzing.primitives module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CHIPSEC  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Configuration Files</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="configuration-files">
+<span id="id1"></span><h1>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading">¶</a></h1>
+<p>Provide a human readable abstraction for registers in the system</p>
+<blockquote>
+<div><table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">chipsec/cfg/8086</span></code></p></td>
+<td><p>platform specific configuration xml files</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chipsec/cfg/8086/common.xml</span></code></p></td>
+<td><p>common configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">chipsec/cfg/8086/&lt;platform&gt;.xml</span></code></p></td>
+<td><p>configuration for a specific &lt;platform&gt;</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Broken into common and platform specific configuration files.</p>
+<p>Used to define controls, registers and bit fields.</p>
+<p>Common files always loaded first so the platform files can override values.</p>
+<p>Correct platform configuration files loaded based off of platform detection.</p>
+<section id="configuration-file-example">
+<h2>Configuration File Example<a class="headerlink" href="#configuration-file-example" title="Link to this heading">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;mmio&gt;</span>
+<span class="nt">&lt;bar</span><span class="w"> </span><span class="na">name=</span><span class="s">"SPIBAR"</span><span class="w"> </span><span class="na">bus=</span><span class="s">"0"</span><span class="w"> </span><span class="na">dev=</span><span class="s">"0x1F"</span><span class="w"> </span><span class="na">fun=</span><span class="s">"5"</span><span class="w"> </span><span class="na">reg=</span><span class="s">"0x10"</span><span class="w"> </span><span class="na">width=</span><span class="s">"4"</span><span class="w"> </span><span class="na">mask=</span><span class="s">"0xFFFFF000"</span><span class="w"> </span><span class="na">size=</span><span class="s">"0x1000"</span><span class="w"> </span><span class="na">desc=</span><span class="s">"SPI Controller Register Range"</span><span class="w"> </span><span class="na">offset=</span><span class="s">"0x0"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/mmio&gt;</span>
+<span class="nt">&lt;registers&gt;</span>
+<span class="nt">&lt;register</span><span class="w"> </span><span class="na">name=</span><span class="s">"BC"</span><span class="w"> </span><span class="na">type=</span><span class="s">"pcicfg"</span><span class="w"> </span><span class="na">bus=</span><span class="s">"0"</span><span class="w"> </span><span class="na">dev=</span><span class="s">"0x1F"</span><span class="w"> </span><span class="na">fun=</span><span class="s">"5"</span><span class="w"> </span><span class="na">offset=</span><span class="s">"0xDC"</span><span class="w"> </span><span class="na">size=</span><span class="s">"4"</span><span class="w"> </span><span class="na">desc=</span><span class="s">"BIOS Control"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"BIOSWE"</span><span class="w"> </span><span class="na">bit=</span><span class="s">"0"</span><span class="w"> </span><span class="na">size=</span><span class="s">"1"</span><span class="w"> </span><span class="na">desc=</span><span class="s">"BIOS Write Enable"</span><span class="w"> </span><span class="nt">/&gt;</span>
+…
+<span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"BILD"</span><span class="w"> </span><span class="na">bit=</span><span class="s">"7"</span><span class="w"> </span><span class="na">size=</span><span class="s">"1"</span><span class="w"> </span><span class="na">desc=</span><span class="s">"BIOS Interface Lock Down"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/register&gt;</span>
+<span class="nt">&lt;/registers&gt;</span>
+<span class="nt">&lt;controls&gt;</span>
+<span class="nt">&lt;control</span><span class="w"> </span><span class="na">name=</span><span class="s">"BiosInterfaceLockDown"</span><span class="w"> </span><span class="na">register=</span><span class="s">"BC"</span><span class="w"> </span><span class="na">field=</span><span class="s">"BILD"</span><span class="w"> </span><span class="na">desc=</span><span class="s">"BIOS Interface Lock-Down"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/controls&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="list-of-cfg-components">
+<h2>List of Cfg components<a class="headerlink" href="#list-of-cfg-components" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.arl.xml.html">arl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pch_3xxlp_orig.xmls.html">pch_3xxlp_orig.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.kbl_orig.xmls.html">kbl_orig.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pmc_i440fx.xml.html">pmc_i440fx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.q35.xml.html">q35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.tglu.xml.html">tglu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.kbl.xml.html">kbl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.lnl.xml.html">lnl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pch_7xxOP.xml.html">pch_7xxOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pch_6xxp.xml.html">pch_6xxp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pch_7xx.xml.html">pch_7xx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.adl.xml.html">adl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pch_8xx.xml.html">pch_8xx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.mtl.xml.html">mtl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.rpl.xml.html">rpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.arlh.xml.html">arlh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.cfg.8086.pch_5xxlp.xml.html">pch_5xxlp</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/chipsec_logo_transparent.png" alt="Logo of CHIPSEC"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Start here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start/Contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/Download.html">Download CHIPSEC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/InstallLinux.html">Linux Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/InstallWinDAL.html">DAL Windows Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/InstallWindows.html">Windows Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/USBwithUEFIShell.html">Building a Bootable USB drive with UEFI Shell (x64)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using CHIPSEC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Interpreting-Results.html">Interpreting results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Running-Chipsec.html">Running CHIPSEC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Windows-Exceptions.html">Windows Exception Errors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture and Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Architecture-Overview.html">Architecture Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developing.html">Writing Your Own Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS-Helpers-and-Drivers.html">OS Helpers and Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Platform-Detection.html">Methods for Platform Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sample-Module-Code.html">Sample module code template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sample-Util-Command.html">Util Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vulnerabilities-and-CHIPSEC-Modules.html">CHIPSEC Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html">Python Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#python-coding-style-guide">Python Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#f-strings">f-Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#type-hints">Type Hints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#underscores-in-numeric-literals">Underscores in Numeric Literals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#walrus-operator">Walrus Operator (:=)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#deprecate-distutils-module-support">Deprecate distutils module support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html">Sphinx Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html#generating-documentation">Generating Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html#references">References</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../modules/chipsec.fuzzing.primitives.html"
+                          title="previous chapter">chipsec.fuzzing.primitives module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../modules/chipsec.cfg.8086.html"
+                          title="next chapter">&lt;no title&gt;</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../modules/chipsec.cfg.8086.html" title="&lt;no title&gt;"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../modules/chipsec.fuzzing.primitives.html" title="chipsec.fuzzing.primitives module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CHIPSEC  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Configuration Files</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Aug 27, 2026.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+chipsec.modules.common.spi\_access module
+=========================================
+
+.. automodule:: chipsec.modules.common.spi_access
+   
+   
+   

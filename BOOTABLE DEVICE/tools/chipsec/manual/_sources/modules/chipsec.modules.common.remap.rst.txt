@@ -1,0 +1,7 @@
+chipsec.modules.common.remap module
+===================================
+
+.. automodule:: chipsec.modules.common.remap
+   
+   
+   

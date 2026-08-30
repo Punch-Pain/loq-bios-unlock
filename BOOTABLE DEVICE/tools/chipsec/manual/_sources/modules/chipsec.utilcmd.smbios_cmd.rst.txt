@@ -1,0 +1,7 @@
+chipsec.utilcmd.smbios\_cmd module
+==================================
+
+.. automodule:: chipsec.utilcmd.smbios_cmd
+   
+   
+   

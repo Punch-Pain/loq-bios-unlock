@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Windows Installation &#8212; CHIPSEC  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=8eb72a20" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    
+    <link rel="icon" href="../_static/chipsec_favicon.jpg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Building a Bootable USB drive with UEFI Shell (x64)" href="USBwithUEFIShell.html" />
+    <link rel="prev" title="DAL Windows Installation" href="InstallWinDAL.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="USBwithUEFIShell.html" title="Building a Bootable USB drive with UEFI Shell (x64)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="InstallWinDAL.html" title="DAL Windows Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CHIPSEC  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Windows Installation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="windows-installation">
+<h1>Windows Installation<a class="headerlink" href="#windows-installation" title="Link to this heading">¶</a></h1>
+<div class="line-block">
+<div class="line">CHIPSEC supports the following versions:</div>
+<div class="line">Windows 8, 8.1, 10, 11 - x86 and AMD64</div>
+<div class="line">Windows Server 2012, 2016, 2019, 2022, 2025 - x86 and AMD64</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CHIPSEC has removed support for the RWEverything (<a class="reference external" href="https://rweverything.com/">https://rweverything.com/</a>) driver due to PCI configuration space access issues.</p>
+</div>
+<section id="install-chipsec-dependencies">
+<h2>Install CHIPSEC Dependencies<a class="headerlink" href="#install-chipsec-dependencies" title="Link to this heading">¶</a></h2>
+<p>Python 3.8 or higher (<a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CHIPSEC has deprecated support for Python2 since June 2020</p>
+</div>
+<p>To install requirements:</p>
+<blockquote>
+<div><p><cite>pip install -r windows_requirements.txt</cite></p>
+</div></blockquote>
+<p>which includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/pywin32/#files">pywin32</a>: for Windows API support (<cite>pip install pywin32</cite>)</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/setuptools/">setuptools</a> (<cite>pip install setuptools</cite>)</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/WConio2/">WConio2</a>: Optional. For colored console output (<cite>pip install Wconio2</cite>)</p></li>
+</ul>
+</div></blockquote>
+<p>To compile the driver:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk">Visual Studio and WDK</a>: for building the driver.</p>
+<p>For best results use the latest available (<strong>VS2022 + SDK/WDK 11</strong> or <strong>VS2019 + SDK/WDK 10 or 11</strong>)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to install compatible VS/SDK/WDK versions and the spectre mitigation packages</p>
+</div>
+</div></blockquote>
+<p>To clone the repo:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://git-scm.com/">git</a>: open source distributed version control system</p>
+</div></blockquote>
+</section>
+<section id="building">
+<h2>Building<a class="headerlink" href="#building" title="Link to this heading">¶</a></h2>
+<p>Clone CHIPSEC source</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/chipsec/chipsec.git</span></code></p>
+</div></blockquote>
+<p>Build the Driver and Compression Tools</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build_ext</span> <span class="pre">-i</span></code></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If build errors are with signing are encountered, try running as Administrator
+The .vcxproj file points to the latest SDK, if this is incompatible with the WDK, change the configuration to a compatible SDK within the project properties</p>
+</div>
+</section>
+<section id="turn-off-kernel-driver-signature-checks">
+<h2>Turn off kernel driver signature checks<a class="headerlink" href="#turn-off-kernel-driver-signature-checks" title="Link to this heading">¶</a></h2>
+<p><strong>Enable boot menu</strong></p>
+<p>In CMD shell:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">bcdedit</span> <span class="pre">/set</span> <span class="pre">{bootmgr}</span> <span class="pre">displaybootmenu</span> <span class="pre">yes</span></code></p>
+</div></blockquote>
+<p><strong>With Secure Boot enabled:</strong></p>
+<p>Method 1:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>In CMD shell: <code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">/r</span> <span class="pre">/t</span> <span class="pre">0</span> <span class="pre">/o</span></code> or Start button -&gt; Power icon -&gt; SHIFT key + Restart</p></li>
+<li><p>Navigate: Troubleshooting -&gt; Advanced Settings -&gt; Startup Settings -&gt; Reboot</p></li>
+<li><p>After reset choose F7 or 7 “Disable driver signature checks”</p></li>
+</ul>
+</div></blockquote>
+<p>Method 2:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Disable Secure Boot in the BIOS setup screen then disable driver signature checks as with Secure Boot disabled</p></li>
+</ul>
+</div></blockquote>
+<p><strong>With Secure Boot disabled:</strong></p>
+<p>Method 1:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Boot in Test mode (allows self-signed certificates)</dt><dd><ul>
+<li><p>Start CMD.EXE as Adminstrator <code class="docutils literal notranslate"><span class="pre">BcdEdit</span> <span class="pre">/set</span> <span class="pre">TESTSIGNING</span> <span class="pre">ON</span></code></p></li>
+<li><p>Reboot</p></li>
+<li><dl class="simple">
+<dt>If this doesn’t work, run these additional commands:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">BcdEdit</span> <span class="pre">/set</span> <span class="pre">noIntegrityChecks</span> <span class="pre">ON</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BcdEdit</span> <span class="pre">/set</span> <span class="pre">loadoptions</span> <span class="pre">DDISABLE_INTEGRITY_CHECKS</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Method 2:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Press F8 when booting Windows and choose “No driver signatures enforcement” option to turn off driver signature checks</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="alternate-build-methods">
+<h2>Alternate Build Methods<a class="headerlink" href="#alternate-build-methods" title="Link to this heading">¶</a></h2>
+<p><strong>Build CHIPSEC kernel driver with Visual Studio</strong></p>
+<p>Method 1:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open the Visual Studio project file (drivers/windows/chipsec_hlpr.vcxproj) using Visual Studio</p></li>
+<li><p>Select Platform and configuration (X86 or x64, Release)</p></li>
+<li><p>Go to Build -&gt; Build Solution</p></li>
+</ul>
+</div></blockquote>
+<p>Method 2:</p>
+<blockquote>
+<div><ul>
+<li><p>Open a VS developer command prompt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">cd</span> <span class="pre">&lt;CHIPSEC_ROOT_DIR&gt;\drivers\windows</span></code></p></li>
+<li><dl>
+<dt>Build driver using msbuild command:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">msbuild</span> <span class="pre">/p:Platform=x64</span></code></p></li>
+</ul>
+<p>or</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">msbuild</span> <span class="pre">/p:Platform=x32</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>If build process is completed without any errors, the driver binary will be moved into the chipsec helper directory:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">&lt;CHIPSEC_ROOT_DIR&gt;\chipsec\helper\windows\windows_amd64</span> <span class="pre">(or</span> <span class="pre">i386)</span></code></p>
+</div></blockquote>
+<p><strong>Build the compression tools</strong></p>
+<p>Method:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Navigate to the chipsec_toolscompression directory</p></li>
+<li><p>Run <cite>python setup.py build</cite></p></li>
+<li><p>Copy the <cite>EfiCompressor.cp&lt;pyver&gt;-win_&lt;arch&gt;.pyd</cite> file from  build/lib.win-&lt;arch&gt;-&lt;pyver&gt; to the root chipsec directory</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Alternate Method to load CHIPSEC service/driver</strong></p>
+<p>To create and start CHIPSEC service</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sc</span> <span class="pre">create</span> <span class="pre">chipsec</span> <span class="pre">binpath=&quot;&lt;PATH_TO_SYS&gt;&quot;</span> <span class="pre">type=</span> <span class="pre">kernel</span> <span class="pre">DisplayName=&quot;Chipsec</span> <span class="pre">driver&quot;</span></code>
+<code class="docutils literal notranslate"><span class="pre">sc</span> <span class="pre">start</span> <span class="pre">chipsec</span></code></p>
+</div></blockquote>
+<p>When finished running CHIPSEC stop/delete service:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sc</span> <span class="pre">stop</span> <span class="pre">chipsec</span></code>
+<code class="docutils literal notranslate"><span class="pre">sc</span> <span class="pre">delete</span> <span class="pre">chipsec</span></code></p>
+</div></blockquote>
+</section>
+<section id="windows-pci-filter-driver">
+<h2>Windows PCI Filter Driver<a class="headerlink" href="#windows-pci-filter-driver" title="Link to this heading">¶</a></h2>
+<p><strong>Filter driver background</strong></p>
+<p>Since July 31, 2020 Microsoft has released Windows 2020-KB4568831 (OS Build 19041.423) Preview. Microsoft recommends to not access the PCI configuration space using the legacy API, as it might result in the Windows BSOD (Blue Screen of Death). The BSOD trigger condition is “Windows version &gt;= (OS Build 19041.423) &amp;&amp; Secure Devices (SDEV) ACPI table &amp;&amp; VBS enabled”. Therefore, CHIPSEC now includes a PCI filter driver which supplements the original CHIPSEC Windows Driver to access the PCI configuration space. A system requires the PCI Filter Driver if the conditions above are met.</p>
+<p>Windows devices that receive the 2020-KB4568831 (OS Build 19041.423) Preview or later updates restrict how processes
+can access peripheral component interconnect (PCI) device configuration space if a Secure Devices (SDEV) ACPI table is present
+and Virtualization-based Security (VBS) is running. Processes that have to access PCI device configuration space must use
+officially supported mechanisms.The SDEV table defines secure hardware devices in ACPI. VBS is enabled on a system if security
+features that use virtualization are enabled. Some examples of these features are Hypervisor Code Integrity or Windows Defender
+Credential Guard. The new restrictions are designed to prevent malicious processes from modifying the configuration space of
+secure devices. Device drivers or other system processes must not try to manipulate the configuration space of any PCI devices,
+except by using the Microsoft-provided bus interfaces or IRP. If a process tries to access PCI configuration space in an unsupported
+manner (such as by parsing MCFG table and mapping configuration space to virtual memory), Windows denies access to the process and
+generates a Stop error. For more detail please refer below link: <a class="reference external" href="https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/stop-error-lenovo-thinkpad-kb4568831-uefi">https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/stop-error-lenovo-thinkpad-kb4568831-uefi</a></p>
+<p><strong>Filter Driver and Main Helper Driver Architecture</strong></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/driver_architecture.png"><img alt="CHIPSEC Main &amp; Filter Driver Architecture" height="1000" src="../_images/driver_architecture.png" width="1100" />
+</a>
+<figcaption>
+<p><span class="caption-text">CHIPSEC Main &amp; Filter Driver Architecture</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="install-pci-filter-driver">
+<h2>Install PCI Filter Driver<a class="headerlink" href="#install-pci-filter-driver" title="Link to this heading">¶</a></h2>
+<p><strong>1. Locate the Filter Driver Files: chipsec/helper/windows/windows_amd64/</strong></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/driver_files.png"><img alt="Check The Filter Driver Files" height="340" src="../_images/driver_files.png" width="920" />
+</a>
+</figure>
+<p><strong>2. Update The PCI Device Driver From Device Manager</strong></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/update_driver.png"><img alt="Update The PCI Device Driver" height="630" src="../_images/update_driver.png" width="920" />
+</a>
+</figure>
+<p><strong>3. Browse The PCI Filter Driver</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/browse_driver.png"><img alt="Browse The PCI Filter Driver" height="630" src="../_images/browse_driver.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>4. Manually Select The PCI Bus Filter Driver</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/pickup_driver.png"><img alt="Pickup The PCI Filter Driver" height="630" src="../_images/pickup_driver.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>5. Install The Filter Driver From Disk</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/install_driver_from_disk.png"><img alt="Install The Filter Driver From Disk" height="650" src="../_images/install_driver_from_disk.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>6. Installing The Filter Driver</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/installing_driver.png"><img alt="Installing The Filter Driver" height="650" src="../_images/installing_driver.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>7. Finish The Filter Driver Installing</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/installing_finished.png"><img alt="Finish The Filter Driver Installing" height="650" src="../_images/installing_finished.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>8. Restart Computer</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/restart.png"><img alt="Restart Computer" height="420" src="../_images/restart.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>9. Check The Installed Device Driver From Device Manager</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/check_installed_driver.png"><img alt="Check The Installed Device Driver" height="650" src="../_images/check_installed_driver.png" width="920" />
+</a>
+</figure>
+</div></blockquote>
+<p><strong>10. Check The Driver Device Info</strong></p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/driver_dev_info.png"><img alt="Check The Driver Device Info" height="700" src="../_images/driver_dev_info.png" width="700" />
+</a>
+</figure>
+</div></blockquote>
+</section>
+<section id="filter-driver-access-pci-config-space-test">
+<h2>Filter Driver Access PCI Config Space Test<a class="headerlink" href="#filter-driver-access-pci-config-space-test" title="Link to this heading">¶</a></h2>
+<p><strong>Dump PCI Config Test</strong></p>
+<blockquote>
+<div><figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/pci_dump_test.png"><img alt="Dump PCI Config" height="900" src="../_images/pci_dump_test.png" width="950" />
+</a>
+<figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">chipsec_util.py</span> <span class="pre">pci</span> <span class="pre">dump</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">0</span></code></span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<dl>
+<dt><strong>PCI Enumeration Test</strong></dt><dd><figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/pci_enum_test.png"><img alt="PCI Enumeration Test" height="700" src="../_images/pci_enum_test.png" width="850" />
+</a>
+<figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">chipsec_util.py</span> <span class="pre">pci</span> <span class="pre">enumerate</span></code></span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/chipsec_logo_transparent.png" alt="Logo of CHIPSEC"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Start here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start/Contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/Download.html">Download CHIPSEC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="InstallLinux.html">Linux Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstallWinDAL.html">DAL Windows Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Windows Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USBwithUEFIShell.html">Building a Bootable USB drive with UEFI Shell (x64)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using CHIPSEC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Interpreting-Results.html">Interpreting results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Running-Chipsec.html">Running CHIPSEC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Windows-Exceptions.html">Windows Exception Errors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture and Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/Architecture-Overview.html">Architecture Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Configuration-Files.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Developing.html">Writing Your Own Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/OS-Helpers-and-Drivers.html">OS Helpers and Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Platform-Detection.html">Methods for Platform Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Sample-Module-Code.html">Sample module code template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Sample-Util-Command.html">Util Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Vulnerabilities-and-CHIPSEC-Modules.html">CHIPSEC Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html">Python Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#python-coding-style-guide">Python Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#f-strings">f-Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#type-hints">Type Hints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#underscores-in-numeric-literals">Underscores in Numeric Literals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#walrus-operator">Walrus Operator (:=)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#deprecate-distutils-module-support">Deprecate distutils module support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html">Sphinx Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html#generating-documentation">Generating Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html#references">References</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="InstallWinDAL.html"
+                          title="previous chapter">DAL Windows Installation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="USBwithUEFIShell.html"
+                          title="next chapter">Building a Bootable USB drive with UEFI Shell (x64)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="USBwithUEFIShell.html" title="Building a Bootable USB drive with UEFI Shell (x64)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="InstallWinDAL.html" title="DAL Windows Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CHIPSEC  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Windows Installation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Aug 27, 2026.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>

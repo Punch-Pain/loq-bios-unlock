@@ -1,15 +1,4 @@
-# Large third-party tools (re-downloadable)
-BOOTABLE DEVICE/tools/chipsec/
-BOOTABLE DEVICE/tools/chipsec.zip
-BOOTABLE DEVICE/tools/UEFITool_NE_win64.zip
-BOOTABLE DEVICE/tools/UEFIExtract_NE_win64.zip
-BOOTABLE DEVICE/tools/ifrextract_win.zip
-BOOTABLE DEVICE/tools/ifrextract-rs.zip
-BOOTABLE DEVICE/tools/7za920.zip
-BOOTABLE DEVICE/tools/UEFITool_NE/
-BOOTABLE DEVICE/tools/UEFIExtract_NE/
-
-# ROM dump (too many nested dirs, long paths)
+# ROM dump (nested dirs exceed Windows MAX_PATH)
 BOOTABLE DEVICE/tools/signed_SE.ROM.dump/
 
 # OS junk

@@ -1,0 +1,7 @@
+chipsec.modules.tools.uefi.reputation module
+============================================
+
+.. automodule:: chipsec.modules.tools.uefi.reputation
+   
+   
+   

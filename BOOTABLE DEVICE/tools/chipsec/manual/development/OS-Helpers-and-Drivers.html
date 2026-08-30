@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OS Helpers and Drivers &#8212; CHIPSEC  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=8eb72a20" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    
+    <link rel="icon" href="../_static/chipsec_favicon.jpg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="chipsec.helper package" href="../modules/chipsec.helper.html" />
+    <link rel="prev" title="Writing Your Own Modules" href="Developing.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../modules/chipsec.helper.html" title="chipsec.helper package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Developing.html" title="Writing Your Own Modules"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CHIPSEC  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OS Helpers and Drivers</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="os-helpers-and-drivers">
+<span id="id1"></span><h1>OS Helpers and Drivers<a class="headerlink" href="#os-helpers-and-drivers" title="Link to this heading">¶</a></h1>
+<p>Provide common interfaces to interact with system drivers/commands</p>
+<section id="mostly-invoked-by-hal-modules">
+<h2>Mostly invoked by HAL modules<a class="headerlink" href="#mostly-invoked-by-hal-modules" title="Link to this heading">¶</a></h2>
+<p>Directly invoking helpers from modules should be minimized</p>
+</section>
+<section id="helpers-import-from-basehelper">
+<h2>Helpers import from BaseHelper<a class="headerlink" href="#helpers-import-from-basehelper" title="Link to this heading">¶</a></h2>
+<p>Override applicable functions – default is to generate exception</p>
+<p>I/O, PCI, MSR, UEFI Variables, etc.</p>
+</section>
+<section id="create-a-new-helper">
+<h2>Create a New Helper<a class="headerlink" href="#create-a-new-helper" title="Link to this heading">¶</a></h2>
+<p>Helper needs to be added into the helper folder with a folder structure like: <code class="docutils literal notranslate"><span class="pre">chipsec/helper/&lt;type&gt;/&lt;type&gt;helper.py</span></code></p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h3>
+<p>The new helper should be added to <code class="docutils literal notranslate"><span class="pre">chipsec/helper/new/newhelper.py</span></code> and should import from Helper Base Class</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">chipsec.helper.basehelper</span><span class="w"> </span><span class="kn">import</span> <span class="n">Helper</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NewHelper</span><span class="p">(</span><span class="n">Helper</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NewHelper</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"NewHelper"</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="helper-components">
+<h2>Helper components<a class="headerlink" href="#helper-components" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/chipsec.helper.html">List of Helper components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.dal.html">chipsec.helper.dal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.efi.html">chipsec.helper.efi package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.linux.html">chipsec.helper.linux package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.linuxnative.html">chipsec.helper.linuxnative package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.record.html">chipsec.helper.record package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.replay.html">chipsec.helper.replay package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.windows.html">chipsec.helper.windows package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.basehelper.html">chipsec.helper.basehelper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.nonehelper.html">chipsec.helper.nonehelper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/chipsec.helper.oshelper.html">chipsec.helper.oshelper module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/chipsec_logo_transparent.png" alt="Logo of CHIPSEC"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Start here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start/Contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/Download.html">Download CHIPSEC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/InstallLinux.html">Linux Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/InstallWinDAL.html">DAL Windows Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/InstallWindows.html">Windows Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/USBwithUEFIShell.html">Building a Bootable USB drive with UEFI Shell (x64)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using CHIPSEC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Interpreting-Results.html">Interpreting results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Running-Chipsec.html">Running CHIPSEC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/Windows-Exceptions.html">Windows Exception Errors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture and Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Architecture-Overview.html">Architecture Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration-Files.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developing.html">Writing Your Own Modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OS Helpers and Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Platform-Detection.html">Methods for Platform Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sample-Module-Code.html">Sample module code template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sample-Util-Command.html">Util Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vulnerabilities-and-CHIPSEC-Modules.html">CHIPSEC Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html">Python Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#python-coding-style-guide">Python Coding Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#f-strings">f-Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#type-hints">Type Hints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#underscores-in-numeric-literals">Underscores in Numeric Literals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#walrus-operator">Walrus Operator (:=)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/code-style-python.html#deprecate-distutils-module-support">Deprecate distutils module support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html">Sphinx Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html#generating-documentation">Generating Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/sphinx.html#references">References</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="Developing.html"
+                          title="previous chapter">Writing Your Own Modules</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../modules/chipsec.helper.html"
+                          title="next chapter">chipsec.helper package</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../modules/chipsec.helper.html" title="chipsec.helper package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Developing.html" title="Writing Your Own Modules"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CHIPSEC  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OS Helpers and Drivers</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Aug 27, 2026.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>

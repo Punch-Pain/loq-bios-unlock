@@ -1,0 +1,7 @@
+chipsec.modules.common.smrr module
+==================================
+
+.. automodule:: chipsec.modules.common.smrr
+   
+   
+   

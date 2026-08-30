@@ -1,0 +1,7 @@
+chipsec.modules.tools.vmm.hypercallfuzz module
+==============================================
+
+.. automodule:: chipsec.modules.tools.vmm.hypercallfuzz
+   
+   
+   

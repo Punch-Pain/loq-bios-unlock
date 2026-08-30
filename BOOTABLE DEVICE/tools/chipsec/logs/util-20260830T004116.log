@@ -1,0 +1,11 @@
+
+################################################################
+##                                                            ##
+##  CHIPSEC: Platform Hardware Security Assessment Framework  ##
+##                                                            ##
+################################################################
+[CHIPSEC] Version  : 2.0.8
+[CHIPSEC] Start    : 2026-08-30 00:41:16
+[CHIPSEC] Arguments: spi dump D:\SECN22WW_dump.bin
+
+ERROR: Message: "CHIPSEC Windows Driver Not Found"
