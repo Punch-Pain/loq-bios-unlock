@@ -1,0 +1,11 @@
+flowchart LR
+    A["Combined Load<br/>CPU + dGPU"] --> R["Shared Platform Psys Rail<br/>(CPU + dGPU + rest)"]
+    G["GPU-only Load<br/>CPU idle"] --> R
+    R --> C{"Platform PL2 / Psys ceiling<br/>= new PL1/PL2 for Package RAPL<br/>(observed 360 / 395 W)"}
+    C -->|"CPU claims turbo<br/>up to ~130 W"| D["Residual budget<br/>left for dGPU"]
+    D -->|"too small under<br/>combined load"| E["dGPU cannot ramp<br/>to max clock / power"]
+    C -->|"Psys nears PMax"| F["PL3 / Response Mode<br/>rapid power reduction"]
+    F --> E
+    G -->|"full budget to dGPU"| H["dGPU ramps fine<br/>(symptom absent)"]
+    E -.->|"root cause lives in:"| I["Setup: Platform PL1/2, PL3,<br/>Response Mode, EC Turbo,<br/>PSYS PMax (Form 0x100F/0x1111/0x13B7)"]
+    E -.->|"or in:"| J["dGPU VBIOS TGP / board-power<br/>(loqeintel1501) — flash = RISKY"]

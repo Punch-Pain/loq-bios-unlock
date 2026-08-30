@@ -1,0 +1,30 @@
+flowchart TD
+    F1["Advanced<br/>(0x1)"]
+    F100E["Power & Performance<br/>(0x100E)<br/>• Intel(R) Speed Shift Technology Interrupt Control"]
+    F100F["CPU - Power Mgmt Control<br/>(0x100F)<br/>• Boot performance mode<br/>• Intel(R) SpeedStep(tm)<br/>• Race To Halt (RTH)<br/>• Intel(R) Speed Shift Technology<br/>• Intel(R) Turbo Boost Max Technology 3.0<br/>• Per Core P State OS control mode"]
+    F1111["Power Limit 3 Settings<br/>(0x1111)<br/>• Power Limit 3 Override <br/>• Power Limit 3<br/>• Power Limit 3 Time Window<br/>• Power Limit 3 Duty Cycle<br/>• Response Mode<br/>• Power Limit 3 Lock"]
+    F13B7["CPU VR Settings<br/>(0x13B7)<br/>• PSYS Slope<br/>• PSYS Offset<br/>•   PSYS Prefix<br/>• PSYS PMax Power<br/>• Min Voltage Override<br/>•   Min Voltage Runtime"]
+    F102A["Graphics Configuration<br/>(0x102A)<br/>• Graphics Turbo IMON Current<br/>• Skip Scaning of External Gfx Card<br/>• Primary Display<br/>• HG Support<br/>• Select PCIE Card<br/>• HG Delay After Power Enable"]
+    F1046["Thermal Configuration<br/>(0x1046)<br/>• Enable All Thermal Functions"]
+    F1047["CPU Thermal<br/>(0x1047)<br/>"]
+    F1049["Platform Thermal<br/>(0x1049)<br/>"]
+    F1013["OverClocking Perf<br/>(0x1013)<br/>• OverClocking Feature<br/>• UnderVolt Protection<br/>• Per-core HT Disable<br/>• WDT Enable<br/>• CPU BCLK OC Frequency<br/>• BCLK Aware Adaptive Voltage"]
+    F1048["Memory Thermal<br/>(0x1048)<br/>• Memory Thermal Management<br/>• PECI Injected Temperature<br/>• EXTTS# via TS-on-Board<br/>• EXTTS# via TS-on-DIMM<br/>• Virtual Temperature Sensor (VTS)"]
+    F1 --> F100E
+    F1 --> F100F
+    F1 --> F1111
+    F1 --> F13B7
+    F1 --> F102A
+    F1 --> F1046
+    F1 --> F1047
+    F1 --> F1049
+    F1 --> F1013
+    F1 --> F1048
+    F1 --> F100E
+    F1 --> F1013
+    F1 --> F1046
+    F100E --> F100F
+    F100F --> F13B7
+    F100F --> F1111
+    classDef focus fill:#fff3cd,stroke:#d39e00;
+    class F1,F100E,F100F,F1111,F13B7,F102A,F1046,F1047,F1049,F1013,F1048 focus;
