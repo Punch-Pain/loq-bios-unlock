@@ -3,7 +3,7 @@
 **Machine:** Lenovo LOQ Essential 15IRX11 (Type 83SC) · i5-13450HX · NVIDIA RTX 5050  
 **BIOS:** SECN22WW · **SREP:** 0.1.4c  
 **Status:** WORKING — Advanced tab visible in native F2 BIOS setup  
-**Method:** SREP (Setup ROTEP Entry Point) driver + Config G (memory-only patch, no flash)
+**Method:** SREP (Smokeless Runtime EFI Patcher) driver + Config G (memory-only patch, no flash)
 
 ---
 
