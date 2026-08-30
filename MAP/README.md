@@ -30,6 +30,8 @@ Lock noted as Enabled (cross-reference only).
 | `setup_tree.json` | Raw tree data (forms → settings → help/offset/options) consumed by the applet. |
 | `setup_nav.mmd` | Mermaid diagram: power/thermal subtree (forms + key settings). Renders on GitHub. |
 | `power_signal_flow.mmd` | Mermaid diagram: causal chain of the dGPU-under-combined-load bug. Renders on GitHub. |
+| `decode_bios.py` | **Runtime decoder**: parses `structured_map.md` + `.bin` NVRAM dumps → `settings.csv` / `settings.md` / `settings.json`. Decodes 3,622 settings from 6 accessible varstores. |
+| `diff_bios.py` | **Differ**: compares two dump directories and reports changed settings. Use for before/after BIOS tuning. |
 
 > GitHub renders ```` ```mermaid ```` code blocks inline — paste the `.mmd` contents into a
 > ```` ```mermaid ```` fence in your README.
@@ -94,3 +96,23 @@ this exact machine wasn't programmatically confirmed here; verify via the simula
 2. `power_signal_flow.mmd` (diagram above) — the mechanism in one picture.
 3. `focused_power_settings.md` — the exact knobs + IFR help text.
 4. `structured_map.md` / `raw_ifr_Advanced_FormSet.txt` — drill down.
+
+## Runtime NVRAM Decode (live values)
+
+The static IFR files above tell you what settings **exist**. To see what's **currently set** on a running machine, use the OS runtime dump + decoder pipeline:
+
+```powershell
+# Step 1: Dump current NVRAM values (run from Windows, admin PowerShell)
+powershell -ExecutionPolicy Bypass -File dump_uefi_vars.ps1
+# Output: Setup.bin, CpuSetup.bin, SaSetup.bin, PchSetup.bin, MeSetup.bin, SetupCpuFeatures.bin
+
+# Step 2: Decode into human-readable CSV/MD/JSON
+python decode_bios.py osdump
+# Output: osdump/settings.csv, settings.md, settings.json
+
+# Step 3: Compare two dumps (before/after a BIOS change)
+python diff_bios.py osdump_before osdump_after -o diff.csv
+```
+
+**Accessible varstores (6/8):** Setup, CpuSetup, SaSetup, PchSetup, MeSetup, SetupCpuFeatures.
+**Inaccessible (boot-service-only):** SystemConfig, AdvanceConfig — require UEFI Shell/DXE context.
