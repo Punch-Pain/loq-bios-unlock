@@ -7,6 +7,16 @@
 
 ---
 
+## ⚠️ CRITICAL WARNING
+
+**Modifying BIOS settings in the Advanced menu can permanently damage or brick your system.** Incorrect changes may render your machine unbootable or cause hardware failures that cannot be repaired.
+
+**You proceed entirely at your own risk.** If you choose to experiment with these advanced settings and something goes wrong, you alone are responsible for any consequences — hardware damage, data loss, or system failure. This tool is provided as-is with no warranty or support guarantee.
+
+**Only proceed if you understand what you are doing and have accepted the risk of permanent hardware damage.**
+
+---
+
 ## How to Reproduce
 
 ### Prerequisites
@@ -149,11 +159,11 @@ bcfg driver rm 0
 
 ### Mechanism
 
-SREP is a UEFI DXE application that runs before the BIOS setup UI. It patches runtime flags in H2OFormBrowserDxe's form-set visibility table, flipping "isShown" bytes from `0x00` (hidden) to `0x01` (shown) for 6 Lenovo-hidden form sets including Advanced and Power/Thermal.
+SREP is a UEFI DXE application that runs before the BIOS setup UI. It patches runtime flags in H2OFormBrowserDxe's form-set visibility table, flipping "isShown" bytes from `0x00` (hidden) to `0x0[...]
 
 The patch is **MEMORY-ONLY** — no flash modification occurs. Each boot, SREP re-applies the patches from scratch via the config file.
 
-Config G = Original 6-pattern config MINUS `Op Exec`. The `Op LoadFromFV SetupUtilityApp` trigger is what causes SREP to load H2OFormBrowserDxe into memory, making the form-set table available for patching. Without it, SREP patches the wrong memory region.
+Config G = Original 6-pattern config MINUS `Op Exec`. The `Op LoadFromFV SetupUtilityApp` trigger is what causes SREP to load H2OFormBrowserDxe into memory, making the form-set table available fo[...]
 
 ### What Persists
 
@@ -221,8 +231,8 @@ This section documents the full IFR (Internal Forms Representation) analysis of 
 ### Pipeline (how the data was obtained)
 1. Vendor BIOS image `secn22ww.exe` (13.76 MB, matches running SECN22WW) downloaded from download.lenovo.com; 7-Zip extracted -> `signed_SE.ROM` (21,262,952 B).
 2. Whole-image IFRExtractor found only tiny AbtSetup; main Setup is LZMA-packed.
-3. UEFIExtract failed (Error 35) on the nested LZMA GUID volume (`EE4E5898-3914-4259-9D6E-DC7BD79403CF`); decompressed manually (LZMA FORMAT_ALONE) -> `lzma_g4_c0_s4642141.bin` (27,865,088 B, contains "Advanced" + "PL4" = main DXE volume).
-4. IFRExtractor-RS on that volume -> the canonical full Setup tree `lzma_g4_c0_s4642141.bin.28.78.en-US.uefi.ifr.txt` (FormSet `C6D4769E...`, 166 forms, 4,418 leaf controls). This is the primary source for everything below.
+3. UEFIExtract failed (Error 35) on the nested LZMA GUID volume (`EE4E5898-3914-4259-9D6E-DC7BD79403CF`); decompressed manually (LZMA FORMAT_ALONE) -> `lzma_g4_c0_s4642141.bin` (27,865,088 B, con[...]
+4. IFRExtractor-RS on that volume -> the canonical full Setup tree `lzma_g4_c0_s4642141.bin.28.78.en-US.uefi.ifr.txt` (FormSet `C6D4769E...`, 166 forms, 4,418 leaf controls). This is the primary [...]
 
 ### MAP Files
 
@@ -234,7 +244,7 @@ This section documents the full IFR (Internal Forms Representation) analysis of 
 | `focused_power_settings.md` | High-signal subset (103 entries): Platform PLx, Psys/Pmax, PL3/PL4, EC Turbo, Response Mode, Graphics IMON, C-States. |
 | `HYPOTHESIS.md` | Ranked hypotheses + safe/risky split + read-only verification steps. **Start here for analysis.** |
 | `setup_tree_ascii.txt` | Full text/ASCII navigation tree with every option's description (all 166 forms + 4,240 settings). 786 KB. |
-| `setup_tree.html` | Interactive applet (self-contained, no dependencies). Collapsible tree + search; click/hover a setting to see its full description, options and VarStore offset. Open in any browser. |
+| `setup_tree.html` | Interactive applet (self-contained, no dependencies). Collapsible tree + search; click/hover a setting to see its full description, options and VarStore offset. Open in any [...]
 | `setup_tree.json` | Raw tree data (forms -> settings -> help/offset/options) consumed by the applet. |
 | `setup_nav.mmd` | Mermaid diagram: power/thermal subtree (forms + key settings). Renders on GitHub. |
 | `power_signal_flow.mmd` | Mermaid diagram: causal chain of the dGPU-under-combined-load bug. Renders on GitHub. |
@@ -289,11 +299,11 @@ flowchart LR
 
 ### Interactive Applet
 
-`setup_tree.html` is a standalone, dependency-free page. **Open it directly in a browser** to explore the full tree with descriptions. To embed it on a GitHub README as a live applet, enable **GitHub Pages** for the repo (root / `docs`) and link/iframe the HTML. The Mermaid `.mmd` diagrams above render inline on GitHub without any extra setup.
+`setup_tree.html` is a standalone, dependency-free page. **Open it directly in a browser** to explore the full tree with descriptions. To embed it on a GitHub README as a live applet, enable **Gi[...]
 
 ### Official Graphical BIOS Tool (Reference)
 
-**Lenovo BIOS Simulator Center** — https://download.lenovo.com/bsco/ — a free, interactive, graphical UEFI BIOS simulator from Lenovo (supports 1,000+ Lenovo/Think models, searchable by model). It recreates the actual BIOS UI (Graphics or Text mode) so you can click through every menu without touching a real machine. Tip: open it and search **"83SC"** or **"LOQ"** to see the real LOQ Essential 15IRX11 Setup screens.
+**Lenovo BIOS Simulator Center** — https://download.lenovo.com/bsco/ — a free, interactive, graphical UEFI BIOS simulator from Lenovo (supports 1,000+ Lenovo/Think models, searchable by model[...]
 
 ---
 
@@ -314,13 +324,13 @@ BOOTABLE DEVICE\
 
 tools\ contains:
   signed_SE.ROM                    Official BIOS image (keep for
-                                  future BIOS updates — re-extract
-                                  H2OFormBrowserDxe to find new
-                                  patterns if Lenovo changes them)
+                                   future BIOS updates — re-extract
+                                   H2OFormBrowserDxe to find new
+                                   patterns if Lenovo changes them)
   secn22ww.exe                     Original BIOS update executable
   make_cfg.ps1                     SREP config generator
   *.py                             Analysis scripts for pattern
-                                  extraction from new ROMs
+                                   extraction from new ROMs
   ifrextract-rs\ifrextractor.exe   IFR extraction tool
 
 MAP\ contains:
