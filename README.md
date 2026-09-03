@@ -7,13 +7,10 @@
 
 ---
 
-## ⚠️ CRITICAL WARNING
-
-**Modifying BIOS settings in the Advanced menu can permanently damage or brick your system.** Incorrect changes may render your machine unbootable or cause hardware failures that cannot be repaired.
-
-**You proceed entirely at your own risk.** If you choose to experiment with these advanced settings and something goes wrong, you alone are responsible for any consequences — hardware damage, data loss, or system failure. This tool is provided as-is with no warranty or support guarantee.
-
-**Only proceed if you understand what you are doing and have accepted the risk of permanent hardware damage.**
+> [!WARNING]
+> **The Advanced BIOS menu can brick your system.** Modifying settings incorrectly may cause permanent hardware damage, data loss, or render your machine unbootable.
+> 
+> **Use at your own risk.** If you choose to ignore these warnings and damage your system, it is your responsibility, not mine.
 
 ---
 
